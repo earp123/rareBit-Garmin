@@ -1008,7 +1008,7 @@ C__Users_ralls_GitHub_rareBit_Garmin_source_BleManager_mc_226_12_232_12_if_end:
         %tmp.62 = getm $.Toybox.System;
         symbol [ println %tmp.63 235 19 26 ];
         %tmp.63 = getv function %tmp.62 :println;
-        %tmp.64 = "BLE: CCCD write sent — notifications requested";
+        %tmp.64 = "BLE: CCCD write sent â€” notifications requested";
         invoke %tmp.62 %tmp.63(%tmp.64);
 [ "C:\Users\ralls\GitHub\rareBit-Garmin\source\BleManager.mc" 236 12 ]
         %tmp.65 = "Enabling notifications...";
@@ -1400,7 +1400,7 @@ C__Users_ralls_GitHub_rareBit_Garmin_source_BleManager_mc_302_43_313_16_start:
         %tmp.79 = getm $.Toybox.System;
         symbol [ println %tmp.80 304 27 34 ];
         %tmp.80 = getv function %tmp.79 :println;
-        %tmp.81 = "BLE: UUID match — getDeviceName=";
+        %tmp.81 = "BLE: UUID match â€” getDeviceName=";
         %tmp.82 = lgetv %result.2;
         symbol [ result %tmp.82 305 24 30 ];
         symbol [ getDeviceName %tmp.83 305 31 44 ];

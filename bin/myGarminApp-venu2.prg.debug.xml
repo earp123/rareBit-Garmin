@@ -2,7 +2,7 @@
 <debugInfo>
     <manifest filename="C:\Users\ralls\GitHub\rareBit-Garmin\manifest.xml"/>
     <pcToLineNum>
-        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\no-device\\source\\Rez.mcgen" id="1" lineNum="7" parent="globals/Rez" pc="268435460" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\006-B3703-00\\source\\Rez.mcgen" id="1" lineNum="7" parent="globals/Rez" pc="268435460" symbol="&lt;init&gt;"/>
         <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="2" lineNum="24" parent="globals/myGarminAppDelegate" pc="268435480" symbol="&lt;init&gt;"/>
         <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="3" lineNum="51" parent="globals/BleManager" pc="268435492" symbol="&lt;init&gt;"/>
         <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppApp.mc" id="4" lineNum="5" parent="globals/myGarminAppApp" pc="268435504" symbol="&lt;init&gt;"/>
@@ -497,13 +497,13 @@
         <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="64" lineNum="107" parent="globals/myGarminAppView" pc="268441896" symbol="onUpdate"/>
         <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="64" lineNum="108" parent="globals/myGarminAppView" pc="268441912" symbol="onUpdate"/>
         <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="64" lineNum="112" parent="globals/myGarminAppView" pc="268441935" symbol="onUpdate"/>
-        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\no-device\\source\\Rez.mcgen" id="65" lineNum="13" parent="globals/Rez/Layouts" pc="268441943" symbol="MainLayout"/>
-        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\no-device\\source\\Rez.mcgen" id="65" lineNum="14" parent="globals/Rez/Layouts" pc="268441953" symbol="MainLayout"/>
-        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\no-device\\source\\Rez.mcgen" id="66" lineNum="19" parent="globals/Rez/Menus/MainMenu" pc="268441956" symbol="&lt;init&gt;"/>
-        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\no-device\\source\\Rez.mcgen" id="67" lineNum="20" parent="globals/Rez/Menus/MainMenu" pc="268441968" symbol="initialize"/>
-        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\no-device\\source\\Rez.mcgen" id="67" lineNum="21" parent="globals/Rez/Menus/MainMenu" pc="268441970" symbol="initialize"/>
-        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\no-device\\source\\Rez.mcgen" id="67" lineNum="22" parent="globals/Rez/Menus/MainMenu" pc="268441982" symbol="initialize"/>
-        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\no-device\\source\\Rez.mcgen" id="67" lineNum="23" parent="globals/Rez/Menus/MainMenu" pc="268442001" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\006-B3703-00\\source\\Rez.mcgen" id="65" lineNum="13" parent="globals/Rez/Layouts" pc="268441943" symbol="MainLayout"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\006-B3703-00\\source\\Rez.mcgen" id="65" lineNum="14" parent="globals/Rez/Layouts" pc="268441953" symbol="MainLayout"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\006-B3703-00\\source\\Rez.mcgen" id="66" lineNum="19" parent="globals/Rez/Menus/MainMenu" pc="268441956" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\006-B3703-00\\source\\Rez.mcgen" id="67" lineNum="20" parent="globals/Rez/Menus/MainMenu" pc="268441968" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\006-B3703-00\\source\\Rez.mcgen" id="67" lineNum="21" parent="globals/Rez/Menus/MainMenu" pc="268441970" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\006-B3703-00\\source\\Rez.mcgen" id="67" lineNum="22" parent="globals/Rez/Menus/MainMenu" pc="268441982" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\006-B3703-00\\source\\Rez.mcgen" id="67" lineNum="23" parent="globals/Rez/Menus/MainMenu" pc="268442001" symbol="initialize"/>
     </pcToLineNum>
     <symbolTable>
         <entry id="8388639" module="true" symbol="Graphics"/>
@@ -746,6 +746,7 @@
         <entry endPc="268441941" name="hint" stackId="12" startPc="268441657"/>
         <entry arg="true" endPc="268441955" name="dc" stackId="1" startPc="268441943"/>
     </localVars>
+    <deviceInfo deviceVersion="8fc30743a4191ec19bcafa28e3ffcc2b5a958a17" partNumber="006-B3703-00"/>
     <annotations>
         <annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="LauncherIcon"/>
         <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="AppName"/>
