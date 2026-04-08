@@ -1,0 +1,295 @@
+[ @file = "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc"; @line = 21; @symbol_importdef<0> = [Toybox,21,7,13]; @symbol_importdef<1> = [Lang,21,14,18]; ]
+import Toybox.Lang;
+[ @file = "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc"; @line = 22; @symbol_importdef<0> = [Toybox,22,7,13]; @symbol_importdef<1> = [WatchUi,22,14,21]; ]
+import Toybox.WatchUi;
+[ @file = "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc"; @line = 24; @symbol_classdef = [myGarminAppDelegate,24,6,25]; @symbol_extends<0> = [WatchUi,24,34,41]; @symbol_extends<1> = [BehaviorDelegate,24,42,58]; ]
+class myGarminAppDelegate extends WatchUi.BehaviorDelegate {
+    [ @file = "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc"; @line = 24; ]
+    <init> {
+    }
+    [ @file = "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc"; @line = 24; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc"; @line = 26; @position = 15; @symbol_vardef = [_ble,26,15,19]; @symbol_type<0> = [BleManager,26,23,33]; ]
+    protected
+    var _ble as BleManager;
+    [ @file = "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc"; @line = 28; @symbol_functiondef = [initialize,28,13,23]; @symbol_param<0> = [ble,28,24,27]; @symbol_param<0>_type<0> = [BleManager,28,31,41]; ]
+    function initialize(ble as BleManager) as Void {
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_28_43_31_4_start:
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 29 8 ]
+        symbol [ BehaviorDelegate %tmp.2 29 8 24 ];
+        %tmp.2 = getv ? :BehaviorDelegate;
+        symbol [ initialize %tmp.3 29 25 35 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 30 8 ]
+        %tmp.4 = lgetv %ble;
+        symbol [ ble %tmp.4 30 15 18 ];
+        symbol [ _ble ? 30 8 12 ];
+        putv self :_ble %tmp.4;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_28_43_31_4_stop:
+    }
+    [ @file = "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc"; @line = 34; @symbol_functiondef = [onSelect,34,13,21]; @symbol_return<0> = [Boolean,34,27,34]; ]
+    function onSelect() as Boolean {
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_34_35_46_4_start:
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 35 8 ]
+        [ "C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_34_35_46_4_start" "C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_34_35_46_4_stop" ]
+        %state.1 = local;
+        symbol [ state %state.1 35 12 17 ];
+        symbol [ _ble %tmp.2 35 20 24 ];
+        %tmp.2 = getv ? :_ble;
+        symbol [ getState %tmp.3 35 25 33 ];
+        %tmp.3 = getv function %tmp.2 :getState;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        lputv %state.1 %tmp.4;
+        symbol [ state %state.1 35 12 17 ];
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 36 8 ]
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_36_8_43_8_if_stmt:
+        %tmp.5 = lgetv %state.1;
+        symbol [ state %tmp.5 36 12 17 ];
+        symbol [ BLE_FOUND %tmp.7 36 21 30 ];
+        %tmp.7 = getv ? :BLE_FOUND;
+        %tmp.8 = eq %tmp.5 %tmp.7;
+        bf %tmp.8 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_36_8_43_8_if_false;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_36_8_43_8_if_true:
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_36_32_39_8_start:
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 38 12 ]
+        symbol [ _ble %tmp.10 38 12 16 ];
+        %tmp.10 = getv ? :_ble;
+        symbol [ connectToDevice %tmp.11 38 17 32 ];
+        %tmp.11 = getv function %tmp.10 :connectToDevice;
+        invoke %tmp.10 %tmp.11();
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_36_32_39_8_stop:
+        goto @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_36_8_43_8_if_end;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_36_8_43_8_if_false:
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 39 15 ]
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_39_15_43_8_if_stmt:
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_39_19_40_28_begin:
+        %tmp.12 = lgetv %state.1;
+        symbol [ state %tmp.12 39 19 24 ];
+        symbol [ BLE_IDLE %tmp.14 39 28 36 ];
+        %tmp.14 = getv ? :BLE_IDLE;
+        %tmp.15 = eq %tmp.12 %tmp.14;
+        bt %tmp.15 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_39_15_43_8_if_true;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_40_19_40_28_false:
+        %tmp.16 = lgetv %state.1;
+        symbol [ state %tmp.16 40 19 24 ];
+        symbol [ BLE_ERROR %tmp.18 40 28 37 ];
+        %tmp.18 = getv ? :BLE_ERROR;
+        %tmp.19 = eq %tmp.16 %tmp.18;
+        push %tmp.19;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_40_19_40_28_end:
+        %tmp.20 = phi [%tmp.15 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_39_19_40_28_begin] [%tmp.19 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_40_19_40_28_false] [%tmp.20 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_40_19_40_28_end];
+        bf %tmp.20 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_39_15_43_8_if_end;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_39_15_43_8_if_true:
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_40_39_43_8_start:
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 42 12 ]
+        symbol [ _ble %tmp.22 42 12 16 ];
+        %tmp.22 = getv ? :_ble;
+        symbol [ startScan %tmp.23 42 17 26 ];
+        %tmp.23 = getv function %tmp.22 :startScan;
+        invoke %tmp.22 %tmp.23();
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_40_39_43_8_stop:
+        goto @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_39_15_43_8_if_end;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_39_15_43_8_if_end:
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_36_8_43_8_if_end:
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 45 8 ]
+        %tmp.24 = true;
+        ret %tmp.24;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_34_35_46_4_stop:
+    }
+    [ @file = "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc"; @line = 49; @symbol_functiondef = [onBack,49,13,19]; @symbol_return<0> = [Boolean,49,25,32]; ]
+    function onBack() as Boolean {
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_49_33_69_4_start:
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 50 8 ]
+        [ "C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_49_33_69_4_start" "C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_49_33_69_4_stop" ]
+        %state.1 = local;
+        symbol [ state %state.1 50 12 17 ];
+        symbol [ _ble %tmp.2 50 20 24 ];
+        %tmp.2 = getv ? :_ble;
+        symbol [ getState %tmp.3 50 25 33 ];
+        %tmp.3 = getv function %tmp.2 :getState;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        lputv %state.1 %tmp.4;
+        symbol [ state %state.1 50 12 17 ];
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 51 8 ]
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_51_8_54_8_if_stmt:
+        %tmp.5 = lgetv %state.1;
+        symbol [ state %tmp.5 51 12 17 ];
+        symbol [ BLE_SCANNING %tmp.7 51 21 33 ];
+        %tmp.7 = getv ? :BLE_SCANNING;
+        %tmp.8 = eq %tmp.5 %tmp.7;
+        bf %tmp.8 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_51_8_54_8_if_end;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_51_8_54_8_if_true:
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_51_35_54_8_start:
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 52 12 ]
+        symbol [ _ble %tmp.10 52 12 16 ];
+        %tmp.10 = getv ? :_ble;
+        symbol [ stopScan %tmp.11 52 17 25 ];
+        %tmp.11 = getv function %tmp.10 :stopScan;
+        invoke %tmp.10 %tmp.11();
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 53 12 ]
+        %tmp.12 = true;
+        ret %tmp.12;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_51_35_54_8_stop:
+        goto @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_51_8_54_8_if_end;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_51_8_54_8_if_end:
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 55 8 ]
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_55_8_60_8_if_stmt:
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_55_12_57_21_begin:
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_55_12_56_21_begin:
+        %tmp.13 = lgetv %state.1;
+        symbol [ state %tmp.13 55 12 17 ];
+        symbol [ BLE_CONNECTING %tmp.15 55 21 35 ];
+        %tmp.15 = getv ? :BLE_CONNECTING;
+        %tmp.16 = eq %tmp.13 %tmp.15;
+        bt %tmp.16 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_55_8_60_8_if_true;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_56_12_56_21_false:
+        %tmp.17 = lgetv %state.1;
+        symbol [ state %tmp.17 56 12 17 ];
+        symbol [ BLE_CONNECTED %tmp.19 56 21 34 ];
+        %tmp.19 = getv ? :BLE_CONNECTED;
+        %tmp.20 = eq %tmp.17 %tmp.19;
+        push %tmp.20;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_56_12_56_21_end:
+        %tmp.21 = phi [%tmp.16 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_55_12_56_21_begin] [%tmp.20 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_56_12_56_21_false] [%tmp.21 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_56_12_56_21_end];
+        bt %tmp.21 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_55_8_60_8_if_true;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_57_12_57_21_false:
+        %tmp.22 = lgetv %state.1;
+        symbol [ state %tmp.22 57 12 17 ];
+        symbol [ BLE_SUBSCRIBED %tmp.24 57 21 35 ];
+        %tmp.24 = getv ? :BLE_SUBSCRIBED;
+        %tmp.25 = eq %tmp.22 %tmp.24;
+        push %tmp.25;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_57_12_57_21_end:
+        %tmp.26 = phi [%tmp.21 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_55_12_57_21_begin] [%tmp.25 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_57_12_57_21_false] [%tmp.26 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_57_12_57_21_end];
+        bf %tmp.26 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_55_8_60_8_if_end;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_55_8_60_8_if_true:
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_57_37_60_8_start:
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 58 12 ]
+        symbol [ _ble %tmp.28 58 12 16 ];
+        %tmp.28 = getv ? :_ble;
+        symbol [ disconnect %tmp.29 58 17 27 ];
+        %tmp.29 = getv function %tmp.28 :disconnect;
+        invoke %tmp.28 %tmp.29();
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 59 12 ]
+        %tmp.30 = true;
+        ret %tmp.30;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_57_37_60_8_stop:
+        goto @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_55_8_60_8_if_end;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_55_8_60_8_if_end:
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 61 8 ]
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_61_8_66_8_if_stmt:
+        %tmp.31 = lgetv %state.1;
+        symbol [ state %tmp.31 61 12 17 ];
+        symbol [ BLE_FOUND %tmp.33 61 21 30 ];
+        %tmp.33 = getv ? :BLE_FOUND;
+        %tmp.34 = eq %tmp.31 %tmp.33;
+        bf %tmp.34 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_61_8_66_8_if_end;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_61_8_66_8_if_true:
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_61_32_66_8_start:
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 63 12 ]
+        symbol [ _ble %tmp.36 63 12 16 ];
+        %tmp.36 = getv ? :_ble;
+        symbol [ stopScan %tmp.37 63 17 25 ];
+        %tmp.37 = getv function %tmp.36 :stopScan;
+        invoke %tmp.36 %tmp.37();
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 64 12 ]
+        symbol [ _ble %tmp.39 64 12 16 ];
+        %tmp.39 = getv ? :_ble;
+        symbol [ startScan %tmp.40 64 17 26 ];
+        %tmp.40 = getv function %tmp.39 :startScan;
+        invoke %tmp.39 %tmp.40();
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 65 12 ]
+        %tmp.41 = true;
+        ret %tmp.41;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_61_32_66_8_stop:
+        goto @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_61_8_66_8_if_end;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_61_8_66_8_if_end:
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 68 8 ]
+        %tmp.42 = false;
+        ret %tmp.42;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_49_33_69_4_stop:
+    }
+    [ @file = "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc"; @line = 72; @symbol_functiondef = [onTap,72,13,18]; @symbol_param<0> = [clickEvent,72,19,29]; @symbol_param<0>_type<0> = [WatchUi,72,33,40]; @symbol_param<0>_type<1> = [ClickEvent,72,41,51]; @symbol_return<0> = [Boolean,72,56,63]; ]
+    function onTap(clickEvent as WatchUi.ClickEvent) as Boolean {
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_72_64_75_4_start:
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 74 8 ]
+        %tmp.1 = self;
+        symbol [ onSelect %tmp.2 74 15 23 ];
+        %tmp.2 = getv function %tmp.1 :onSelect;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        ret %tmp.3;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_72_64_75_4_stop:
+    }
+    [ @file = "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc"; @line = 78; @symbol_functiondef = [onMenu,78,13,19]; @symbol_return<0> = [Boolean,78,25,32]; ]
+    function onMenu() as Boolean {
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_78_33_88_4_start:
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 80 8 ]
+        [ "C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_78_33_88_4_start" "C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_78_33_88_4_stop" ]
+        %state.1 = local;
+        symbol [ state %state.1 80 12 17 ];
+        symbol [ _ble %tmp.2 80 20 24 ];
+        %tmp.2 = getv ? :_ble;
+        symbol [ getState %tmp.3 80 25 33 ];
+        %tmp.3 = getv function %tmp.2 :getState;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        lputv %state.1 %tmp.4;
+        symbol [ state %state.1 80 12 17 ];
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 81 8 ]
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_81_8_85_8_if_stmt:
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_81_12_83_21_begin:
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_81_12_82_21_begin:
+        %tmp.5 = lgetv %state.1;
+        symbol [ state %tmp.5 81 12 17 ];
+        symbol [ BLE_SUBSCRIBED %tmp.7 81 21 35 ];
+        %tmp.7 = getv ? :BLE_SUBSCRIBED;
+        %tmp.8 = eq %tmp.5 %tmp.7;
+        bt %tmp.8 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_81_8_85_8_if_true;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_82_12_82_21_false:
+        %tmp.9 = lgetv %state.1;
+        symbol [ state %tmp.9 82 12 17 ];
+        symbol [ BLE_CONNECTED %tmp.11 82 21 34 ];
+        %tmp.11 = getv ? :BLE_CONNECTED;
+        %tmp.12 = eq %tmp.9 %tmp.11;
+        push %tmp.12;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_82_12_82_21_end:
+        %tmp.13 = phi [%tmp.8 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_81_12_82_21_begin] [%tmp.12 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_82_12_82_21_false] [%tmp.13 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_82_12_82_21_end];
+        bt %tmp.13 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_81_8_85_8_if_true;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_83_12_83_21_false:
+        %tmp.14 = lgetv %state.1;
+        symbol [ state %tmp.14 83 12 17 ];
+        symbol [ BLE_CONNECTING %tmp.16 83 21 35 ];
+        %tmp.16 = getv ? :BLE_CONNECTING;
+        %tmp.17 = eq %tmp.14 %tmp.16;
+        push %tmp.17;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_83_12_83_21_end:
+        %tmp.18 = phi [%tmp.13 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_81_12_83_21_begin] [%tmp.17 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_83_12_83_21_false] [%tmp.18 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_83_12_83_21_end];
+        bf %tmp.18 @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_81_8_85_8_if_end;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_81_8_85_8_if_true:
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_83_37_85_8_start:
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 84 12 ]
+        symbol [ _ble %tmp.20 84 12 16 ];
+        %tmp.20 = getv ? :_ble;
+        symbol [ disconnect %tmp.21 84 17 27 ];
+        %tmp.21 = getv function %tmp.20 :disconnect;
+        invoke %tmp.20 %tmp.21();
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_83_37_85_8_stop:
+        goto @C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_81_8_85_8_if_end;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_81_8_85_8_if_end:
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 86 8 ]
+        symbol [ _ble %tmp.23 86 8 12 ];
+        %tmp.23 = getv ? :_ble;
+        symbol [ startScan %tmp.24 86 13 22 ];
+        %tmp.24 = getv function %tmp.23 :startScan;
+        invoke %tmp.23 %tmp.24();
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc" 87 8 ]
+        %tmp.25 = true;
+        ret %tmp.25;
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppDelegate_mc_78_33_88_4_stop:
+    }
+}
+[ @file = "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppDelegate.mc"; @line = 21; ]
+<init> {
+}

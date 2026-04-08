@@ -1,0 +1,1028 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<debugInfo>
+    <manifest filename="C:\Users\ralls\myGarminApp\myGarminApp\manifest.xml"/>
+    <pcToLineNum>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\bin\\gen\\006-B4260-00\\source\\Rez.mcgen" id="1" lineNum="7" parent="globals/Rez" pc="268435460" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="2" lineNum="24" parent="globals/myGarminAppDelegate" pc="268435480" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="3" lineNum="51" parent="globals/BleManager" pc="268435492" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppApp.mc" id="4" lineNum="5" parent="globals/myGarminAppApp" pc="268435504" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppApp.mc" id="5" lineNum="36" parent="globals" pc="268435516" symbol="getApp"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppApp.mc" id="5" lineNum="37" parent="globals" pc="268435526" symbol="getApp"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppMenuDelegate.mc" id="6" lineNum="6" parent="globals/myGarminAppMenuDelegate" pc="268435537" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="7" lineNum="44" parent="globals/myGarminAppView" pc="268435549" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="8" lineNum="49" parent="globals/myGarminAppDelegate" pc="268435561" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="8" lineNum="50" parent="globals/myGarminAppDelegate" pc="268435564" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="8" lineNum="51" parent="globals/myGarminAppDelegate" pc="268435577" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="8" lineNum="52" parent="globals/myGarminAppDelegate" pc="268435585" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="8" lineNum="53" parent="globals/myGarminAppDelegate" pc="268435597" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="8" lineNum="55" parent="globals/myGarminAppDelegate" pc="268435602" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="8" lineNum="58" parent="globals/myGarminAppDelegate" pc="268435626" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="8" lineNum="59" parent="globals/myGarminAppDelegate" pc="268435638" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="8" lineNum="61" parent="globals/myGarminAppDelegate" pc="268435643" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="8" lineNum="63" parent="globals/myGarminAppDelegate" pc="268435651" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="8" lineNum="64" parent="globals/myGarminAppDelegate" pc="268435663" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="8" lineNum="65" parent="globals/myGarminAppDelegate" pc="268435675" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="8" lineNum="68" parent="globals/myGarminAppDelegate" pc="268435680" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="9" lineNum="78" parent="globals/myGarminAppDelegate" pc="268435682" symbol="onMenu"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="9" lineNum="80" parent="globals/myGarminAppDelegate" pc="268435685" symbol="onMenu"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="9" lineNum="81" parent="globals/myGarminAppDelegate" pc="268435698" symbol="onMenu"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="9" lineNum="84" parent="globals/myGarminAppDelegate" pc="268435722" symbol="onMenu"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="9" lineNum="86" parent="globals/myGarminAppDelegate" pc="268435737" symbol="onMenu"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="9" lineNum="87" parent="globals/myGarminAppDelegate" pc="268435749" symbol="onMenu"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="10" lineNum="28" parent="globals/myGarminAppDelegate" pc="268435751" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="10" lineNum="29" parent="globals/myGarminAppDelegate" pc="268435753" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="10" lineNum="30" parent="globals/myGarminAppDelegate" pc="268435765" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="11" lineNum="72" parent="globals/myGarminAppDelegate" pc="268435775" symbol="onTap"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="11" lineNum="74" parent="globals/myGarminAppDelegate" pc="268435777" symbol="onTap"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="12" lineNum="34" parent="globals/myGarminAppDelegate" pc="268435784" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="12" lineNum="35" parent="globals/myGarminAppDelegate" pc="268435787" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="12" lineNum="36" parent="globals/myGarminAppDelegate" pc="268435800" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="12" lineNum="38" parent="globals/myGarminAppDelegate" pc="268435808" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="12" lineNum="39" parent="globals/myGarminAppDelegate" pc="268435823" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="12" lineNum="42" parent="globals/myGarminAppDelegate" pc="268435838" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppDelegate.mc" id="12" lineNum="45" parent="globals/myGarminAppDelegate" pc="268435853" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="13" lineNum="165" parent="globals/BleManager" pc="268435855" symbol="disconnect"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="13" lineNum="166" parent="globals/BleManager" pc="268435858" symbol="disconnect"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="13" lineNum="168" parent="globals/BleManager" pc="268435867" symbol="disconnect"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="13" lineNum="169" parent="globals/BleManager" pc="268435891" symbol="disconnect"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="13" lineNum="170" parent="globals/BleManager" pc="268435910" symbol="disconnect"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="13" lineNum="173" parent="globals/BleManager" pc="268435951" symbol="disconnect"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="13" lineNum="174" parent="globals/BleManager" pc="268435958" symbol="disconnect"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="13" lineNum="175" parent="globals/BleManager" pc="268435966" symbol="disconnect"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="13" lineNum="176" parent="globals/BleManager" pc="268435978" symbol="disconnect"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="14" lineNum="478" parent="globals/BleManager" pc="268435990" symbol="_buzzDoubleTap"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="14" lineNum="479" parent="globals/BleManager" pc="268435992" symbol="_buzzDoubleTap"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="14" lineNum="479" parent="globals/BleManager" pc="268436008" symbol="_buzzDoubleTap"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="14" lineNum="480" parent="globals/BleManager" pc="268436012" symbol="_buzzDoubleTap"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="15" lineNum="520" parent="globals/BleManager" pc="268436116" symbol="getStatus"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="15" lineNum="520" parent="globals/BleManager" pc="268436118" symbol="getStatus"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="16" lineNum="523" parent="globals/BleManager" pc="268436124" symbol="getRxHex"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="16" lineNum="523" parent="globals/BleManager" pc="268436126" symbol="getRxHex"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="17" lineNum="405" parent="globals/BleManager" pc="268436132" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="17" lineNum="409" parent="globals/BleManager" pc="268436134" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="17" lineNum="410" parent="globals/BleManager" pc="268436155" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="17" lineNum="411" parent="globals/BleManager" pc="268436162" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="17" lineNum="412" parent="globals/BleManager" pc="268436171" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="17" lineNum="413" parent="globals/BleManager" pc="268436183" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="17" lineNum="415" parent="globals/BleManager" pc="268436193" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="17" lineNum="416" parent="globals/BleManager" pc="268436202" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="17" lineNum="418" parent="globals/BleManager" pc="268436228" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="18" lineNum="266" parent="globals/BleManager" pc="268436240" symbol="onScanStateChange"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="18" lineNum="270" parent="globals/BleManager" pc="268436242" symbol="onScanStateChange"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="19" lineNum="378" parent="globals/BleManager" pc="268436273" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="19" lineNum="382" parent="globals/BleManager" pc="268436276" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="19" lineNum="383" parent="globals/BleManager" pc="268436297" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="19" lineNum="384" parent="globals/BleManager" pc="268436305" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="19" lineNum="385" parent="globals/BleManager" pc="268436314" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="19" lineNum="388" parent="globals/BleManager" pc="268436323" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="19" lineNum="389" parent="globals/BleManager" pc="268436332" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="19" lineNum="389" parent="globals/BleManager" pc="268436338" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="19" lineNum="390" parent="globals/BleManager" pc="268436353" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="19" lineNum="390" parent="globals/BleManager" pc="268436359" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="19" lineNum="391" parent="globals/BleManager" pc="268436371" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="19" lineNum="393" parent="globals/BleManager" pc="268436385" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="19" lineNum="394" parent="globals/BleManager" pc="268436395" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="19" lineNum="395" parent="globals/BleManager" pc="268436402" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="19" lineNum="396" parent="globals/BleManager" pc="268436410" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="19" lineNum="399" parent="globals/BleManager" pc="268436435" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="20" lineNum="134" parent="globals/BleManager" pc="268436447" symbol="stopScan"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="20" lineNum="135" parent="globals/BleManager" pc="268436449" symbol="stopScan"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="20" lineNum="136" parent="globals/BleManager" pc="268436456" symbol="stopScan"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="20" lineNum="137" parent="globals/BleManager" pc="268436478" symbol="stopScan"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="20" lineNum="138" parent="globals/BleManager" pc="268436485" symbol="stopScan"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="20" lineNum="139" parent="globals/BleManager" pc="268436493" symbol="stopScan"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="20" lineNum="140" parent="globals/BleManager" pc="268436505" symbol="stopScan"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="21" lineNum="468" parent="globals/BleManager" pc="268436520" symbol="_unlockNotif"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="21" lineNum="469" parent="globals/BleManager" pc="268436522" symbol="_unlockNotif"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="21" lineNum="470" parent="globals/BleManager" pc="268436530" symbol="_unlockNotif"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="22" lineNum="521" parent="globals/BleManager" pc="268436549" symbol="getDeviceName"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="22" lineNum="521" parent="globals/BleManager" pc="268436551" symbol="getDeviceName"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="23" lineNum="92" parent="globals/BleManager" pc="268436557" symbol="_registerProfile"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="23" lineNum="94" parent="globals/BleManager" pc="268436560" symbol="_registerProfile"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="23" lineNum="101" parent="globals/BleManager" pc="268436641" symbol="_registerProfile"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="23" lineNum="102" parent="globals/BleManager" pc="268436659" symbol="_registerProfile"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="23" lineNum="103" parent="globals/BleManager" pc="268436677" symbol="_registerProfile"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="23" lineNum="104" parent="globals/BleManager" pc="268436696" symbol="_registerProfile"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="23" lineNum="105" parent="globals/BleManager" pc="268436705" symbol="_registerProfile"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="23" lineNum="106" parent="globals/BleManager" pc="268436717" symbol="_registerProfile"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="24" lineNum="505" parent="globals/BleManager" pc="268436756" symbol="_buzzTriplet"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="24" lineNum="506" parent="globals/BleManager" pc="268436758" symbol="_buzzTriplet"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="24" lineNum="506" parent="globals/BleManager" pc="268436774" symbol="_buzzTriplet"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="24" lineNum="507" parent="globals/BleManager" pc="268436778" symbol="_buzzTriplet"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="25" lineNum="183" parent="globals/BleManager" pc="268436939" symbol="_stopScanInternal"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="25" lineNum="185" parent="globals/BleManager" pc="268436942" symbol="_stopScanInternal"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="25" lineNum="186" parent="globals/BleManager" pc="268436962" symbol="_stopScanInternal"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="26" lineNum="522" parent="globals/BleManager" pc="268436994" symbol="getRssi"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="26" lineNum="522" parent="globals/BleManager" pc="268436996" symbol="getRssi"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="27" lineNum="251" parent="globals/BleManager" pc="268437002" symbol="onProfileRegister"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="27" lineNum="255" parent="globals/BleManager" pc="268437004" symbol="onProfileRegister"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="27" lineNum="256" parent="globals/BleManager" pc="268437025" symbol="onProfileRegister"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="27" lineNum="257" parent="globals/BleManager" pc="268437032" symbol="onProfileRegister"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="27" lineNum="259" parent="globals/BleManager" pc="268437047" symbol="onProfileRegister"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="27" lineNum="260" parent="globals/BleManager" pc="268437056" symbol="onProfileRegister"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="27" lineNum="262" parent="globals/BleManager" pc="268437082" symbol="onProfileRegister"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="28" lineNum="357" parent="globals/BleManager" pc="268437094" symbol="_bytesToString"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="28" lineNum="358" parent="globals/BleManager" pc="268437097" symbol="_bytesToString"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="28" lineNum="359" parent="globals/BleManager" pc="268437104" symbol="_bytesToString"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="28" lineNum="360" parent="globals/BleManager" pc="268437120" symbol="_bytesToString"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="28" lineNum="361" parent="globals/BleManager" pc="268437131" symbol="_bytesToString"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="28" lineNum="361" parent="globals/BleManager" pc="268437138" symbol="_bytesToString"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="28" lineNum="362" parent="globals/BleManager" pc="268437144" symbol="_bytesToString"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="28" lineNum="364" parent="globals/BleManager" pc="268437173" symbol="_bytesToString"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="29" lineNum="524" parent="globals/BleManager" pc="268437176" symbol="getRxCount"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="29" lineNum="524" parent="globals/BleManager" pc="268437178" symbol="getRxCount"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="326" parent="globals/BleManager" pc="268437184" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="328" parent="globals/BleManager" pc="268437187" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="329" parent="globals/BleManager" pc="268437196" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="330" parent="globals/BleManager" pc="268437215" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="334" parent="globals/BleManager" pc="268437229" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="335" parent="globals/BleManager" pc="268437238" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="336" parent="globals/BleManager" pc="268437244" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="337" parent="globals/BleManager" pc="268437247" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="338" parent="globals/BleManager" pc="268437261" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="339" parent="globals/BleManager" pc="268437272" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="339" parent="globals/BleManager" pc="268437279" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="340" parent="globals/BleManager" pc="268437285" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="340" parent="globals/BleManager" pc="268437302" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="341" parent="globals/BleManager" pc="268437308" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="343" parent="globals/BleManager" pc="268437322" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="344" parent="globals/BleManager" pc="268437338" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="345" parent="globals/BleManager" pc="268437363" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="346" parent="globals/BleManager" pc="268437375" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="347" parent="globals/BleManager" pc="268437417" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="349" parent="globals/BleManager" pc="268437431" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="30" lineNum="353" parent="globals/BleManager" pc="268437447" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="205" parent="globals/BleManager" pc="268437449" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="206" parent="globals/BleManager" pc="268437452" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="207" parent="globals/BleManager" pc="268437464" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="209" parent="globals/BleManager" pc="268437475" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="210" parent="globals/BleManager" pc="268437491" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="211" parent="globals/BleManager" pc="268437497" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="212" parent="globals/BleManager" pc="268437506" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="213" parent="globals/BleManager" pc="268437518" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="214" parent="globals/BleManager" pc="268437536" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="215" parent="globals/BleManager" pc="268437547" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="217" parent="globals/BleManager" pc="268437554" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="218" parent="globals/BleManager" pc="268437570" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="219" parent="globals/BleManager" pc="268437576" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="220" parent="globals/BleManager" pc="268437585" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="221" parent="globals/BleManager" pc="268437597" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="222" parent="globals/BleManager" pc="268437615" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="223" parent="globals/BleManager" pc="268437626" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="225" parent="globals/BleManager" pc="268437633" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="226" parent="globals/BleManager" pc="268437654" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="227" parent="globals/BleManager" pc="268437660" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="228" parent="globals/BleManager" pc="268437669" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="229" parent="globals/BleManager" pc="268437681" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="230" parent="globals/BleManager" pc="268437699" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="231" parent="globals/BleManager" pc="268437710" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="234" parent="globals/BleManager" pc="268437717" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="235" parent="globals/BleManager" pc="268437732" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="236" parent="globals/BleManager" pc="268437750" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="237" parent="globals/BleManager" pc="268437768" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="238" parent="globals/BleManager" pc="268437787" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="239" parent="globals/BleManager" pc="268437796" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="240" parent="globals/BleManager" pc="268437816" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="31" lineNum="242" parent="globals/BleManager" pc="268437854" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="32" lineNum="526" parent="globals/BleManager" pc="268437866" symbol="getLinked2"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="32" lineNum="526" parent="globals/BleManager" pc="268437868" symbol="getLinked2"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="33" lineNum="525" parent="globals/BleManager" pc="268437874" symbol="getLinked1"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="33" lineNum="525" parent="globals/BleManager" pc="268437876" symbol="getLinked1"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="274" parent="globals/BleManager" pc="268437882" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="275" parent="globals/BleManager" pc="268437885" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="275" parent="globals/BleManager" pc="268437907" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="277" parent="globals/BleManager" pc="268437911" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="278" parent="globals/BleManager" pc="268437920" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="279" parent="globals/BleManager" pc="268437926" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="283" parent="globals/BleManager" pc="268437930" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="284" parent="globals/BleManager" pc="268437950" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="285" parent="globals/BleManager" pc="268437967" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="286" parent="globals/BleManager" pc="268437976" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="287" parent="globals/BleManager" pc="268437988" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="288" parent="globals/BleManager" pc="268437994" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="289" parent="globals/BleManager" pc="268438015" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="290" parent="globals/BleManager" pc="268438024" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="293" parent="globals/BleManager" pc="268438041" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="294" parent="globals/BleManager" pc="268438050" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="298" parent="globals/BleManager" pc="268438056" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="299" parent="globals/BleManager" pc="268438065" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="300" parent="globals/BleManager" pc="268438074" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="301" parent="globals/BleManager" pc="268438080" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="302" parent="globals/BleManager" pc="268438084" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="303" parent="globals/BleManager" pc="268438101" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="304" parent="globals/BleManager" pc="268438113" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="307" parent="globals/BleManager" pc="268438162" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="308" parent="globals/BleManager" pc="268438171" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="309" parent="globals/BleManager" pc="268438183" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="310" parent="globals/BleManager" pc="268438197" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="311" parent="globals/BleManager" pc="268438206" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="312" parent="globals/BleManager" pc="268438217" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="314" parent="globals/BleManager" pc="268438223" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="34" lineNum="317" parent="globals/BleManager" pc="268438235" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="427" parent="globals/BleManager" pc="268438248" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="431" parent="globals/BleManager" pc="268438251" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="432" parent="globals/BleManager" pc="268438266" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="433" parent="globals/BleManager" pc="268438279" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="434" parent="globals/BleManager" pc="268438309" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="435" parent="globals/BleManager" pc="268438320" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="440" parent="globals/BleManager" pc="268438324" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="441" parent="globals/BleManager" pc="268438332" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="442" parent="globals/BleManager" pc="268438362" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="446" parent="globals/BleManager" pc="268438366" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="447" parent="globals/BleManager" pc="268438374" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="449" parent="globals/BleManager" pc="268438405" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="450" parent="globals/BleManager" pc="268438415" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="451" parent="globals/BleManager" pc="268438433" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="452" parent="globals/BleManager" pc="268438451" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="454" parent="globals/BleManager" pc="268438463" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="460" parent="globals/BleManager" pc="268438544" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="460" parent="globals/BleManager" pc="268438554" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="461" parent="globals/BleManager" pc="268438564" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="461" parent="globals/BleManager" pc="268438575" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="462" parent="globals/BleManager" pc="268438585" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="462" parent="globals/BleManager" pc="268438596" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="35" lineNum="464" parent="globals/BleManager" pc="268438606" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="36" lineNum="527" parent="globals/BleManager" pc="268438618" symbol="getNotifType"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="36" lineNum="527" parent="globals/BleManager" pc="268438620" symbol="getNotifType"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="37" lineNum="114" parent="globals/BleManager" pc="268438626" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="37" lineNum="115" parent="globals/BleManager" pc="268438629" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="37" lineNum="118" parent="globals/BleManager" pc="268438661" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="37" lineNum="119" parent="globals/BleManager" pc="268438668" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="37" lineNum="120" parent="globals/BleManager" pc="268438677" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="37" lineNum="121" parent="globals/BleManager" pc="268438689" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="37" lineNum="123" parent="globals/BleManager" pc="268438707" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="37" lineNum="125" parent="globals/BleManager" pc="268438728" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="37" lineNum="126" parent="globals/BleManager" pc="268438747" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="37" lineNum="127" parent="globals/BleManager" pc="268438756" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="37" lineNum="128" parent="globals/BleManager" pc="268438768" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="37" lineNum="130" parent="globals/BleManager" pc="268438806" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="38" lineNum="147" parent="globals/BleManager" pc="268438821" symbol="connectToDevice"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="38" lineNum="148" parent="globals/BleManager" pc="268438824" symbol="connectToDevice"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="38" lineNum="149" parent="globals/BleManager" pc="268438844" symbol="connectToDevice"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="38" lineNum="150" parent="globals/BleManager" pc="268438851" symbol="connectToDevice"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="38" lineNum="151" parent="globals/BleManager" pc="268438860" symbol="connectToDevice"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="38" lineNum="152" parent="globals/BleManager" pc="268438884" symbol="connectToDevice"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="38" lineNum="153" parent="globals/BleManager" pc="268438895" symbol="connectToDevice"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="38" lineNum="155" parent="globals/BleManager" pc="268438919" symbol="connectToDevice"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="38" lineNum="156" parent="globals/BleManager" pc="268438943" symbol="connectToDevice"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="38" lineNum="157" parent="globals/BleManager" pc="268438962" symbol="connectToDevice"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="38" lineNum="158" parent="globals/BleManager" pc="268438971" symbol="connectToDevice"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="38" lineNum="159" parent="globals/BleManager" pc="268438991" symbol="connectToDevice"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="38" lineNum="160" parent="globals/BleManager" pc="268439017" symbol="connectToDevice"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="39" lineNum="189" parent="globals/BleManager" pc="268439044" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="39" lineNum="190" parent="globals/BleManager" pc="268439046" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="39" lineNum="191" parent="globals/BleManager" pc="268439054" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="39" lineNum="192" parent="globals/BleManager" pc="268439062" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="39" lineNum="193" parent="globals/BleManager" pc="268439074" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="39" lineNum="194" parent="globals/BleManager" pc="268439082" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="39" lineNum="195" parent="globals/BleManager" pc="268439094" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="39" lineNum="196" parent="globals/BleManager" pc="268439102" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="39" lineNum="197" parent="globals/BleManager" pc="268439110" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="39" lineNum="198" parent="globals/BleManager" pc="268439118" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="39" lineNum="199" parent="globals/BleManager" pc="268439127" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="39" lineNum="200" parent="globals/BleManager" pc="268439135" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="40" lineNum="488" parent="globals/BleManager" pc="268439148" symbol="_buzzAlert1"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="40" lineNum="489" parent="globals/BleManager" pc="268439150" symbol="_buzzAlert1"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="40" lineNum="489" parent="globals/BleManager" pc="268439166" symbol="_buzzAlert1"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="40" lineNum="490" parent="globals/BleManager" pc="268439170" symbol="_buzzAlert1"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="41" lineNum="368" parent="globals/BleManager" pc="268439218" symbol="_stripPrefix"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="41" lineNum="369" parent="globals/BleManager" pc="268439221" symbol="_stripPrefix"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="41" lineNum="370" parent="globals/BleManager" pc="268439228" symbol="_stripPrefix"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="41" lineNum="372" parent="globals/BleManager" pc="268439276" symbol="_stripPrefix"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="41" lineNum="374" parent="globals/BleManager" pc="268439303" symbol="_stripPrefix"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="42" lineNum="519" parent="globals/BleManager" pc="268439306" symbol="getState"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="42" lineNum="519" parent="globals/BleManager" pc="268439308" symbol="getState"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="43" lineNum="75" parent="globals/BleManager" pc="268439314" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="43" lineNum="76" parent="globals/BleManager" pc="268439316" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="43" lineNum="77" parent="globals/BleManager" pc="268439328" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="43" lineNum="78" parent="globals/BleManager" pc="268439357" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="43" lineNum="79" parent="globals/BleManager" pc="268439386" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="43" lineNum="81" parent="globals/BleManager" pc="268439415" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="43" lineNum="82" parent="globals/BleManager" pc="268439439" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="43" lineNum="85" parent="globals/BleManager" pc="268439463" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="43" lineNum="89" parent="globals/BleManager" pc="268439477" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="44" lineNum="497" parent="globals/BleManager" pc="268439485" symbol="_buzzAlert2"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="44" lineNum="498" parent="globals/BleManager" pc="268439487" symbol="_buzzAlert2"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="44" lineNum="498" parent="globals/BleManager" pc="268439503" symbol="_buzzAlert2"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="44" lineNum="499" parent="globals/BleManager" pc="268439507" symbol="_buzzAlert2"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="44" lineNum="500" parent="globals/BleManager" pc="268439514" symbol="_buzzAlert2"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\BleManager.mc" id="44" lineNum="501" parent="globals/BleManager" pc="268439545" symbol="_buzzAlert2"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppApp.mc" id="45" lineNum="15" parent="globals/myGarminAppApp" pc="268439577" symbol="onStart"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppApp.mc" id="46" lineNum="23" parent="globals/myGarminAppApp" pc="268439580" symbol="getInitialView"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppApp.mc" id="46" lineNum="24" parent="globals/myGarminAppApp" pc="268439582" symbol="getInitialView"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppApp.mc" id="47" lineNum="9" parent="globals/myGarminAppApp" pc="268439639" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppApp.mc" id="47" lineNum="10" parent="globals/myGarminAppApp" pc="268439641" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppApp.mc" id="47" lineNum="12" parent="globals/myGarminAppApp" pc="268439653" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppApp.mc" id="48" lineNum="30" parent="globals/myGarminAppApp" pc="268439679" symbol="getBleManager"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppApp.mc" id="48" lineNum="31" parent="globals/myGarminAppApp" pc="268439681" symbol="getBleManager"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppApp.mc" id="49" lineNum="18" parent="globals/myGarminAppApp" pc="268439687" symbol="onStop"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppApp.mc" id="49" lineNum="20" parent="globals/myGarminAppApp" pc="268439689" symbol="onStop"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppMenuDelegate.mc" id="50" lineNum="12" parent="globals/myGarminAppMenuDelegate" pc="268439702" symbol="onMenuItem"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppMenuDelegate.mc" id="51" lineNum="8" parent="globals/myGarminAppMenuDelegate" pc="268439705" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppMenuDelegate.mc" id="51" lineNum="9" parent="globals/myGarminAppMenuDelegate" pc="268439707" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="52" lineNum="64" parent="globals/myGarminAppView" pc="268439720" symbol="onShow"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="52" lineNum="65" parent="globals/myGarminAppView" pc="268439722" symbol="onShow"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="52" lineNum="66" parent="globals/myGarminAppView" pc="268439729" symbol="onShow"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="53" lineNum="357" parent="globals/myGarminAppView" pc="268439741" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="53" lineNum="358" parent="globals/myGarminAppView" pc="268439743" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="53" lineNum="358" parent="globals/myGarminAppView" pc="268439750" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="53" lineNum="359" parent="globals/myGarminAppView" pc="268439759" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="53" lineNum="359" parent="globals/myGarminAppView" pc="268439767" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="53" lineNum="360" parent="globals/myGarminAppView" pc="268439776" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="53" lineNum="360" parent="globals/myGarminAppView" pc="268439784" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="53" lineNum="361" parent="globals/myGarminAppView" pc="268439793" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="53" lineNum="361" parent="globals/myGarminAppView" pc="268439801" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="53" lineNum="362" parent="globals/myGarminAppView" pc="268439810" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="53" lineNum="362" parent="globals/myGarminAppView" pc="268439818" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="53" lineNum="363" parent="globals/myGarminAppView" pc="268439827" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="53" lineNum="363" parent="globals/myGarminAppView" pc="268439835" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="53" lineNum="364" parent="globals/myGarminAppView" pc="268439844" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="53" lineNum="364" parent="globals/myGarminAppView" pc="268439852" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="53" lineNum="365" parent="globals/myGarminAppView" pc="268439867" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="54" lineNum="118" parent="globals/myGarminAppView" pc="268439873" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="54" lineNum="125" parent="globals/myGarminAppView" pc="268439875" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="54" lineNum="129" parent="globals/myGarminAppView" pc="268439899" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="54" lineNum="130" parent="globals/myGarminAppView" pc="268439924" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="54" lineNum="133" parent="globals/myGarminAppView" pc="268439928" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="54" lineNum="134" parent="globals/myGarminAppView" pc="268439935" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="54" lineNum="135" parent="globals/myGarminAppView" pc="268439958" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="54" lineNum="138" parent="globals/myGarminAppView" pc="268439962" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="54" lineNum="139" parent="globals/myGarminAppView" pc="268439970" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="54" lineNum="142" parent="globals/myGarminAppView" pc="268440021" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="54" lineNum="145" parent="globals/myGarminAppView" pc="268440025" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="54" lineNum="146" parent="globals/myGarminAppView" pc="268440033" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="54" lineNum="147" parent="globals/myGarminAppView" pc="268440050" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="54" lineNum="150" parent="globals/myGarminAppView" pc="268440054" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="54" lineNum="151" parent="globals/myGarminAppView" pc="268440062" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="54" lineNum="152" parent="globals/myGarminAppView" pc="268440085" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="55" lineNum="62" parent="globals/myGarminAppView" pc="268440090" symbol="onLayout"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="161" parent="globals/myGarminAppView" pc="268440093" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="169" parent="globals/myGarminAppView" pc="268440096" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="170" parent="globals/myGarminAppView" pc="268440109" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="171" parent="globals/myGarminAppView" pc="268440122" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="173" parent="globals/myGarminAppView" pc="268440143" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="174" parent="globals/myGarminAppView" pc="268440159" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="177" parent="globals/myGarminAppView" pc="268440185" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="178" parent="globals/myGarminAppView" pc="268440195" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="181" parent="globals/myGarminAppView" pc="268440205" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="182" parent="globals/myGarminAppView" pc="268440221" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="184" parent="globals/myGarminAppView" pc="268440241" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="185" parent="globals/myGarminAppView" pc="268440253" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="186" parent="globals/myGarminAppView" pc="268440270" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="187" parent="globals/myGarminAppView" pc="268440290" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="189" parent="globals/myGarminAppView" pc="268440302" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="192" parent="globals/myGarminAppView" pc="268440307" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="193" parent="globals/myGarminAppView" pc="268440311" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="194" parent="globals/myGarminAppView" pc="268440321" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="195" parent="globals/myGarminAppView" pc="268440337" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="197" parent="globals/myGarminAppView" pc="268440353" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="198" parent="globals/myGarminAppView" pc="268440370" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="201" parent="globals/myGarminAppView" pc="268440390" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="202" parent="globals/myGarminAppView" pc="268440407" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="205" parent="globals/myGarminAppView" pc="268440430" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="56" lineNum="206" parent="globals/myGarminAppView" pc="268440447" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="57" lineNum="320" parent="globals/myGarminAppView" pc="268440468" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="57" lineNum="321" parent="globals/myGarminAppView" pc="268440471" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="57" lineNum="322" parent="globals/myGarminAppView" pc="268440484" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="57" lineNum="325" parent="globals/myGarminAppView" pc="268440513" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="57" lineNum="326" parent="globals/myGarminAppView" pc="268440527" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="57" lineNum="327" parent="globals/myGarminAppView" pc="268440558" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="57" lineNum="328" parent="globals/myGarminAppView" pc="268440569" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="57" lineNum="329" parent="globals/myGarminAppView" pc="268440583" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="57" lineNum="330" parent="globals/myGarminAppView" pc="268440595" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="57" lineNum="331" parent="globals/myGarminAppView" pc="268440603" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="214" parent="globals/myGarminAppView" pc="268440615" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="220" parent="globals/myGarminAppView" pc="268440618" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="221" parent="globals/myGarminAppView" pc="268440631" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="222" parent="globals/myGarminAppView" pc="268440644" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="223" parent="globals/myGarminAppView" pc="268440648" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="224" parent="globals/myGarminAppView" pc="268440664" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="225" parent="globals/myGarminAppView" pc="268440677" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="226" parent="globals/myGarminAppView" pc="268440687" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="229" parent="globals/myGarminAppView" pc="268440697" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="230" parent="globals/myGarminAppView" pc="268440713" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="231" parent="globals/myGarminAppView" pc="268440733" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="232" parent="globals/myGarminAppView" pc="268440745" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="233" parent="globals/myGarminAppView" pc="268440762" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="234" parent="globals/myGarminAppView" pc="268440782" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="238" parent="globals/myGarminAppView" pc="268440794" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="239" parent="globals/myGarminAppView" pc="268440804" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="240" parent="globals/myGarminAppView" pc="268440820" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="241" parent="globals/myGarminAppView" pc="268440824" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="244" parent="globals/myGarminAppView" pc="268440831" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="245" parent="globals/myGarminAppView" pc="268440838" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="246" parent="globals/myGarminAppView" pc="268440866" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="247" parent="globals/myGarminAppView" pc="268440880" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="248" parent="globals/myGarminAppView" pc="268440894" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="250" parent="globals/myGarminAppView" pc="268440919" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="252" parent="globals/myGarminAppView" pc="268440941" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="256" parent="globals/myGarminAppView" pc="268440967" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="257" parent="globals/myGarminAppView" pc="268440974" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="258" parent="globals/myGarminAppView" pc="268441002" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="259" parent="globals/myGarminAppView" pc="268441016" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="260" parent="globals/myGarminAppView" pc="268441030" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="262" parent="globals/myGarminAppView" pc="268441055" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="264" parent="globals/myGarminAppView" pc="268441077" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="268" parent="globals/myGarminAppView" pc="268441103" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="269" parent="globals/myGarminAppView" pc="268441119" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="270" parent="globals/myGarminAppView" pc="268441132" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="271" parent="globals/myGarminAppView" pc="268441139" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="272" parent="globals/myGarminAppView" pc="268441146" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="273" parent="globals/myGarminAppView" pc="268441153" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="274" parent="globals/myGarminAppView" pc="268441160" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="275" parent="globals/myGarminAppView" pc="268441169" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="276" parent="globals/myGarminAppView" pc="268441177" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="277" parent="globals/myGarminAppView" pc="268441184" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="278" parent="globals/myGarminAppView" pc="268441194" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="279" parent="globals/myGarminAppView" pc="268441202" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="280" parent="globals/myGarminAppView" pc="268441209" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="282" parent="globals/myGarminAppView" pc="268441219" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="58" lineNum="283" parent="globals/myGarminAppView" pc="268441233" symbol="_drawSubscribedCard"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="59" lineNum="335" parent="globals/myGarminAppView" pc="268441254" symbol="_onTick"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="59" lineNum="336" parent="globals/myGarminAppView" pc="268441256" symbol="_onTick"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="59" lineNum="337" parent="globals/myGarminAppView" pc="268441274" symbol="_onTick"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="60" lineNum="343" parent="globals/myGarminAppView" pc="268441286" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="60" lineNum="344" parent="globals/myGarminAppView" pc="268441288" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="60" lineNum="344" parent="globals/myGarminAppView" pc="268441295" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="60" lineNum="345" parent="globals/myGarminAppView" pc="268441303" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="60" lineNum="345" parent="globals/myGarminAppView" pc="268441311" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="60" lineNum="346" parent="globals/myGarminAppView" pc="268441320" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="60" lineNum="346" parent="globals/myGarminAppView" pc="268441328" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="60" lineNum="347" parent="globals/myGarminAppView" pc="268441337" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="60" lineNum="347" parent="globals/myGarminAppView" pc="268441345" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="60" lineNum="348" parent="globals/myGarminAppView" pc="268441354" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="60" lineNum="348" parent="globals/myGarminAppView" pc="268441362" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="60" lineNum="349" parent="globals/myGarminAppView" pc="268441371" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="60" lineNum="349" parent="globals/myGarminAppView" pc="268441379" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="60" lineNum="350" parent="globals/myGarminAppView" pc="268441387" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="60" lineNum="350" parent="globals/myGarminAppView" pc="268441395" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="60" lineNum="351" parent="globals/myGarminAppView" pc="268441404" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="61" lineNum="294" parent="globals/myGarminAppView" pc="268441409" symbol="_drawSpinner"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="61" lineNum="300" parent="globals/myGarminAppView" pc="268441412" symbol="_drawSpinner"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="61" lineNum="301" parent="globals/myGarminAppView" pc="268441424" symbol="_drawSpinner"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="61" lineNum="302" parent="globals/myGarminAppView" pc="268441437" symbol="_drawSpinner"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="61" lineNum="305" parent="globals/myGarminAppView" pc="268441444" symbol="_drawSpinner"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="61" lineNum="306" parent="globals/myGarminAppView" pc="268441456" symbol="_drawSpinner"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="61" lineNum="307" parent="globals/myGarminAppView" pc="268441472" symbol="_drawSpinner"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="61" lineNum="310" parent="globals/myGarminAppView" pc="268441488" symbol="_drawSpinner"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="61" lineNum="311" parent="globals/myGarminAppView" pc="268441502" symbol="_drawSpinner"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="61" lineNum="314" parent="globals/myGarminAppView" pc="268441524" symbol="_drawSpinner"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="62" lineNum="52" parent="globals/myGarminAppView" pc="268441537" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="62" lineNum="53" parent="globals/myGarminAppView" pc="268441540" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="62" lineNum="54" parent="globals/myGarminAppView" pc="268441552" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="62" lineNum="55" parent="globals/myGarminAppView" pc="268441561" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="62" lineNum="57" parent="globals/myGarminAppView" pc="268441590" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="62" lineNum="58" parent="globals/myGarminAppView" pc="268441607" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="63" lineNum="69" parent="globals/myGarminAppView" pc="268441631" symbol="onHide"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="63" lineNum="70" parent="globals/myGarminAppView" pc="268441633" symbol="onHide"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="63" lineNum="71" parent="globals/myGarminAppView" pc="268441645" symbol="onHide"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="74" parent="globals/myGarminAppView" pc="268441654" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="75" parent="globals/myGarminAppView" pc="268441657" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="76" parent="globals/myGarminAppView" pc="268441666" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="77" parent="globals/myGarminAppView" pc="268441675" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="80" parent="globals/myGarminAppView" pc="268441682" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="81" parent="globals/myGarminAppView" pc="268441694" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="83" parent="globals/myGarminAppView" pc="268441702" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="88" parent="globals/myGarminAppView" pc="268441715" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="89" parent="globals/myGarminAppView" pc="268441744" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="90" parent="globals/myGarminAppView" pc="268441748" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="93" parent="globals/myGarminAppView" pc="268441758" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="94" parent="globals/myGarminAppView" pc="268441777" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="95" parent="globals/myGarminAppView" pc="268441796" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="98" parent="globals/myGarminAppView" pc="268441815" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="99" parent="globals/myGarminAppView" pc="268441837" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="102" parent="globals/myGarminAppView" pc="268441853" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="105" parent="globals/myGarminAppView" pc="268441872" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="106" parent="globals/myGarminAppView" pc="268441884" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="107" parent="globals/myGarminAppView" pc="268441896" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="108" parent="globals/myGarminAppView" pc="268441912" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\source\\myGarminAppView.mc" id="64" lineNum="112" parent="globals/myGarminAppView" pc="268441935" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\bin\\gen\\006-B4260-00\\source\\Rez.mcgen" id="65" lineNum="13" parent="globals/Rez/Layouts" pc="268441943" symbol="MainLayout"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\bin\\gen\\006-B4260-00\\source\\Rez.mcgen" id="65" lineNum="14" parent="globals/Rez/Layouts" pc="268441953" symbol="MainLayout"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\bin\\gen\\006-B4260-00\\source\\Rez.mcgen" id="66" lineNum="19" parent="globals/Rez/Menus/MainMenu" pc="268441956" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\bin\\gen\\006-B4260-00\\source\\Rez.mcgen" id="67" lineNum="20" parent="globals/Rez/Menus/MainMenu" pc="268441968" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\bin\\gen\\006-B4260-00\\source\\Rez.mcgen" id="67" lineNum="21" parent="globals/Rez/Menus/MainMenu" pc="268441970" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\bin\\gen\\006-B4260-00\\source\\Rez.mcgen" id="67" lineNum="22" parent="globals/Rez/Menus/MainMenu" pc="268441982" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\myGarminApp\\myGarminApp\\bin\\gen\\006-B4260-00\\source\\Rez.mcgen" id="67" lineNum="23" parent="globals/Rez/Menus/MainMenu" pc="268442001" symbol="initialize"/>
+    </pcToLineNum>
+    <symbolTable>
+        <entry id="8388639" module="true" symbol="Graphics"/>
+        <entry id="56" method="true" symbol="_accentColor"/>
+        <entry id="49" method="true" symbol="getRxCount"/>
+        <entry id="8388632" method="true" symbol="&lt;init&gt;"/>
+        <entry id="26" method="true" symbol="_enableNotifications"/>
+        <entry id="5" module="true" symbol="globals/Rez/Menus"/>
+        <entry id="69" method="true" symbol="MainLayout"/>
+        <entry id="62" method="true" symbol="_drawSubscribedCard"/>
+        <entry field="true" id="25" symbol="_deviceName"/>
+        <entry id="72" symbol="item_scan"/>
+        <entry id="40" method="true" symbol="_stopScanInternal"/>
+        <entry id="9" object="true" symbol="myGarminAppDelegate"/>
+        <entry field="true" id="36" symbol="_rxHex"/>
+        <entry field="true" id="31" symbol="_notifTimer"/>
+        <entry id="17" method="true" symbol="_buzzDoubleTap"/>
+        <entry field="true" id="8388611" module="true" symbol="Toybox"/>
+        <entry field="true" id="35" symbol="_rxCount"/>
+        <entry id="8391256" method="true" symbol="onScanResults"/>
+        <entry field="true" id="30" symbol="_notifLocked"/>
+        <entry id="51" method="true" symbol="getStatus"/>
+        <entry field="true" id="71" symbol="AppName"/>
+        <entry id="8391255" method="true" symbol="onScanStateChange"/>
+        <entry id="8391262" method="true" symbol="onDescriptorWrite"/>
+        <entry id="6" module="true" symbol="globals/Rez/Strings"/>
+        <entry field="true" id="38" symbol="_state"/>
+        <entry id="8389080" method="true" symbol="onMenu"/>
+        <entry id="8388648" module="true" symbol="WatchUi"/>
+        <entry id="8389081" method="true" symbol="onBack"/>
+        <entry id="21" method="true" symbol="_bytesToString"/>
+        <entry id="2" module="true" symbol="globals/Rez"/>
+        <entry id="8391340" symbol="descriptors"/>
+        <entry id="60" method="true" symbol="_drawMain"/>
+        <entry id="64" method="true" symbol="_onTick"/>
+        <entry id="58" method="true" symbol="_bottomText"/>
+        <entry id="44" method="true" symbol="connectToDevice"/>
+        <entry id="8389124" method="true" symbol="onUpdate"/>
+        <entry field="true" id="37" symbol="_scanResult"/>
+        <entry id="8391263" method="true" symbol="onCharacteristicChanged"/>
+        <entry id="65" method="true" symbol="_syncTimer"/>
+        <entry field="true" id="14" symbol="_ble"/>
+        <entry id="8388771" module="true" object="true" symbol="Drawables"/>
+        <entry id="8391258" method="true" symbol="onConnectedStateChanged"/>
+        <entry id="13" module="true" symbol="Menus"/>
+        <entry id="8" object="true" symbol="myGarminAppApp"/>
+        <entry id="8389275" method="true" symbol="getApp"/>
+        <entry id="4" module="true" symbol="globals/Rez/Layouts"/>
+        <entry id="8389122" method="true" symbol="onLayout"/>
+        <entry id="47" method="true" symbol="getLinked2"/>
+        <entry id="46" method="true" symbol="getLinked1"/>
+        <entry field="true" id="24" symbol="_device"/>
+        <entry id="43" method="true" symbol="_unlockNotif"/>
+        <entry id="8389098" method="true" symbol="onTap"/>
+        <entry field="true" id="8388801" symbol="BLE_ERROR"/>
+        <entry id="8388987" method="true" symbol="vibrate"/>
+        <entry field="true" id="66" symbol="_timer"/>
+        <entry id="11" object="true" symbol="myGarminAppView"/>
+        <entry id="53" method="true" symbol="stopScan"/>
+        <entry field="true" id="22" symbol="_charUuid"/>
+        <entry field="true" id="34" symbol="_rssi"/>
+        <entry id="10" object="true" symbol="myGarminAppMenuDelegate"/>
+        <entry id="3" module="true" symbol="globals/Rez/Drawables"/>
+        <entry field="true" id="19" symbol="_buzzTimer2"/>
+        <entry id="70" object="true" symbol="MainMenu"/>
+        <entry id="73" symbol="item_disconnect"/>
+        <entry field="true" id="63" symbol="_isRound"/>
+        <entry field="true" id="67" symbol="_timerRunning"/>
+        <entry id="61" method="true" symbol="_drawSpinner"/>
+        <entry id="29" method="true" symbol="_nameFromResult"/>
+        <entry id="8388644" module="true" symbol="System"/>
+        <entry id="8391257" method="true" symbol="onProfileRegister"/>
+        <entry id="7" object="true" symbol="BleManager"/>
+        <entry id="8389619" method="true" symbol="onSelect"/>
+        <entry id="8388769" module="true" object="true" symbol="Rez"/>
+        <entry id="33" method="true" symbol="_registerProfile"/>
+        <entry id="23" method="true" symbol="_clearSession"/>
+        <entry id="20" method="true" symbol="_buzzTriplet"/>
+        <entry field="true" id="39" symbol="_status"/>
+        <entry id="8388640" module="true" symbol="Lang"/>
+        <entry field="true" id="42" symbol="_svcUuid"/>
+        <entry field="true" id="68" symbol="LauncherIcon"/>
+        <entry id="8388610" symbol="statics"/>
+        <entry id="8389123" method="true" symbol="onShow"/>
+        <entry id="50" method="true" symbol="getRxHex"/>
+        <entry id="8391265" method="true" symbol="getRssi"/>
+        <entry id="48" method="true" symbol="getNotifType"/>
+        <entry field="true" id="57" symbol="_animFrame"/>
+        <entry id="8389350" module="true" symbol="globals"/>
+        <entry id="8391334" symbol="uuid"/>
+        <entry id="8388770" module="true" object="true" symbol="Strings"/>
+        <entry id="8391193" module="true" symbol="BluetoothLowEnergy"/>
+        <entry id="8388702" method="true" symbol="initialize"/>
+        <entry id="8391267" method="true" symbol="getDeviceName"/>
+        <entry id="8389279" method="true" symbol="onStart"/>
+        <entry id="59" method="true" symbol="_drawCard"/>
+        <entry id="8389902" method="true" symbol="getState"/>
+        <entry field="true" id="54" symbol="_bleMgr"/>
+        <entry id="8389280" method="true" symbol="getInitialView"/>
+        <entry id="8389281" method="true" symbol="onStop"/>
+        <entry id="8389109" method="true" symbol="onMenuItem"/>
+        <entry id="8391341" symbol="characteristics"/>
+        <entry field="true" id="32" symbol="_notifType"/>
+        <entry id="16" method="true" symbol="_buzzAlert2"/>
+        <entry id="15" method="true" symbol="_buzzAlert1"/>
+        <entry field="true" id="28" symbol="_linked2"/>
+        <entry field="true" id="27" symbol="_linked1"/>
+        <entry id="8388646" module="true" object="true" symbol="Timer"/>
+        <entry id="12" module="true" symbol="Layouts"/>
+        <entry id="8388636" module="true" symbol="Attention"/>
+        <entry id="45" method="true" symbol="disconnect"/>
+        <entry id="52" method="true" symbol="startScan"/>
+        <entry id="55" method="true" symbol="getBleManager"/>
+        <entry field="true" id="18" symbol="_buzzTimer"/>
+        <entry id="8389125" method="true" symbol="onHide"/>
+        <entry id="8388635" module="true" symbol="Application"/>
+        <entry id="41" method="true" symbol="_stripPrefix"/>
+    </symbolTable>
+    <localVars>
+        <entry endPc="268435681" name="state" stackId="1" startPc="268435564"/>
+        <entry endPc="268435750" name="state" stackId="1" startPc="268435685"/>
+        <entry arg="true" endPc="268435774" name="ble" stackId="1" startPc="268435751"/>
+        <entry arg="true" endPc="268435783" name="clickEvent" stackId="1" startPc="268435775"/>
+        <entry endPc="268435854" name="state" stackId="1" startPc="268435787"/>
+        <entry endPc="268435942" name="ex" stackId="1" startPc="268435891"/>
+        <entry arg="true" endPc="268436239" name="descriptor" stackId="1" startPc="268436132"/>
+        <entry arg="true" endPc="268436239" name="status" stackId="2" startPc="268436132"/>
+        <entry arg="true" endPc="268436272" name="scanState" stackId="1" startPc="268436240"/>
+        <entry arg="true" endPc="268436272" name="status" stackId="2" startPc="268436240"/>
+        <entry arg="true" endPc="268436446" name="device" stackId="1" startPc="268436273"/>
+        <entry arg="true" endPc="268436446" name="state" stackId="2" startPc="268436273"/>
+        <entry endPc="268436381" name="devName" stackId="3" startPc="268436305"/>
+        <entry endPc="268436445" name="wasSub" stackId="4" startPc="268436385"/>
+        <entry endPc="268436749" name="ex" stackId="1" startPc="268436677"/>
+        <entry endPc="268436987" name="ex" stackId="1" startPc="268436962"/>
+        <entry arg="true" endPc="268437093" name="uuid" stackId="1" startPc="268437002"/>
+        <entry arg="true" endPc="268437093" name="status" stackId="2" startPc="268437002"/>
+        <entry arg="true" endPc="268437175" name="bytes" stackId="1" startPc="268437094"/>
+        <entry endPc="268437175" name="s" stackId="2" startPc="268437097"/>
+        <entry endPc="268437172" name="i" stackId="3" startPc="268437120"/>
+        <entry endPc="268437162" name="b" stackId="4" startPc="268437120"/>
+        <entry arg="true" endPc="268437448" name="result" stackId="1" startPc="268437184"/>
+        <entry endPc="268437448" name="apiName" stackId="2" startPc="268437187"/>
+        <entry endPc="268437448" name="raw" stackId="3" startPc="268437187"/>
+        <entry endPc="268437443" name="i" stackId="4" startPc="268437244"/>
+        <entry endPc="268437440" name="adLen" stackId="5" startPc="268437261"/>
+        <entry endPc="268437440" name="adType" stackId="6" startPc="268437261"/>
+        <entry endPc="268437427" name="nameBytes" stackId="7" startPc="268437338"/>
+        <entry endPc="268437427" name="parsed" stackId="8" startPc="268437338"/>
+        <entry arg="true" endPc="268437865" name="device" stackId="1" startPc="268437449"/>
+        <entry endPc="268437761" name="svc" stackId="2" startPc="268437475"/>
+        <entry endPc="268437761" name="chr" stackId="3" startPc="268437475"/>
+        <entry endPc="268437761" name="cccd" stackId="4" startPc="268437475"/>
+        <entry endPc="268437848" name="ex" stackId="5" startPc="268437768"/>
+        <entry arg="true" endPc="268438247" name="scanResults" stackId="1" startPc="268437882"/>
+        <entry endPc="268438246" name="item" stackId="2" startPc="268437885"/>
+        <entry endPc="268438243" name="result" stackId="3" startPc="268437926"/>
+        <entry endPc="268438037" name="updatedName" stackId="4" startPc="268437967"/>
+        <entry endPc="268438243" name="uuidIter" stackId="5" startPc="268437926"/>
+        <entry endPc="268438243" name="uuidObj" stackId="6" startPc="268437926"/>
+        <entry endPc="268438231" name="uuid" stackId="7" startPc="268438080"/>
+        <entry endPc="268438219" name="name" stackId="8" startPc="268438101"/>
+        <entry arg="true" endPc="268438617" name="characteristic" stackId="1" startPc="268438248"/>
+        <entry arg="true" endPc="268438617" name="value" stackId="2" startPc="268438248"/>
+        <entry endPc="268438616" name="b" stackId="3" startPc="268438251"/>
+        <entry endPc="268438800" name="ex" stackId="1" startPc="268438728"/>
+        <entry endPc="268439034" name="ex" stackId="1" startPc="268438943"/>
+        <entry arg="true" endPc="268439305" name="name" stackId="1" startPc="268439218"/>
+        <entry endPc="268439305" name="prefix" stackId="2" startPc="268439221"/>
+        <entry arg="true" endPc="268439701" name="state" stackId="1" startPc="268439687"/>
+        <entry arg="true" endPc="268439872" name="state" stackId="1" startPc="268439741"/>
+        <entry arg="true" endPc="268440089" name="dc" stackId="1" startPc="268439873"/>
+        <entry arg="true" endPc="268440089" name="w" stackId="2" startPc="268439873"/>
+        <entry arg="true" endPc="268440089" name="cx" stackId="3" startPc="268439873"/>
+        <entry arg="true" endPc="268440089" name="cy" stackId="4" startPc="268439873"/>
+        <entry arg="true" endPc="268440089" name="state" stackId="5" startPc="268439873"/>
+        <entry arg="true" endPc="268440467" name="dc" stackId="1" startPc="268440093"/>
+        <entry arg="true" endPc="268440467" name="w" stackId="2" startPc="268440093"/>
+        <entry arg="true" endPc="268440467" name="cx" stackId="3" startPc="268440093"/>
+        <entry arg="true" endPc="268440467" name="cy" stackId="4" startPc="268440093"/>
+        <entry arg="true" endPc="268440467" name="primary" stackId="5" startPc="268440093"/>
+        <entry arg="true" endPc="268440467" name="secondary" stackId="6" startPc="268440093"/>
+        <entry endPc="268440466" name="fhMed" stackId="7" startPc="268440096"/>
+        <entry endPc="268440466" name="fhTiny" stackId="8" startPc="268440096"/>
+        <entry endPc="268440466" name="hasSec" stackId="9" startPc="268440096"/>
+        <entry endPc="268440466" name="cardW" stackId="10" startPc="268440096"/>
+        <entry endPc="268440466" name="cardH" stackId="11" startPc="268440096"/>
+        <entry endPc="268440466" name="cardX" stackId="12" startPc="268440096"/>
+        <entry endPc="268440466" name="cardY" stackId="13" startPc="268440096"/>
+        <entry endPc="268440426" name="gap" stackId="14" startPc="268440307"/>
+        <entry endPc="268440426" name="blockH" stackId="15" startPc="268440307"/>
+        <entry endPc="268440426" name="priY" stackId="16" startPc="268440307"/>
+        <entry endPc="268440426" name="secY" stackId="17" startPc="268440307"/>
+        <entry endPc="268440613" name="state" stackId="1" startPc="268440471"/>
+        <entry endPc="268440613" name="needTick" stackId="2" startPc="268440471"/>
+        <entry arg="true" endPc="268441253" name="dc" stackId="1" startPc="268440615"/>
+        <entry arg="true" endPc="268441253" name="w" stackId="2" startPc="268440615"/>
+        <entry arg="true" endPc="268441253" name="cx" stackId="3" startPc="268440615"/>
+        <entry arg="true" endPc="268441253" name="cy" stackId="4" startPc="268440615"/>
+        <entry endPc="268441252" name="fhMed" stackId="5" startPc="268440618"/>
+        <entry endPc="268441252" name="fhTiny" stackId="6" startPc="268440618"/>
+        <entry endPc="268441252" name="gap" stackId="7" startPc="268440618"/>
+        <entry endPc="268441252" name="cardW" stackId="8" startPc="268440618"/>
+        <entry endPc="268441252" name="cardH" stackId="9" startPc="268440618"/>
+        <entry endPc="268441252" name="cardX" stackId="10" startPc="268440618"/>
+        <entry endPc="268441252" name="cardY" stackId="11" startPc="268440618"/>
+        <entry endPc="268441252" name="blockH" stackId="12" startPc="268440618"/>
+        <entry endPc="268441252" name="rowY" stackId="13" startPc="268440618"/>
+        <entry endPc="268441252" name="dotR" stackId="14" startPc="268440618"/>
+        <entry endPc="268441252" name="spacing" stackId="15" startPc="268440618"/>
+        <entry endPc="268441252" name="d1x" stackId="16" startPc="268440618"/>
+        <entry endPc="268441252" name="d1Color" stackId="17" startPc="268440618"/>
+        <entry endPc="268441252" name="d2x" stackId="18" startPc="268440618"/>
+        <entry endPc="268441252" name="d2Color" stackId="19" startPc="268440618"/>
+        <entry endPc="268441252" name="alertY" stackId="20" startPc="268440618"/>
+        <entry endPc="268441252" name="notifType" stackId="21" startPc="268440618"/>
+        <entry endPc="268441252" name="alertText" stackId="22" startPc="268440618"/>
+        <entry endPc="268441252" name="alertColor" stackId="23" startPc="268440618"/>
+        <entry arg="true" endPc="268441408" name="state" stackId="1" startPc="268441286"/>
+        <entry arg="true" endPc="268441536" name="dc" stackId="1" startPc="268441409"/>
+        <entry arg="true" endPc="268441536" name="cx" stackId="2" startPc="268441409"/>
+        <entry arg="true" endPc="268441536" name="cy" stackId="3" startPc="268441409"/>
+        <entry arg="true" endPc="268441536" name="color" stackId="4" startPc="268441409"/>
+        <entry endPc="268441535" name="r" stackId="5" startPc="268441412"/>
+        <entry endPc="268441535" name="startAngle" stackId="6" startPc="268441412"/>
+        <entry endPc="268441535" name="endAngle" stackId="7" startPc="268441412"/>
+        <entry arg="true" endPc="268441630" name="ble" stackId="1" startPc="268441537"/>
+        <entry endPc="268441629" name="shape" stackId="2" startPc="268441540"/>
+        <entry arg="true" endPc="268441942" name="dc" stackId="1" startPc="268441654"/>
+        <entry endPc="268441941" name="w" stackId="2" startPc="268441657"/>
+        <entry endPc="268441941" name="h" stackId="3" startPc="268441657"/>
+        <entry endPc="268441941" name="cx" stackId="4" startPc="268441657"/>
+        <entry endPc="268441941" name="state" stackId="5" startPc="268441657"/>
+        <entry endPc="268441941" name="inset" stackId="6" startPc="268441657"/>
+        <entry endPc="268441941" name="safeT" stackId="7" startPc="268441657"/>
+        <entry endPc="268441941" name="safeH" stackId="8" startPc="268441657"/>
+        <entry endPc="268441941" name="dotY" stackId="9" startPc="268441657"/>
+        <entry endPc="268441941" name="mainY" stackId="10" startPc="268441657"/>
+        <entry endPc="268441941" name="txtY" stackId="11" startPc="268441657"/>
+        <entry endPc="268441941" name="hint" stackId="12" startPc="268441657"/>
+        <entry arg="true" endPc="268441955" name="dc" stackId="1" startPc="268441943"/>
+    </localVars>
+    <deviceInfo deviceVersion="5c7ae9cf907f88c116a91dc4ffd75be9b5b7d2e9" partNumber="006-B4260-00"/>
+    <annotations>
+        <annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="LauncherIcon"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="AppName"/>
+    </annotations>
+    <dataEntryOffsetMappings>
+        <dataEntry label="globals" offset="67" parentId="" symbolId="globals" type="module"/>
+        <dataEntry label="globals/Rez" offset="161" parentId="globals" symbolId="Rez" type="module"/>
+        <dataEntry label="globals/myGarminAppDelegate" offset="223" parentId="globals" symbolId="myGarminAppDelegate" type="class"/>
+        <dataEntry label="globals/BleManager" offset="312" parentId="globals" symbolId="BleManager" type="class"/>
+        <dataEntry label="globals/myGarminAppApp" offset="788" parentId="globals" symbolId="myGarminAppApp" type="class"/>
+        <dataEntry label="globals/myGarminAppMenuDelegate" offset="877" parentId="globals" symbolId="myGarminAppMenuDelegate" type="class"/>
+        <dataEntry label="globals/myGarminAppView" offset="930" parentId="globals" symbolId="myGarminAppView" type="class"/>
+        <dataEntry label="globals/Rez/Drawables" offset="1127" parentId="Rez" symbolId="Drawables" type="module"/>
+        <dataEntry label="globals/Rez/Layouts" offset="1162" parentId="Rez" symbolId="Layouts" type="module"/>
+        <dataEntry label="globals/Rez/Menus" offset="1197" parentId="Rez" symbolId="Menus" type="module"/>
+        <dataEntry label="globals/Rez/Strings" offset="1232" parentId="Rez" symbolId="Strings" type="module"/>
+        <dataEntry label="globals/Rez/Menus/MainMenu" offset="1267" parentId="Menus" symbolId="MainMenu" type="class"/>
+    </dataEntryOffsetMappings>
+    <functions>
+        <functionEntry accessMode="public" endPc="268435479" name="&lt;init&gt;" parent="Rez" startPc="268435460">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435491" name="&lt;init&gt;" parent="myGarminAppDelegate" startPc="268435480">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435503" name="&lt;init&gt;" parent="BleManager" startPc="268435492">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435515" name="&lt;init&gt;" parent="myGarminAppApp" startPc="268435504">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435536" name="getApp" startPc="268435516">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435548" name="&lt;init&gt;" parent="myGarminAppMenuDelegate" startPc="268435537">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435560" name="&lt;init&gt;" parent="myGarminAppView" startPc="268435549">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Drawables">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Layouts">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Menus">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Strings">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435681" name="onBack" parent="myGarminAppDelegate" startPc="268435561">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435750" name="onMenu" parent="myGarminAppDelegate" startPc="268435682">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435774" name="initialize" parent="myGarminAppDelegate" startPc="268435751">
+            <param id="ble"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435783" name="onTap" parent="myGarminAppDelegate" startPc="268435775">
+            <param id="clickEvent"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435854" name="onSelect" parent="myGarminAppDelegate" startPc="268435784">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435989" name="disconnect" parent="BleManager" startPc="268435855">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268436115" name="_buzzDoubleTap" parent="BleManager" startPc="268435990">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436123" name="getStatus" parent="BleManager" startPc="268436116">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436131" name="getRxHex" parent="BleManager" startPc="268436124">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436239" name="onDescriptorWrite" parent="BleManager" startPc="268436132">
+            <param id="descriptor"/>
+            <param id="status"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436272" name="onScanStateChange" parent="BleManager" startPc="268436240">
+            <param id="scanState"/>
+            <param id="status"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436446" name="onConnectedStateChanged" parent="BleManager" startPc="268436273">
+            <param id="device"/>
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436519" name="stopScan" parent="BleManager" startPc="268436447">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436548" name="_unlockNotif" parent="BleManager" startPc="268436520">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436556" name="getDeviceName" parent="BleManager" startPc="268436549">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268436755" name="_registerProfile" parent="BleManager" startPc="268436557">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436938" name="_buzzTriplet" parent="BleManager" startPc="268436756">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268436993" name="_stopScanInternal" parent="BleManager" startPc="268436939">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437001" name="getRssi" parent="BleManager" startPc="268436994">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437093" name="onProfileRegister" parent="BleManager" startPc="268437002">
+            <param id="uuid"/>
+            <param id="status"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268437175" name="_bytesToString" parent="BleManager" startPc="268437094">
+            <param id="bytes"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437183" name="getRxCount" parent="BleManager" startPc="268437176">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268437448" name="_nameFromResult" parent="BleManager" startPc="268437184">
+            <param id="result"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268437865" name="_enableNotifications" parent="BleManager" startPc="268437449">
+            <param id="device"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437873" name="getLinked2" parent="BleManager" startPc="268437866">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437881" name="getLinked1" parent="BleManager" startPc="268437874">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438247" name="onScanResults" parent="BleManager" startPc="268437882">
+            <param id="scanResults"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438617" name="onCharacteristicChanged" parent="BleManager" startPc="268438248">
+            <param id="characteristic"/>
+            <param id="value"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438625" name="getNotifType" parent="BleManager" startPc="268438618">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438820" name="startScan" parent="BleManager" startPc="268438626">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439043" name="connectToDevice" parent="BleManager" startPc="268438821">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268439147" name="_clearSession" parent="BleManager" startPc="268439044">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268439217" name="_buzzAlert1" parent="BleManager" startPc="268439148">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268439305" name="_stripPrefix" parent="BleManager" startPc="268439218">
+            <param id="name"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439313" name="getState" parent="BleManager" startPc="268439306">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439484" name="initialize" parent="BleManager" startPc="268439314">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268439576" name="_buzzAlert2" parent="BleManager" startPc="268439485">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439579" name="onStart" parent="myGarminAppApp" startPc="268439577">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439638" name="getInitialView" parent="myGarminAppApp" startPc="268439580">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439678" name="initialize" parent="myGarminAppApp" startPc="268439639">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439686" name="getBleManager" parent="myGarminAppApp" startPc="268439679">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439701" name="onStop" parent="myGarminAppApp" startPc="268439687">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439704" name="onMenuItem" parent="myGarminAppMenuDelegate" startPc="268439702">
+            <param id="item"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439719" name="initialize" parent="myGarminAppMenuDelegate" startPc="268439705">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439740" name="onShow" parent="myGarminAppView" startPc="268439720">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268439872" name="_bottomText" parent="myGarminAppView" startPc="268439741">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268440089" name="_drawMain" parent="myGarminAppView" startPc="268439873">
+            <param id="dc"/>
+            <param id="w"/>
+            <param id="cx"/>
+            <param id="cy"/>
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440092" name="onLayout" parent="myGarminAppView" startPc="268440090">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268440467" name="_drawCard" parent="myGarminAppView" startPc="268440093">
+            <param id="dc"/>
+            <param id="w"/>
+            <param id="cx"/>
+            <param id="cy"/>
+            <param id="primary"/>
+            <param id="secondary"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268440614" name="_syncTimer" parent="myGarminAppView" startPc="268440468">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268441253" name="_drawSubscribedCard" parent="myGarminAppView" startPc="268440615">
+            <param id="dc"/>
+            <param id="w"/>
+            <param id="cx"/>
+            <param id="cy"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268441285" name="_onTick" parent="myGarminAppView" startPc="268441254">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268441408" name="_accentColor" parent="myGarminAppView" startPc="268441286">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268441536" name="_drawSpinner" parent="myGarminAppView" startPc="268441409">
+            <param id="dc"/>
+            <param id="cx"/>
+            <param id="cy"/>
+            <param id="color"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268441630" name="initialize" parent="myGarminAppView" startPc="268441537">
+            <param id="ble"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268441653" name="onHide" parent="myGarminAppView" startPc="268441631">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268441942" name="onUpdate" parent="myGarminAppView" startPc="268441654">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268441955" name="MainLayout" parent="Layouts" startPc="268441943">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268441967" name="&lt;init&gt;" parent="MainMenu" startPc="268441956">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442020" name="initialize" parent="MainMenu" startPc="268441968">
+            <documentation/>
+        </functionEntry>
+    </functions>
+</debugInfo>

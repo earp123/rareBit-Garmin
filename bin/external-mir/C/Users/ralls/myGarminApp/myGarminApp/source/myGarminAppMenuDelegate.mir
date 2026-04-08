@@ -1,0 +1,31 @@
+[ @file = "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppMenuDelegate.mc"; @line = 1; @symbol_importdef<0> = [Toybox,1,7,13]; @symbol_importdef<1> = [Lang,1,14,18]; ]
+import Toybox.Lang;
+[ @file = "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppMenuDelegate.mc"; @line = 2; @symbol_importdef<0> = [Toybox,2,7,13]; @symbol_importdef<1> = [WatchUi,2,14,21]; ]
+import Toybox.WatchUi;
+[ @file = "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppMenuDelegate.mc"; @line = 6; @symbol_classdef = [myGarminAppMenuDelegate,6,6,29]; @symbol_extends<0> = [WatchUi,6,38,45]; @symbol_extends<1> = [MenuInputDelegate,6,46,63]; ]
+class myGarminAppMenuDelegate extends WatchUi.MenuInputDelegate {
+    [ @file = "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppMenuDelegate.mc"; @line = 6; ]
+    <init> {
+    }
+    [ @file = "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppMenuDelegate.mc"; @line = 6; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppMenuDelegate.mc"; @line = 8; @symbol_functiondef = [initialize,8,13,23]; ]
+    function initialize() as Void {
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppMenuDelegate_mc_8_26_10_4_start:
+[ "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppMenuDelegate.mc" 9 8 ]
+        symbol [ MenuInputDelegate %tmp.2 9 8 25 ];
+        %tmp.2 = getv ? :MenuInputDelegate;
+        symbol [ initialize %tmp.3 9 26 36 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+C__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppMenuDelegate_mc_8_26_10_4_stop:
+    }
+    [ @file = "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppMenuDelegate.mc"; @line = 12; @symbol_functiondef = [onMenuItem,12,13,23]; @symbol_param<0> = [item,12,24,28]; @symbol_param<0>_type<0> = [Symbol,12,32,38]; ]
+    function onMenuItem(item as Symbol) as Void {
+    }
+}
+[ @file = "C:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppMenuDelegate.mc"; @line = 1; ]
+<init> {
+}

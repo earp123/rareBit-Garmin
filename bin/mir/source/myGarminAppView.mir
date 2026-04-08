@@ -1,0 +1,2160 @@
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 17; @symbol_importdef<0> = [Toybox,17,7,13]; @symbol_importdef<1> = [Graphics,17,14,22]; ]
+import Toybox.Graphics;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 18; @symbol_importdef<0> = [Toybox,18,7,13]; @symbol_importdef<1> = [Lang,18,14,18]; ]
+import Toybox.Lang;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 19; @symbol_importdef<0> = [Toybox,19,7,13]; @symbol_importdef<1> = [System,19,14,20]; ]
+import Toybox.System;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 20; @symbol_importdef<0> = [Toybox,20,7,13]; @symbol_importdef<1> = [Timer,20,14,19]; ]
+import Toybox.Timer;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 21; @symbol_importdef<0> = [Toybox,21,7,13]; @symbol_importdef<1> = [WatchUi,21,14,21]; ]
+import Toybox.WatchUi;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 24; @position = 6; @symbol_constdef = [C_BG,24,6,10]; ]
+const C_BG;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 25; @position = 6; @symbol_constdef = [C_CARD_FILL,25,6,17]; ]
+const C_CARD_FILL = 0x111111;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 26; @position = 6; @symbol_constdef = [C_CARD_BORDER,26,6,19]; ]
+const C_CARD_BORDER;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 27; @position = 6; @symbol_constdef = [C_TEXT_PRI,27,6,16]; ]
+const C_TEXT_PRI;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 28; @position = 6; @symbol_constdef = [C_TEXT_SEC,28,6,16]; ]
+const C_TEXT_SEC = 0x888888;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 29; @position = 6; @symbol_constdef = [C_HINT,29,6,12]; ]
+const C_HINT = 0x444444;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 31; @position = 6; @symbol_constdef = [C_ACC_IDLE,31,6,16]; ]
+const C_ACC_IDLE = 0x555555;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 32; @position = 6; @symbol_constdef = [C_ACC_ACTIVE,32,6,18]; ]
+const C_ACC_ACTIVE = 0xFFAA00;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 33; @position = 6; @symbol_constdef = [C_ACC_FOUND,33,6,17]; ]
+const C_ACC_FOUND = 0xFFFFFF;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 34; @position = 6; @symbol_constdef = [C_ACC_LIVE,34,6,16]; ]
+const C_ACC_LIVE = 0x00CC66;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 35; @position = 6; @symbol_constdef = [C_ACC_ERROR,35,6,17]; ]
+const C_ACC_ERROR = 0xCC2200;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 38; @position = 6; @symbol_constdef = [CARD_PAD,38,6,14]; ]
+const CARD_PAD = 14;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 39; @position = 6; @symbol_constdef = [CARD_RADIUS,39,6,17]; ]
+const CARD_RADIUS = 10;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 40; @position = 6; @symbol_constdef = [CARD_W_PCT,40,6,16]; ]
+const CARD_W_PCT = 0.72;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 41; @position = 6; @symbol_constdef = [DOT_R,41,6,11]; ]
+const DOT_R = 5;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 42; @position = 6; @symbol_constdef = [SPINNER_PW,42,6,16]; ]
+const SPINNER_PW = 4;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 44; @symbol_classdef = [myGarminAppView,44,6,21]; @symbol_extends<0> = [WatchUi,44,30,37]; @symbol_extends<1> = [View,44,38,42]; ]
+class myGarminAppView extends WatchUi.View {
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 44; ]
+    <init> {
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 44; ]
+    static
+    <init> {
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 46; @position = 15; @symbol_vardef = [_ble,46,15,19]; @symbol_type<0> = [BleManager,46,32,42]; ]
+    protected
+    var _ble as BleManager;
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 47; @position = 15; @symbol_vardef = [_timer,47,15,21]; @symbol_type<0> = [Timer,47,32,37]; @symbol_type<1> = [Timer,47,38,43]; ]
+    protected
+    var _timer as Timer.Timer;
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 48; @position = 15; @symbol_vardef = [_timerRunning,48,15,28]; @symbol_type<0> = [Boolean,48,32,39]; ]
+    protected
+    var _timerRunning as Boolean = false;
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 49; @position = 15; @symbol_vardef = [_animFrame,49,15,25]; @symbol_type<0> = [Number,49,32,38]; ]
+    protected
+    var _animFrame as Number = 0;
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 50; @position = 15; @symbol_vardef = [_isRound,50,15,23]; @symbol_type<0> = [Boolean,50,32,39]; ]
+    protected
+    var _isRound as Boolean = false;
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 52; @symbol_functiondef = [initialize,52,13,23]; @symbol_param<0> = [ble,52,24,27]; @symbol_param<0>_type<0> = [BleManager,52,31,41]; ]
+    function initialize(ble as BleManager) as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_52_43_60_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 53 8 ]
+        symbol [ View %tmp.2 53 8 12 ];
+        %tmp.2 = getv ? :View;
+        symbol [ initialize %tmp.3 53 13 23 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 54 8 ]
+        %tmp.4 = lgetv %ble;
+        symbol [ ble %tmp.4 54 17 20 ];
+        symbol [ _ble ? 54 8 12 ];
+        putv self :_ble %tmp.4;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 55 8 ]
+        symbol [ Timer %tmp.7 55 21 26 ];
+        %tmp.7 = getm $.Toybox.Timer;
+        symbol [ Timer %tmp.8 55 27 32 ];
+        %tmp.8 = getv function ? %tmp.7 :Timer;
+        %tmp.5 = newc %tmp.8 ();
+        symbol [ _timer ? 55 8 14 ];
+        putv self :_timer %tmp.5;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 57 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_52_43_60_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_52_43_60_4_stop" ]
+        %shape.1 = local;
+        symbol [ shape %shape.1 57 12 17 ];
+        symbol [ System %tmp.9 57 20 26 ];
+        %tmp.9 = getm $.Toybox.System;
+        symbol [ getDeviceSettings %tmp.10 57 27 44 ];
+        %tmp.10 = getv function %tmp.9 :getDeviceSettings;
+        %tmp.11 = invoke %tmp.9 %tmp.10();
+        symbol [ screenShape %tmp.12 57 47 58 ];
+        %tmp.12 = getv %tmp.11 :screenShape;
+        lputv %shape.1 %tmp.12;
+        symbol [ shape %shape.1 57 12 17 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 58 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_58_20_59_36_begin:
+        %tmp.13 = lgetv %shape.1;
+        symbol [ shape %tmp.13 58 20 25 ];
+        symbol [ System %tmp.14 58 29 35 ];
+        %tmp.14 = getm $.Toybox.System;
+        symbol [ SCREEN_SHAPE_ROUND %tmp.15 58 36 54 ];
+        %tmp.15 = getv %tmp.14 :SCREEN_SHAPE_ROUND;
+        %tmp.16 = eq %tmp.13 %tmp.15;
+        %tmp.17 = dup %tmp.16;
+        bt %tmp.17 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_59_20_59_36_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_59_20_59_36_false:
+        %tmp.18 = lgetv %shape.1;
+        symbol [ shape %tmp.18 59 20 25 ];
+        symbol [ System %tmp.19 59 29 35 ];
+        %tmp.19 = getm $.Toybox.System;
+        symbol [ SCREEN_SHAPE_SEMI_ROUND %tmp.20 59 36 59 ];
+        %tmp.20 = getv %tmp.19 :SCREEN_SHAPE_SEMI_ROUND;
+        %tmp.21 = eq %tmp.18 %tmp.20;
+        %tmp.22 = or %tmp.16 %tmp.21;
+        push %tmp.22;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_59_20_59_36_end:
+        %tmp.23 = phi [%tmp.17 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_58_20_59_36_begin] [%tmp.22 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_59_20_59_36_false] [%tmp.23 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_59_20_59_36_end];
+        symbol [ _isRound ? 58 8 16 ];
+        putv self :_isRound %tmp.23;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_52_43_60_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 62; @symbol_functiondef = [onLayout,62,13,21]; @symbol_param<0> = [dc,62,22,24]; @symbol_param<0>_type<0> = [Graphics,62,28,36]; @symbol_param<0>_type<1> = [Dc,62,37,39]; ]
+    function onLayout(dc as Graphics.Dc) as Void {
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 64; @symbol_functiondef = [onShow,64,13,19]; ]
+    function onShow() as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_64_30_67_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 65 8 ]
+        %tmp.1 = self;
+        symbol [ _syncTimer %tmp.2 65 8 18 ];
+        %tmp.2 = getv function %tmp.1 :_syncTimer;
+        invoke %tmp.1 %tmp.2();
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 66 8 ]
+        symbol [ WatchUi %tmp.3 66 8 15 ];
+        %tmp.3 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.4 66 16 29 ];
+        %tmp.4 = getv function %tmp.3 :requestUpdate;
+        invoke %tmp.3 %tmp.4();
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_64_30_67_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 69; @symbol_functiondef = [onHide,69,13,19]; ]
+    function onHide() as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_69_30_72_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 70 8 ]
+        symbol [ _timer %tmp.2 70 8 14 ];
+        %tmp.2 = getv ? :_timer;
+        symbol [ stop %tmp.3 70 15 19 ];
+        %tmp.3 = getv function %tmp.2 :stop;
+        invoke %tmp.2 %tmp.3();
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 71 8 ]
+        %tmp.4 = false;
+        symbol [ _timerRunning ? 71 8 21 ];
+        putv self :_timerRunning %tmp.4;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_69_30_72_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 74; @symbol_functiondef = [onUpdate,74,13,21]; @symbol_param<0> = [dc,74,22,24]; @symbol_param<0>_type<0> = [Graphics,74,28,36]; @symbol_param<0>_type<1> = [Dc,74,37,39]; ]
+    function onUpdate(dc as Graphics.Dc) as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 75 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_stop" ]
+        %w.1 = local;
+        symbol [ w %w.1 75 12 13 ];
+        %tmp.1 = lgetv %dc;
+        symbol [ dc %tmp.1 75 17 19 ];
+        symbol [ getWidth %tmp.2 75 20 28 ];
+        %tmp.2 = getv function %tmp.1 :getWidth;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %w.1 %tmp.3;
+        symbol [ w %w.1 75 12 13 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 76 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_stop" ]
+        %h.2 = local;
+        symbol [ h %h.2 76 12 13 ];
+        %tmp.4 = lgetv %dc;
+        symbol [ dc %tmp.4 76 17 19 ];
+        symbol [ getHeight %tmp.5 76 20 29 ];
+        %tmp.5 = getv function %tmp.4 :getHeight;
+        %tmp.6 = invoke %tmp.4 %tmp.5();
+        lputv %h.2 %tmp.6;
+        symbol [ h %h.2 76 12 13 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 77 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_stop" ]
+        %cx.3 = local;
+        symbol [ cx %cx.3 77 12 14 ];
+        %tmp.7 = lgetv %w.1;
+        symbol [ w %tmp.7 77 17 18 ];
+        %tmp.8 = 2;
+        %tmp.9 = div %tmp.7 %tmp.8;
+        lputv %cx.3 %tmp.9;
+        symbol [ cx %cx.3 77 12 14 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 80 8 ]
+        %tmp.10 = lgetv %dc;
+        symbol [ dc %tmp.10 80 8 10 ];
+        symbol [ setColor %tmp.11 80 11 19 ];
+        %tmp.11 = getv function %tmp.10 :setColor;
+        symbol [ C_BG %tmp.13 80 20 24 ];
+        %tmp.13 = getv ? :C_BG;
+        symbol [ C_BG %tmp.15 80 26 30 ];
+        %tmp.15 = getv ? :C_BG;
+        invoke %tmp.10 %tmp.11(%tmp.13, %tmp.15);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 81 8 ]
+        %tmp.16 = lgetv %dc;
+        symbol [ dc %tmp.16 81 8 10 ];
+        symbol [ clear %tmp.17 81 11 16 ];
+        %tmp.17 = getv function %tmp.16 :clear;
+        invoke %tmp.16 %tmp.17();
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 83 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_stop" ]
+        %state.4 = local;
+        symbol [ state %state.4 83 12 17 ];
+        symbol [ _ble %tmp.19 83 20 24 ];
+        %tmp.19 = getv ? :_ble;
+        symbol [ getState %tmp.20 83 25 33 ];
+        %tmp.20 = getv function %tmp.19 :getState;
+        %tmp.21 = invoke %tmp.19 %tmp.20();
+        lputv %state.4 %tmp.21;
+        symbol [ state %state.4 83 12 17 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 88 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_stop" ]
+        %inset.5 = local;
+        symbol [ inset %inset.5 88 12 17 ];
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_88_21_88_56_begin:
+        symbol [ _isRound %tmp.23 88 21 29 ];
+        %tmp.23 = getv ? :_isRound;
+        bf %tmp.23 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_88_21_88_56_else_false;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_88_21_88_56_true:
+        %tmp.24 = lgetv %h.2;
+        symbol [ h %tmp.24 88 33 34 ];
+        %tmp.25 = 0.15;
+        %tmp.26 = mul %tmp.24 %tmp.25;
+        symbol [ toNumber %tmp.27 88 43 51 ];
+        %tmp.27 = getv function %tmp.26 :toNumber;
+        %tmp.28 = invoke %tmp.26 %tmp.27();
+        push %tmp.28;
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_88_21_88_56_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_88_21_88_56_else_false:
+        %tmp.29 = 8;
+        push %tmp.29;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_88_21_88_56_end:
+        %tmp.30 = phi [%tmp.23 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_88_21_88_56_begin] [%tmp.28 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_88_21_88_56_true] [%tmp.29 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_88_21_88_56_else_false] [%tmp.30 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_88_21_88_56_end];
+        lputv %inset.5 %tmp.30;
+        symbol [ inset %inset.5 88 12 17 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 89 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_stop" ]
+        %safeT.6 = local;
+        symbol [ safeT %safeT.6 89 12 17 ];
+        %tmp.31 = lgetv %inset.5;
+        symbol [ inset %tmp.31 89 21 26 ];
+        lputv %safeT.6 %tmp.31;
+        symbol [ safeT %safeT.6 89 12 17 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 90 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_stop" ]
+        %safeH.7 = local;
+        symbol [ safeH %safeH.7 90 12 17 ];
+        %tmp.32 = lgetv %h.2;
+        symbol [ h %tmp.32 90 21 22 ];
+        %tmp.33 = lgetv %inset.5;
+        symbol [ inset %tmp.33 90 25 30 ];
+        %tmp.34 = 2;
+        %tmp.35 = mul %tmp.33 %tmp.34;
+        %tmp.36 = sub %tmp.32 %tmp.35;
+        lputv %safeH.7 %tmp.36;
+        symbol [ safeH %safeH.7 90 12 17 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 93 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_stop" ]
+        %dotY.8 = local;
+        symbol [ dotY %dotY.8 93 12 16 ];
+        %tmp.37 = lgetv %safeT.6;
+        symbol [ safeT %tmp.37 93 20 25 ];
+        %tmp.38 = lgetv %safeH.7;
+        symbol [ safeH %tmp.38 93 29 34 ];
+        %tmp.39 = 0.14;
+        %tmp.40 = mul %tmp.38 %tmp.39;
+        symbol [ toNumber %tmp.41 93 43 51 ];
+        %tmp.41 = getv function %tmp.40 :toNumber;
+        %tmp.42 = invoke %tmp.40 %tmp.41();
+        %tmp.43 = add %tmp.37 %tmp.42;
+        lputv %dotY.8 %tmp.43;
+        symbol [ dotY %dotY.8 93 12 16 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 94 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_stop" ]
+        %mainY.9 = local;
+        symbol [ mainY %mainY.9 94 12 17 ];
+        %tmp.44 = lgetv %safeT.6;
+        symbol [ safeT %tmp.44 94 20 25 ];
+        %tmp.45 = lgetv %safeH.7;
+        symbol [ safeH %tmp.45 94 29 34 ];
+        %tmp.46 = 0.50;
+        %tmp.47 = mul %tmp.45 %tmp.46;
+        symbol [ toNumber %tmp.48 94 43 51 ];
+        %tmp.48 = getv function %tmp.47 :toNumber;
+        %tmp.49 = invoke %tmp.47 %tmp.48();
+        %tmp.50 = add %tmp.44 %tmp.49;
+        lputv %mainY.9 %tmp.50;
+        symbol [ mainY %mainY.9 94 12 17 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 95 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_stop" ]
+        %txtY.10 = local;
+        symbol [ txtY %txtY.10 95 12 16 ];
+        %tmp.51 = lgetv %safeT.6;
+        symbol [ safeT %tmp.51 95 20 25 ];
+        %tmp.52 = lgetv %safeH.7;
+        symbol [ safeH %tmp.52 95 29 34 ];
+        %tmp.53 = 0.88;
+        %tmp.54 = mul %tmp.52 %tmp.53;
+        symbol [ toNumber %tmp.55 95 43 51 ];
+        %tmp.55 = getv function %tmp.54 :toNumber;
+        %tmp.56 = invoke %tmp.54 %tmp.55();
+        %tmp.57 = add %tmp.51 %tmp.56;
+        lputv %txtY.10 %tmp.57;
+        symbol [ txtY %txtY.10 95 12 16 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 98 8 ]
+        %tmp.58 = lgetv %dc;
+        symbol [ dc %tmp.58 98 8 10 ];
+        symbol [ setColor %tmp.59 98 11 19 ];
+        %tmp.59 = getv function %tmp.58 :setColor;
+        %tmp.60 = self;
+        symbol [ _accentColor %tmp.61 98 20 32 ];
+        %tmp.61 = getv function %tmp.60 :_accentColor;
+        %tmp.62 = lgetv %state.4;
+        symbol [ state %tmp.62 98 33 38 ];
+        %tmp.63 = invoke %tmp.60 %tmp.61(%tmp.62);
+        symbol [ Graphics %tmp.64 98 41 49 ];
+        %tmp.64 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.65 98 50 67 ];
+        %tmp.65 = getv %tmp.64 :COLOR_TRANSPARENT;
+        invoke %tmp.58 %tmp.59(%tmp.63, %tmp.65);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 99 8 ]
+        %tmp.66 = lgetv %dc;
+        symbol [ dc %tmp.66 99 8 10 ];
+        symbol [ fillCircle %tmp.67 99 11 21 ];
+        %tmp.67 = getv function %tmp.66 :fillCircle;
+        %tmp.68 = lgetv %cx.3;
+        symbol [ cx %tmp.68 99 22 24 ];
+        %tmp.69 = lgetv %dotY.8;
+        symbol [ dotY %tmp.69 99 26 30 ];
+        symbol [ DOT_R %tmp.71 99 32 37 ];
+        %tmp.71 = getv ? :DOT_R;
+        invoke %tmp.66 %tmp.67(%tmp.68, %tmp.69, %tmp.71);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 102 8 ]
+        %tmp.72 = self;
+        symbol [ _drawMain %tmp.73 102 8 17 ];
+        %tmp.73 = getv function %tmp.72 :_drawMain;
+        %tmp.74 = lgetv %dc;
+        symbol [ dc %tmp.74 102 18 20 ];
+        %tmp.75 = lgetv %w.1;
+        symbol [ w %tmp.75 102 22 23 ];
+        %tmp.76 = lgetv %cx.3;
+        symbol [ cx %tmp.76 102 25 27 ];
+        %tmp.77 = lgetv %mainY.9;
+        symbol [ mainY %tmp.77 102 29 34 ];
+        %tmp.78 = lgetv %state.4;
+        symbol [ state %tmp.78 102 36 41 ];
+        invoke %tmp.72 %tmp.73(%tmp.74, %tmp.75, %tmp.76, %tmp.77, %tmp.78);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 105 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_stop" ]
+        %hint.11 = local;
+        symbol [ hint %hint.11 105 12 16 ];
+        %tmp.79 = self;
+        symbol [ _bottomText %tmp.80 105 19 30 ];
+        %tmp.80 = getv function %tmp.79 :_bottomText;
+        %tmp.81 = lgetv %state.4;
+        symbol [ state %tmp.81 105 31 36 ];
+        %tmp.82 = invoke %tmp.79 %tmp.80(%tmp.81);
+        lputv %hint.11 %tmp.82;
+        symbol [ hint %hint.11 105 12 16 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 106 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_106_8_110_8_if_stmt:
+        %tmp.83 = lgetv %hint.11;
+        symbol [ hint %tmp.83 106 12 16 ];
+        symbol [ length %tmp.84 106 17 23 ];
+        %tmp.84 = getv function %tmp.83 :length;
+        %tmp.85 = invoke %tmp.83 %tmp.84();
+        %tmp.86 = 0;
+        %tmp.87 = gt %tmp.85 %tmp.86;
+        bf %tmp.87 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_106_8_110_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_106_8_110_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_106_31_110_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 107 12 ]
+        %tmp.88 = lgetv %dc;
+        symbol [ dc %tmp.88 107 12 14 ];
+        symbol [ setColor %tmp.89 107 15 23 ];
+        %tmp.89 = getv function %tmp.88 :setColor;
+        symbol [ C_HINT %tmp.91 107 24 30 ];
+        %tmp.91 = getv ? :C_HINT;
+        symbol [ Graphics %tmp.92 107 32 40 ];
+        %tmp.92 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.93 107 41 58 ];
+        %tmp.93 = getv %tmp.92 :COLOR_TRANSPARENT;
+        invoke %tmp.88 %tmp.89(%tmp.91, %tmp.93);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 108 12 ]
+        %tmp.94 = lgetv %dc;
+        symbol [ dc %tmp.94 108 12 14 ];
+        symbol [ drawText %tmp.95 108 15 23 ];
+        %tmp.95 = getv function %tmp.94 :drawText;
+        %tmp.96 = lgetv %cx.3;
+        symbol [ cx %tmp.96 108 24 26 ];
+        %tmp.97 = lgetv %txtY.10;
+        symbol [ txtY %tmp.97 108 28 32 ];
+        symbol [ Graphics %tmp.98 108 34 42 ];
+        %tmp.98 = getm $.Toybox.Graphics;
+        symbol [ FONT_TINY %tmp.99 108 43 52 ];
+        %tmp.99 = getv %tmp.98 :FONT_TINY;
+        %tmp.100 = lgetv %hint.11;
+        symbol [ hint %tmp.100 108 54 58 ];
+        symbol [ Graphics %tmp.101 109 16 24 ];
+        %tmp.101 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.102 109 25 44 ];
+        %tmp.102 = getv %tmp.101 :TEXT_JUSTIFY_CENTER;
+        symbol [ Graphics %tmp.103 109 47 55 ];
+        %tmp.103 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_VCENTER %tmp.104 109 56 76 ];
+        %tmp.104 = getv %tmp.103 :TEXT_JUSTIFY_VCENTER;
+        %tmp.105 = bitor %tmp.102 %tmp.104;
+        invoke %tmp.94 %tmp.95(%tmp.96, %tmp.97, %tmp.99, %tmp.100, %tmp.105);
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_106_31_110_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_106_8_110_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_106_8_110_8_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 112 8 ]
+        %tmp.106 = self;
+        symbol [ _syncTimer %tmp.107 112 8 18 ];
+        %tmp.107 = getv function %tmp.106 :_syncTimer;
+        invoke %tmp.106 %tmp.107();
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_74_49_113_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 118; @symbol_functiondef = [_drawMain,118,20,29]; @symbol_param<0> = [dc,119,8,10]; @symbol_param<0>_type<0> = [Graphics,119,17,25]; @symbol_param<0>_type<1> = [Dc,119,26,28]; @symbol_param<1> = [w,120,8,9]; @symbol_param<1>_type<0> = [Number,120,17,23]; @symbol_param<2> = [cx,121,8,10]; @symbol_param<2>_type<0> = [Number,121,17,23]; @symbol_param<3> = [cy,122,8,10]; @symbol_param<3>_type<0> = [Number,122,17,23]; @symbol_param<4> = [state,123,8,13]; @symbol_param<4>_type<0> = [Number,123,17,23]; ]
+    protected
+    function _drawMain(dc as Graphics.Dc, w as Number, cx as Number, cy as Number, state as Number) as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_124_4_154_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 125 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_125_8_131_8_if_stmt:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_125_12_127_21_begin:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_125_12_126_21_begin:
+        %tmp.1 = lgetv %state;
+        symbol [ state %tmp.1 125 12 17 ];
+        symbol [ BLE_SCANNING %tmp.3 125 21 33 ];
+        %tmp.3 = getv ? :BLE_SCANNING;
+        %tmp.4 = eq %tmp.1 %tmp.3;
+        bt %tmp.4 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_125_8_131_8_if_true;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_126_12_126_21_false:
+        %tmp.5 = lgetv %state;
+        symbol [ state %tmp.5 126 12 17 ];
+        symbol [ BLE_CONNECTING %tmp.7 126 21 35 ];
+        %tmp.7 = getv ? :BLE_CONNECTING;
+        %tmp.8 = eq %tmp.5 %tmp.7;
+        push %tmp.8;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_126_12_126_21_end:
+        %tmp.9 = phi [%tmp.4 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_125_12_126_21_begin] [%tmp.8 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_126_12_126_21_false] [%tmp.9 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_126_12_126_21_end];
+        bt %tmp.9 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_125_8_131_8_if_true;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_127_12_127_21_false:
+        %tmp.10 = lgetv %state;
+        symbol [ state %tmp.10 127 12 17 ];
+        symbol [ BLE_CONNECTED %tmp.12 127 21 34 ];
+        %tmp.12 = getv ? :BLE_CONNECTED;
+        %tmp.13 = eq %tmp.10 %tmp.12;
+        push %tmp.13;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_127_12_127_21_end:
+        %tmp.14 = phi [%tmp.9 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_125_12_127_21_begin] [%tmp.13 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_127_12_127_21_false] [%tmp.14 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_127_12_127_21_end];
+        bf %tmp.14 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_125_8_131_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_125_8_131_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_127_36_131_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 129 12 ]
+        %tmp.15 = self;
+        symbol [ _drawSpinner %tmp.16 129 12 24 ];
+        %tmp.16 = getv function %tmp.15 :_drawSpinner;
+        %tmp.17 = lgetv %dc;
+        symbol [ dc %tmp.17 129 25 27 ];
+        %tmp.18 = lgetv %cx;
+        symbol [ cx %tmp.18 129 29 31 ];
+        %tmp.19 = lgetv %cy;
+        symbol [ cy %tmp.19 129 33 35 ];
+        %tmp.20 = self;
+        symbol [ _accentColor %tmp.21 129 37 49 ];
+        %tmp.21 = getv function %tmp.20 :_accentColor;
+        %tmp.22 = lgetv %state;
+        symbol [ state %tmp.22 129 50 55 ];
+        %tmp.23 = invoke %tmp.20 %tmp.21(%tmp.22);
+        invoke %tmp.15 %tmp.16(%tmp.17, %tmp.18, %tmp.19, %tmp.23);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 130 12 ]
+        ret ?;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_127_36_131_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_125_8_131_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_125_8_131_8_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 133 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_133_8_136_8_if_stmt:
+        %tmp.24 = lgetv %state;
+        symbol [ state %tmp.24 133 12 17 ];
+        symbol [ BLE_IDLE %tmp.26 133 21 29 ];
+        %tmp.26 = getv ? :BLE_IDLE;
+        %tmp.27 = eq %tmp.24 %tmp.26;
+        bf %tmp.27 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_133_8_136_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_133_8_136_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_133_31_136_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 134 12 ]
+        %tmp.28 = self;
+        symbol [ _drawCard %tmp.29 134 12 21 ];
+        %tmp.29 = getv function %tmp.28 :_drawCard;
+        %tmp.30 = lgetv %dc;
+        symbol [ dc %tmp.30 134 22 24 ];
+        %tmp.31 = lgetv %w;
+        symbol [ w %tmp.31 134 26 27 ];
+        %tmp.32 = lgetv %cx;
+        symbol [ cx %tmp.32 134 29 31 ];
+        %tmp.33 = lgetv %cy;
+        symbol [ cy %tmp.33 134 33 35 ];
+        %tmp.34 = "SCAN";
+        %tmp.35 = null;
+        invoke %tmp.28 %tmp.29(%tmp.30, %tmp.31, %tmp.32, %tmp.33, %tmp.34, %tmp.35);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 135 12 ]
+        ret ?;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_133_31_136_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_133_8_136_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_133_8_136_8_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 138 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_138_8_143_8_if_stmt:
+        %tmp.36 = lgetv %state;
+        symbol [ state %tmp.36 138 12 17 ];
+        symbol [ BLE_FOUND %tmp.38 138 21 30 ];
+        %tmp.38 = getv ? :BLE_FOUND;
+        %tmp.39 = eq %tmp.36 %tmp.38;
+        bf %tmp.39 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_138_8_143_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_138_8_143_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_138_32_143_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 139 12 ]
+        %tmp.40 = self;
+        symbol [ _drawCard %tmp.41 139 12 21 ];
+        %tmp.41 = getv function %tmp.40 :_drawCard;
+        %tmp.42 = lgetv %dc;
+        symbol [ dc %tmp.42 139 22 24 ];
+        %tmp.43 = lgetv %w;
+        symbol [ w %tmp.43 139 26 27 ];
+        %tmp.44 = lgetv %cx;
+        symbol [ cx %tmp.44 139 29 31 ];
+        %tmp.45 = lgetv %cy;
+        symbol [ cy %tmp.45 139 33 35 ];
+        symbol [ _ble %tmp.47 140 16 20 ];
+        %tmp.47 = getv ? :_ble;
+        symbol [ getDeviceName %tmp.48 140 21 34 ];
+        %tmp.48 = getv function %tmp.47 :getDeviceName;
+        %tmp.49 = invoke %tmp.47 %tmp.48();
+        symbol [ _ble %tmp.51 141 16 20 ];
+        %tmp.51 = getv ? :_ble;
+        symbol [ getRssi %tmp.52 141 21 28 ];
+        %tmp.52 = getv function %tmp.51 :getRssi;
+        %tmp.53 = invoke %tmp.51 %tmp.52();
+        symbol [ toString %tmp.54 141 31 39 ];
+        %tmp.54 = getv function %tmp.53 :toString;
+        %tmp.55 = invoke %tmp.53 %tmp.54();
+        %tmp.56 = " dBm";
+        %tmp.57 = add %tmp.55 %tmp.56;
+        invoke %tmp.40 %tmp.41(%tmp.42, %tmp.43, %tmp.44, %tmp.45, %tmp.49, %tmp.57);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 142 12 ]
+        ret ?;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_138_32_143_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_138_8_143_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_138_8_143_8_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 145 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_145_8_148_8_if_stmt:
+        %tmp.58 = lgetv %state;
+        symbol [ state %tmp.58 145 12 17 ];
+        symbol [ BLE_SUBSCRIBED %tmp.60 145 21 35 ];
+        %tmp.60 = getv ? :BLE_SUBSCRIBED;
+        %tmp.61 = eq %tmp.58 %tmp.60;
+        bf %tmp.61 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_145_8_148_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_145_8_148_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_145_37_148_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 146 12 ]
+        %tmp.62 = self;
+        symbol [ _drawSubscribedCard %tmp.63 146 12 31 ];
+        %tmp.63 = getv function %tmp.62 :_drawSubscribedCard;
+        %tmp.64 = lgetv %dc;
+        symbol [ dc %tmp.64 146 32 34 ];
+        %tmp.65 = lgetv %w;
+        symbol [ w %tmp.65 146 36 37 ];
+        %tmp.66 = lgetv %cx;
+        symbol [ cx %tmp.66 146 39 41 ];
+        %tmp.67 = lgetv %cy;
+        symbol [ cy %tmp.67 146 43 45 ];
+        invoke %tmp.62 %tmp.63(%tmp.64, %tmp.65, %tmp.66, %tmp.67);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 147 12 ]
+        ret ?;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_145_37_148_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_145_8_148_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_145_8_148_8_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 150 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_150_8_153_8_if_stmt:
+        %tmp.68 = lgetv %state;
+        symbol [ state %tmp.68 150 12 17 ];
+        symbol [ BLE_ERROR %tmp.70 150 21 30 ];
+        %tmp.70 = getv ? :BLE_ERROR;
+        %tmp.71 = eq %tmp.68 %tmp.70;
+        bf %tmp.71 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_150_8_153_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_150_8_153_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_150_32_153_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 151 12 ]
+        %tmp.72 = self;
+        symbol [ _drawCard %tmp.73 151 12 21 ];
+        %tmp.73 = getv function %tmp.72 :_drawCard;
+        %tmp.74 = lgetv %dc;
+        symbol [ dc %tmp.74 151 22 24 ];
+        %tmp.75 = lgetv %w;
+        symbol [ w %tmp.75 151 26 27 ];
+        %tmp.76 = lgetv %cx;
+        symbol [ cx %tmp.76 151 29 31 ];
+        %tmp.77 = lgetv %cy;
+        symbol [ cy %tmp.77 151 33 35 ];
+        %tmp.78 = "ERR";
+        %tmp.79 = null;
+        invoke %tmp.72 %tmp.73(%tmp.74, %tmp.75, %tmp.76, %tmp.77, %tmp.78, %tmp.79);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 152 12 ]
+        ret ?;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_150_32_153_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_150_8_153_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_150_8_153_8_if_end:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_124_4_154_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 161; @symbol_functiondef = [_drawCard,161,20,29]; @symbol_param<0> = [dc,162,8,10]; @symbol_param<0>_type<0> = [Graphics,162,21,29]; @symbol_param<0>_type<1> = [Dc,162,30,32]; @symbol_param<1> = [w,163,8,9]; @symbol_param<1>_type<0> = [Number,163,21,27]; @symbol_param<2> = [cx,164,8,10]; @symbol_param<2>_type<0> = [Number,164,21,27]; @symbol_param<3> = [cy,165,8,10]; @symbol_param<3>_type<0> = [Number,165,21,27]; @symbol_param<4> = [primary,166,8,15]; @symbol_param<4>_type<0> = [String,166,21,27]; @symbol_param<5> = [secondary,167,8,17]; @symbol_param<5>_type<0> = [String,167,21,27]; ]
+    protected
+    function _drawCard(dc as Graphics.Dc, w as Number, cx as Number, cy as Number, primary as String, secondary as String or Null) as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_168_4_209_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 169 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_168_4_209_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_168_4_209_4_stop" ]
+        %fhMed.1 = local;
+        symbol [ fhMed %fhMed.1 169 12 17 ];
+        %tmp.1 = lgetv %dc;
+        symbol [ dc %tmp.1 169 21 23 ];
+        symbol [ getFontHeight %tmp.2 169 24 37 ];
+        %tmp.2 = getv function %tmp.1 :getFontHeight;
+        symbol [ Graphics %tmp.3 169 38 46 ];
+        %tmp.3 = getm $.Toybox.Graphics;
+        symbol [ FONT_MEDIUM %tmp.4 169 47 58 ];
+        %tmp.4 = getv %tmp.3 :FONT_MEDIUM;
+        %tmp.5 = invoke %tmp.1 %tmp.2(%tmp.4);
+        lputv %fhMed.1 %tmp.5;
+        symbol [ fhMed %fhMed.1 169 12 17 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 170 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_168_4_209_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_168_4_209_4_stop" ]
+        %fhTiny.2 = local;
+        symbol [ fhTiny %fhTiny.2 170 12 18 ];
+        %tmp.6 = lgetv %dc;
+        symbol [ dc %tmp.6 170 21 23 ];
+        symbol [ getFontHeight %tmp.7 170 24 37 ];
+        %tmp.7 = getv function %tmp.6 :getFontHeight;
+        symbol [ Graphics %tmp.8 170 38 46 ];
+        %tmp.8 = getm $.Toybox.Graphics;
+        symbol [ FONT_TINY %tmp.9 170 47 56 ];
+        %tmp.9 = getv %tmp.8 :FONT_TINY;
+        %tmp.10 = invoke %tmp.6 %tmp.7(%tmp.9);
+        lputv %fhTiny.2 %tmp.10;
+        symbol [ fhTiny %fhTiny.2 170 12 18 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 171 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_168_4_209_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_168_4_209_4_stop" ]
+        %hasSec.3 = local;
+        symbol [ hasSec %hasSec.3 171 12 18 ];
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_171_22_171_64_begin:
+        %tmp.11 = lgetv %secondary;
+        symbol [ secondary %tmp.11 171 22 31 ];
+        %tmp.12 = null;
+        %tmp.13 = ne %tmp.11 %tmp.12;
+        %tmp.14 = dup %tmp.13;
+        bf %tmp.14 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_171_43_171_64_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_171_43_171_64_true:
+        %tmp.15 = lgetv %secondary;
+        symbol [ secondary %tmp.15 171 43 52 ];
+        %tmp.16 = as %tmp.15 { (!Null) };
+        symbol [ length %tmp.17 171 53 59 ];
+        %tmp.17 = getv function %tmp.16 :length;
+        %tmp.18 = invoke %tmp.16 %tmp.17();
+        %tmp.19 = 0;
+        %tmp.20 = gt %tmp.18 %tmp.19;
+        %tmp.21 = and %tmp.13 %tmp.20;
+        push %tmp.21;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_171_43_171_64_end:
+        %tmp.22 = phi [%tmp.14 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_171_22_171_64_begin] [%tmp.21 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_171_43_171_64_true] [%tmp.22 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_171_43_171_64_end];
+        lputv %hasSec.3 %tmp.22;
+        symbol [ hasSec %hasSec.3 171 12 18 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 173 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_168_4_209_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_168_4_209_4_stop" ]
+        %cardW.4 = local;
+        symbol [ cardW %cardW.4 173 12 17 ];
+        %tmp.23 = lgetv %w;
+        symbol [ w %tmp.23 173 21 22 ];
+        symbol [ CARD_W_PCT %tmp.25 173 25 35 ];
+        %tmp.25 = getv ? :CARD_W_PCT;
+        %tmp.26 = mul %tmp.23 %tmp.25;
+        symbol [ toNumber %tmp.27 173 37 45 ];
+        %tmp.27 = getv function %tmp.26 :toNumber;
+        %tmp.28 = invoke %tmp.26 %tmp.27();
+        lputv %cardW.4 %tmp.28;
+        symbol [ cardW %cardW.4 173 12 17 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 174 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_168_4_209_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_168_4_209_4_stop" ]
+        %cardH.5 = local;
+        symbol [ cardH %cardH.5 174 12 17 ];
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_174_20_176_33_begin:
+        %tmp.29 = lgetv %hasSec.3;
+        symbol [ hasSec %tmp.29 174 20 26 ];
+        bf %tmp.29 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_174_20_176_33_else_false;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_174_20_176_33_true:
+        %tmp.30 = lgetv %fhMed.1;
+        symbol [ fhMed %tmp.30 175 14 19 ];
+        %tmp.31 = lgetv %fhTiny.2;
+        symbol [ fhTiny %tmp.31 175 22 28 ];
+        %tmp.32 = add %tmp.30 %tmp.31;
+        symbol [ CARD_PAD %tmp.34 175 31 39 ];
+        %tmp.34 = getv ? :CARD_PAD;
+        %tmp.35 = 2;
+        %tmp.36 = mul %tmp.34 %tmp.35;
+        %tmp.37 = add %tmp.32 %tmp.36;
+        %tmp.38 = 8;
+        %tmp.39 = add %tmp.37 %tmp.38;
+        push %tmp.39;
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_174_20_176_33_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_174_20_176_33_else_false:
+        %tmp.40 = lgetv %fhMed.1;
+        symbol [ fhMed %tmp.40 176 14 19 ];
+        symbol [ CARD_PAD %tmp.42 176 22 30 ];
+        %tmp.42 = getv ? :CARD_PAD;
+        %tmp.43 = 2;
+        %tmp.44 = mul %tmp.42 %tmp.43;
+        %tmp.45 = add %tmp.40 %tmp.44;
+        push %tmp.45;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_174_20_176_33_end:
+        %tmp.46 = phi [%tmp.29 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_174_20_176_33_begin] [%tmp.39 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_174_20_176_33_true] [%tmp.45 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_174_20_176_33_else_false] [%tmp.46 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_174_20_176_33_end];
+        lputv %cardH.5 %tmp.46;
+        symbol [ cardH %cardH.5 174 12 17 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 177 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_168_4_209_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_168_4_209_4_stop" ]
+        %cardX.6 = local;
+        symbol [ cardX %cardX.6 177 12 17 ];
+        %tmp.47 = lgetv %cx;
+        symbol [ cx %tmp.47 177 20 22 ];
+        %tmp.48 = lgetv %cardW.4;
+        symbol [ cardW %tmp.48 177 25 30 ];
+        %tmp.49 = 2;
+        %tmp.50 = div %tmp.48 %tmp.49;
+        %tmp.51 = sub %tmp.47 %tmp.50;
+        lputv %cardX.6 %tmp.51;
+        symbol [ cardX %cardX.6 177 12 17 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 178 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_168_4_209_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_168_4_209_4_stop" ]
+        %cardY.7 = local;
+        symbol [ cardY %cardY.7 178 12 17 ];
+        %tmp.52 = lgetv %cy;
+        symbol [ cy %tmp.52 178 20 22 ];
+        %tmp.53 = lgetv %cardH.5;
+        symbol [ cardH %tmp.53 178 25 30 ];
+        %tmp.54 = 2;
+        %tmp.55 = div %tmp.53 %tmp.54;
+        %tmp.56 = sub %tmp.52 %tmp.55;
+        lputv %cardY.7 %tmp.56;
+        symbol [ cardY %cardY.7 178 12 17 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 181 8 ]
+        %tmp.57 = lgetv %dc;
+        symbol [ dc %tmp.57 181 8 10 ];
+        symbol [ setColor %tmp.58 181 11 19 ];
+        %tmp.58 = getv function %tmp.57 :setColor;
+        symbol [ C_CARD_FILL %tmp.60 181 20 31 ];
+        %tmp.60 = getv ? :C_CARD_FILL;
+        symbol [ Graphics %tmp.61 181 33 41 ];
+        %tmp.61 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.62 181 42 59 ];
+        %tmp.62 = getv %tmp.61 :COLOR_TRANSPARENT;
+        invoke %tmp.57 %tmp.58(%tmp.60, %tmp.62);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 182 8 ]
+        %tmp.63 = lgetv %dc;
+        symbol [ dc %tmp.63 182 8 10 ];
+        symbol [ fillRoundedRectangle %tmp.64 182 11 31 ];
+        %tmp.64 = getv function %tmp.63 :fillRoundedRectangle;
+        %tmp.65 = lgetv %cardX.6;
+        symbol [ cardX %tmp.65 182 32 37 ];
+        %tmp.66 = lgetv %cardY.7;
+        symbol [ cardY %tmp.66 182 39 44 ];
+        %tmp.67 = lgetv %cardW.4;
+        symbol [ cardW %tmp.67 182 46 51 ];
+        %tmp.68 = lgetv %cardH.5;
+        symbol [ cardH %tmp.68 182 53 58 ];
+        symbol [ CARD_RADIUS %tmp.70 182 60 71 ];
+        %tmp.70 = getv ? :CARD_RADIUS;
+        invoke %tmp.63 %tmp.64(%tmp.65, %tmp.66, %tmp.67, %tmp.68, %tmp.70);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 184 8 ]
+        %tmp.71 = lgetv %dc;
+        symbol [ dc %tmp.71 184 8 10 ];
+        symbol [ setPenWidth %tmp.72 184 11 22 ];
+        %tmp.72 = getv function %tmp.71 :setPenWidth;
+        %tmp.73 = 2;
+        invoke %tmp.71 %tmp.72(%tmp.73);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 185 8 ]
+        %tmp.74 = lgetv %dc;
+        symbol [ dc %tmp.74 185 8 10 ];
+        symbol [ setColor %tmp.75 185 11 19 ];
+        %tmp.75 = getv function %tmp.74 :setColor;
+        symbol [ C_CARD_BORDER %tmp.77 185 20 33 ];
+        %tmp.77 = getv ? :C_CARD_BORDER;
+        symbol [ Graphics %tmp.78 185 35 43 ];
+        %tmp.78 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.79 185 44 61 ];
+        %tmp.79 = getv %tmp.78 :COLOR_TRANSPARENT;
+        invoke %tmp.74 %tmp.75(%tmp.77, %tmp.79);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 186 8 ]
+        %tmp.80 = lgetv %dc;
+        symbol [ dc %tmp.80 186 8 10 ];
+        symbol [ drawRoundedRectangle %tmp.81 186 11 31 ];
+        %tmp.81 = getv function %tmp.80 :drawRoundedRectangle;
+        %tmp.82 = lgetv %cardX.6;
+        symbol [ cardX %tmp.82 186 32 37 ];
+        %tmp.83 = lgetv %cardY.7;
+        symbol [ cardY %tmp.83 186 39 44 ];
+        %tmp.84 = lgetv %cardW.4;
+        symbol [ cardW %tmp.84 186 46 51 ];
+        %tmp.85 = lgetv %cardH.5;
+        symbol [ cardH %tmp.85 186 53 58 ];
+        symbol [ CARD_RADIUS %tmp.87 186 60 71 ];
+        %tmp.87 = getv ? :CARD_RADIUS;
+        invoke %tmp.80 %tmp.81(%tmp.82, %tmp.83, %tmp.84, %tmp.85, %tmp.87);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 187 8 ]
+        %tmp.88 = lgetv %dc;
+        symbol [ dc %tmp.88 187 8 10 ];
+        symbol [ setPenWidth %tmp.89 187 11 22 ];
+        %tmp.89 = getv function %tmp.88 :setPenWidth;
+        %tmp.90 = 1;
+        invoke %tmp.88 %tmp.89(%tmp.90);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 189 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_189_8_208_8_if_stmt:
+        %tmp.91 = lgetv %hasSec.3;
+        symbol [ hasSec %tmp.91 189 12 18 ];
+        bf %tmp.91 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_189_8_208_8_if_else_false;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_189_8_208_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_189_20_204_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 192 12 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_189_20_204_8_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_189_20_204_8_stop" ]
+        %gap.8 = local;
+        symbol [ gap %gap.8 192 16 19 ];
+        %tmp.92 = 8;
+        lputv %gap.8 %tmp.92;
+        symbol [ gap %gap.8 192 16 19 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 193 12 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_189_20_204_8_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_189_20_204_8_stop" ]
+        %blockH.9 = local;
+        symbol [ blockH %blockH.9 193 16 22 ];
+        %tmp.93 = lgetv %fhMed.1;
+        symbol [ fhMed %tmp.93 193 27 32 ];
+        %tmp.94 = lgetv %gap.8;
+        symbol [ gap %tmp.94 193 35 38 ];
+        %tmp.95 = add %tmp.93 %tmp.94;
+        %tmp.96 = lgetv %fhTiny.2;
+        symbol [ fhTiny %tmp.96 193 41 47 ];
+        %tmp.97 = add %tmp.95 %tmp.96;
+        lputv %blockH.9 %tmp.97;
+        symbol [ blockH %blockH.9 193 16 22 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 194 12 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_189_20_204_8_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_189_20_204_8_stop" ]
+        %priY.10 = local;
+        symbol [ priY %priY.10 194 16 20 ];
+        %tmp.98 = lgetv %cy;
+        symbol [ cy %tmp.98 194 27 29 ];
+        %tmp.99 = lgetv %blockH.9;
+        symbol [ blockH %tmp.99 194 32 38 ];
+        %tmp.100 = 2;
+        %tmp.101 = div %tmp.99 %tmp.100;
+        %tmp.102 = sub %tmp.98 %tmp.101;
+        %tmp.103 = lgetv %fhMed.1;
+        symbol [ fhMed %tmp.103 194 45 50 ];
+        %tmp.104 = 2;
+        %tmp.105 = div %tmp.103 %tmp.104;
+        %tmp.106 = add %tmp.102 %tmp.105;
+        lputv %priY.10 %tmp.106;
+        symbol [ priY %priY.10 194 16 20 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 195 12 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_189_20_204_8_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_189_20_204_8_stop" ]
+        %secY.11 = local;
+        symbol [ secY %secY.11 195 16 20 ];
+        %tmp.107 = lgetv %cy;
+        symbol [ cy %tmp.107 195 27 29 ];
+        %tmp.108 = lgetv %blockH.9;
+        symbol [ blockH %tmp.108 195 32 38 ];
+        %tmp.109 = 2;
+        %tmp.110 = div %tmp.108 %tmp.109;
+        %tmp.111 = add %tmp.107 %tmp.110;
+        %tmp.112 = lgetv %fhTiny.2;
+        symbol [ fhTiny %tmp.112 195 45 51 ];
+        %tmp.113 = 2;
+        %tmp.114 = div %tmp.112 %tmp.113;
+        %tmp.115 = sub %tmp.111 %tmp.114;
+        lputv %secY.11 %tmp.115;
+        symbol [ secY %secY.11 195 16 20 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 197 12 ]
+        %tmp.116 = lgetv %dc;
+        symbol [ dc %tmp.116 197 12 14 ];
+        symbol [ setColor %tmp.117 197 15 23 ];
+        %tmp.117 = getv function %tmp.116 :setColor;
+        symbol [ C_TEXT_PRI %tmp.119 197 24 34 ];
+        %tmp.119 = getv ? :C_TEXT_PRI;
+        symbol [ Graphics %tmp.120 197 36 44 ];
+        %tmp.120 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.121 197 45 62 ];
+        %tmp.121 = getv %tmp.120 :COLOR_TRANSPARENT;
+        invoke %tmp.116 %tmp.117(%tmp.119, %tmp.121);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 198 12 ]
+        %tmp.122 = lgetv %dc;
+        symbol [ dc %tmp.122 198 12 14 ];
+        symbol [ drawText %tmp.123 198 15 23 ];
+        %tmp.123 = getv function %tmp.122 :drawText;
+        %tmp.124 = lgetv %cx;
+        symbol [ cx %tmp.124 198 24 26 ];
+        %tmp.125 = lgetv %priY.10;
+        symbol [ priY %tmp.125 198 28 32 ];
+        symbol [ Graphics %tmp.126 198 34 42 ];
+        %tmp.126 = getm $.Toybox.Graphics;
+        symbol [ FONT_MEDIUM %tmp.127 198 43 54 ];
+        %tmp.127 = getv %tmp.126 :FONT_MEDIUM;
+        %tmp.128 = lgetv %primary;
+        symbol [ primary %tmp.128 198 56 63 ];
+        symbol [ Graphics %tmp.129 199 16 24 ];
+        %tmp.129 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.130 199 25 44 ];
+        %tmp.130 = getv %tmp.129 :TEXT_JUSTIFY_CENTER;
+        symbol [ Graphics %tmp.131 199 47 55 ];
+        %tmp.131 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_VCENTER %tmp.132 199 56 76 ];
+        %tmp.132 = getv %tmp.131 :TEXT_JUSTIFY_VCENTER;
+        %tmp.133 = bitor %tmp.130 %tmp.132;
+        invoke %tmp.122 %tmp.123(%tmp.124, %tmp.125, %tmp.127, %tmp.128, %tmp.133);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 201 12 ]
+        %tmp.134 = lgetv %dc;
+        symbol [ dc %tmp.134 201 12 14 ];
+        symbol [ setColor %tmp.135 201 15 23 ];
+        %tmp.135 = getv function %tmp.134 :setColor;
+        symbol [ C_TEXT_SEC %tmp.137 201 24 34 ];
+        %tmp.137 = getv ? :C_TEXT_SEC;
+        symbol [ Graphics %tmp.138 201 36 44 ];
+        %tmp.138 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.139 201 45 62 ];
+        %tmp.139 = getv %tmp.138 :COLOR_TRANSPARENT;
+        invoke %tmp.134 %tmp.135(%tmp.137, %tmp.139);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 202 12 ]
+        %tmp.140 = lgetv %dc;
+        symbol [ dc %tmp.140 202 12 14 ];
+        symbol [ drawText %tmp.141 202 15 23 ];
+        %tmp.141 = getv function %tmp.140 :drawText;
+        %tmp.142 = lgetv %cx;
+        symbol [ cx %tmp.142 202 24 26 ];
+        %tmp.143 = lgetv %secY.11;
+        symbol [ secY %tmp.143 202 28 32 ];
+        symbol [ Graphics %tmp.144 202 34 42 ];
+        %tmp.144 = getm $.Toybox.Graphics;
+        symbol [ FONT_TINY %tmp.145 202 43 52 ];
+        %tmp.145 = getv %tmp.144 :FONT_TINY;
+        %tmp.146 = lgetv %secondary;
+        symbol [ secondary %tmp.146 202 54 63 ];
+        symbol [ Graphics %tmp.147 203 16 24 ];
+        %tmp.147 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.148 203 25 44 ];
+        %tmp.148 = getv %tmp.147 :TEXT_JUSTIFY_CENTER;
+        symbol [ Graphics %tmp.149 203 47 55 ];
+        %tmp.149 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_VCENTER %tmp.150 203 56 76 ];
+        %tmp.150 = getv %tmp.149 :TEXT_JUSTIFY_VCENTER;
+        %tmp.151 = bitor %tmp.148 %tmp.150;
+        invoke %tmp.140 %tmp.141(%tmp.142, %tmp.143, %tmp.145, %tmp.146, %tmp.151);
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_189_20_204_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_189_8_208_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_189_8_208_8_if_else_false:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_204_15_208_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 205 12 ]
+        %tmp.152 = lgetv %dc;
+        symbol [ dc %tmp.152 205 12 14 ];
+        symbol [ setColor %tmp.153 205 15 23 ];
+        %tmp.153 = getv function %tmp.152 :setColor;
+        symbol [ C_TEXT_PRI %tmp.155 205 24 34 ];
+        %tmp.155 = getv ? :C_TEXT_PRI;
+        symbol [ Graphics %tmp.156 205 36 44 ];
+        %tmp.156 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.157 205 45 62 ];
+        %tmp.157 = getv %tmp.156 :COLOR_TRANSPARENT;
+        invoke %tmp.152 %tmp.153(%tmp.155, %tmp.157);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 206 12 ]
+        %tmp.158 = lgetv %dc;
+        symbol [ dc %tmp.158 206 12 14 ];
+        symbol [ drawText %tmp.159 206 15 23 ];
+        %tmp.159 = getv function %tmp.158 :drawText;
+        %tmp.160 = lgetv %cx;
+        symbol [ cx %tmp.160 206 24 26 ];
+        %tmp.161 = lgetv %cy;
+        symbol [ cy %tmp.161 206 28 30 ];
+        symbol [ Graphics %tmp.162 206 32 40 ];
+        %tmp.162 = getm $.Toybox.Graphics;
+        symbol [ FONT_MEDIUM %tmp.163 206 41 52 ];
+        %tmp.163 = getv %tmp.162 :FONT_MEDIUM;
+        %tmp.164 = lgetv %primary;
+        symbol [ primary %tmp.164 206 54 61 ];
+        symbol [ Graphics %tmp.165 207 16 24 ];
+        %tmp.165 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.166 207 25 44 ];
+        %tmp.166 = getv %tmp.165 :TEXT_JUSTIFY_CENTER;
+        symbol [ Graphics %tmp.167 207 47 55 ];
+        %tmp.167 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_VCENTER %tmp.168 207 56 76 ];
+        %tmp.168 = getv %tmp.167 :TEXT_JUSTIFY_VCENTER;
+        %tmp.169 = bitor %tmp.166 %tmp.168;
+        invoke %tmp.158 %tmp.159(%tmp.160, %tmp.161, %tmp.163, %tmp.164, %tmp.169);
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_204_15_208_8_stop:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_189_8_208_8_if_end:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_168_4_209_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 214; @symbol_functiondef = [_drawSubscribedCard,214,20,39]; @symbol_param<0> = [dc,215,8,10]; @symbol_param<0>_type<0> = [Graphics,215,14,22]; @symbol_param<0>_type<1> = [Dc,215,23,25]; @symbol_param<1> = [w,216,8,9]; @symbol_param<1>_type<0> = [Number,216,14,20]; @symbol_param<2> = [cx,217,8,10]; @symbol_param<2>_type<0> = [Number,217,14,20]; @symbol_param<3> = [cy,218,8,10]; @symbol_param<3>_type<0> = [Number,218,14,20]; ]
+    protected
+    function _drawSubscribedCard(dc as Graphics.Dc, w as Number, cx as Number, cy as Number) as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 220 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_stop" ]
+        %fhMed.1 = local;
+        symbol [ fhMed %fhMed.1 220 12 17 ];
+        %tmp.1 = lgetv %dc;
+        symbol [ dc %tmp.1 220 21 23 ];
+        symbol [ getFontHeight %tmp.2 220 24 37 ];
+        %tmp.2 = getv function %tmp.1 :getFontHeight;
+        symbol [ Graphics %tmp.3 220 38 46 ];
+        %tmp.3 = getm $.Toybox.Graphics;
+        symbol [ FONT_MEDIUM %tmp.4 220 47 58 ];
+        %tmp.4 = getv %tmp.3 :FONT_MEDIUM;
+        %tmp.5 = invoke %tmp.1 %tmp.2(%tmp.4);
+        lputv %fhMed.1 %tmp.5;
+        symbol [ fhMed %fhMed.1 220 12 17 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 221 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_stop" ]
+        %fhTiny.2 = local;
+        symbol [ fhTiny %fhTiny.2 221 12 18 ];
+        %tmp.6 = lgetv %dc;
+        symbol [ dc %tmp.6 221 21 23 ];
+        symbol [ getFontHeight %tmp.7 221 24 37 ];
+        %tmp.7 = getv function %tmp.6 :getFontHeight;
+        symbol [ Graphics %tmp.8 221 38 46 ];
+        %tmp.8 = getm $.Toybox.Graphics;
+        symbol [ FONT_TINY %tmp.9 221 47 56 ];
+        %tmp.9 = getv %tmp.8 :FONT_TINY;
+        %tmp.10 = invoke %tmp.6 %tmp.7(%tmp.9);
+        lputv %fhTiny.2 %tmp.10;
+        symbol [ fhTiny %fhTiny.2 221 12 18 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 222 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_stop" ]
+        %gap.3 = local;
+        symbol [ gap %gap.3 222 12 15 ];
+        %tmp.11 = 8;
+        lputv %gap.3 %tmp.11;
+        symbol [ gap %gap.3 222 12 15 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 223 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_stop" ]
+        %cardW.4 = local;
+        symbol [ cardW %cardW.4 223 12 17 ];
+        %tmp.12 = lgetv %w;
+        symbol [ w %tmp.12 223 22 23 ];
+        symbol [ CARD_W_PCT %tmp.14 223 26 36 ];
+        %tmp.14 = getv ? :CARD_W_PCT;
+        %tmp.15 = mul %tmp.12 %tmp.14;
+        symbol [ toNumber %tmp.16 223 38 46 ];
+        %tmp.16 = getv function %tmp.15 :toNumber;
+        %tmp.17 = invoke %tmp.15 %tmp.16();
+        lputv %cardW.4 %tmp.17;
+        symbol [ cardW %cardW.4 223 12 17 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 224 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_stop" ]
+        %cardH.5 = local;
+        symbol [ cardH %cardH.5 224 12 17 ];
+        %tmp.18 = lgetv %fhMed.1;
+        symbol [ fhMed %tmp.18 224 21 26 ];
+        %tmp.19 = lgetv %gap.3;
+        symbol [ gap %tmp.19 224 29 32 ];
+        %tmp.20 = add %tmp.18 %tmp.19;
+        %tmp.21 = lgetv %fhTiny.2;
+        symbol [ fhTiny %tmp.21 224 35 41 ];
+        %tmp.22 = add %tmp.20 %tmp.21;
+        symbol [ CARD_PAD %tmp.24 224 44 52 ];
+        %tmp.24 = getv ? :CARD_PAD;
+        %tmp.25 = 2;
+        %tmp.26 = mul %tmp.24 %tmp.25;
+        %tmp.27 = add %tmp.22 %tmp.26;
+        lputv %cardH.5 %tmp.27;
+        symbol [ cardH %cardH.5 224 12 17 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 225 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_stop" ]
+        %cardX.6 = local;
+        symbol [ cardX %cardX.6 225 12 17 ];
+        %tmp.28 = lgetv %cx;
+        symbol [ cx %tmp.28 225 21 23 ];
+        %tmp.29 = lgetv %cardW.4;
+        symbol [ cardW %tmp.29 225 26 31 ];
+        %tmp.30 = 2;
+        %tmp.31 = div %tmp.29 %tmp.30;
+        %tmp.32 = sub %tmp.28 %tmp.31;
+        lputv %cardX.6 %tmp.32;
+        symbol [ cardX %cardX.6 225 12 17 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 226 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_stop" ]
+        %cardY.7 = local;
+        symbol [ cardY %cardY.7 226 12 17 ];
+        %tmp.33 = lgetv %cy;
+        symbol [ cy %tmp.33 226 21 23 ];
+        %tmp.34 = lgetv %cardH.5;
+        symbol [ cardH %tmp.34 226 26 31 ];
+        %tmp.35 = 2;
+        %tmp.36 = div %tmp.34 %tmp.35;
+        %tmp.37 = sub %tmp.33 %tmp.36;
+        lputv %cardY.7 %tmp.37;
+        symbol [ cardY %cardY.7 226 12 17 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 229 8 ]
+        %tmp.38 = lgetv %dc;
+        symbol [ dc %tmp.38 229 8 10 ];
+        symbol [ setColor %tmp.39 229 11 19 ];
+        %tmp.39 = getv function %tmp.38 :setColor;
+        symbol [ C_CARD_FILL %tmp.41 229 20 31 ];
+        %tmp.41 = getv ? :C_CARD_FILL;
+        symbol [ Graphics %tmp.42 229 33 41 ];
+        %tmp.42 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.43 229 42 59 ];
+        %tmp.43 = getv %tmp.42 :COLOR_TRANSPARENT;
+        invoke %tmp.38 %tmp.39(%tmp.41, %tmp.43);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 230 8 ]
+        %tmp.44 = lgetv %dc;
+        symbol [ dc %tmp.44 230 8 10 ];
+        symbol [ fillRoundedRectangle %tmp.45 230 11 31 ];
+        %tmp.45 = getv function %tmp.44 :fillRoundedRectangle;
+        %tmp.46 = lgetv %cardX.6;
+        symbol [ cardX %tmp.46 230 32 37 ];
+        %tmp.47 = lgetv %cardY.7;
+        symbol [ cardY %tmp.47 230 39 44 ];
+        %tmp.48 = lgetv %cardW.4;
+        symbol [ cardW %tmp.48 230 46 51 ];
+        %tmp.49 = lgetv %cardH.5;
+        symbol [ cardH %tmp.49 230 53 58 ];
+        symbol [ CARD_RADIUS %tmp.51 230 60 71 ];
+        %tmp.51 = getv ? :CARD_RADIUS;
+        invoke %tmp.44 %tmp.45(%tmp.46, %tmp.47, %tmp.48, %tmp.49, %tmp.51);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 231 8 ]
+        %tmp.52 = lgetv %dc;
+        symbol [ dc %tmp.52 231 8 10 ];
+        symbol [ setPenWidth %tmp.53 231 11 22 ];
+        %tmp.53 = getv function %tmp.52 :setPenWidth;
+        %tmp.54 = 2;
+        invoke %tmp.52 %tmp.53(%tmp.54);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 232 8 ]
+        %tmp.55 = lgetv %dc;
+        symbol [ dc %tmp.55 232 8 10 ];
+        symbol [ setColor %tmp.56 232 11 19 ];
+        %tmp.56 = getv function %tmp.55 :setColor;
+        symbol [ C_CARD_BORDER %tmp.58 232 20 33 ];
+        %tmp.58 = getv ? :C_CARD_BORDER;
+        symbol [ Graphics %tmp.59 232 35 43 ];
+        %tmp.59 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.60 232 44 61 ];
+        %tmp.60 = getv %tmp.59 :COLOR_TRANSPARENT;
+        invoke %tmp.55 %tmp.56(%tmp.58, %tmp.60);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 233 8 ]
+        %tmp.61 = lgetv %dc;
+        symbol [ dc %tmp.61 233 8 10 ];
+        symbol [ drawRoundedRectangle %tmp.62 233 11 31 ];
+        %tmp.62 = getv function %tmp.61 :drawRoundedRectangle;
+        %tmp.63 = lgetv %cardX.6;
+        symbol [ cardX %tmp.63 233 32 37 ];
+        %tmp.64 = lgetv %cardY.7;
+        symbol [ cardY %tmp.64 233 39 44 ];
+        %tmp.65 = lgetv %cardW.4;
+        symbol [ cardW %tmp.65 233 46 51 ];
+        %tmp.66 = lgetv %cardH.5;
+        symbol [ cardH %tmp.66 233 53 58 ];
+        symbol [ CARD_RADIUS %tmp.68 233 60 71 ];
+        %tmp.68 = getv ? :CARD_RADIUS;
+        invoke %tmp.61 %tmp.62(%tmp.63, %tmp.64, %tmp.65, %tmp.66, %tmp.68);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 234 8 ]
+        %tmp.69 = lgetv %dc;
+        symbol [ dc %tmp.69 234 8 10 ];
+        symbol [ setPenWidth %tmp.70 234 11 22 ];
+        %tmp.70 = getv function %tmp.69 :setPenWidth;
+        %tmp.71 = 1;
+        invoke %tmp.69 %tmp.70(%tmp.71);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 238 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_stop" ]
+        %blockH.8 = local;
+        symbol [ blockH %blockH.8 238 12 18 ];
+        %tmp.72 = lgetv %fhMed.1;
+        symbol [ fhMed %tmp.72 238 22 27 ];
+        %tmp.73 = lgetv %gap.3;
+        symbol [ gap %tmp.73 238 30 33 ];
+        %tmp.74 = add %tmp.72 %tmp.73;
+        %tmp.75 = lgetv %fhTiny.2;
+        symbol [ fhTiny %tmp.75 238 36 42 ];
+        %tmp.76 = add %tmp.74 %tmp.75;
+        lputv %blockH.8 %tmp.76;
+        symbol [ blockH %blockH.8 238 12 18 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 239 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_stop" ]
+        %rowY.9 = local;
+        symbol [ rowY %rowY.9 239 12 16 ];
+        %tmp.77 = lgetv %cy;
+        symbol [ cy %tmp.77 239 22 24 ];
+        %tmp.78 = lgetv %blockH.8;
+        symbol [ blockH %tmp.78 239 27 33 ];
+        %tmp.79 = 2;
+        %tmp.80 = div %tmp.78 %tmp.79;
+        %tmp.81 = sub %tmp.77 %tmp.80;
+        %tmp.82 = lgetv %fhMed.1;
+        symbol [ fhMed %tmp.82 239 40 45 ];
+        %tmp.83 = 2;
+        %tmp.84 = div %tmp.82 %tmp.83;
+        %tmp.85 = add %tmp.81 %tmp.84;
+        lputv %rowY.9 %tmp.85;
+        symbol [ rowY %rowY.9 239 12 16 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 240 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_stop" ]
+        %dotR.10 = local;
+        symbol [ dotR %dotR.10 240 12 16 ];
+        %tmp.86 = 6;
+        lputv %dotR.10 %tmp.86;
+        symbol [ dotR %dotR.10 240 12 16 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 241 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_stop" ]
+        %spacing.11 = local;
+        symbol [ spacing %spacing.11 241 12 19 ];
+        %tmp.87 = lgetv %cardW.4;
+        symbol [ cardW %tmp.87 241 22 27 ];
+        %tmp.88 = 4;
+        %tmp.89 = div %tmp.87 %tmp.88;
+        lputv %spacing.11 %tmp.89;
+        symbol [ spacing %spacing.11 241 12 19 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 244 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_stop" ]
+        %d1x.12 = local;
+        symbol [ d1x %d1x.12 244 12 15 ];
+        %tmp.90 = lgetv %cx;
+        symbol [ cx %tmp.90 244 18 20 ];
+        %tmp.91 = lgetv %spacing.11;
+        symbol [ spacing %tmp.91 244 23 30 ];
+        %tmp.92 = sub %tmp.90 %tmp.91;
+        lputv %d1x.12 %tmp.92;
+        symbol [ d1x %d1x.12 244 12 15 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 245 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_stop" ]
+        %d1Color.13 = local;
+        symbol [ d1Color %d1Color.13 245 12 19 ];
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_245_22_245_55_begin:
+        symbol [ _ble %tmp.94 245 22 26 ];
+        %tmp.94 = getv ? :_ble;
+        symbol [ getLinked1 %tmp.95 245 27 37 ];
+        %tmp.95 = getv function %tmp.94 :getLinked1;
+        %tmp.96 = invoke %tmp.94 %tmp.95();
+        bf %tmp.96 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_245_22_245_55_else_false;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_245_22_245_55_true:
+        symbol [ C_ACC_LIVE %tmp.98 245 42 52 ];
+        %tmp.98 = getv ? :C_ACC_LIVE;
+        push %tmp.98;
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_245_22_245_55_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_245_22_245_55_else_false:
+        symbol [ C_TEXT_SEC %tmp.100 245 55 65 ];
+        %tmp.100 = getv ? :C_TEXT_SEC;
+        push %tmp.100;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_245_22_245_55_end:
+        %tmp.101 = phi [%tmp.96 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_245_22_245_55_begin] [%tmp.98 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_245_22_245_55_true] [%tmp.100 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_245_22_245_55_else_false] [%tmp.101 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_245_22_245_55_end];
+        lputv %d1Color.13 %tmp.101;
+        symbol [ d1Color %d1Color.13 245 12 19 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 246 8 ]
+        %tmp.102 = lgetv %dc;
+        symbol [ dc %tmp.102 246 8 10 ];
+        symbol [ setColor %tmp.103 246 11 19 ];
+        %tmp.103 = getv function %tmp.102 :setColor;
+        %tmp.104 = lgetv %d1Color.13;
+        symbol [ d1Color %tmp.104 246 20 27 ];
+        symbol [ Graphics %tmp.105 246 29 37 ];
+        %tmp.105 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.106 246 38 55 ];
+        %tmp.106 = getv %tmp.105 :COLOR_TRANSPARENT;
+        invoke %tmp.102 %tmp.103(%tmp.104, %tmp.106);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 247 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_247_8_251_8_if_stmt:
+        symbol [ _ble %tmp.108 247 12 16 ];
+        %tmp.108 = getv ? :_ble;
+        symbol [ getLinked1 %tmp.109 247 17 27 ];
+        %tmp.109 = getv function %tmp.108 :getLinked1;
+        %tmp.110 = invoke %tmp.108 %tmp.109();
+        bf %tmp.110 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_247_8_251_8_if_else_false;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_247_8_251_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_247_31_249_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 248 12 ]
+        %tmp.111 = lgetv %dc;
+        symbol [ dc %tmp.111 248 12 14 ];
+        symbol [ fillCircle %tmp.112 248 15 25 ];
+        %tmp.112 = getv function %tmp.111 :fillCircle;
+        %tmp.113 = lgetv %d1x.12;
+        symbol [ d1x %tmp.113 248 26 29 ];
+        %tmp.114 = lgetv %dotR.10;
+        symbol [ dotR %tmp.114 248 32 36 ];
+        %tmp.115 = sub %tmp.113 %tmp.114;
+        %tmp.116 = 4;
+        %tmp.117 = sub %tmp.115 %tmp.116;
+        %tmp.118 = lgetv %rowY.9;
+        symbol [ rowY %tmp.118 248 42 46 ];
+        %tmp.119 = lgetv %dotR.10;
+        symbol [ dotR %tmp.119 248 48 52 ];
+        invoke %tmp.111 %tmp.112(%tmp.117, %tmp.118, %tmp.119);
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_247_31_249_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_247_8_251_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_247_8_251_8_if_else_false:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_249_15_251_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 250 12 ]
+        %tmp.120 = lgetv %dc;
+        symbol [ dc %tmp.120 250 12 14 ];
+        symbol [ drawCircle %tmp.121 250 15 25 ];
+        %tmp.121 = getv function %tmp.120 :drawCircle;
+        %tmp.122 = lgetv %d1x.12;
+        symbol [ d1x %tmp.122 250 26 29 ];
+        %tmp.123 = lgetv %dotR.10;
+        symbol [ dotR %tmp.123 250 32 36 ];
+        %tmp.124 = sub %tmp.122 %tmp.123;
+        %tmp.125 = 4;
+        %tmp.126 = sub %tmp.124 %tmp.125;
+        %tmp.127 = lgetv %rowY.9;
+        symbol [ rowY %tmp.127 250 42 46 ];
+        %tmp.128 = lgetv %dotR.10;
+        symbol [ dotR %tmp.128 250 48 52 ];
+        invoke %tmp.120 %tmp.121(%tmp.126, %tmp.127, %tmp.128);
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_249_15_251_8_stop:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_247_8_251_8_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 252 8 ]
+        %tmp.129 = lgetv %dc;
+        symbol [ dc %tmp.129 252 8 10 ];
+        symbol [ drawText %tmp.130 252 11 19 ];
+        %tmp.130 = getv function %tmp.129 :drawText;
+        %tmp.131 = lgetv %d1x.12;
+        symbol [ d1x %tmp.131 252 20 23 ];
+        %tmp.132 = 4;
+        %tmp.133 = add %tmp.131 %tmp.132;
+        %tmp.134 = lgetv %rowY.9;
+        symbol [ rowY %tmp.134 252 29 33 ];
+        symbol [ Graphics %tmp.135 252 35 43 ];
+        %tmp.135 = getm $.Toybox.Graphics;
+        symbol [ FONT_MEDIUM %tmp.136 252 44 55 ];
+        %tmp.136 = getv %tmp.135 :FONT_MEDIUM;
+        %tmp.137 = "D1";
+        symbol [ Graphics %tmp.138 253 12 20 ];
+        %tmp.138 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_LEFT %tmp.139 253 21 38 ];
+        %tmp.139 = getv %tmp.138 :TEXT_JUSTIFY_LEFT;
+        symbol [ Graphics %tmp.140 253 41 49 ];
+        %tmp.140 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_VCENTER %tmp.141 253 50 70 ];
+        %tmp.141 = getv %tmp.140 :TEXT_JUSTIFY_VCENTER;
+        %tmp.142 = bitor %tmp.139 %tmp.141;
+        invoke %tmp.129 %tmp.130(%tmp.133, %tmp.134, %tmp.136, %tmp.137, %tmp.142);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 256 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_stop" ]
+        %d2x.14 = local;
+        symbol [ d2x %d2x.14 256 12 15 ];
+        %tmp.143 = lgetv %cx;
+        symbol [ cx %tmp.143 256 18 20 ];
+        %tmp.144 = lgetv %spacing.11;
+        symbol [ spacing %tmp.144 256 23 30 ];
+        %tmp.145 = add %tmp.143 %tmp.144;
+        lputv %d2x.14 %tmp.145;
+        symbol [ d2x %d2x.14 256 12 15 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 257 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_stop" ]
+        %d2Color.15 = local;
+        symbol [ d2Color %d2Color.15 257 12 19 ];
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_257_22_257_55_begin:
+        symbol [ _ble %tmp.147 257 22 26 ];
+        %tmp.147 = getv ? :_ble;
+        symbol [ getLinked2 %tmp.148 257 27 37 ];
+        %tmp.148 = getv function %tmp.147 :getLinked2;
+        %tmp.149 = invoke %tmp.147 %tmp.148();
+        bf %tmp.149 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_257_22_257_55_else_false;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_257_22_257_55_true:
+        symbol [ C_ACC_LIVE %tmp.151 257 42 52 ];
+        %tmp.151 = getv ? :C_ACC_LIVE;
+        push %tmp.151;
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_257_22_257_55_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_257_22_257_55_else_false:
+        symbol [ C_TEXT_SEC %tmp.153 257 55 65 ];
+        %tmp.153 = getv ? :C_TEXT_SEC;
+        push %tmp.153;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_257_22_257_55_end:
+        %tmp.154 = phi [%tmp.149 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_257_22_257_55_begin] [%tmp.151 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_257_22_257_55_true] [%tmp.153 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_257_22_257_55_else_false] [%tmp.154 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_257_22_257_55_end];
+        lputv %d2Color.15 %tmp.154;
+        symbol [ d2Color %d2Color.15 257 12 19 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 258 8 ]
+        %tmp.155 = lgetv %dc;
+        symbol [ dc %tmp.155 258 8 10 ];
+        symbol [ setColor %tmp.156 258 11 19 ];
+        %tmp.156 = getv function %tmp.155 :setColor;
+        %tmp.157 = lgetv %d2Color.15;
+        symbol [ d2Color %tmp.157 258 20 27 ];
+        symbol [ Graphics %tmp.158 258 29 37 ];
+        %tmp.158 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.159 258 38 55 ];
+        %tmp.159 = getv %tmp.158 :COLOR_TRANSPARENT;
+        invoke %tmp.155 %tmp.156(%tmp.157, %tmp.159);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 259 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_259_8_263_8_if_stmt:
+        symbol [ _ble %tmp.161 259 12 16 ];
+        %tmp.161 = getv ? :_ble;
+        symbol [ getLinked2 %tmp.162 259 17 27 ];
+        %tmp.162 = getv function %tmp.161 :getLinked2;
+        %tmp.163 = invoke %tmp.161 %tmp.162();
+        bf %tmp.163 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_259_8_263_8_if_else_false;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_259_8_263_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_259_31_261_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 260 12 ]
+        %tmp.164 = lgetv %dc;
+        symbol [ dc %tmp.164 260 12 14 ];
+        symbol [ fillCircle %tmp.165 260 15 25 ];
+        %tmp.165 = getv function %tmp.164 :fillCircle;
+        %tmp.166 = lgetv %d2x.14;
+        symbol [ d2x %tmp.166 260 26 29 ];
+        %tmp.167 = lgetv %dotR.10;
+        symbol [ dotR %tmp.167 260 32 36 ];
+        %tmp.168 = add %tmp.166 %tmp.167;
+        %tmp.169 = 4;
+        %tmp.170 = add %tmp.168 %tmp.169;
+        %tmp.171 = lgetv %rowY.9;
+        symbol [ rowY %tmp.171 260 42 46 ];
+        %tmp.172 = lgetv %dotR.10;
+        symbol [ dotR %tmp.172 260 48 52 ];
+        invoke %tmp.164 %tmp.165(%tmp.170, %tmp.171, %tmp.172);
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_259_31_261_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_259_8_263_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_259_8_263_8_if_else_false:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_261_15_263_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 262 12 ]
+        %tmp.173 = lgetv %dc;
+        symbol [ dc %tmp.173 262 12 14 ];
+        symbol [ drawCircle %tmp.174 262 15 25 ];
+        %tmp.174 = getv function %tmp.173 :drawCircle;
+        %tmp.175 = lgetv %d2x.14;
+        symbol [ d2x %tmp.175 262 26 29 ];
+        %tmp.176 = lgetv %dotR.10;
+        symbol [ dotR %tmp.176 262 32 36 ];
+        %tmp.177 = add %tmp.175 %tmp.176;
+        %tmp.178 = 4;
+        %tmp.179 = add %tmp.177 %tmp.178;
+        %tmp.180 = lgetv %rowY.9;
+        symbol [ rowY %tmp.180 262 42 46 ];
+        %tmp.181 = lgetv %dotR.10;
+        symbol [ dotR %tmp.181 262 48 52 ];
+        invoke %tmp.173 %tmp.174(%tmp.179, %tmp.180, %tmp.181);
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_261_15_263_8_stop:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_259_8_263_8_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 264 8 ]
+        %tmp.182 = lgetv %dc;
+        symbol [ dc %tmp.182 264 8 10 ];
+        symbol [ drawText %tmp.183 264 11 19 ];
+        %tmp.183 = getv function %tmp.182 :drawText;
+        %tmp.184 = lgetv %d2x.14;
+        symbol [ d2x %tmp.184 264 20 23 ];
+        %tmp.185 = 4;
+        %tmp.186 = sub %tmp.184 %tmp.185;
+        %tmp.187 = lgetv %rowY.9;
+        symbol [ rowY %tmp.187 264 29 33 ];
+        symbol [ Graphics %tmp.188 264 35 43 ];
+        %tmp.188 = getm $.Toybox.Graphics;
+        symbol [ FONT_MEDIUM %tmp.189 264 44 55 ];
+        %tmp.189 = getv %tmp.188 :FONT_MEDIUM;
+        %tmp.190 = "D2";
+        symbol [ Graphics %tmp.191 265 12 20 ];
+        %tmp.191 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_RIGHT %tmp.192 265 21 39 ];
+        %tmp.192 = getv %tmp.191 :TEXT_JUSTIFY_RIGHT;
+        symbol [ Graphics %tmp.193 265 42 50 ];
+        %tmp.193 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_VCENTER %tmp.194 265 51 71 ];
+        %tmp.194 = getv %tmp.193 :TEXT_JUSTIFY_VCENTER;
+        %tmp.195 = bitor %tmp.192 %tmp.194;
+        invoke %tmp.182 %tmp.183(%tmp.186, %tmp.187, %tmp.189, %tmp.190, %tmp.195);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 268 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_stop" ]
+        %alertY.16 = local;
+        symbol [ alertY %alertY.16 268 12 18 ];
+        %tmp.196 = lgetv %cy;
+        symbol [ cy %tmp.196 268 21 23 ];
+        %tmp.197 = lgetv %blockH.8;
+        symbol [ blockH %tmp.197 268 26 32 ];
+        %tmp.198 = 2;
+        %tmp.199 = div %tmp.197 %tmp.198;
+        %tmp.200 = add %tmp.196 %tmp.199;
+        %tmp.201 = lgetv %fhTiny.2;
+        symbol [ fhTiny %tmp.201 268 39 45 ];
+        %tmp.202 = 2;
+        %tmp.203 = div %tmp.201 %tmp.202;
+        %tmp.204 = sub %tmp.200 %tmp.203;
+        lputv %alertY.16 %tmp.204;
+        symbol [ alertY %alertY.16 268 12 18 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 269 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_stop" ]
+        %notifType.17 = local;
+        symbol [ notifType %notifType.17 269 12 21 ];
+        symbol [ _ble %tmp.206 269 24 28 ];
+        %tmp.206 = getv ? :_ble;
+        symbol [ getNotifType %tmp.207 269 29 41 ];
+        %tmp.207 = getv function %tmp.206 :getNotifType;
+        %tmp.208 = invoke %tmp.206 %tmp.207();
+        lputv %notifType.17 %tmp.208;
+        symbol [ notifType %notifType.17 269 12 21 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 270 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_stop" ]
+        %alertText.18 = local;
+        symbol [ alertText %alertText.18 270 12 21 ];
+        %tmp.209 = "--";
+        lputv %alertText.18 %tmp.209;
+        symbol [ alertText %alertText.18 270 12 21 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 271 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_stop" ]
+        %alertColor.19 = local;
+        symbol [ alertColor %alertColor.19 271 12 22 ];
+        symbol [ C_TEXT_SEC %tmp.211 271 25 35 ];
+        %tmp.211 = getv ? :C_TEXT_SEC;
+        lputv %alertColor.19 %tmp.211;
+        symbol [ alertColor %alertColor.19 271 12 22 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 272 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_272_8_281_8_if_stmt:
+        %tmp.212 = lgetv %notifType.17;
+        symbol [ notifType %tmp.212 272 12 21 ];
+        symbol [ NOTIFY_LINKED %tmp.214 272 25 38 ];
+        %tmp.214 = getv ? :NOTIFY_LINKED;
+        %tmp.215 = eq %tmp.212 %tmp.214;
+        bf %tmp.215 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_272_8_281_8_if_false;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_272_8_281_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_272_40_275_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 273 12 ]
+        %tmp.216 = "LINKED";
+        lputv %alertText.18 %tmp.216;
+        symbol [ alertText %alertText.18 273 12 21 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 274 12 ]
+        symbol [ C_ACC_LIVE %tmp.218 274 25 35 ];
+        %tmp.218 = getv ? :C_ACC_LIVE;
+        lputv %alertColor.19 %tmp.218;
+        symbol [ alertColor %alertColor.19 274 12 22 ];
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_272_40_275_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_272_8_281_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_272_8_281_8_if_false:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 275 15 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_275_15_281_8_if_stmt:
+        %tmp.219 = lgetv %notifType.17;
+        symbol [ notifType %tmp.219 275 19 28 ];
+        symbol [ NOTIFY_ALERT_1 %tmp.221 275 32 46 ];
+        %tmp.221 = getv ? :NOTIFY_ALERT_1;
+        %tmp.222 = eq %tmp.219 %tmp.221;
+        bf %tmp.222 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_275_15_281_8_if_false;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_275_15_281_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_275_48_278_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 276 12 ]
+        %tmp.223 = "ALERT  D1";
+        lputv %alertText.18 %tmp.223;
+        symbol [ alertText %alertText.18 276 12 21 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 277 12 ]
+        symbol [ C_TEXT_PRI %tmp.225 277 25 35 ];
+        %tmp.225 = getv ? :C_TEXT_PRI;
+        lputv %alertColor.19 %tmp.225;
+        symbol [ alertColor %alertColor.19 277 12 22 ];
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_275_48_278_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_275_15_281_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_275_15_281_8_if_false:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 278 15 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_278_15_281_8_if_stmt:
+        %tmp.226 = lgetv %notifType.17;
+        symbol [ notifType %tmp.226 278 19 28 ];
+        symbol [ NOTIFY_ALERT_2 %tmp.228 278 32 46 ];
+        %tmp.228 = getv ? :NOTIFY_ALERT_2;
+        %tmp.229 = eq %tmp.226 %tmp.228;
+        bf %tmp.229 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_278_15_281_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_278_15_281_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_278_48_281_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 279 12 ]
+        %tmp.230 = "ALERT  D2";
+        lputv %alertText.18 %tmp.230;
+        symbol [ alertText %alertText.18 279 12 21 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 280 12 ]
+        symbol [ C_TEXT_PRI %tmp.232 280 25 35 ];
+        %tmp.232 = getv ? :C_TEXT_PRI;
+        lputv %alertColor.19 %tmp.232;
+        symbol [ alertColor %alertColor.19 280 12 22 ];
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_278_48_281_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_278_15_281_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_278_15_281_8_if_end:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_275_15_281_8_if_end:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_272_8_281_8_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 282 8 ]
+        %tmp.233 = lgetv %dc;
+        symbol [ dc %tmp.233 282 8 10 ];
+        symbol [ setColor %tmp.234 282 11 19 ];
+        %tmp.234 = getv function %tmp.233 :setColor;
+        %tmp.235 = lgetv %alertColor.19;
+        symbol [ alertColor %tmp.235 282 20 30 ];
+        symbol [ Graphics %tmp.236 282 32 40 ];
+        %tmp.236 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.237 282 41 58 ];
+        %tmp.237 = getv %tmp.236 :COLOR_TRANSPARENT;
+        invoke %tmp.233 %tmp.234(%tmp.235, %tmp.237);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 283 8 ]
+        %tmp.238 = lgetv %dc;
+        symbol [ dc %tmp.238 283 8 10 ];
+        symbol [ drawText %tmp.239 283 11 19 ];
+        %tmp.239 = getv function %tmp.238 :drawText;
+        %tmp.240 = lgetv %cx;
+        symbol [ cx %tmp.240 283 20 22 ];
+        %tmp.241 = lgetv %alertY.16;
+        symbol [ alertY %tmp.241 283 24 30 ];
+        symbol [ Graphics %tmp.242 283 32 40 ];
+        %tmp.242 = getm $.Toybox.Graphics;
+        symbol [ FONT_TINY %tmp.243 283 41 50 ];
+        %tmp.243 = getv %tmp.242 :FONT_TINY;
+        %tmp.244 = lgetv %alertText.18;
+        symbol [ alertText %tmp.244 283 52 61 ];
+        symbol [ Graphics %tmp.245 284 12 20 ];
+        %tmp.245 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.246 284 21 40 ];
+        %tmp.246 = getv %tmp.245 :TEXT_JUSTIFY_CENTER;
+        symbol [ Graphics %tmp.247 284 43 51 ];
+        %tmp.247 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_VCENTER %tmp.248 284 52 72 ];
+        %tmp.248 = getv %tmp.247 :TEXT_JUSTIFY_VCENTER;
+        %tmp.249 = bitor %tmp.246 %tmp.248;
+        invoke %tmp.238 %tmp.239(%tmp.240, %tmp.241, %tmp.243, %tmp.244, %tmp.249);
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_219_4_285_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 294; @symbol_functiondef = [_drawSpinner,294,20,32]; @symbol_param<0> = [dc,295,8,10]; @symbol_param<0>_type<0> = [Graphics,295,18,26]; @symbol_param<0>_type<1> = [Dc,295,27,29]; @symbol_param<1> = [cx,296,8,10]; @symbol_param<1>_type<0> = [Number,296,18,24]; @symbol_param<2> = [cy,297,8,10]; @symbol_param<2>_type<0> = [Number,297,18,24]; @symbol_param<3> = [color,298,8,13]; @symbol_param<3>_type<0> = [Number,298,18,24]; ]
+    protected
+    function _drawSpinner(dc as Graphics.Dc, cx as Number, cy as Number, color as Number) as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_299_4_315_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 300 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_299_4_315_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_299_4_315_4_stop" ]
+        %r.1 = local;
+        symbol [ r %r.1 300 12 13 ];
+        %tmp.1 = lgetv %dc;
+        symbol [ dc %tmp.1 300 25 27 ];
+        symbol [ getWidth %tmp.2 300 28 36 ];
+        %tmp.2 = getv function %tmp.1 :getWidth;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        %tmp.4 = 4;
+        %tmp.5 = div %tmp.3 %tmp.4;
+        lputv %r.1 %tmp.5;
+        symbol [ r %r.1 300 12 13 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 301 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_299_4_315_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_299_4_315_4_stop" ]
+        %startAngle.2 = local;
+        symbol [ startAngle %startAngle.2 301 12 22 ];
+        %tmp.6 = 90;
+        symbol [ _animFrame %tmp.8 301 30 40 ];
+        %tmp.8 = getv ? :_animFrame;
+        %tmp.9 = 60;
+        %tmp.10 = mul %tmp.8 %tmp.9;
+        %tmp.11 = sub %tmp.6 %tmp.10;
+        lputv %startAngle.2 %tmp.11;
+        symbol [ startAngle %startAngle.2 301 12 22 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 302 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_299_4_315_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_299_4_315_4_stop" ]
+        %endAngle.3 = local;
+        symbol [ endAngle %endAngle.3 302 12 20 ];
+        %tmp.12 = lgetv %startAngle.2;
+        symbol [ startAngle %tmp.12 302 25 35 ];
+        %tmp.13 = 120;
+        %tmp.14 = sub %tmp.12 %tmp.13;
+        lputv %endAngle.3 %tmp.14;
+        symbol [ endAngle %endAngle.3 302 12 20 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 305 8 ]
+        %tmp.15 = lgetv %dc;
+        symbol [ dc %tmp.15 305 8 10 ];
+        symbol [ setPenWidth %tmp.16 305 11 22 ];
+        %tmp.16 = getv function %tmp.15 :setPenWidth;
+        symbol [ SPINNER_PW %tmp.18 305 23 33 ];
+        %tmp.18 = getv ? :SPINNER_PW;
+        invoke %tmp.15 %tmp.16(%tmp.18);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 306 8 ]
+        %tmp.19 = lgetv %dc;
+        symbol [ dc %tmp.19 306 8 10 ];
+        symbol [ setColor %tmp.20 306 11 19 ];
+        %tmp.20 = getv function %tmp.19 :setColor;
+        %tmp.21 = 0x222222;
+        symbol [ Graphics %tmp.22 306 30 38 ];
+        %tmp.22 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.23 306 39 56 ];
+        %tmp.23 = getv %tmp.22 :COLOR_TRANSPARENT;
+        invoke %tmp.19 %tmp.20(%tmp.21, %tmp.23);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 307 8 ]
+        %tmp.24 = lgetv %dc;
+        symbol [ dc %tmp.24 307 8 10 ];
+        symbol [ drawCircle %tmp.25 307 11 21 ];
+        %tmp.25 = getv function %tmp.24 :drawCircle;
+        %tmp.26 = lgetv %cx;
+        symbol [ cx %tmp.26 307 22 24 ];
+        %tmp.27 = lgetv %cy;
+        symbol [ cy %tmp.27 307 26 28 ];
+        %tmp.28 = lgetv %r.1;
+        symbol [ r %tmp.28 307 30 31 ];
+        invoke %tmp.24 %tmp.25(%tmp.26, %tmp.27, %tmp.28);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 310 8 ]
+        %tmp.29 = lgetv %dc;
+        symbol [ dc %tmp.29 310 8 10 ];
+        symbol [ setColor %tmp.30 310 11 19 ];
+        %tmp.30 = getv function %tmp.29 :setColor;
+        %tmp.31 = lgetv %color;
+        symbol [ color %tmp.31 310 20 25 ];
+        symbol [ Graphics %tmp.32 310 27 35 ];
+        %tmp.32 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.33 310 36 53 ];
+        %tmp.33 = getv %tmp.32 :COLOR_TRANSPARENT;
+        invoke %tmp.29 %tmp.30(%tmp.31, %tmp.33);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 311 8 ]
+        %tmp.34 = lgetv %dc;
+        symbol [ dc %tmp.34 311 8 10 ];
+        symbol [ drawArc %tmp.35 311 11 18 ];
+        %tmp.35 = getv function %tmp.34 :drawArc;
+        %tmp.36 = lgetv %cx;
+        symbol [ cx %tmp.36 311 19 21 ];
+        %tmp.37 = lgetv %cy;
+        symbol [ cy %tmp.37 311 23 25 ];
+        %tmp.38 = lgetv %r.1;
+        symbol [ r %tmp.38 311 27 28 ];
+        symbol [ Graphics %tmp.39 312 12 20 ];
+        %tmp.39 = getm $.Toybox.Graphics;
+        symbol [ ARC_CLOCKWISE %tmp.40 312 21 34 ];
+        %tmp.40 = getv %tmp.39 :ARC_CLOCKWISE;
+        %tmp.41 = lgetv %startAngle.2;
+        symbol [ startAngle %tmp.41 312 36 46 ];
+        %tmp.42 = lgetv %endAngle.3;
+        symbol [ endAngle %tmp.42 312 48 56 ];
+        invoke %tmp.34 %tmp.35(%tmp.36, %tmp.37, %tmp.38, %tmp.40, %tmp.41, %tmp.42);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 314 8 ]
+        %tmp.43 = lgetv %dc;
+        symbol [ dc %tmp.43 314 8 10 ];
+        symbol [ setPenWidth %tmp.44 314 11 22 ];
+        %tmp.44 = getv function %tmp.43 :setPenWidth;
+        %tmp.45 = 1;
+        invoke %tmp.43 %tmp.44(%tmp.45);
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_299_4_315_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 320; @symbol_functiondef = [_syncTimer,320,20,30]; ]
+    protected
+    function _syncTimer() as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_320_41_333_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 321 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_320_41_333_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_320_41_333_4_stop" ]
+        %state.1 = local;
+        symbol [ state %state.1 321 12 17 ];
+        symbol [ _ble %tmp.2 321 23 27 ];
+        %tmp.2 = getv ? :_ble;
+        symbol [ getState %tmp.3 321 28 36 ];
+        %tmp.3 = getv function %tmp.2 :getState;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        lputv %state.1 %tmp.4;
+        symbol [ state %state.1 321 12 17 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 322 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_320_41_333_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_320_41_333_4_stop" ]
+        %needTick.2 = local;
+        symbol [ needTick %needTick.2 322 12 20 ];
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_322_24_324_33_begin:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_322_24_323_33_begin:
+        %tmp.5 = lgetv %state.1;
+        symbol [ state %tmp.5 322 24 29 ];
+        symbol [ BLE_SCANNING %tmp.7 322 33 45 ];
+        %tmp.7 = getv ? :BLE_SCANNING;
+        %tmp.8 = eq %tmp.5 %tmp.7;
+        %tmp.9 = dup %tmp.8;
+        bt %tmp.9 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_323_24_323_33_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_323_24_323_33_false:
+        %tmp.10 = lgetv %state.1;
+        symbol [ state %tmp.10 323 24 29 ];
+        symbol [ BLE_CONNECTING %tmp.12 323 33 47 ];
+        %tmp.12 = getv ? :BLE_CONNECTING;
+        %tmp.13 = eq %tmp.10 %tmp.12;
+        %tmp.14 = or %tmp.8 %tmp.13;
+        push %tmp.14;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_323_24_323_33_end:
+        %tmp.15 = phi [%tmp.9 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_322_24_323_33_begin] [%tmp.14 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_323_24_323_33_false] [%tmp.15 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_323_24_323_33_end];
+        %tmp.16 = dup %tmp.15;
+        bt %tmp.16 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_324_24_324_33_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_324_24_324_33_false:
+        %tmp.17 = lgetv %state.1;
+        symbol [ state %tmp.17 324 24 29 ];
+        symbol [ BLE_CONNECTED %tmp.19 324 33 46 ];
+        %tmp.19 = getv ? :BLE_CONNECTED;
+        %tmp.20 = eq %tmp.17 %tmp.19;
+        %tmp.21 = or %tmp.15 %tmp.20;
+        push %tmp.21;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_324_24_324_33_end:
+        %tmp.22 = phi [%tmp.16 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_322_24_324_33_begin] [%tmp.21 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_324_24_324_33_false] [%tmp.22 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_324_24_324_33_end];
+        lputv %needTick.2 %tmp.22;
+        symbol [ needTick %needTick.2 322 12 20 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 325 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_325_8_332_8_if_stmt:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_325_12_325_25_begin:
+        %tmp.23 = lgetv %needTick.2;
+        symbol [ needTick %tmp.23 325 12 20 ];
+        bf %tmp.23 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_325_8_332_8_if_false;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_325_24_325_25_true:
+        symbol [ _timerRunning %tmp.25 325 25 38 ];
+        %tmp.25 = getv ? :_timerRunning;
+        %tmp.26 = not %tmp.25;
+        push %tmp.26;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_325_24_325_25_end:
+        %tmp.27 = phi [%tmp.23 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_325_12_325_25_begin] [%tmp.26 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_325_24_325_25_true] [%tmp.27 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_325_24_325_25_end];
+        bf %tmp.27 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_325_8_332_8_if_false;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_325_8_332_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_325_40_328_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 326 12 ]
+        symbol [ _timer %tmp.29 326 12 18 ];
+        %tmp.29 = getv ? :_timer;
+        symbol [ start %tmp.30 326 19 24 ];
+        %tmp.30 = getv function %tmp.29 :start;
+        %tmp.31 = self;
+        symbol [ method %tmp.32 326 25 31 ];
+        %tmp.32 = getv function %tmp.31 :method;
+        %tmp.34 = const :_onTick;
+        symbol [ _onTick %tmp.34 326 33 40 const ];
+        %tmp.35 = invoke %tmp.31 %tmp.32(%tmp.34);
+        %tmp.36 = 150;
+        %tmp.37 = true;
+        invoke %tmp.29 %tmp.30(%tmp.35, %tmp.36, %tmp.37);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 327 12 ]
+        %tmp.38 = true;
+        symbol [ _timerRunning ? 327 12 25 ];
+        putv self :_timerRunning %tmp.38;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_325_40_328_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_325_8_332_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_325_8_332_8_if_false:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 328 15 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_328_15_332_8_if_stmt:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_328_19_328_32_begin:
+        %tmp.39 = lgetv %needTick.2;
+        symbol [ needTick %tmp.39 328 20 28 ];
+        %tmp.40 = not %tmp.39;
+        bf %tmp.40 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_328_15_332_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_328_32_328_32_true:
+        symbol [ _timerRunning %tmp.42 328 32 45 ];
+        %tmp.42 = getv ? :_timerRunning;
+        push %tmp.42;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_328_32_328_32_end:
+        %tmp.43 = phi [%tmp.40 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_328_19_328_32_begin] [%tmp.42 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_328_32_328_32_true] [%tmp.43 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_328_32_328_32_end];
+        bf %tmp.43 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_328_15_332_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_328_15_332_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_328_47_332_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 329 12 ]
+        symbol [ _timer %tmp.45 329 12 18 ];
+        %tmp.45 = getv ? :_timer;
+        symbol [ stop %tmp.46 329 19 23 ];
+        %tmp.46 = getv function %tmp.45 :stop;
+        invoke %tmp.45 %tmp.46();
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 330 12 ]
+        %tmp.47 = false;
+        symbol [ _timerRunning ? 330 12 25 ];
+        putv self :_timerRunning %tmp.47;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 331 12 ]
+        %tmp.48 = 0;
+        symbol [ _animFrame ? 331 12 22 ];
+        putv self :_animFrame %tmp.48;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_328_47_332_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_328_15_332_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_328_15_332_8_if_end:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_325_8_332_8_if_end:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_320_41_333_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 335; @symbol_functiondef = [_onTick,335,13,20]; ]
+    function _onTick() as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_335_31_338_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 336 8 ]
+        symbol [ _animFrame %tmp.2 336 22 32 ];
+        %tmp.2 = getv ? :_animFrame;
+        %tmp.3 = 1;
+        %tmp.4 = add %tmp.2 %tmp.3;
+        %tmp.5 = 6;
+        %tmp.6 = mod %tmp.4 %tmp.5;
+        symbol [ _animFrame ? 336 8 18 ];
+        putv self :_animFrame %tmp.6;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 337 8 ]
+        symbol [ WatchUi %tmp.7 337 8 15 ];
+        %tmp.7 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.8 337 16 29 ];
+        %tmp.8 = getv function %tmp.7 :requestUpdate;
+        invoke %tmp.7 %tmp.8();
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_335_31_338_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 343; @symbol_functiondef = [_accentColor,343,20,32]; @symbol_param<0> = [state,343,33,38]; @symbol_param<0>_type<0> = [Number,343,42,48]; @symbol_return<0> = [Number,343,53,59]; ]
+    protected
+    function _accentColor(state as Number) as Number {
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_343_60_352_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 344 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_344_8_344_60_if_stmt:
+        %tmp.1 = lgetv %state;
+        symbol [ state %tmp.1 344 12 17 ];
+        symbol [ BLE_IDLE %tmp.3 344 21 29 ];
+        %tmp.3 = getv ? :BLE_IDLE;
+        %tmp.4 = eq %tmp.1 %tmp.3;
+        bf %tmp.4 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_344_8_344_60_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_344_8_344_60_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_344_37_344_60_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 344 39 ]
+        symbol [ C_ACC_IDLE %tmp.6 344 46 56 ];
+        %tmp.6 = getv ? :C_ACC_IDLE;
+        ret %tmp.6;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_344_37_344_60_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_344_8_344_60_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_344_8_344_60_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 345 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_345_8_345_60_if_stmt:
+        %tmp.7 = lgetv %state;
+        symbol [ state %tmp.7 345 12 17 ];
+        symbol [ BLE_SCANNING %tmp.9 345 21 33 ];
+        %tmp.9 = getv ? :BLE_SCANNING;
+        %tmp.10 = eq %tmp.7 %tmp.9;
+        bf %tmp.10 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_345_8_345_60_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_345_8_345_60_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_345_37_345_60_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 345 39 ]
+        symbol [ C_ACC_ACTIVE %tmp.12 345 46 58 ];
+        %tmp.12 = getv ? :C_ACC_ACTIVE;
+        ret %tmp.12;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_345_37_345_60_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_345_8_345_60_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_345_8_345_60_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 346 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_346_8_346_60_if_stmt:
+        %tmp.13 = lgetv %state;
+        symbol [ state %tmp.13 346 12 17 ];
+        symbol [ BLE_FOUND %tmp.15 346 21 30 ];
+        %tmp.15 = getv ? :BLE_FOUND;
+        %tmp.16 = eq %tmp.13 %tmp.15;
+        bf %tmp.16 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_346_8_346_60_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_346_8_346_60_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_346_37_346_60_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 346 39 ]
+        symbol [ C_ACC_FOUND %tmp.18 346 46 57 ];
+        %tmp.18 = getv ? :C_ACC_FOUND;
+        ret %tmp.18;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_346_37_346_60_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_346_8_346_60_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_346_8_346_60_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 347 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_347_8_347_60_if_stmt:
+        %tmp.19 = lgetv %state;
+        symbol [ state %tmp.19 347 12 17 ];
+        symbol [ BLE_CONNECTING %tmp.21 347 21 35 ];
+        %tmp.21 = getv ? :BLE_CONNECTING;
+        %tmp.22 = eq %tmp.19 %tmp.21;
+        bf %tmp.22 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_347_8_347_60_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_347_8_347_60_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_347_37_347_60_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 347 39 ]
+        symbol [ C_ACC_ACTIVE %tmp.24 347 46 58 ];
+        %tmp.24 = getv ? :C_ACC_ACTIVE;
+        ret %tmp.24;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_347_37_347_60_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_347_8_347_60_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_347_8_347_60_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 348 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_348_8_348_60_if_stmt:
+        %tmp.25 = lgetv %state;
+        symbol [ state %tmp.25 348 12 17 ];
+        symbol [ BLE_CONNECTED %tmp.27 348 21 34 ];
+        %tmp.27 = getv ? :BLE_CONNECTED;
+        %tmp.28 = eq %tmp.25 %tmp.27;
+        bf %tmp.28 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_348_8_348_60_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_348_8_348_60_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_348_37_348_60_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 348 39 ]
+        symbol [ C_ACC_ACTIVE %tmp.30 348 46 58 ];
+        %tmp.30 = getv ? :C_ACC_ACTIVE;
+        ret %tmp.30;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_348_37_348_60_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_348_8_348_60_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_348_8_348_60_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 349 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_349_8_349_60_if_stmt:
+        %tmp.31 = lgetv %state;
+        symbol [ state %tmp.31 349 12 17 ];
+        symbol [ BLE_SUBSCRIBED %tmp.33 349 21 35 ];
+        %tmp.33 = getv ? :BLE_SUBSCRIBED;
+        %tmp.34 = eq %tmp.31 %tmp.33;
+        bf %tmp.34 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_349_8_349_60_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_349_8_349_60_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_349_37_349_60_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 349 39 ]
+        symbol [ C_ACC_LIVE %tmp.36 349 46 56 ];
+        %tmp.36 = getv ? :C_ACC_LIVE;
+        ret %tmp.36;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_349_37_349_60_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_349_8_349_60_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_349_8_349_60_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 350 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_350_8_350_60_if_stmt:
+        %tmp.37 = lgetv %state;
+        symbol [ state %tmp.37 350 12 17 ];
+        symbol [ BLE_ERROR %tmp.39 350 21 30 ];
+        %tmp.39 = getv ? :BLE_ERROR;
+        %tmp.40 = eq %tmp.37 %tmp.39;
+        bf %tmp.40 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_350_8_350_60_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_350_8_350_60_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_350_37_350_60_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 350 39 ]
+        symbol [ C_ACC_ERROR %tmp.42 350 46 57 ];
+        %tmp.42 = getv ? :C_ACC_ERROR;
+        ret %tmp.42;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_350_37_350_60_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_350_8_350_60_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_350_8_350_60_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 351 8 ]
+        symbol [ C_ACC_IDLE %tmp.44 351 15 25 ];
+        %tmp.44 = getv ? :C_ACC_IDLE;
+        ret %tmp.44;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_343_60_352_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 357; @symbol_functiondef = [_bottomText,357,20,31]; @symbol_param<0> = [state,357,32,37]; @symbol_param<0>_type<0> = [Number,357,41,47]; @symbol_return<0> = [String,357,52,58]; ]
+    protected
+    function _bottomText(state as Number) as String {
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_357_59_366_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 358 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_358_8_358_67_if_stmt:
+        %tmp.1 = lgetv %state;
+        symbol [ state %tmp.1 358 12 17 ];
+        symbol [ BLE_IDLE %tmp.3 358 21 29 ];
+        %tmp.3 = getv ? :BLE_IDLE;
+        %tmp.4 = eq %tmp.1 %tmp.3;
+        bf %tmp.4 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_358_8_358_67_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_358_8_358_67_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_358_37_358_67_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 358 39 ]
+        %tmp.5 = "tap to scan";
+        ret %tmp.5;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_358_37_358_67_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_358_8_358_67_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_358_8_358_67_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 359 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_359_8_359_67_if_stmt:
+        %tmp.6 = lgetv %state;
+        symbol [ state %tmp.6 359 12 17 ];
+        symbol [ BLE_SCANNING %tmp.8 359 21 33 ];
+        %tmp.8 = getv ? :BLE_SCANNING;
+        %tmp.9 = eq %tmp.6 %tmp.8;
+        bf %tmp.9 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_359_8_359_67_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_359_8_359_67_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_359_37_359_67_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 359 39 ]
+        %tmp.10 = "back to stop";
+        ret %tmp.10;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_359_37_359_67_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_359_8_359_67_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_359_8_359_67_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 360 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_360_8_360_69_if_stmt:
+        %tmp.11 = lgetv %state;
+        symbol [ state %tmp.11 360 12 17 ];
+        symbol [ BLE_FOUND %tmp.13 360 21 30 ];
+        %tmp.13 = getv ? :BLE_FOUND;
+        %tmp.14 = eq %tmp.11 %tmp.13;
+        bf %tmp.14 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_360_8_360_69_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_360_8_360_69_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_360_37_360_69_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 360 39 ]
+        %tmp.15 = "tap  |  back=rescan";
+        ret %tmp.15;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_360_37_360_69_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_360_8_360_69_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_360_8_360_69_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 361 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_361_8_361_67_if_stmt:
+        %tmp.16 = lgetv %state;
+        symbol [ state %tmp.16 361 12 17 ];
+        symbol [ BLE_CONNECTING %tmp.18 361 21 35 ];
+        %tmp.18 = getv ? :BLE_CONNECTING;
+        %tmp.19 = eq %tmp.16 %tmp.18;
+        bf %tmp.19 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_361_8_361_67_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_361_8_361_67_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_361_37_361_67_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 361 39 ]
+        %tmp.20 = "connecting...";
+        ret %tmp.20;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_361_37_361_67_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_361_8_361_67_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_361_8_361_67_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 362 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_362_8_362_68_if_stmt:
+        %tmp.21 = lgetv %state;
+        symbol [ state %tmp.21 362 12 17 ];
+        symbol [ BLE_CONNECTED %tmp.23 362 21 34 ];
+        %tmp.23 = getv ? :BLE_CONNECTED;
+        %tmp.24 = eq %tmp.21 %tmp.23;
+        bf %tmp.24 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_362_8_362_68_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_362_8_362_68_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_362_37_362_68_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 362 39 ]
+        %tmp.25 = "enabling notify...";
+        ret %tmp.25;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_362_37_362_68_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_362_8_362_68_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_362_8_362_68_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 363 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_363_8_363_68_if_stmt:
+        %tmp.26 = lgetv %state;
+        symbol [ state %tmp.26 363 12 17 ];
+        symbol [ BLE_SUBSCRIBED %tmp.28 363 21 35 ];
+        %tmp.28 = getv ? :BLE_SUBSCRIBED;
+        %tmp.29 = eq %tmp.26 %tmp.28;
+        bf %tmp.29 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_363_8_363_68_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_363_8_363_68_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_363_37_363_68_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 363 39 ]
+        %tmp.30 = "back to disconnect";
+        ret %tmp.30;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_363_37_363_68_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_363_8_363_68_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_363_8_363_68_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 364 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_364_8_364_67_if_stmt:
+        %tmp.31 = lgetv %state;
+        symbol [ state %tmp.31 364 12 17 ];
+        symbol [ BLE_ERROR %tmp.33 364 21 30 ];
+        %tmp.33 = getv ? :BLE_ERROR;
+        %tmp.34 = eq %tmp.31 %tmp.33;
+        bf %tmp.34 @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_364_8_364_67_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_364_8_364_67_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_364_37_364_67_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 364 39 ]
+        symbol [ _ble %tmp.36 364 46 50 ];
+        %tmp.36 = getv ? :_ble;
+        symbol [ getStatus %tmp.37 364 51 60 ];
+        %tmp.37 = getv function %tmp.36 :getStatus;
+        %tmp.38 = invoke %tmp.36 %tmp.37();
+        ret %tmp.38;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_364_37_364_67_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_364_8_364_67_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_364_8_364_67_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 365 8 ]
+        %tmp.39 = "";
+        ret %tmp.39;
+c__Users_ralls_myGarminApp_myGarminApp_source_myGarminAppView_mc_357_59_366_4_stop:
+    }
+}
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc"; @line = 17; ]
+<init> {
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 24 6 ]
+    symbol [ Graphics %tmp.40 24 22 30 ];
+    %tmp.40 = getm $.Toybox.Graphics;
+    symbol [ COLOR_BLACK %tmp.41 24 31 42 ];
+    %tmp.41 = getv %tmp.40 :COLOR_BLACK;
+    putv self :C_BG %tmp.41;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 26 6 ]
+    symbol [ Graphics %tmp.42 26 22 30 ];
+    %tmp.42 = getm $.Toybox.Graphics;
+    symbol [ COLOR_WHITE %tmp.43 26 31 42 ];
+    %tmp.43 = getv %tmp.42 :COLOR_WHITE;
+    putv self :C_CARD_BORDER %tmp.43;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\myGarminAppView.mc" 27 6 ]
+    symbol [ Graphics %tmp.44 27 22 30 ];
+    %tmp.44 = getm $.Toybox.Graphics;
+    symbol [ COLOR_WHITE %tmp.45 27 31 42 ];
+    %tmp.45 = getv %tmp.44 :COLOR_WHITE;
+    putv self :C_TEXT_PRI %tmp.45;
+}

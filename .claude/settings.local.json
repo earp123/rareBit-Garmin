@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat /c/Users/ralls/myGarminApp/myGarminApp/resources/layouts/*.xml)",
+      "Bash(cat /c/Users/ralls/myGarminApp/myGarminApp/resources/strings/*.xml)",
+      "Read(//c/Users/ralls/AppData/Roaming/Garmin/ConnectIQ//**)",
+      "Read(//c/Users/ralls/AppData/Local/**)",
+      "Read(//c/Users/ralls/**)",
+      "Bash(find /c/Users/ralls -maxdepth 4 -name *.der -o -name *.pem -o -name developer_key)",
+      "Bash(powershell -Command \"Get-PSDrive -PSProvider FileSystem | Select-Object Name, Root, Description | Where-Object {$_Name -ne ''C''}\")",
+      "Bash(powershell -Command \"Get-Volume | Select-Object DriveLetter, FileSystemLabel, DriveType | Format-Table\")",
+      "WebFetch(domain:developer.garmin.com)"
+    ]
+  }
+}

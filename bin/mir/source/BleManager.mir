@@ -1,0 +1,2665 @@
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 17; @symbol_importdef<0> = [Toybox,17,7,13]; @symbol_importdef<1> = [Attention,17,14,23]; ]
+import Toybox.Attention;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 18; @symbol_importdef<0> = [Toybox,18,7,13]; @symbol_importdef<1> = [BluetoothLowEnergy,18,14,32]; ]
+import Toybox.BluetoothLowEnergy;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 19; @symbol_importdef<0> = [Toybox,19,7,13]; @symbol_importdef<1> = [Lang,19,14,18]; ]
+import Toybox.Lang;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 20; @symbol_importdef<0> = [Toybox,20,7,13]; @symbol_importdef<1> = [Timer,20,14,19]; ]
+import Toybox.Timer;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 21; @symbol_importdef<0> = [Toybox,21,7,13]; @symbol_importdef<1> = [WatchUi,21,14,21]; ]
+import Toybox.WatchUi;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 22; @symbol_importdef<0> = [Toybox,22,7,13]; @symbol_importdef<1> = [System,22,14,20]; ]
+import Toybox.System;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 27; @position = 6; @symbol_constdef = [TARGET_SERVICE_UUID_STR,27,6,29]; ]
+const TARGET_SERVICE_UUID_STR = "33210001-28d5-4b7b-bad0-7dee1eee1b6d";
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 28; @position = 6; @symbol_constdef = [TARGET_CHAR_UUID_STR,28,6,26]; ]
+const TARGET_CHAR_UUID_STR = "33210002-28d5-4b7b-bad0-7dee1eee1b6d";
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 33; @position = 6; @symbol_constdef = [BLE_IDLE,33,6,14]; ]
+const BLE_IDLE = 0;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 34; @position = 6; @symbol_constdef = [BLE_SCANNING,34,6,18]; ]
+const BLE_SCANNING = 1;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 35; @position = 6; @symbol_constdef = [BLE_FOUND,35,6,15]; ]
+const BLE_FOUND = 2;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 36; @position = 6; @symbol_constdef = [BLE_CONNECTING,36,6,20]; ]
+const BLE_CONNECTING = 3;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 37; @position = 6; @symbol_constdef = [BLE_CONNECTED,37,6,19]; ]
+const BLE_CONNECTED = 4;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 38; @position = 6; @symbol_constdef = [BLE_SUBSCRIBED,38,6,20]; ]
+const BLE_SUBSCRIBED = 5;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 39; @position = 6; @symbol_constdef = [BLE_ERROR,39,6,15]; ]
+const BLE_ERROR = 6;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 45; @position = 6; @symbol_constdef = [NOTIFY_LINKED,45,6,19]; ]
+const NOTIFY_LINKED = 0;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 46; @position = 6; @symbol_constdef = [NOTIFY_ALERT_1,46,6,20]; ]
+const NOTIFY_ALERT_1 = 1;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 47; @position = 6; @symbol_constdef = [NOTIFY_ALERT_2,47,6,20]; ]
+const NOTIFY_ALERT_2 = 2;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 48; @position = 6; @symbol_constdef = [NOTIFY_UNUSED,48,6,19]; ]
+const NOTIFY_UNUSED = 3;
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 51; @symbol_classdef = [BleManager,51,6,16]; @symbol_extends<0> = [BluetoothLowEnergy,51,25,43]; @symbol_extends<1> = [BleDelegate,51,44,55]; ]
+class BleManager extends BluetoothLowEnergy.BleDelegate {
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 51; ]
+    <init> {
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 59 15 ]
+        symbol [ BLE_IDLE %tmp.2 59 41 49 ];
+        %tmp.2 = getv ? :BLE_IDLE;
+        putv self :_state %tmp.2;
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 51; ]
+    static
+    <init> {
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 54; @position = 15; @symbol_vardef = [_scanResult,54,15,26]; @symbol_type<0> = [BluetoothLowEnergy,54,31,49]; @symbol_type<1> = [ScanResult,54,50,60]; ]
+    protected
+    var _scanResult as BluetoothLowEnergy.ScanResult or Null = null;
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 57; @position = 15; @symbol_vardef = [_device,57,15,22]; @symbol_type<0> = [BluetoothLowEnergy,57,31,49]; @symbol_type<1> = [Device,57,50,56]; ]
+    protected
+    var _device as BluetoothLowEnergy.Device or Null = null;
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 59; @position = 15; @symbol_vardef = [_state,59,15,21]; @symbol_type<0> = [Number,59,31,37]; ]
+    protected
+    var _state as Number;
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 60; @position = 15; @symbol_vardef = [_status,60,15,22]; @symbol_type<0> = [String,60,31,37]; ]
+    protected
+    var _status as String = "Initializing BLE...";
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 61; @position = 15; @symbol_vardef = [_deviceName,61,15,26]; @symbol_type<0> = [String,61,31,37]; ]
+    protected
+    var _deviceName as String = "";
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 62; @position = 15; @symbol_vardef = [_rssi,62,15,20]; @symbol_type<0> = [Number,62,31,37]; ]
+    protected
+    var _rssi as Number = 0;
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 63; @position = 15; @symbol_vardef = [_rxHex,63,15,21]; @symbol_type<0> = [String,63,31,37]; ]
+    protected
+    var _rxHex as String = "--";
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 64; @position = 15; @symbol_vardef = [_rxCount,64,15,23]; @symbol_type<0> = [Number,64,31,37]; ]
+    protected
+    var _rxCount as Number = 0;
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 65; @position = 15; @symbol_vardef = [_linked1,65,15,23]; @symbol_type<0> = [Boolean,65,32,39]; ]
+    protected
+    var _linked1 as Boolean = false;
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 66; @position = 15; @symbol_vardef = [_linked2,66,15,23]; @symbol_type<0> = [Boolean,66,32,39]; ]
+    protected
+    var _linked2 as Boolean = false;
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 67; @position = 15; @symbol_vardef = [_notifType,67,15,25]; @symbol_type<0> = [Number,67,32,38]; ]
+    protected
+    var _notifType as Number = -1;
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 68; @position = 15; @symbol_vardef = [_notifLocked,68,15,27]; @symbol_type<0> = [Boolean,68,32,39]; ]
+    protected
+    var _notifLocked as Boolean = false;
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 69; @position = 15; @symbol_vardef = [_notifTimer,69,15,26]; @symbol_type<0> = [Timer,69,32,37]; @symbol_type<1> = [Timer,69,38,43]; ]
+    protected
+    var _notifTimer as Timer.Timer;
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 70; @position = 15; @symbol_vardef = [_buzzTimer,70,15,25]; @symbol_type<0> = [Timer,70,32,37]; @symbol_type<1> = [Timer,70,38,43]; ]
+    protected
+    var _buzzTimer as Timer.Timer;
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 71; @position = 15; @symbol_vardef = [_buzzTimer2,71,15,26]; @symbol_type<0> = [Timer,71,32,37]; @symbol_type<1> = [Timer,71,38,43]; ]
+    protected
+    var _buzzTimer2 as Timer.Timer;
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 72; @position = 15; @symbol_vardef = [_svcUuid,72,15,23]; @symbol_type<0> = [BluetoothLowEnergy,72,32,50]; @symbol_type<1> = [Uuid,72,51,55]; ]
+    protected
+    var _svcUuid as BluetoothLowEnergy.Uuid;
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 73; @position = 15; @symbol_vardef = [_charUuid,73,15,24]; @symbol_type<0> = [BluetoothLowEnergy,73,32,50]; @symbol_type<1> = [Uuid,73,51,55]; ]
+    protected
+    var _charUuid as BluetoothLowEnergy.Uuid;
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 75; @symbol_functiondef = [initialize,75,13,23]; ]
+    function initialize() as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_75_26_90_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 76 8 ]
+        symbol [ BleDelegate %tmp.2 76 8 19 ];
+        %tmp.2 = getv ? :BleDelegate;
+        symbol [ initialize %tmp.3 76 20 30 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 77 8 ]
+        symbol [ Timer %tmp.6 77 26 31 ];
+        %tmp.6 = getm $.Toybox.Timer;
+        symbol [ Timer %tmp.7 77 32 37 ];
+        %tmp.7 = getv function ? %tmp.6 :Timer;
+        %tmp.4 = newc %tmp.7 ();
+        symbol [ _notifTimer ? 77 8 19 ];
+        putv self :_notifTimer %tmp.4;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 78 8 ]
+        symbol [ Timer %tmp.10 78 26 31 ];
+        %tmp.10 = getm $.Toybox.Timer;
+        symbol [ Timer %tmp.11 78 32 37 ];
+        %tmp.11 = getv function ? %tmp.10 :Timer;
+        %tmp.8 = newc %tmp.11 ();
+        symbol [ _buzzTimer ? 78 8 18 ];
+        putv self :_buzzTimer %tmp.8;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 79 8 ]
+        symbol [ Timer %tmp.14 79 26 31 ];
+        %tmp.14 = getm $.Toybox.Timer;
+        symbol [ Timer %tmp.15 79 32 37 ];
+        %tmp.15 = getv function ? %tmp.14 :Timer;
+        %tmp.12 = newc %tmp.15 ();
+        symbol [ _buzzTimer2 ? 79 8 19 ];
+        putv self :_buzzTimer2 %tmp.12;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 81 8 ]
+        symbol [ BluetoothLowEnergy %tmp.16 81 20 38 ];
+        %tmp.16 = getm $.Toybox.BluetoothLowEnergy;
+        symbol [ stringToUuid %tmp.17 81 39 51 ];
+        %tmp.17 = getv function %tmp.16 :stringToUuid;
+        symbol [ TARGET_SERVICE_UUID_STR %tmp.19 81 52 75 ];
+        %tmp.19 = getv ? :TARGET_SERVICE_UUID_STR;
+        %tmp.20 = invoke %tmp.16 %tmp.17(%tmp.19);
+        symbol [ _svcUuid ? 81 8 16 ];
+        putv self :_svcUuid %tmp.20;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 82 8 ]
+        symbol [ BluetoothLowEnergy %tmp.21 82 20 38 ];
+        %tmp.21 = getm $.Toybox.BluetoothLowEnergy;
+        symbol [ stringToUuid %tmp.22 82 39 51 ];
+        %tmp.22 = getv function %tmp.21 :stringToUuid;
+        symbol [ TARGET_CHAR_UUID_STR %tmp.24 82 52 72 ];
+        %tmp.24 = getv ? :TARGET_CHAR_UUID_STR;
+        %tmp.25 = invoke %tmp.21 %tmp.22(%tmp.24);
+        symbol [ _charUuid ? 82 8 17 ];
+        putv self :_charUuid %tmp.25;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 85 8 ]
+        symbol [ BluetoothLowEnergy %tmp.26 85 8 26 ];
+        %tmp.26 = getm $.Toybox.BluetoothLowEnergy;
+        symbol [ setDelegate %tmp.27 85 27 38 ];
+        %tmp.27 = getv function %tmp.26 :setDelegate;
+        %tmp.28 = self;
+        symbol [ self %tmp.28 85 39 43 ];
+        invoke %tmp.26 %tmp.27(%tmp.28);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 89 8 ]
+        %tmp.29 = self;
+        symbol [ _registerProfile %tmp.30 89 8 24 ];
+        %tmp.30 = getv function %tmp.29 :_registerProfile;
+        invoke %tmp.29 %tmp.30();
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_75_26_90_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 92; @symbol_functiondef = [_registerProfile,92,20,36]; ]
+    protected
+    function _registerProfile() as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_92_47_108_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 93 8 ]
+        try @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_93_8_107_8_beginTry @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_93_8_107_8_endTry @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_93_8_107_8_catch @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_93_8_107_8_finally;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_93_8_107_8_beginTry:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_93_12_103_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 94 12 ]
+        symbol [ BluetoothLowEnergy %tmp.1 94 12 30 ];
+        %tmp.1 = getm $.Toybox.BluetoothLowEnergy;
+        symbol [ registerProfile %tmp.2 94 31 46 ];
+        %tmp.2 = getv function %tmp.1 :registerProfile;
+        %tmp.3 = newd 2;
+        %tmp.5 = const :uuid;
+        symbol [ uuid %tmp.5 95 17 21 const ];
+        symbol [ _svcUuid %tmp.7 95 25 33 ];
+        %tmp.7 = getv ? :_svcUuid;
+        %tmp.8 = dup %tmp.3;
+        %tmp.9 = aputv %tmp.8 %tmp.5 %tmp.7;
+        %tmp.11 = const :characteristics;
+        symbol [ characteristics %tmp.11 96 17 32 const ];
+        %tmp.12 = newa 1;
+        %tmp.13 = newd 2;
+        %tmp.15 = const :uuid;
+        symbol [ uuid %tmp.15 97 21 25 const ];
+        symbol [ _charUuid %tmp.17 97 29 38 ];
+        %tmp.17 = getv ? :_charUuid;
+        %tmp.18 = dup %tmp.13;
+        %tmp.19 = aputv %tmp.18 %tmp.15 %tmp.17;
+        %tmp.21 = const :descriptors;
+        symbol [ descriptors %tmp.21 98 21 32 const ];
+        %tmp.22 = newa 1;
+        symbol [ BluetoothLowEnergy %tmp.23 98 37 55 ];
+        %tmp.23 = getm $.Toybox.BluetoothLowEnergy;
+        symbol [ cccdUuid %tmp.24 98 56 64 ];
+        %tmp.24 = getv function %tmp.23 :cccdUuid;
+        %tmp.25 = invoke %tmp.23 %tmp.24();
+        %tmp.26 = dup %tmp.22;
+        %tmp.27 = aputv %tmp.26 0 %tmp.25;
+        %tmp.28 = dup %tmp.19;
+        %tmp.29 = aputv %tmp.28 %tmp.21 %tmp.27;
+        %tmp.30 = dup %tmp.12;
+        %tmp.31 = aputv %tmp.30 0 %tmp.29;
+        %tmp.32 = dup %tmp.9;
+        %tmp.33 = aputv %tmp.32 %tmp.11 %tmp.31;
+        invoke %tmp.1 %tmp.2(%tmp.33);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 101 12 ]
+        symbol [ System %tmp.34 101 12 18 ];
+        %tmp.34 = getm $.Toybox.System;
+        symbol [ println %tmp.35 101 19 26 ];
+        %tmp.35 = getv function %tmp.34 :println;
+        %tmp.36 = "BLE: registerProfile sent";
+        invoke %tmp.34 %tmp.35(%tmp.36);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 102 12 ]
+        %tmp.37 = "Profile sent. Tap SELECT to scan.";
+        symbol [ _status ? 102 12 19 ];
+        putv self :_status %tmp.37;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_93_12_103_8_stop:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_93_8_107_8_endTry:
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_93_8_107_8_finally;
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_93_8_107_8_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_93_8_107_8_catch:
+        %tmp.38 = exception;
+        push %tmp.38;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 103 10 ]
+        %tmp.39 = dup %tmp.38;
+        symbol [ Lang %tmp.40 103 31 35 ];
+        %tmp.40 = getm $.Toybox.Lang;
+        symbol [ Exception %tmp.41 103 36 45 ];
+        %tmp.41 = getv %tmp.40 :Exception;
+        %tmp.42 = isa %tmp.39 %tmp.41;
+        bf %tmp.42 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_103_10_107_8_next;
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_93_8_107_8_catch" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_103_10_107_8_next" ]
+        %ex.1 = local;
+        symbol [ ex %ex.1 103 17 19 ];
+        %tmp.43 = dup %tmp.38;
+        %tmp.44 = as %tmp.43 Lang.Exception;
+        lputv %ex.1 %tmp.44;
+        symbol [ ex %ex.1 103 17 19 ];
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_103_47_107_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 104 12 ]
+        symbol [ BLE_ERROR %tmp.46 104 22 31 ];
+        %tmp.46 = getv ? :BLE_ERROR;
+        symbol [ _state ? 104 12 18 ];
+        putv self :_state %tmp.46;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 105 12 ]
+        %tmp.47 = "Profile reg failed!";
+        symbol [ _status ? 105 12 19 ];
+        putv self :_status %tmp.47;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 106 12 ]
+        symbol [ System %tmp.48 106 12 18 ];
+        %tmp.48 = getm $.Toybox.System;
+        symbol [ println %tmp.49 106 19 26 ];
+        %tmp.49 = getv function %tmp.48 :println;
+        %tmp.50 = "BLE registerProfile error: ";
+        %tmp.51 = lgetv %ex.1;
+        symbol [ ex %tmp.51 106 59 61 ];
+        symbol [ getErrorMessage %tmp.52 106 62 77 ];
+        %tmp.52 = getv function %tmp.51 :getErrorMessage;
+        %tmp.53 = invoke %tmp.51 %tmp.52();
+        %tmp.54 = add %tmp.50 %tmp.53;
+        invoke %tmp.48 %tmp.49(%tmp.54);
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_103_47_107_8_stop:
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_93_8_107_8_finally;
+        pop;
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_93_8_107_8_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_103_10_107_8_next:
+        try @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_93_8_107_8_catch @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_103_10_107_8_next @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_103_10_107_8_next @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_93_8_107_8_finally;
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_93_8_107_8_finally;
+        throw %tmp.38;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_93_8_107_8_finally:
+        jsrret;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_93_8_107_8_end:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_92_47_108_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 114; @symbol_functiondef = [startScan,114,13,22]; ]
+    function startScan() as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_114_33_132_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 115 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_115_8_131_8_if_stmt:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_115_12_117_22_begin:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_115_12_116_22_begin:
+        symbol [ _state %tmp.2 115 12 18 ];
+        %tmp.2 = getv ? :_state;
+        symbol [ BLE_IDLE %tmp.4 115 22 30 ];
+        %tmp.4 = getv ? :BLE_IDLE;
+        %tmp.5 = eq %tmp.2 %tmp.4;
+        bt %tmp.5 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_115_8_131_8_if_true;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_116_12_116_22_false:
+        symbol [ _state %tmp.7 116 12 18 ];
+        %tmp.7 = getv ? :_state;
+        symbol [ BLE_ERROR %tmp.9 116 22 31 ];
+        %tmp.9 = getv ? :BLE_ERROR;
+        %tmp.10 = eq %tmp.7 %tmp.9;
+        push %tmp.10;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_116_12_116_22_end:
+        %tmp.11 = phi [%tmp.5 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_115_12_116_22_begin] [%tmp.10 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_116_12_116_22_false] [%tmp.11 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_116_12_116_22_end];
+        bt %tmp.11 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_115_8_131_8_if_true;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_117_12_117_22_false:
+        symbol [ _state %tmp.13 117 12 18 ];
+        %tmp.13 = getv ? :_state;
+        symbol [ BLE_FOUND %tmp.15 117 22 31 ];
+        %tmp.15 = getv ? :BLE_FOUND;
+        %tmp.16 = eq %tmp.13 %tmp.15;
+        push %tmp.16;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_117_12_117_22_end:
+        %tmp.17 = phi [%tmp.11 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_115_12_117_22_begin] [%tmp.16 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_117_12_117_22_false] [%tmp.17 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_117_12_117_22_end];
+        bf %tmp.17 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_115_8_131_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_115_8_131_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_117_33_131_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 118 12 ]
+        %tmp.18 = self;
+        symbol [ _clearSession %tmp.19 118 12 25 ];
+        %tmp.19 = getv function %tmp.18 :_clearSession;
+        invoke %tmp.18 %tmp.19();
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 119 12 ]
+        symbol [ BLE_SCANNING %tmp.21 119 22 34 ];
+        %tmp.21 = getv ? :BLE_SCANNING;
+        symbol [ _state ? 119 12 18 ];
+        putv self :_state %tmp.21;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 120 12 ]
+        %tmp.22 = "Scanning... (UUID filter active)";
+        symbol [ _status ? 120 12 19 ];
+        putv self :_status %tmp.22;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 121 12 ]
+        symbol [ System %tmp.23 121 12 18 ];
+        %tmp.23 = getm $.Toybox.System;
+        symbol [ println %tmp.24 121 19 26 ];
+        %tmp.24 = getv function %tmp.23 :println;
+        %tmp.25 = "BLE: start scan";
+        invoke %tmp.23 %tmp.24(%tmp.25);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 122 12 ]
+        try @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_122_12_129_12_beginTry @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_122_12_129_12_endTry @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_122_12_129_12_catch @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_122_12_129_12_finally;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_122_12_129_12_beginTry:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_122_16_125_12_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 123 16 ]
+        symbol [ BluetoothLowEnergy %tmp.26 123 16 34 ];
+        %tmp.26 = getm $.Toybox.BluetoothLowEnergy;
+        symbol [ setScanState %tmp.27 123 35 47 ];
+        %tmp.27 = getv function %tmp.26 :setScanState;
+        symbol [ BluetoothLowEnergy %tmp.28 124 20 38 ];
+        %tmp.28 = getm $.Toybox.BluetoothLowEnergy;
+        symbol [ SCAN_STATE_SCANNING %tmp.29 124 39 58 ];
+        %tmp.29 = getv %tmp.28 :SCAN_STATE_SCANNING;
+        invoke %tmp.26 %tmp.27(%tmp.29);
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_122_16_125_12_stop:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_122_12_129_12_endTry:
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_122_12_129_12_finally;
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_122_12_129_12_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_122_12_129_12_catch:
+        %tmp.30 = exception;
+        push %tmp.30;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 125 14 ]
+        %tmp.31 = dup %tmp.30;
+        symbol [ Lang %tmp.32 125 35 39 ];
+        %tmp.32 = getm $.Toybox.Lang;
+        symbol [ Exception %tmp.33 125 40 49 ];
+        %tmp.33 = getv %tmp.32 :Exception;
+        %tmp.34 = isa %tmp.31 %tmp.33;
+        bf %tmp.34 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_125_14_129_12_next;
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_122_12_129_12_catch" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_125_14_129_12_next" ]
+        %ex.1 = local;
+        symbol [ ex %ex.1 125 21 23 ];
+        %tmp.35 = dup %tmp.30;
+        %tmp.36 = as %tmp.35 Lang.Exception;
+        lputv %ex.1 %tmp.36;
+        symbol [ ex %ex.1 125 21 23 ];
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_125_51_129_12_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 126 16 ]
+        symbol [ BLE_ERROR %tmp.38 126 26 35 ];
+        %tmp.38 = getv ? :BLE_ERROR;
+        symbol [ _state ? 126 16 22 ];
+        putv self :_state %tmp.38;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 127 16 ]
+        %tmp.39 = "Scan start failed!";
+        symbol [ _status ? 127 16 23 ];
+        putv self :_status %tmp.39;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 128 16 ]
+        symbol [ System %tmp.40 128 16 22 ];
+        %tmp.40 = getm $.Toybox.System;
+        symbol [ println %tmp.41 128 23 30 ];
+        %tmp.41 = getv function %tmp.40 :println;
+        %tmp.42 = "BLE setScanState error: ";
+        %tmp.43 = lgetv %ex.1;
+        symbol [ ex %tmp.43 128 60 62 ];
+        symbol [ getErrorMessage %tmp.44 128 63 78 ];
+        %tmp.44 = getv function %tmp.43 :getErrorMessage;
+        %tmp.45 = invoke %tmp.43 %tmp.44();
+        %tmp.46 = add %tmp.42 %tmp.45;
+        invoke %tmp.40 %tmp.41(%tmp.46);
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_125_51_129_12_stop:
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_122_12_129_12_finally;
+        pop;
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_122_12_129_12_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_125_14_129_12_next:
+        try @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_122_12_129_12_catch @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_125_14_129_12_next @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_125_14_129_12_next @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_122_12_129_12_finally;
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_122_12_129_12_finally;
+        throw %tmp.30;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_122_12_129_12_finally:
+        jsrret;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_122_12_129_12_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 130 12 ]
+        symbol [ WatchUi %tmp.47 130 12 19 ];
+        %tmp.47 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.48 130 20 33 ];
+        %tmp.48 = getv function %tmp.47 :requestUpdate;
+        invoke %tmp.47 %tmp.48();
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_117_33_131_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_115_8_131_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_115_8_131_8_if_end:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_114_33_132_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 134; @symbol_functiondef = [stopScan,134,13,21]; ]
+    function stopScan() as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_134_32_142_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 135 8 ]
+        %tmp.1 = self;
+        symbol [ _stopScanInternal %tmp.2 135 8 25 ];
+        %tmp.2 = getv function %tmp.1 :_stopScanInternal;
+        invoke %tmp.1 %tmp.2();
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 136 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_136_8_141_8_if_stmt:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_136_12_136_48_begin:
+        symbol [ _state %tmp.4 136 12 18 ];
+        %tmp.4 = getv ? :_state;
+        symbol [ BLE_SCANNING %tmp.6 136 22 34 ];
+        %tmp.6 = getv ? :BLE_SCANNING;
+        %tmp.7 = eq %tmp.4 %tmp.6;
+        bt %tmp.7 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_136_8_141_8_if_true;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_136_38_136_48_false:
+        symbol [ _state %tmp.9 136 38 44 ];
+        %tmp.9 = getv ? :_state;
+        symbol [ BLE_FOUND %tmp.11 136 48 57 ];
+        %tmp.11 = getv ? :BLE_FOUND;
+        %tmp.12 = eq %tmp.9 %tmp.11;
+        push %tmp.12;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_136_38_136_48_end:
+        %tmp.13 = phi [%tmp.7 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_136_12_136_48_begin] [%tmp.12 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_136_38_136_48_false] [%tmp.13 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_136_38_136_48_end];
+        bf %tmp.13 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_136_8_141_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_136_8_141_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_136_59_141_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 137 12 ]
+        %tmp.14 = self;
+        symbol [ _clearSession %tmp.15 137 12 25 ];
+        %tmp.15 = getv function %tmp.14 :_clearSession;
+        invoke %tmp.14 %tmp.15();
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 138 12 ]
+        symbol [ BLE_IDLE %tmp.17 138 22 30 ];
+        %tmp.17 = getv ? :BLE_IDLE;
+        symbol [ _state ? 138 12 18 ];
+        putv self :_state %tmp.17;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 139 12 ]
+        %tmp.18 = "Scan stopped. Tap SELECT to retry.";
+        symbol [ _status ? 139 12 19 ];
+        putv self :_status %tmp.18;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 140 12 ]
+        symbol [ WatchUi %tmp.19 140 12 19 ];
+        %tmp.19 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.20 140 20 33 ];
+        %tmp.20 = getv function %tmp.19 :requestUpdate;
+        invoke %tmp.19 %tmp.20();
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_136_59_141_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_136_8_141_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_136_8_141_8_if_end:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_134_32_142_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 147; @symbol_functiondef = [connectToDevice,147,13,28]; ]
+    function connectToDevice() as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_147_39_163_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 148 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_148_8_162_8_if_stmt:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_148_12_148_50_begin:
+        symbol [ _state %tmp.2 148 12 18 ];
+        %tmp.2 = getv ? :_state;
+        symbol [ BLE_FOUND %tmp.4 148 22 31 ];
+        %tmp.4 = getv ? :BLE_FOUND;
+        %tmp.5 = eq %tmp.2 %tmp.4;
+        bf %tmp.5 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_148_8_162_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_148_35_148_50_true:
+        symbol [ _scanResult %tmp.7 148 35 46 ];
+        %tmp.7 = getv ? :_scanResult;
+        %tmp.8 = null;
+        %tmp.9 = ne %tmp.7 %tmp.8;
+        push %tmp.9;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_148_35_148_50_end:
+        %tmp.10 = phi [%tmp.5 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_148_12_148_50_begin] [%tmp.9 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_148_35_148_50_true] [%tmp.10 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_148_35_148_50_end];
+        bf %tmp.10 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_148_8_162_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_148_8_162_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_148_56_162_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 149 12 ]
+        %tmp.11 = self;
+        symbol [ _stopScanInternal %tmp.12 149 12 29 ];
+        %tmp.12 = getv function %tmp.11 :_stopScanInternal;
+        invoke %tmp.11 %tmp.12();
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 150 12 ]
+        symbol [ BLE_CONNECTING %tmp.14 150 22 36 ];
+        %tmp.14 = getv ? :BLE_CONNECTING;
+        symbol [ _state ? 150 12 18 ];
+        putv self :_state %tmp.14;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 151 12 ]
+        %tmp.15 = "Pairing with ";
+        symbol [ _deviceName %tmp.17 151 40 51 ];
+        %tmp.17 = getv ? :_deviceName;
+        %tmp.18 = add %tmp.15 %tmp.17;
+        %tmp.19 = "...";
+        %tmp.20 = add %tmp.18 %tmp.19;
+        symbol [ _status ? 151 12 19 ];
+        putv self :_status %tmp.20;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 152 12 ]
+        symbol [ WatchUi %tmp.21 152 12 19 ];
+        %tmp.21 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.22 152 20 33 ];
+        %tmp.22 = getv function %tmp.21 :requestUpdate;
+        invoke %tmp.21 %tmp.22();
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 153 12 ]
+        symbol [ System %tmp.23 153 12 18 ];
+        %tmp.23 = getm $.Toybox.System;
+        symbol [ println %tmp.24 153 19 26 ];
+        %tmp.24 = getv function %tmp.23 :println;
+        %tmp.25 = "BLE: pairDevice ";
+        symbol [ _deviceName %tmp.27 153 48 59 ];
+        %tmp.27 = getv ? :_deviceName;
+        %tmp.28 = add %tmp.25 %tmp.27;
+        invoke %tmp.23 %tmp.24(%tmp.28);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 154 12 ]
+        try @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_154_12_161_12_beginTry @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_154_12_161_12_endTry @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_154_12_161_12_catch @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_154_12_161_12_finally;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_154_12_161_12_beginTry:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_154_16_156_12_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 155 16 ]
+        symbol [ BluetoothLowEnergy %tmp.29 155 16 34 ];
+        %tmp.29 = getm $.Toybox.BluetoothLowEnergy;
+        symbol [ pairDevice %tmp.30 155 35 45 ];
+        %tmp.30 = getv function %tmp.29 :pairDevice;
+        symbol [ _scanResult %tmp.32 155 46 57 ];
+        %tmp.32 = getv ? :_scanResult;
+        invoke %tmp.29 %tmp.30(%tmp.32);
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_154_16_156_12_stop:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_154_12_161_12_endTry:
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_154_12_161_12_finally;
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_154_12_161_12_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_154_12_161_12_catch:
+        %tmp.33 = exception;
+        push %tmp.33;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 156 14 ]
+        %tmp.34 = dup %tmp.33;
+        symbol [ Lang %tmp.35 156 35 39 ];
+        %tmp.35 = getm $.Toybox.Lang;
+        symbol [ Exception %tmp.36 156 40 49 ];
+        %tmp.36 = getv %tmp.35 :Exception;
+        %tmp.37 = isa %tmp.34 %tmp.36;
+        bf %tmp.37 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_156_14_161_12_next;
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_154_12_161_12_catch" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_156_14_161_12_next" ]
+        %ex.1 = local;
+        symbol [ ex %ex.1 156 21 23 ];
+        %tmp.38 = dup %tmp.33;
+        %tmp.39 = as %tmp.38 Lang.Exception;
+        lputv %ex.1 %tmp.39;
+        symbol [ ex %ex.1 156 21 23 ];
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_156_51_161_12_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 157 16 ]
+        symbol [ BLE_ERROR %tmp.41 157 26 35 ];
+        %tmp.41 = getv ? :BLE_ERROR;
+        symbol [ _state ? 157 16 22 ];
+        putv self :_state %tmp.41;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 158 16 ]
+        %tmp.42 = "Pair failed: ";
+        %tmp.43 = lgetv %ex.1;
+        symbol [ ex %tmp.43 158 44 46 ];
+        symbol [ getErrorMessage %tmp.44 158 47 62 ];
+        %tmp.44 = getv function %tmp.43 :getErrorMessage;
+        %tmp.45 = invoke %tmp.43 %tmp.44();
+        %tmp.46 = add %tmp.42 %tmp.45;
+        symbol [ _status ? 158 16 23 ];
+        putv self :_status %tmp.46;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 159 16 ]
+        symbol [ System %tmp.47 159 16 22 ];
+        %tmp.47 = getm $.Toybox.System;
+        symbol [ println %tmp.48 159 23 30 ];
+        %tmp.48 = getv function %tmp.47 :println;
+        %tmp.49 = "BLE pairDevice error: ";
+        %tmp.50 = lgetv %ex.1;
+        symbol [ ex %tmp.50 159 58 60 ];
+        symbol [ getErrorMessage %tmp.51 159 61 76 ];
+        %tmp.51 = getv function %tmp.50 :getErrorMessage;
+        %tmp.52 = invoke %tmp.50 %tmp.51();
+        %tmp.53 = add %tmp.49 %tmp.52;
+        invoke %tmp.47 %tmp.48(%tmp.53);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 160 16 ]
+        symbol [ WatchUi %tmp.54 160 16 23 ];
+        %tmp.54 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.55 160 24 37 ];
+        %tmp.55 = getv function %tmp.54 :requestUpdate;
+        invoke %tmp.54 %tmp.55();
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_156_51_161_12_stop:
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_154_12_161_12_finally;
+        pop;
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_154_12_161_12_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_156_14_161_12_next:
+        try @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_154_12_161_12_catch @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_156_14_161_12_next @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_156_14_161_12_next @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_154_12_161_12_finally;
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_154_12_161_12_finally;
+        throw %tmp.33;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_154_12_161_12_finally:
+        jsrret;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_154_12_161_12_end:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_148_56_162_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_148_8_162_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_148_8_162_8_if_end:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_147_39_163_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 165; @symbol_functiondef = [disconnect,165,13,23]; ]
+    function disconnect() as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_165_34_177_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 166 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_166_8_172_8_if_stmt:
+        symbol [ _device %tmp.2 166 12 19 ];
+        %tmp.2 = getv ? :_device;
+        %tmp.3 = null;
+        %tmp.4 = ne %tmp.2 %tmp.3;
+        bf %tmp.4 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_166_8_172_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_166_8_172_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_166_29_172_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 167 12 ]
+        try @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_167_12_171_12_beginTry @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_167_12_171_12_endTry @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_167_12_171_12_catch @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_167_12_171_12_finally;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_167_12_171_12_beginTry:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_167_16_169_12_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 168 16 ]
+        symbol [ BluetoothLowEnergy %tmp.5 168 16 34 ];
+        %tmp.5 = getm $.Toybox.BluetoothLowEnergy;
+        symbol [ unpairDevice %tmp.6 168 35 47 ];
+        %tmp.6 = getv function %tmp.5 :unpairDevice;
+        symbol [ _device %tmp.8 168 48 55 ];
+        %tmp.8 = getv ? :_device;
+        %tmp.9 = as %tmp.8 { (!Null) };
+        invoke %tmp.5 %tmp.6(%tmp.9);
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_167_16_169_12_stop:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_167_12_171_12_endTry:
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_167_12_171_12_finally;
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_167_12_171_12_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_167_12_171_12_catch:
+        %tmp.10 = exception;
+        push %tmp.10;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 169 14 ]
+        %tmp.11 = dup %tmp.10;
+        symbol [ Lang %tmp.12 169 35 39 ];
+        %tmp.12 = getm $.Toybox.Lang;
+        symbol [ Exception %tmp.13 169 40 49 ];
+        %tmp.13 = getv %tmp.12 :Exception;
+        %tmp.14 = isa %tmp.11 %tmp.13;
+        bf %tmp.14 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_169_14_171_12_next;
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_167_12_171_12_catch" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_169_14_171_12_next" ]
+        %ex.1 = local;
+        symbol [ ex %ex.1 169 21 23 ];
+        %tmp.15 = dup %tmp.10;
+        %tmp.16 = as %tmp.15 Lang.Exception;
+        lputv %ex.1 %tmp.16;
+        symbol [ ex %ex.1 169 21 23 ];
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_169_51_171_12_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 170 16 ]
+        symbol [ System %tmp.17 170 16 22 ];
+        %tmp.17 = getm $.Toybox.System;
+        symbol [ println %tmp.18 170 23 30 ];
+        %tmp.18 = getv function %tmp.17 :println;
+        %tmp.19 = "BLE unpairDevice error: ";
+        %tmp.20 = lgetv %ex.1;
+        symbol [ ex %tmp.20 170 60 62 ];
+        symbol [ getErrorMessage %tmp.21 170 63 78 ];
+        %tmp.21 = getv function %tmp.20 :getErrorMessage;
+        %tmp.22 = invoke %tmp.20 %tmp.21();
+        %tmp.23 = add %tmp.19 %tmp.22;
+        invoke %tmp.17 %tmp.18(%tmp.23);
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_169_51_171_12_stop:
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_167_12_171_12_finally;
+        pop;
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_167_12_171_12_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_169_14_171_12_next:
+        try @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_167_12_171_12_catch @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_169_14_171_12_next @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_169_14_171_12_next @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_167_12_171_12_finally;
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_167_12_171_12_finally;
+        throw %tmp.10;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_167_12_171_12_finally:
+        jsrret;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_167_12_171_12_end:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_166_29_172_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_166_8_172_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_166_8_172_8_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 173 8 ]
+        %tmp.24 = self;
+        symbol [ _clearSession %tmp.25 173 8 21 ];
+        %tmp.25 = getv function %tmp.24 :_clearSession;
+        invoke %tmp.24 %tmp.25();
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 174 8 ]
+        symbol [ BLE_IDLE %tmp.27 174 18 26 ];
+        %tmp.27 = getv ? :BLE_IDLE;
+        symbol [ _state ? 174 8 14 ];
+        putv self :_state %tmp.27;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 175 8 ]
+        %tmp.28 = "Disconnected. Tap SELECT to scan again.";
+        symbol [ _status ? 175 8 15 ];
+        putv self :_status %tmp.28;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 176 8 ]
+        symbol [ WatchUi %tmp.29 176 8 15 ];
+        %tmp.29 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.30 176 16 29 ];
+        %tmp.30 = getv function %tmp.29 :requestUpdate;
+        invoke %tmp.29 %tmp.30();
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_165_34_177_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 183; @symbol_functiondef = [_stopScanInternal,183,20,37]; ]
+    protected
+    function _stopScanInternal() as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_183_48_187_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 184 8 ]
+        try @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_184_8_186_62_beginTry @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_184_8_186_62_endTry @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_184_8_186_62_catch @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_184_8_186_62_finally;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_184_8_186_62_beginTry:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_184_12_186_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 185 12 ]
+        symbol [ BluetoothLowEnergy %tmp.1 185 12 30 ];
+        %tmp.1 = getm $.Toybox.BluetoothLowEnergy;
+        symbol [ setScanState %tmp.2 185 31 43 ];
+        %tmp.2 = getv function %tmp.1 :setScanState;
+        symbol [ BluetoothLowEnergy %tmp.3 185 44 62 ];
+        %tmp.3 = getm $.Toybox.BluetoothLowEnergy;
+        symbol [ SCAN_STATE_OFF %tmp.4 185 63 77 ];
+        %tmp.4 = getv %tmp.3 :SCAN_STATE_OFF;
+        invoke %tmp.1 %tmp.2(%tmp.4);
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_184_12_186_8_stop:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_184_8_186_62_endTry:
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_184_8_186_62_finally;
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_184_8_186_62_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_184_8_186_62_catch:
+        %tmp.5 = exception;
+        push %tmp.5;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 186 10 ]
+        %tmp.6 = dup %tmp.5;
+        symbol [ Lang %tmp.7 186 31 35 ];
+        %tmp.7 = getm $.Toybox.Lang;
+        symbol [ Exception %tmp.8 186 36 45 ];
+        %tmp.8 = getv %tmp.7 :Exception;
+        %tmp.9 = isa %tmp.6 %tmp.8;
+        bf %tmp.9 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_186_10_186_62_next;
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_184_8_186_62_catch" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_186_10_186_62_next" ]
+        %ex.1 = local;
+        symbol [ ex %ex.1 186 17 19 ];
+        %tmp.10 = dup %tmp.5;
+        %tmp.11 = as %tmp.10 Lang.Exception;
+        lputv %ex.1 %tmp.11;
+        symbol [ ex %ex.1 186 17 19 ];
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_184_8_186_62_finally;
+        pop;
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_184_8_186_62_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_186_10_186_62_next:
+        try @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_184_8_186_62_catch @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_186_10_186_62_next @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_186_10_186_62_next @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_184_8_186_62_finally;
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_184_8_186_62_finally;
+        throw %tmp.5;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_184_8_186_62_finally:
+        jsrret;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_184_8_186_62_end:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_183_48_187_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 189; @symbol_functiondef = [_clearSession,189,20,33]; ]
+    protected
+    function _clearSession() as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_189_44_201_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 190 8 ]
+        %tmp.1 = null;
+        symbol [ _scanResult ? 190 8 19 ];
+        putv self :_scanResult %tmp.1;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 191 8 ]
+        %tmp.2 = null;
+        symbol [ _device ? 191 8 15 ];
+        putv self :_device %tmp.2;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 192 8 ]
+        %tmp.3 = "";
+        symbol [ _deviceName ? 192 8 19 ];
+        putv self :_deviceName %tmp.3;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 193 8 ]
+        %tmp.4 = 0;
+        symbol [ _rssi ? 193 8 13 ];
+        putv self :_rssi %tmp.4;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 194 8 ]
+        %tmp.5 = "--";
+        symbol [ _rxHex ? 194 8 14 ];
+        putv self :_rxHex %tmp.5;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 195 8 ]
+        %tmp.6 = 0;
+        symbol [ _rxCount ? 195 8 16 ];
+        putv self :_rxCount %tmp.6;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 196 8 ]
+        %tmp.7 = false;
+        symbol [ _linked1 ? 196 8 16 ];
+        putv self :_linked1 %tmp.7;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 197 8 ]
+        %tmp.8 = false;
+        symbol [ _linked2 ? 197 8 16 ];
+        putv self :_linked2 %tmp.8;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 198 8 ]
+        %tmp.9 = -1;
+        symbol [ _notifType ? 198 8 18 ];
+        putv self :_notifType %tmp.9;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 199 8 ]
+        %tmp.10 = false;
+        symbol [ _notifLocked ? 199 8 20 ];
+        putv self :_notifLocked %tmp.10;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 200 8 ]
+        symbol [ _notifTimer %tmp.12 200 8 19 ];
+        %tmp.12 = getv ? :_notifTimer;
+        symbol [ stop %tmp.13 200 20 24 ];
+        %tmp.13 = getv function %tmp.12 :stop;
+        invoke %tmp.12 %tmp.13();
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_189_44_201_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 205; @symbol_functiondef = [_enableNotifications,205,20,40]; @symbol_param<0> = [device,205,41,47]; @symbol_param<0>_type<0> = [BluetoothLowEnergy,205,51,69]; @symbol_param<0>_type<1> = [Device,205,70,76]; ]
+    protected
+    function _enableNotifications(device as BluetoothLowEnergy.Device) as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_205_86_243_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 206 8 ]
+        %tmp.1 = "Connected! Enabling notifications...";
+        symbol [ _status ? 206 8 15 ];
+        putv self :_status %tmp.1;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 207 8 ]
+        symbol [ WatchUi %tmp.2 207 8 15 ];
+        %tmp.2 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.3 207 16 29 ];
+        %tmp.3 = getv function %tmp.2 :requestUpdate;
+        invoke %tmp.2 %tmp.3();
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 208 8 ]
+        try @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_8_241_8_beginTry @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_8_241_8_endTry @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_8_241_8_catch @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_8_241_8_finally;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_8_241_8_beginTry:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_12_237_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 209 12 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_12_237_8_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_12_237_8_stop" ]
+        %svc.1 = local;
+        symbol [ svc %svc.1 209 16 19 ];
+        %tmp.4 = lgetv %device;
+        symbol [ device %tmp.4 209 22 28 ];
+        symbol [ getService %tmp.5 209 29 39 ];
+        %tmp.5 = getv function %tmp.4 :getService;
+        symbol [ _svcUuid %tmp.7 209 40 48 ];
+        %tmp.7 = getv ? :_svcUuid;
+        %tmp.8 = invoke %tmp.4 %tmp.5(%tmp.7);
+        lputv %svc.1 %tmp.8;
+        symbol [ svc %svc.1 209 16 19 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 210 12 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_210_12_216_12_if_stmt:
+        %tmp.9 = lgetv %svc.1;
+        symbol [ svc %tmp.9 210 16 19 ];
+        %tmp.10 = null;
+        %tmp.11 = eq %tmp.9 %tmp.10;
+        bf %tmp.11 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_210_12_216_12_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_210_12_216_12_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_210_29_216_12_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 211 16 ]
+        symbol [ BLE_ERROR %tmp.13 211 26 35 ];
+        %tmp.13 = getv ? :BLE_ERROR;
+        symbol [ _state ? 211 16 22 ];
+        putv self :_state %tmp.13;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 212 16 ]
+        %tmp.14 = "Service UUID not found on device!";
+        symbol [ _status ? 212 16 23 ];
+        putv self :_status %tmp.14;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 213 16 ]
+        symbol [ System %tmp.15 213 16 22 ];
+        %tmp.15 = getm $.Toybox.System;
+        symbol [ println %tmp.16 213 23 30 ];
+        %tmp.16 = getv function %tmp.15 :println;
+        %tmp.17 = "BLE: service not found";
+        invoke %tmp.15 %tmp.16(%tmp.17);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 214 16 ]
+        symbol [ WatchUi %tmp.18 214 16 23 ];
+        %tmp.18 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.19 214 24 37 ];
+        %tmp.19 = getv function %tmp.18 :requestUpdate;
+        invoke %tmp.18 %tmp.19();
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 215 16 ]
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_8_241_8_finally;
+        ret ?;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_210_29_216_12_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_210_12_216_12_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_210_12_216_12_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 217 12 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_12_237_8_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_12_237_8_stop" ]
+        %chr.2 = local;
+        symbol [ chr %chr.2 217 16 19 ];
+        %tmp.20 = lgetv %svc.1;
+        symbol [ svc %tmp.20 217 22 25 ];
+        symbol [ getCharacteristic %tmp.21 217 26 43 ];
+        %tmp.21 = getv function %tmp.20 :getCharacteristic;
+        symbol [ _charUuid %tmp.23 217 44 53 ];
+        %tmp.23 = getv ? :_charUuid;
+        %tmp.24 = invoke %tmp.20 %tmp.21(%tmp.23);
+        lputv %chr.2 %tmp.24;
+        symbol [ chr %chr.2 217 16 19 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 218 12 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_218_12_224_12_if_stmt:
+        %tmp.25 = lgetv %chr.2;
+        symbol [ chr %tmp.25 218 16 19 ];
+        %tmp.26 = null;
+        %tmp.27 = eq %tmp.25 %tmp.26;
+        bf %tmp.27 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_218_12_224_12_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_218_12_224_12_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_218_29_224_12_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 219 16 ]
+        symbol [ BLE_ERROR %tmp.29 219 26 35 ];
+        %tmp.29 = getv ? :BLE_ERROR;
+        symbol [ _state ? 219 16 22 ];
+        putv self :_state %tmp.29;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 220 16 ]
+        %tmp.30 = "Notify char not found!";
+        symbol [ _status ? 220 16 23 ];
+        putv self :_status %tmp.30;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 221 16 ]
+        symbol [ System %tmp.31 221 16 22 ];
+        %tmp.31 = getm $.Toybox.System;
+        symbol [ println %tmp.32 221 23 30 ];
+        %tmp.32 = getv function %tmp.31 :println;
+        %tmp.33 = "BLE: char not found";
+        invoke %tmp.31 %tmp.32(%tmp.33);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 222 16 ]
+        symbol [ WatchUi %tmp.34 222 16 23 ];
+        %tmp.34 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.35 222 24 37 ];
+        %tmp.35 = getv function %tmp.34 :requestUpdate;
+        invoke %tmp.34 %tmp.35();
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 223 16 ]
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_8_241_8_finally;
+        ret ?;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_218_29_224_12_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_218_12_224_12_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_218_12_224_12_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 225 12 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_12_237_8_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_12_237_8_stop" ]
+        %cccd.3 = local;
+        symbol [ cccd %cccd.3 225 16 20 ];
+        %tmp.36 = lgetv %chr.2;
+        symbol [ chr %tmp.36 225 23 26 ];
+        symbol [ getDescriptor %tmp.37 225 27 40 ];
+        %tmp.37 = getv function %tmp.36 :getDescriptor;
+        symbol [ BluetoothLowEnergy %tmp.38 225 41 59 ];
+        %tmp.38 = getm $.Toybox.BluetoothLowEnergy;
+        symbol [ cccdUuid %tmp.39 225 60 68 ];
+        %tmp.39 = getv function %tmp.38 :cccdUuid;
+        %tmp.40 = invoke %tmp.38 %tmp.39();
+        %tmp.41 = invoke %tmp.36 %tmp.37(%tmp.40);
+        lputv %cccd.3 %tmp.41;
+        symbol [ cccd %cccd.3 225 16 20 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 226 12 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_226_12_232_12_if_stmt:
+        %tmp.42 = lgetv %cccd.3;
+        symbol [ cccd %tmp.42 226 16 20 ];
+        %tmp.43 = null;
+        %tmp.44 = eq %tmp.42 %tmp.43;
+        bf %tmp.44 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_226_12_232_12_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_226_12_232_12_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_226_30_232_12_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 227 16 ]
+        symbol [ BLE_ERROR %tmp.46 227 26 35 ];
+        %tmp.46 = getv ? :BLE_ERROR;
+        symbol [ _state ? 227 16 22 ];
+        putv self :_state %tmp.46;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 228 16 ]
+        %tmp.47 = "CCCD descriptor missing!";
+        symbol [ _status ? 228 16 23 ];
+        putv self :_status %tmp.47;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 229 16 ]
+        symbol [ System %tmp.48 229 16 22 ];
+        %tmp.48 = getm $.Toybox.System;
+        symbol [ println %tmp.49 229 23 30 ];
+        %tmp.49 = getv function %tmp.48 :println;
+        %tmp.50 = "BLE: CCCD not found";
+        invoke %tmp.48 %tmp.49(%tmp.50);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 230 16 ]
+        symbol [ WatchUi %tmp.51 230 16 23 ];
+        %tmp.51 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.52 230 24 37 ];
+        %tmp.52 = getv function %tmp.51 :requestUpdate;
+        invoke %tmp.51 %tmp.52();
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 231 16 ]
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_8_241_8_finally;
+        ret ?;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_226_30_232_12_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_226_12_232_12_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_226_12_232_12_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 234 12 ]
+        %tmp.53 = lgetv %cccd.3;
+        symbol [ cccd %tmp.53 234 12 16 ];
+        symbol [ requestWrite %tmp.54 234 17 29 ];
+        %tmp.54 = getv function %tmp.53 :requestWrite;
+        %tmp.55 = newba 2;
+        %tmp.56 = 0x01;
+        %tmp.57 = dup %tmp.55;
+        %tmp.58 = aputv %tmp.57 0 %tmp.56;
+        %tmp.59 = 0x00;
+        %tmp.60 = dup %tmp.58;
+        %tmp.61 = aputv %tmp.60 1 %tmp.59;
+        invoke %tmp.53 %tmp.54(%tmp.61);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 235 12 ]
+        symbol [ System %tmp.62 235 12 18 ];
+        %tmp.62 = getm $.Toybox.System;
+        symbol [ println %tmp.63 235 19 26 ];
+        %tmp.63 = getv function %tmp.62 :println;
+        %tmp.64 = "BLE: CCCD write sent ? notifications requested";
+        invoke %tmp.62 %tmp.63(%tmp.64);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 236 12 ]
+        %tmp.65 = "Enabling notifications...";
+        symbol [ _status ? 236 12 19 ];
+        putv self :_status %tmp.65;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_12_237_8_stop:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_8_241_8_endTry:
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_8_241_8_finally;
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_8_241_8_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_8_241_8_catch:
+        %tmp.66 = exception;
+        push %tmp.66;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 237 10 ]
+        %tmp.67 = dup %tmp.66;
+        symbol [ Lang %tmp.68 237 31 35 ];
+        %tmp.68 = getm $.Toybox.Lang;
+        symbol [ Exception %tmp.69 237 36 45 ];
+        %tmp.69 = getv %tmp.68 :Exception;
+        %tmp.70 = isa %tmp.67 %tmp.69;
+        bf %tmp.70 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_237_10_241_8_next;
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_8_241_8_catch" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_237_10_241_8_next" ]
+        %ex.4 = local;
+        symbol [ ex %ex.4 237 17 19 ];
+        %tmp.71 = dup %tmp.66;
+        %tmp.72 = as %tmp.71 Lang.Exception;
+        lputv %ex.4 %tmp.72;
+        symbol [ ex %ex.4 237 17 19 ];
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_237_47_241_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 238 12 ]
+        symbol [ BLE_ERROR %tmp.74 238 22 31 ];
+        %tmp.74 = getv ? :BLE_ERROR;
+        symbol [ _state ? 238 12 18 ];
+        putv self :_state %tmp.74;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 239 12 ]
+        %tmp.75 = "GATT error: ";
+        %tmp.76 = lgetv %ex.4;
+        symbol [ ex %tmp.76 239 39 41 ];
+        symbol [ getErrorMessage %tmp.77 239 42 57 ];
+        %tmp.77 = getv function %tmp.76 :getErrorMessage;
+        %tmp.78 = invoke %tmp.76 %tmp.77();
+        %tmp.79 = add %tmp.75 %tmp.78;
+        symbol [ _status ? 239 12 19 ];
+        putv self :_status %tmp.79;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 240 12 ]
+        symbol [ System %tmp.80 240 12 18 ];
+        %tmp.80 = getm $.Toybox.System;
+        symbol [ println %tmp.81 240 19 26 ];
+        %tmp.81 = getv function %tmp.80 :println;
+        %tmp.82 = "BLE _enableNotifications error: ";
+        %tmp.83 = lgetv %ex.4;
+        symbol [ ex %tmp.83 240 64 66 ];
+        symbol [ getErrorMessage %tmp.84 240 67 82 ];
+        %tmp.84 = getv function %tmp.83 :getErrorMessage;
+        %tmp.85 = invoke %tmp.83 %tmp.84();
+        %tmp.86 = add %tmp.82 %tmp.85;
+        invoke %tmp.80 %tmp.81(%tmp.86);
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_237_47_241_8_stop:
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_8_241_8_finally;
+        pop;
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_8_241_8_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_237_10_241_8_next:
+        try @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_8_241_8_catch @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_237_10_241_8_next @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_237_10_241_8_next @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_8_241_8_finally;
+        jsr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_8_241_8_finally;
+        throw %tmp.66;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_8_241_8_finally:
+        jsrret;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_208_8_241_8_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 242 8 ]
+        symbol [ WatchUi %tmp.87 242 8 15 ];
+        %tmp.87 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.88 242 16 29 ];
+        %tmp.88 = getv function %tmp.87 :requestUpdate;
+        invoke %tmp.87 %tmp.88();
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_205_86_243_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 251; @symbol_functiondef = [onProfileRegister,251,13,30]; @symbol_param<0> = [uuid,252,8,12]; @symbol_param<0>_type<0> = [BluetoothLowEnergy,252,18,36]; @symbol_param<0>_type<1> = [Uuid,252,37,41]; @symbol_param<1> = [status,253,8,14]; @symbol_param<1>_type<0> = [BluetoothLowEnergy,253,18,36]; @symbol_param<1>_type<1> = [Status,253,37,43]; ]
+    function onProfileRegister(uuid as BluetoothLowEnergy.Uuid, status as BluetoothLowEnergy.Status) as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_254_4_263_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 255 8 ]
+        symbol [ System %tmp.1 255 8 14 ];
+        %tmp.1 = getm $.Toybox.System;
+        symbol [ println %tmp.2 255 15 22 ];
+        %tmp.2 = getv function %tmp.1 :println;
+        %tmp.3 = "BLE: onProfileRegister status=";
+        %tmp.4 = lgetv %status;
+        symbol [ status %tmp.4 255 58 64 ];
+        %tmp.5 = add %tmp.3 %tmp.4;
+        invoke %tmp.1 %tmp.2(%tmp.5);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 256 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_256_8_261_8_if_stmt:
+        %tmp.6 = lgetv %status;
+        symbol [ status %tmp.6 256 12 18 ];
+        symbol [ BluetoothLowEnergy %tmp.7 256 22 40 ];
+        %tmp.7 = getm $.Toybox.BluetoothLowEnergy;
+        symbol [ STATUS_SUCCESS %tmp.8 256 41 55 ];
+        %tmp.8 = getv %tmp.7 :STATUS_SUCCESS;
+        %tmp.9 = eq %tmp.6 %tmp.8;
+        bf %tmp.9 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_256_8_261_8_if_else_false;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_256_8_261_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_256_57_258_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 257 12 ]
+        %tmp.10 = "Profile OK. Tap SELECT to start scanning.";
+        symbol [ _status ? 257 12 19 ];
+        putv self :_status %tmp.10;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_256_57_258_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_256_8_261_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_256_8_261_8_if_else_false:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_258_15_261_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 259 12 ]
+        symbol [ BLE_ERROR %tmp.12 259 22 31 ];
+        %tmp.12 = getv ? :BLE_ERROR;
+        symbol [ _state ? 259 12 18 ];
+        putv self :_state %tmp.12;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 260 12 ]
+        %tmp.13 = "Profile reg failed (status=";
+        %tmp.14 = lgetv %status;
+        symbol [ status %tmp.14 260 54 60 ];
+        symbol [ toString %tmp.15 260 61 69 ];
+        %tmp.15 = getv function %tmp.14 :toString;
+        %tmp.16 = invoke %tmp.14 %tmp.15();
+        %tmp.17 = add %tmp.13 %tmp.16;
+        %tmp.18 = ")";
+        %tmp.19 = add %tmp.17 %tmp.18;
+        symbol [ _status ? 260 12 19 ];
+        putv self :_status %tmp.19;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_258_15_261_8_stop:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_256_8_261_8_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 262 8 ]
+        symbol [ WatchUi %tmp.20 262 8 15 ];
+        %tmp.20 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.21 262 16 29 ];
+        %tmp.21 = getv function %tmp.20 :requestUpdate;
+        invoke %tmp.20 %tmp.21();
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_254_4_263_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 266; @symbol_functiondef = [onScanStateChange,266,13,30]; @symbol_param<0> = [scanState,267,8,17]; @symbol_param<0>_type<0> = [BluetoothLowEnergy,267,21,39]; @symbol_param<0>_type<1> = [ScanState,267,40,49]; @symbol_param<1> = [status,268,8,14]; @symbol_param<1>_type<0> = [BluetoothLowEnergy,268,21,39]; @symbol_param<1>_type<1> = [Status,268,40,46]; ]
+    function onScanStateChange(scanState as BluetoothLowEnergy.ScanState, status as BluetoothLowEnergy.Status) as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_269_4_271_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 270 8 ]
+        symbol [ System %tmp.1 270 8 14 ];
+        %tmp.1 = getm $.Toybox.System;
+        symbol [ println %tmp.2 270 15 22 ];
+        %tmp.2 = getv function %tmp.1 :println;
+        %tmp.3 = "BLE: scan state=";
+        %tmp.4 = lgetv %scanState;
+        symbol [ scanState %tmp.4 270 44 53 ];
+        %tmp.5 = add %tmp.3 %tmp.4;
+        %tmp.6 = " status=";
+        %tmp.7 = add %tmp.5 %tmp.6;
+        %tmp.8 = lgetv %status;
+        symbol [ status %tmp.8 270 69 75 ];
+        %tmp.9 = add %tmp.7 %tmp.8;
+        invoke %tmp.1 %tmp.2(%tmp.9);
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_269_4_271_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 274; @symbol_functiondef = [onScanResults,274,13,26]; @symbol_param<0> = [scanResults,274,27,38]; @symbol_param<0>_type<0> = [BluetoothLowEnergy,274,42,60]; @symbol_param<0>_type<1> = [Iterator,274,61,69]; ]
+    function onScanResults(scanResults as BluetoothLowEnergy.Iterator) as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_274_79_319_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 275 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_275_8_275_69_if_stmt:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_275_12_275_48_begin:
+        symbol [ _state %tmp.2 275 12 18 ];
+        %tmp.2 = getv ? :_state;
+        symbol [ BLE_SCANNING %tmp.4 275 22 34 ];
+        %tmp.4 = getv ? :BLE_SCANNING;
+        %tmp.5 = ne %tmp.2 %tmp.4;
+        bf %tmp.5 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_275_8_275_69_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_275_38_275_48_true:
+        symbol [ _state %tmp.7 275 38 44 ];
+        %tmp.7 = getv ? :_state;
+        symbol [ BLE_FOUND %tmp.9 275 48 57 ];
+        %tmp.9 = getv ? :BLE_FOUND;
+        %tmp.10 = ne %tmp.7 %tmp.9;
+        push %tmp.10;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_275_38_275_48_end:
+        %tmp.11 = phi [%tmp.5 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_275_12_275_48_begin] [%tmp.10 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_275_38_275_48_true] [%tmp.11 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_275_38_275_48_end];
+        bf %tmp.11 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_275_8_275_69_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_275_8_275_69_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_275_59_275_69_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 275 61 ]
+        ret ?;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_275_59_275_69_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_275_8_275_69_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_275_8_275_69_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 277 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_274_79_319_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_274_79_319_4_stop" ]
+        %item.1 = local;
+        symbol [ item %item.1 277 12 16 ];
+        %tmp.12 = lgetv %scanResults;
+        symbol [ scanResults %tmp.12 277 19 30 ];
+        symbol [ next %tmp.13 277 31 35 ];
+        %tmp.13 = getv function %tmp.12 :next;
+        %tmp.14 = invoke %tmp.12 %tmp.13();
+        lputv %item.1 %tmp.14;
+        symbol [ item %item.1 277 12 16 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 278 8 ]
+        while @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_278_8_318_8_while_test @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_278_8_318_8_while_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_278_8_318_8_while_test:
+        %tmp.15 = lgetv %item.1;
+        symbol [ item %tmp.15 278 15 19 ];
+        %tmp.16 = null;
+        %tmp.17 = ne %tmp.15 %tmp.16;
+        bf %tmp.17 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_278_8_318_8_while_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_278_8_318_8_while_begin:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_278_29_318_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 279 12 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_278_29_318_8_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_278_29_318_8_stop" ]
+        %result.2 = local;
+        symbol [ result %result.2 279 16 22 ];
+        %tmp.18 = lgetv %item.1;
+        symbol [ item %tmp.18 279 25 29 ];
+        %tmp.19 = as %tmp.18 { (!Null) };
+        %tmp.20 = as %tmp.19 BluetoothLowEnergy.ScanResult;
+        symbol [ BluetoothLowEnergy %tmp.20 279 33 51 ];
+        symbol [ ScanResult %tmp.20 279 52 62 ];
+        lputv %result.2 %tmp.20;
+        symbol [ result %result.2 279 16 22 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 283 12 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_283_12_295_12_if_stmt:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_283_16_283_54_begin:
+        symbol [ _state %tmp.22 283 16 22 ];
+        %tmp.22 = getv ? :_state;
+        symbol [ BLE_FOUND %tmp.24 283 26 35 ];
+        %tmp.24 = getv ? :BLE_FOUND;
+        %tmp.25 = eq %tmp.22 %tmp.24;
+        bf %tmp.25 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_283_12_295_12_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_283_39_283_54_true:
+        symbol [ _scanResult %tmp.27 283 39 50 ];
+        %tmp.27 = getv ? :_scanResult;
+        %tmp.28 = null;
+        %tmp.29 = ne %tmp.27 %tmp.28;
+        push %tmp.29;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_283_39_283_54_end:
+        %tmp.30 = phi [%tmp.25 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_283_16_283_54_begin] [%tmp.29 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_283_39_283_54_true] [%tmp.30 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_283_39_283_54_end];
+        bf %tmp.30 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_283_12_295_12_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_283_12_295_12_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_283_60_295_12_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 284 16 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_284_16_292_16_if_stmt:
+        %tmp.31 = lgetv %result.2;
+        symbol [ result %tmp.31 284 20 26 ];
+        symbol [ isSameDevice %tmp.32 284 27 39 ];
+        %tmp.32 = getv function %tmp.31 :isSameDevice;
+        symbol [ _scanResult %tmp.34 284 40 51 ];
+        %tmp.34 = getv ? :_scanResult;
+        %tmp.35 = as %tmp.34 { (!Null) };
+        %tmp.36 = invoke %tmp.31 %tmp.32(%tmp.35);
+        bf %tmp.36 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_284_16_292_16_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_284_16_292_16_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_284_54_292_16_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 285 20 ]
+        %tmp.37 = lgetv %result.2;
+        symbol [ result %tmp.37 285 34 40 ];
+        symbol [ _scanResult ? 285 20 31 ];
+        putv self :_scanResult %tmp.37;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 286 20 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_284_54_292_16_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_284_54_292_16_stop" ]
+        %updatedName.3 = local;
+        symbol [ updatedName %updatedName.3 286 24 35 ];
+        %tmp.38 = self;
+        symbol [ _nameFromResult %tmp.39 286 38 53 ];
+        %tmp.39 = getv function %tmp.38 :_nameFromResult;
+        %tmp.40 = lgetv %result.2;
+        symbol [ result %tmp.40 286 54 60 ];
+        %tmp.41 = invoke %tmp.38 %tmp.39(%tmp.40);
+        lputv %updatedName.3 %tmp.41;
+        symbol [ updatedName %updatedName.3 286 24 35 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 287 20 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_287_20_291_20_if_stmt:
+        %tmp.42 = lgetv %updatedName.3;
+        symbol [ updatedName %tmp.42 287 24 35 ];
+        %tmp.43 = null;
+        %tmp.44 = ne %tmp.42 %tmp.43;
+        bf %tmp.44 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_287_20_291_20_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_287_20_291_20_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_287_45_291_20_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 288 24 ]
+        symbol [ System %tmp.45 288 24 30 ];
+        %tmp.45 = getm $.Toybox.System;
+        symbol [ println %tmp.46 288 31 38 ];
+        %tmp.46 = getv function %tmp.45 :println;
+        %tmp.47 = "BLE: name update -> ";
+        %tmp.48 = lgetv %updatedName.3;
+        symbol [ updatedName %tmp.48 288 64 75 ];
+        %tmp.49 = as %tmp.48 { (!Null) };
+        %tmp.50 = add %tmp.47 %tmp.49;
+        invoke %tmp.45 %tmp.46(%tmp.50);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 289 24 ]
+        %tmp.51 = lgetv %updatedName.3;
+        symbol [ updatedName %tmp.51 289 38 49 ];
+        %tmp.52 = as %tmp.51 { (!Null) };
+        symbol [ _deviceName ? 289 24 35 ];
+        putv self :_deviceName %tmp.52;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 290 24 ]
+        symbol [ WatchUi %tmp.53 290 24 31 ];
+        %tmp.53 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.54 290 32 45 ];
+        %tmp.54 = getv function %tmp.53 :requestUpdate;
+        invoke %tmp.53 %tmp.54();
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_287_45_291_20_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_287_20_291_20_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_287_20_291_20_if_end:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_284_54_292_16_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_284_16_292_16_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_284_16_292_16_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 293 16 ]
+        %tmp.55 = lgetv %scanResults;
+        symbol [ scanResults %tmp.55 293 23 34 ];
+        symbol [ next %tmp.56 293 35 39 ];
+        %tmp.56 = getv function %tmp.55 :next;
+        %tmp.57 = invoke %tmp.55 %tmp.56();
+        lputv %item.1 %tmp.57;
+        symbol [ item %item.1 293 16 20 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 294 16 ]
+        goto break @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_278_8_318_8_while_test;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_283_60_295_12_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_283_12_295_12_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_283_12_295_12_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 298 12 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_278_29_318_8_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_278_29_318_8_stop" ]
+        %uuidIter.4 = local;
+        symbol [ uuidIter %uuidIter.4 298 16 24 ];
+        %tmp.58 = lgetv %result.2;
+        symbol [ result %tmp.58 298 27 33 ];
+        symbol [ getServiceUuids %tmp.59 298 34 49 ];
+        %tmp.59 = getv function %tmp.58 :getServiceUuids;
+        %tmp.60 = invoke %tmp.58 %tmp.59();
+        lputv %uuidIter.4 %tmp.60;
+        symbol [ uuidIter %uuidIter.4 298 16 24 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 299 12 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_278_29_318_8_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_278_29_318_8_stop" ]
+        %uuidObj.5 = local;
+        symbol [ uuidObj %uuidObj.5 299 16 23 ];
+        %tmp.61 = lgetv %uuidIter.4;
+        symbol [ uuidIter %tmp.61 299 27 35 ];
+        symbol [ next %tmp.62 299 36 40 ];
+        %tmp.62 = getv function %tmp.61 :next;
+        %tmp.63 = invoke %tmp.61 %tmp.62();
+        lputv %uuidObj.5 %tmp.63;
+        symbol [ uuidObj %uuidObj.5 299 16 23 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 300 12 ]
+        while @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_300_12_315_12_while_test @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_300_12_315_12_while_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_300_12_315_12_while_test:
+        %tmp.64 = lgetv %uuidObj.5;
+        symbol [ uuidObj %tmp.64 300 19 26 ];
+        %tmp.65 = null;
+        %tmp.66 = ne %tmp.64 %tmp.65;
+        bf %tmp.66 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_300_12_315_12_while_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_300_12_315_12_while_begin:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_300_36_315_12_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 301 16 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_300_36_315_12_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_300_36_315_12_stop" ]
+        %uuid.6 = local;
+        symbol [ uuid %uuid.6 301 20 24 ];
+        %tmp.67 = lgetv %uuidObj.5;
+        symbol [ uuidObj %tmp.67 301 27 34 ];
+        %tmp.68 = as %tmp.67 { (!Null) };
+        %tmp.69 = as %tmp.68 BluetoothLowEnergy.Uuid;
+        symbol [ BluetoothLowEnergy %tmp.69 301 38 56 ];
+        symbol [ Uuid %tmp.69 301 57 61 ];
+        lputv %uuid.6 %tmp.69;
+        symbol [ uuid %uuid.6 301 20 24 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 302 16 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_302_16_313_16_if_stmt:
+        %tmp.70 = lgetv %uuid.6;
+        symbol [ uuid %tmp.70 302 20 24 ];
+        symbol [ equals %tmp.71 302 25 31 ];
+        %tmp.71 = getv function %tmp.70 :equals;
+        symbol [ _svcUuid %tmp.73 302 32 40 ];
+        %tmp.73 = getv ? :_svcUuid;
+        %tmp.74 = invoke %tmp.70 %tmp.71(%tmp.73);
+        bf %tmp.74 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_302_16_313_16_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_302_16_313_16_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_302_43_313_16_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 303 20 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_302_43_313_16_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_302_43_313_16_stop" ]
+        %name.7 = local;
+        symbol [ name %name.7 303 24 28 ];
+        %tmp.75 = self;
+        symbol [ _nameFromResult %tmp.76 303 31 46 ];
+        %tmp.76 = getv function %tmp.75 :_nameFromResult;
+        %tmp.77 = lgetv %result.2;
+        symbol [ result %tmp.77 303 47 53 ];
+        %tmp.78 = invoke %tmp.75 %tmp.76(%tmp.77);
+        lputv %name.7 %tmp.78;
+        symbol [ name %name.7 303 24 28 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 304 20 ]
+        symbol [ System %tmp.79 304 20 26 ];
+        %tmp.79 = getm $.Toybox.System;
+        symbol [ println %tmp.80 304 27 34 ];
+        %tmp.80 = getv function %tmp.79 :println;
+        %tmp.81 = "BLE: UUID match ? getDeviceName=";
+        %tmp.82 = lgetv %result.2;
+        symbol [ result %tmp.82 305 24 30 ];
+        symbol [ getDeviceName %tmp.83 305 31 44 ];
+        %tmp.83 = getv function %tmp.82 :getDeviceName;
+        %tmp.84 = invoke %tmp.82 %tmp.83();
+        %tmp.85 = add %tmp.81 %tmp.84;
+        %tmp.86 = " parsed=";
+        %tmp.87 = add %tmp.85 %tmp.86;
+        %tmp.88 = lgetv %name.7;
+        symbol [ name %tmp.88 305 62 66 ];
+        %tmp.89 = add %tmp.87 %tmp.88;
+        %tmp.90 = " RSSI=";
+        %tmp.91 = add %tmp.89 %tmp.90;
+        %tmp.92 = lgetv %result.2;
+        symbol [ result %tmp.92 306 35 41 ];
+        symbol [ getRssi %tmp.93 306 42 49 ];
+        %tmp.93 = getv function %tmp.92 :getRssi;
+        %tmp.94 = invoke %tmp.92 %tmp.93();
+        %tmp.95 = add %tmp.91 %tmp.94;
+        invoke %tmp.79 %tmp.80(%tmp.95);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 307 20 ]
+        %tmp.96 = lgetv %result.2;
+        symbol [ result %tmp.96 307 34 40 ];
+        symbol [ _scanResult ? 307 20 31 ];
+        putv self :_scanResult %tmp.96;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 308 20 ]
+        %tmp.97 = "Relay";
+        symbol [ _deviceName ? 308 20 31 ];
+        putv self :_deviceName %tmp.97;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 309 20 ]
+        %tmp.98 = lgetv %result.2;
+        symbol [ result %tmp.98 309 34 40 ];
+        symbol [ getRssi %tmp.99 309 41 48 ];
+        %tmp.99 = getv function %tmp.98 :getRssi;
+        %tmp.100 = invoke %tmp.98 %tmp.99();
+        symbol [ _rssi ? 309 20 25 ];
+        putv self :_rssi %tmp.100;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 310 20 ]
+        symbol [ BLE_FOUND %tmp.102 310 34 43 ];
+        %tmp.102 = getv ? :BLE_FOUND;
+        symbol [ _state ? 310 20 26 ];
+        putv self :_state %tmp.102;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 311 20 ]
+        symbol [ WatchUi %tmp.103 311 20 27 ];
+        %tmp.103 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.104 311 28 41 ];
+        %tmp.104 = getv function %tmp.103 :requestUpdate;
+        invoke %tmp.103 %tmp.104();
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 312 20 ]
+        goto break @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_300_12_315_12_while_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_302_43_313_16_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_302_16_313_16_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_302_16_313_16_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 314 16 ]
+        %tmp.105 = lgetv %uuidIter.4;
+        symbol [ uuidIter %tmp.105 314 26 34 ];
+        symbol [ next %tmp.106 314 35 39 ];
+        %tmp.106 = getv function %tmp.105 :next;
+        %tmp.107 = invoke %tmp.105 %tmp.106();
+        lputv %uuidObj.5 %tmp.107;
+        symbol [ uuidObj %uuidObj.5 314 16 23 ];
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_300_36_315_12_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_300_12_315_12_while_test;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_300_12_315_12_while_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 317 12 ]
+        %tmp.108 = lgetv %scanResults;
+        symbol [ scanResults %tmp.108 317 19 30 ];
+        symbol [ next %tmp.109 317 31 35 ];
+        %tmp.109 = getv function %tmp.108 :next;
+        %tmp.110 = invoke %tmp.108 %tmp.109();
+        lputv %item.1 %tmp.110;
+        symbol [ item %item.1 317 12 16 ];
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_278_29_318_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_278_8_318_8_while_test;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_278_8_318_8_while_end:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_274_79_319_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 326; @symbol_functiondef = [_nameFromResult,326,20,35]; @symbol_param<0> = [result,326,36,42]; @symbol_param<0>_type<0> = [BluetoothLowEnergy,326,46,64]; @symbol_param<0>_type<1> = [ScanResult,326,65,75]; @symbol_return<0> = [String,326,80,86]; ]
+    protected
+    function _nameFromResult(result as BluetoothLowEnergy.ScanResult) as String or Null {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_326_95_354_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 328 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_326_95_354_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_326_95_354_4_stop" ]
+        %apiName.1 = local;
+        symbol [ apiName %apiName.1 328 12 19 ];
+        %tmp.1 = lgetv %result;
+        symbol [ result %tmp.1 328 22 28 ];
+        symbol [ getDeviceName %tmp.2 328 29 42 ];
+        %tmp.2 = getv function %tmp.1 :getDeviceName;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %apiName.1 %tmp.3;
+        symbol [ apiName %apiName.1 328 12 19 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 329 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_329_8_331_8_if_stmt:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_329_12_329_50_begin:
+        %tmp.4 = lgetv %apiName.1;
+        symbol [ apiName %tmp.4 329 12 19 ];
+        %tmp.5 = null;
+        %tmp.6 = ne %tmp.4 %tmp.5;
+        bf %tmp.6 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_329_8_331_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_329_31_329_50_true:
+        %tmp.7 = lgetv %apiName.1;
+        symbol [ apiName %tmp.7 329 31 38 ];
+        %tmp.8 = as %tmp.7 { (!Null) };
+        symbol [ length %tmp.9 329 39 45 ];
+        %tmp.9 = getv function %tmp.8 :length;
+        %tmp.10 = invoke %tmp.8 %tmp.9();
+        %tmp.11 = 0;
+        %tmp.12 = gt %tmp.10 %tmp.11;
+        push %tmp.12;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_329_31_329_50_end:
+        %tmp.13 = phi [%tmp.6 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_329_12_329_50_begin] [%tmp.12 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_329_31_329_50_true] [%tmp.13 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_329_31_329_50_end];
+        bf %tmp.13 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_329_8_331_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_329_8_331_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_329_53_331_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 330 12 ]
+        %tmp.14 = self;
+        symbol [ _stripPrefix %tmp.15 330 19 31 ];
+        %tmp.15 = getv function %tmp.14 :_stripPrefix;
+        %tmp.16 = lgetv %apiName.1;
+        symbol [ apiName %tmp.16 330 32 39 ];
+        %tmp.17 = as %tmp.16 { (!Null) };
+        %tmp.18 = invoke %tmp.14 %tmp.15(%tmp.17);
+        ret %tmp.18;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_329_53_331_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_329_8_331_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_329_8_331_8_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 334 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_326_95_354_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_326_95_354_4_stop" ]
+        %raw.2 = local;
+        symbol [ raw %raw.2 334 12 15 ];
+        %tmp.19 = lgetv %result;
+        symbol [ result %tmp.19 334 18 24 ];
+        symbol [ getRawData %tmp.20 334 25 35 ];
+        %tmp.20 = getv function %tmp.19 :getRawData;
+        %tmp.21 = invoke %tmp.19 %tmp.20();
+        lputv %raw.2 %tmp.21;
+        symbol [ raw %raw.2 334 12 15 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 335 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_335_8_351_8_if_stmt:
+        %tmp.22 = lgetv %raw.2;
+        symbol [ raw %tmp.22 335 12 15 ];
+        %tmp.23 = null;
+        %tmp.24 = ne %tmp.22 %tmp.23;
+        bf %tmp.24 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_335_8_351_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_335_8_351_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_335_25_351_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 336 12 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_335_25_351_8_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_335_25_351_8_stop" ]
+        %i.3 = local;
+        symbol [ i %i.3 336 16 17 ];
+        %tmp.25 = 0;
+        lputv %i.3 %tmp.25;
+        symbol [ i %i.3 336 16 17 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 337 12 ]
+        while @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_337_12_350_12_while_test @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_337_12_350_12_while_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_337_12_350_12_while_test:
+        %tmp.26 = lgetv %i.3;
+        symbol [ i %tmp.26 337 19 20 ];
+        %tmp.27 = lgetv %raw.2;
+        symbol [ raw %tmp.27 337 23 26 ];
+        %tmp.28 = as %tmp.27 { (!Null) };
+        symbol [ size %tmp.29 337 27 31 ];
+        %tmp.29 = getv function %tmp.28 :size;
+        %tmp.30 = invoke %tmp.28 %tmp.29();
+        %tmp.31 = lt %tmp.26 %tmp.30;
+        bf %tmp.31 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_337_12_350_12_while_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_337_12_350_12_while_begin:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_337_35_350_12_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 338 16 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_337_35_350_12_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_337_35_350_12_stop" ]
+        %adLen.4 = local;
+        symbol [ adLen %adLen.4 338 20 25 ];
+        %tmp.32 = lgetv %raw.2;
+        symbol [ raw %tmp.32 338 29 32 ];
+        %tmp.33 = as %tmp.32 { (!Null) };
+        %tmp.34 = lgetv %i.3;
+        symbol [ i %tmp.34 338 33 34 ];
+        %tmp.35 = agetv %tmp.33 %tmp.34;
+        %tmp.36 = 0xFF;
+        %tmp.37 = bitand %tmp.35 %tmp.36;
+        lputv %adLen.4 %tmp.37;
+        symbol [ adLen %adLen.4 338 20 25 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 339 16 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_339_16_339_41_if_stmt:
+        %tmp.38 = lgetv %adLen.4;
+        symbol [ adLen %tmp.38 339 20 25 ];
+        %tmp.39 = 0;
+        %tmp.40 = eq %tmp.38 %tmp.39;
+        bf %tmp.40 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_339_16_339_41_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_339_16_339_41_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_339_32_339_41_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 339 34 ]
+        goto break @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_337_12_350_12_while_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_339_32_339_41_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_339_16_339_41_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_339_16_339_41_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 340 16 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_340_16_340_54_if_stmt:
+        %tmp.41 = lgetv %i.3;
+        symbol [ i %tmp.41 340 20 21 ];
+        %tmp.42 = lgetv %adLen.4;
+        symbol [ adLen %tmp.42 340 24 29 ];
+        %tmp.43 = add %tmp.41 %tmp.42;
+        %tmp.44 = lgetv %raw.2;
+        symbol [ raw %tmp.44 340 33 36 ];
+        %tmp.45 = as %tmp.44 { (!Null) };
+        symbol [ size %tmp.46 340 37 41 ];
+        %tmp.46 = getv function %tmp.45 :size;
+        %tmp.47 = invoke %tmp.45 %tmp.46();
+        %tmp.48 = gte %tmp.43 %tmp.47;
+        bf %tmp.48 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_340_16_340_54_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_340_16_340_54_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_340_45_340_54_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 340 47 ]
+        goto break @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_337_12_350_12_while_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_340_45_340_54_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_340_16_340_54_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_340_16_340_54_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 341 16 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_337_35_350_12_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_337_35_350_12_stop" ]
+        %adType.5 = local;
+        symbol [ adType %adType.5 341 20 26 ];
+        %tmp.49 = lgetv %raw.2;
+        symbol [ raw %tmp.49 341 29 32 ];
+        %tmp.50 = as %tmp.49 { (!Null) };
+        %tmp.51 = lgetv %i.3;
+        symbol [ i %tmp.51 341 33 34 ];
+        %tmp.52 = 1;
+        %tmp.53 = add %tmp.51 %tmp.52;
+        %tmp.54 = agetv %tmp.50 %tmp.53;
+        %tmp.55 = 0xFF;
+        %tmp.56 = bitand %tmp.54 %tmp.55;
+        lputv %adType.5 %tmp.56;
+        symbol [ adType %adType.5 341 20 26 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 343 16 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_343_16_348_16_if_stmt:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_343_20_343_48_begin:
+        %tmp.57 = lgetv %adType.5;
+        symbol [ adType %tmp.57 343 20 26 ];
+        %tmp.58 = 0x08;
+        %tmp.59 = eq %tmp.57 %tmp.58;
+        bt %tmp.59 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_343_16_348_16_if_true;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_343_38_343_48_false:
+        %tmp.60 = lgetv %adType.5;
+        symbol [ adType %tmp.60 343 38 44 ];
+        %tmp.61 = 0x09;
+        %tmp.62 = eq %tmp.60 %tmp.61;
+        push %tmp.62;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_343_38_343_48_end:
+        %tmp.63 = phi [%tmp.59 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_343_20_343_48_begin] [%tmp.62 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_343_38_343_48_false] [%tmp.63 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_343_38_343_48_end];
+        bf %tmp.63 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_343_16_348_16_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_343_16_348_16_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_343_54_348_16_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 344 20 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_343_54_348_16_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_343_54_348_16_stop" ]
+        %nameBytes.6 = local;
+        symbol [ nameBytes %nameBytes.6 344 24 33 ];
+        %tmp.64 = lgetv %raw.2;
+        symbol [ raw %tmp.64 344 36 39 ];
+        %tmp.65 = as %tmp.64 { (!Null) };
+        symbol [ slice %tmp.66 344 40 45 ];
+        %tmp.66 = getv function %tmp.65 :slice;
+        %tmp.67 = lgetv %i.3;
+        symbol [ i %tmp.67 344 46 47 ];
+        %tmp.68 = 2;
+        %tmp.69 = add %tmp.67 %tmp.68;
+        %tmp.70 = lgetv %i.3;
+        symbol [ i %tmp.70 344 53 54 ];
+        %tmp.71 = 1;
+        %tmp.72 = add %tmp.70 %tmp.71;
+        %tmp.73 = lgetv %adLen.4;
+        symbol [ adLen %tmp.73 344 61 66 ];
+        %tmp.74 = add %tmp.72 %tmp.73;
+        %tmp.75 = invoke %tmp.65 %tmp.66(%tmp.69, %tmp.74);
+        lputv %nameBytes.6 %tmp.75;
+        symbol [ nameBytes %nameBytes.6 344 24 33 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 345 20 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_343_54_348_16_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_343_54_348_16_stop" ]
+        %parsed.7 = local;
+        symbol [ parsed %parsed.7 345 24 30 ];
+        %tmp.76 = self;
+        symbol [ _bytesToString %tmp.77 345 33 47 ];
+        %tmp.77 = getv function %tmp.76 :_bytesToString;
+        %tmp.78 = lgetv %nameBytes.6;
+        symbol [ nameBytes %tmp.78 345 48 57 ];
+        %tmp.79 = invoke %tmp.76 %tmp.77(%tmp.78);
+        lputv %parsed.7 %tmp.79;
+        symbol [ parsed %parsed.7 345 24 30 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 346 20 ]
+        symbol [ System %tmp.80 346 20 26 ];
+        %tmp.80 = getm $.Toybox.System;
+        symbol [ println %tmp.81 346 27 34 ];
+        %tmp.81 = getv function %tmp.80 :println;
+        %tmp.82 = "BLE: raw AD name (";
+        %tmp.83 = lgetv %adType.5;
+        symbol [ adType %tmp.83 346 58 64 ];
+        symbol [ format %tmp.84 346 65 71 ];
+        %tmp.84 = getv function %tmp.83 :format;
+        %tmp.85 = "%02X";
+        %tmp.86 = invoke %tmp.83 %tmp.84(%tmp.85);
+        %tmp.87 = add %tmp.82 %tmp.86;
+        %tmp.88 = ") = ";
+        %tmp.89 = add %tmp.87 %tmp.88;
+        %tmp.90 = lgetv %parsed.7;
+        symbol [ parsed %tmp.90 346 91 97 ];
+        %tmp.91 = add %tmp.89 %tmp.90;
+        invoke %tmp.80 %tmp.81(%tmp.91);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 347 20 ]
+        %tmp.92 = self;
+        symbol [ _stripPrefix %tmp.93 347 27 39 ];
+        %tmp.93 = getv function %tmp.92 :_stripPrefix;
+        %tmp.94 = lgetv %parsed.7;
+        symbol [ parsed %tmp.94 347 40 46 ];
+        %tmp.95 = invoke %tmp.92 %tmp.93(%tmp.94);
+        ret %tmp.95;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_343_54_348_16_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_343_16_348_16_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_343_16_348_16_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 349 16 ]
+        %tmp.96 = lgetv %i.3;
+        symbol [ i %tmp.96 349 16 17 ];
+        %tmp.97 = 1;
+        %tmp.98 = lgetv %adLen.4;
+        symbol [ adLen %tmp.98 349 25 30 ];
+        %tmp.99 = add %tmp.97 %tmp.98;
+        %tmp.100 = add %tmp.96 %tmp.99;
+        lputv %i.3 %tmp.100;
+        symbol [ i %i.3 349 16 17 ];
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_337_35_350_12_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_337_12_350_12_while_test;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_337_12_350_12_while_end:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_335_25_351_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_335_8_351_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_335_8_351_8_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 353 8 ]
+        %tmp.101 = null;
+        ret %tmp.101;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_326_95_354_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 357; @symbol_functiondef = [_bytesToString,357,20,34]; @symbol_param<0> = [bytes,357,35,40]; @symbol_param<0>_type<0> = [ByteArray,357,44,53]; @symbol_return<0> = [String,357,58,64]; ]
+    protected
+    function _bytesToString(bytes as ByteArray) as String {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_357_65_365_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 358 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_357_65_365_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_357_65_365_4_stop" ]
+        %s.1 = local;
+        symbol [ s %s.1 358 12 13 ];
+        %tmp.1 = "";
+        lputv %s.1 %tmp.1;
+        symbol [ s %s.1 358 12 13 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 359 8 ]
+        for @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_359_8_363_8_for_test @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_359_8_363_8_for_incr @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_359_8_363_8_for_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_359_8_363_8_for_init:
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_359_8_363_8_for_begin" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_359_8_363_8_for_end" ]
+        %i.2 = local;
+        symbol [ i %i.2 359 17 18 ];
+        %tmp.2 = 0;
+        lputv %i.2 %tmp.2;
+        symbol [ i %i.2 359 17 18 ];
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_359_8_363_8_for_test:
+        %tmp.3 = lgetv %i.2;
+        symbol [ i %tmp.3 359 24 25 ];
+        %tmp.4 = lgetv %bytes;
+        symbol [ bytes %tmp.4 359 28 33 ];
+        symbol [ size %tmp.5 359 34 38 ];
+        %tmp.5 = getv function %tmp.4 :size;
+        %tmp.6 = invoke %tmp.4 %tmp.5();
+        %tmp.7 = lt %tmp.3 %tmp.6;
+        bf %tmp.7 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_359_8_363_8_for_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_359_8_363_8_for_begin:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_359_47_363_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 360 12 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_359_47_363_8_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_359_47_363_8_stop" ]
+        %b.3 = local;
+        symbol [ b %b.3 360 16 17 ];
+        %tmp.8 = lgetv %bytes;
+        symbol [ bytes %tmp.8 360 20 25 ];
+        %tmp.9 = lgetv %i.2;
+        symbol [ i %tmp.9 360 26 27 ];
+        %tmp.10 = agetv %tmp.8 %tmp.9;
+        %tmp.11 = 0xFF;
+        %tmp.12 = bitand %tmp.10 %tmp.11;
+        lputv %b.3 %tmp.12;
+        symbol [ b %b.3 360 16 17 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 361 12 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_361_12_361_33_if_stmt:
+        %tmp.13 = lgetv %b.3;
+        symbol [ b %tmp.13 361 16 17 ];
+        %tmp.14 = 0;
+        %tmp.15 = eq %tmp.13 %tmp.14;
+        bf %tmp.15 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_361_12_361_33_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_361_12_361_33_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_361_24_361_33_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 361 26 ]
+        goto break @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_359_8_363_8_for_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_361_24_361_33_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_361_12_361_33_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_361_12_361_33_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 362 12 ]
+        %tmp.16 = lgetv %s.1;
+        symbol [ s %tmp.16 362 16 17 ];
+        %tmp.17 = lgetv %b.3;
+        symbol [ b %tmp.17 362 20 21 ];
+        symbol [ format %tmp.18 362 22 28 ];
+        %tmp.18 = getv function %tmp.17 :format;
+        %tmp.19 = "%c";
+        %tmp.20 = invoke %tmp.17 %tmp.18(%tmp.19);
+        %tmp.21 = add %tmp.16 %tmp.20;
+        lputv %s.1 %tmp.21;
+        symbol [ s %s.1 362 12 13 ];
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_359_47_363_8_stop:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_359_8_363_8_for_incr:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 359 ]
+        %tmp.24 = lgetv %i.2;
+        symbol [ i %tmp.24 359 42 43 ];
+        %tmp.25 = add %tmp.24 1;
+        lputv %i.2 %tmp.25;
+        symbol [ i %i.2 359 42 43 ];
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_359_8_363_8_for_test;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_359_8_363_8_for_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 364 8 ]
+        %tmp.26 = lgetv %s.1;
+        symbol [ s %tmp.26 364 15 16 ];
+        ret %tmp.26;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_357_65_365_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 368; @symbol_functiondef = [_stripPrefix,368,20,32]; @symbol_param<0> = [name,368,33,37]; @symbol_param<0>_type<0> = [String,368,41,47]; @symbol_return<0> = [String,368,52,58]; ]
+    protected
+    function _stripPrefix(name as String) as String {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_368_59_375_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 369 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_368_59_375_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_368_59_375_4_stop" ]
+        %prefix.1 = local;
+        symbol [ prefix %prefix.1 369 12 18 ];
+        %tmp.1 = "rareBit ";
+        lputv %prefix.1 %tmp.1;
+        symbol [ prefix %prefix.1 369 12 18 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 370 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_370_8_373_8_if_stmt:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_370_12_371_60_begin:
+        %tmp.2 = lgetv %name;
+        symbol [ name %tmp.2 370 12 16 ];
+        symbol [ length %tmp.3 370 17 23 ];
+        %tmp.3 = getv function %tmp.2 :length;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        %tmp.5 = lgetv %prefix.1;
+        symbol [ prefix %tmp.5 370 28 34 ];
+        symbol [ length %tmp.6 370 35 41 ];
+        %tmp.6 = getv function %tmp.5 :length;
+        %tmp.7 = invoke %tmp.5 %tmp.6();
+        %tmp.8 = gt %tmp.4 %tmp.7;
+        bf %tmp.8 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_370_8_373_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_371_12_371_60_true:
+        %tmp.9 = lgetv %name;
+        symbol [ name %tmp.9 371 12 16 ];
+        symbol [ substring %tmp.10 371 17 26 ];
+        %tmp.10 = getv function %tmp.9 :substring;
+        %tmp.11 = 0;
+        %tmp.12 = lgetv %prefix.1;
+        symbol [ prefix %tmp.12 371 30 36 ];
+        symbol [ length %tmp.13 371 37 43 ];
+        %tmp.13 = getv function %tmp.12 :length;
+        %tmp.14 = invoke %tmp.12 %tmp.13();
+        %tmp.15 = invoke %tmp.9 %tmp.10(%tmp.11, %tmp.14);
+        symbol [ equals %tmp.16 371 47 53 ];
+        %tmp.16 = getv function %tmp.15 :equals;
+        %tmp.17 = lgetv %prefix.1;
+        symbol [ prefix %tmp.17 371 54 60 ];
+        %tmp.18 = invoke %tmp.15 %tmp.16(%tmp.17);
+        push %tmp.18;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_371_12_371_60_end:
+        %tmp.19 = phi [%tmp.8 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_370_12_371_60_begin] [%tmp.18 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_371_12_371_60_true] [%tmp.19 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_371_12_371_60_end];
+        bf %tmp.19 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_370_8_373_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_370_8_373_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_371_63_373_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 372 12 ]
+        %tmp.20 = lgetv %name;
+        symbol [ name %tmp.20 372 19 23 ];
+        symbol [ substring %tmp.21 372 24 33 ];
+        %tmp.21 = getv function %tmp.20 :substring;
+        %tmp.22 = lgetv %prefix.1;
+        symbol [ prefix %tmp.22 372 34 40 ];
+        symbol [ length %tmp.23 372 41 47 ];
+        %tmp.23 = getv function %tmp.22 :length;
+        %tmp.24 = invoke %tmp.22 %tmp.23();
+        %tmp.25 = lgetv %name;
+        symbol [ name %tmp.25 372 51 55 ];
+        symbol [ length %tmp.26 372 56 62 ];
+        %tmp.26 = getv function %tmp.25 :length;
+        %tmp.27 = invoke %tmp.25 %tmp.26();
+        %tmp.28 = invoke %tmp.20 %tmp.21(%tmp.24, %tmp.27);
+        ret %tmp.28;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_371_63_373_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_370_8_373_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_370_8_373_8_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 374 8 ]
+        %tmp.29 = lgetv %name;
+        symbol [ name %tmp.29 374 15 19 ];
+        ret %tmp.29;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_368_59_375_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 378; @symbol_functiondef = [onConnectedStateChanged,378,13,36]; @symbol_param<0> = [device,379,8,14]; @symbol_param<0>_type<0> = [BluetoothLowEnergy,379,18,36]; @symbol_param<0>_type<1> = [Device,379,37,43]; @symbol_param<1> = [state,380,8,13]; @symbol_param<1>_type<0> = [BluetoothLowEnergy,380,18,36]; @symbol_param<1>_type<1> = [ConnectionState,380,37,52]; ]
+    function onConnectedStateChanged(device as BluetoothLowEnergy.Device, state as BluetoothLowEnergy.ConnectionState) as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_381_4_401_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 382 8 ]
+        symbol [ System %tmp.1 382 8 14 ];
+        %tmp.1 = getm $.Toybox.System;
+        symbol [ println %tmp.2 382 15 22 ];
+        %tmp.2 = getv function %tmp.1 :println;
+        %tmp.3 = "BLE: connState=";
+        %tmp.4 = lgetv %state;
+        symbol [ state %tmp.4 382 43 48 ];
+        %tmp.5 = add %tmp.3 %tmp.4;
+        invoke %tmp.1 %tmp.2(%tmp.5);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 383 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_383_8_400_8_if_stmt:
+        %tmp.6 = lgetv %state;
+        symbol [ state %tmp.6 383 12 17 ];
+        symbol [ BluetoothLowEnergy %tmp.7 383 21 39 ];
+        %tmp.7 = getm $.Toybox.BluetoothLowEnergy;
+        symbol [ CONNECTION_STATE_CONNECTED %tmp.8 383 40 66 ];
+        %tmp.8 = getv %tmp.7 :CONNECTION_STATE_CONNECTED;
+        %tmp.9 = eq %tmp.6 %tmp.8;
+        bf %tmp.9 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_383_8_400_8_if_else_false;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_383_8_400_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_383_68_392_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 384 12 ]
+        %tmp.10 = lgetv %device;
+        symbol [ device %tmp.10 384 22 28 ];
+        symbol [ _device ? 384 12 19 ];
+        putv self :_device %tmp.10;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 385 12 ]
+        symbol [ BLE_CONNECTED %tmp.12 385 22 35 ];
+        %tmp.12 = getv ? :BLE_CONNECTED;
+        symbol [ _state ? 385 12 18 ];
+        putv self :_state %tmp.12;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 388 12 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_383_68_392_8_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_383_68_392_8_stop" ]
+        %devName.1 = local;
+        symbol [ devName %devName.1 388 16 23 ];
+        %tmp.13 = lgetv %device;
+        symbol [ device %tmp.13 388 26 32 ];
+        symbol [ getName %tmp.14 388 33 40 ];
+        %tmp.14 = getv function %tmp.13 :getName;
+        %tmp.15 = invoke %tmp.13 %tmp.14();
+        lputv %devName.1 %tmp.15;
+        symbol [ devName %devName.1 388 16 23 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 389 12 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_389_12_389_68_if_stmt:
+        %tmp.16 = lgetv %devName.1;
+        symbol [ devName %tmp.16 389 16 23 ];
+        %tmp.17 = null;
+        %tmp.18 = ne %tmp.16 %tmp.17;
+        bf %tmp.18 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_389_12_389_68_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_389_12_389_68_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_389_33_389_68_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 389 35 ]
+        %tmp.19 = self;
+        symbol [ _stripPrefix %tmp.20 389 45 57 ];
+        %tmp.20 = getv function %tmp.19 :_stripPrefix;
+        %tmp.21 = lgetv %devName.1;
+        symbol [ devName %tmp.21 389 58 65 ];
+        %tmp.22 = as %tmp.21 { (!Null) };
+        %tmp.23 = invoke %tmp.19 %tmp.20(%tmp.22);
+        lputv %devName.1 %tmp.23;
+        symbol [ devName %devName.1 389 35 42 ];
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_389_33_389_68_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_389_12_389_68_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_389_12_389_68_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 390 12 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_390_12_390_58_if_stmt:
+        %tmp.24 = lgetv %devName.1;
+        symbol [ devName %tmp.24 390 16 23 ];
+        %tmp.25 = null;
+        %tmp.26 = ne %tmp.24 %tmp.25;
+        bf %tmp.26 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_390_12_390_58_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_390_12_390_58_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_390_33_390_58_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 390 35 ]
+        %tmp.27 = lgetv %devName.1;
+        symbol [ devName %tmp.27 390 49 56 ];
+        %tmp.28 = as %tmp.27 { (!Null) };
+        symbol [ _deviceName ? 390 35 46 ];
+        putv self :_deviceName %tmp.28;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_390_33_390_58_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_390_12_390_58_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_390_12_390_58_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 391 12 ]
+        %tmp.29 = self;
+        symbol [ _enableNotifications %tmp.30 391 12 32 ];
+        %tmp.30 = getv function %tmp.29 :_enableNotifications;
+        %tmp.31 = lgetv %device;
+        symbol [ device %tmp.31 391 33 39 ];
+        invoke %tmp.29 %tmp.30(%tmp.31);
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_383_68_392_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_383_8_400_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_383_8_400_8_if_else_false:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_392_15_400_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 393 12 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_392_15_400_8_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_392_15_400_8_stop" ]
+        %wasSub.2 = local;
+        symbol [ wasSub %wasSub.2 393 16 22 ];
+        symbol [ _state %tmp.33 393 26 32 ];
+        %tmp.33 = getv ? :_state;
+        symbol [ BLE_SUBSCRIBED %tmp.35 393 36 50 ];
+        %tmp.35 = getv ? :BLE_SUBSCRIBED;
+        %tmp.36 = eq %tmp.33 %tmp.35;
+        lputv %wasSub.2 %tmp.36;
+        symbol [ wasSub %wasSub.2 393 16 22 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 394 12 ]
+        %tmp.37 = self;
+        symbol [ _clearSession %tmp.38 394 12 25 ];
+        %tmp.38 = getv function %tmp.37 :_clearSession;
+        invoke %tmp.37 %tmp.38();
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 395 12 ]
+        symbol [ BLE_IDLE %tmp.40 395 22 30 ];
+        %tmp.40 = getv ? :BLE_IDLE;
+        symbol [ _state ? 395 12 18 ];
+        putv self :_state %tmp.40;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 396 12 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_396_22_398_18_begin:
+        %tmp.41 = lgetv %wasSub.2;
+        symbol [ wasSub %tmp.41 396 22 28 ];
+        bf %tmp.41 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_396_22_398_18_else_false;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_396_22_398_18_true:
+        %tmp.42 = "Connection lost. Tap SELECT to reconnect.";
+        push %tmp.42;
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_396_22_398_18_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_396_22_398_18_else_false:
+        %tmp.43 = "Pairing failed. Tap SELECT to retry.";
+        push %tmp.43;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_396_22_398_18_end:
+        %tmp.44 = phi [%tmp.41 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_396_22_398_18_begin] [%tmp.42 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_396_22_398_18_true] [%tmp.43 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_396_22_398_18_else_false] [%tmp.44 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_396_22_398_18_end];
+        symbol [ _status ? 396 12 19 ];
+        putv self :_status %tmp.44;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 399 12 ]
+        symbol [ WatchUi %tmp.45 399 12 19 ];
+        %tmp.45 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.46 399 20 33 ];
+        %tmp.46 = getv function %tmp.45 :requestUpdate;
+        invoke %tmp.45 %tmp.46();
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_392_15_400_8_stop:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_383_8_400_8_if_end:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_381_4_401_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 405; @symbol_functiondef = [onDescriptorWrite,405,13,30]; @symbol_param<0> = [descriptor,406,8,18]; @symbol_param<0>_type<0> = [BluetoothLowEnergy,406,22,40]; @symbol_param<0>_type<1> = [Descriptor,406,41,51]; @symbol_param<1> = [status,407,8,14]; @symbol_param<1>_type<0> = [BluetoothLowEnergy,407,22,40]; @symbol_param<1>_type<1> = [Status,407,41,47]; ]
+    function onDescriptorWrite(descriptor as BluetoothLowEnergy.Descriptor, status as BluetoothLowEnergy.Status) as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_408_4_419_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 409 8 ]
+        symbol [ System %tmp.1 409 8 14 ];
+        %tmp.1 = getm $.Toybox.System;
+        symbol [ println %tmp.2 409 15 22 ];
+        %tmp.2 = getv function %tmp.1 :println;
+        %tmp.3 = "BLE: descriptor write status=";
+        %tmp.4 = lgetv %status;
+        symbol [ status %tmp.4 409 57 63 ];
+        %tmp.5 = add %tmp.3 %tmp.4;
+        invoke %tmp.1 %tmp.2(%tmp.5);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 410 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_410_8_417_8_if_stmt:
+        %tmp.6 = lgetv %status;
+        symbol [ status %tmp.6 410 12 18 ];
+        symbol [ BluetoothLowEnergy %tmp.7 410 22 40 ];
+        %tmp.7 = getm $.Toybox.BluetoothLowEnergy;
+        symbol [ STATUS_SUCCESS %tmp.8 410 41 55 ];
+        %tmp.8 = getv %tmp.7 :STATUS_SUCCESS;
+        %tmp.9 = eq %tmp.6 %tmp.8;
+        bf %tmp.9 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_410_8_417_8_if_else_false;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_410_8_417_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_410_57_414_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 411 12 ]
+        symbol [ BLE_SUBSCRIBED %tmp.11 411 27 41 ];
+        %tmp.11 = getv ? :BLE_SUBSCRIBED;
+        symbol [ _state ? 411 12 18 ];
+        putv self :_state %tmp.11;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 412 12 ]
+        %tmp.12 = "Subscribed! Waiting for notifications...";
+        symbol [ _status ? 412 12 19 ];
+        putv self :_status %tmp.12;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 413 12 ]
+        %tmp.13 = self;
+        symbol [ _buzzDoubleTap %tmp.14 413 12 26 ];
+        %tmp.14 = getv function %tmp.13 :_buzzDoubleTap;
+        invoke %tmp.13 %tmp.14();
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_410_57_414_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_410_8_417_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_410_8_417_8_if_else_false:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_414_15_417_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 415 12 ]
+        symbol [ BLE_ERROR %tmp.16 415 22 31 ];
+        %tmp.16 = getv ? :BLE_ERROR;
+        symbol [ _state ? 415 12 18 ];
+        putv self :_state %tmp.16;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 416 12 ]
+        %tmp.17 = "CCCD write failed (status=";
+        %tmp.18 = lgetv %status;
+        symbol [ status %tmp.18 416 53 59 ];
+        symbol [ toString %tmp.19 416 60 68 ];
+        %tmp.19 = getv function %tmp.18 :toString;
+        %tmp.20 = invoke %tmp.18 %tmp.19();
+        %tmp.21 = add %tmp.17 %tmp.20;
+        %tmp.22 = ")";
+        %tmp.23 = add %tmp.21 %tmp.22;
+        symbol [ _status ? 416 12 19 ];
+        putv self :_status %tmp.23;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_414_15_417_8_stop:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_410_8_417_8_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 418 8 ]
+        symbol [ WatchUi %tmp.24 418 8 15 ];
+        %tmp.24 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.25 418 16 29 ];
+        %tmp.25 = getv function %tmp.24 :requestUpdate;
+        invoke %tmp.24 %tmp.25();
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_408_4_419_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 427; @symbol_functiondef = [onCharacteristicChanged,427,13,36]; @symbol_param<0> = [characteristic,428,8,22]; @symbol_param<0>_type<0> = [BluetoothLowEnergy,428,26,44]; @symbol_param<0>_type<1> = [Characteristic,428,45,59]; @symbol_param<1> = [value,429,8,13]; @symbol_param<1>_type<0> = [ByteArray,429,26,35]; ]
+    function onCharacteristicChanged(characteristic as BluetoothLowEnergy.Characteristic, value as ByteArray) as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_430_4_465_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 431 8 ]
+        symbol [ _rxCount %tmp.3 431 8 16 ];
+        %tmp.3 = getv ? :_rxCount;
+        %tmp.4 = add %tmp.3 1;
+        symbol [ _rxCount ? 431 8 16 ];
+        putv self :_rxCount dup %tmp.4;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 432 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_432_8_436_8_if_stmt:
+        %tmp.5 = lgetv %value;
+        symbol [ value %tmp.5 432 12 17 ];
+        symbol [ size %tmp.6 432 18 22 ];
+        %tmp.6 = getv function %tmp.5 :size;
+        %tmp.7 = invoke %tmp.5 %tmp.6();
+        %tmp.8 = 1;
+        %tmp.9 = lt %tmp.7 %tmp.8;
+        bf %tmp.9 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_432_8_436_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_432_8_436_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_432_30_436_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 433 12 ]
+        symbol [ System %tmp.10 433 12 18 ];
+        %tmp.10 = getm $.Toybox.System;
+        symbol [ println %tmp.11 433 19 26 ];
+        %tmp.11 = getv function %tmp.10 :println;
+        %tmp.12 = "BLE notify #";
+        symbol [ _rxCount %tmp.14 433 44 52 ];
+        %tmp.14 = getv ? :_rxCount;
+        %tmp.15 = add %tmp.12 %tmp.14;
+        %tmp.16 = ": empty payload";
+        %tmp.17 = add %tmp.15 %tmp.16;
+        invoke %tmp.10 %tmp.11(%tmp.17);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 434 12 ]
+        symbol [ WatchUi %tmp.18 434 12 19 ];
+        %tmp.18 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.19 434 20 33 ];
+        %tmp.19 = getv function %tmp.18 :requestUpdate;
+        invoke %tmp.18 %tmp.19();
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 435 12 ]
+        ret ?;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_432_30_436_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_432_8_436_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_432_8_436_8_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 440 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_440_8_443_8_if_stmt:
+        symbol [ _notifLocked %tmp.21 440 12 24 ];
+        %tmp.21 = getv ? :_notifLocked;
+        bf %tmp.21 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_440_8_443_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_440_8_443_8_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_440_26_443_8_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 441 12 ]
+        symbol [ System %tmp.22 441 12 18 ];
+        %tmp.22 = getm $.Toybox.System;
+        symbol [ println %tmp.23 441 19 26 ];
+        %tmp.23 = getv function %tmp.22 :println;
+        %tmp.24 = "BLE notify #";
+        symbol [ _rxCount %tmp.26 441 44 52 ];
+        %tmp.26 = getv ? :_rxCount;
+        %tmp.27 = add %tmp.24 %tmp.26;
+        %tmp.28 = ": suppressed (locked)";
+        %tmp.29 = add %tmp.27 %tmp.28;
+        invoke %tmp.22 %tmp.23(%tmp.29);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 442 12 ]
+        ret ?;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_440_26_443_8_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_440_8_443_8_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_440_8_443_8_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 446 8 ]
+        %tmp.30 = true;
+        symbol [ _notifLocked ? 446 8 20 ];
+        putv self :_notifLocked %tmp.30;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 447 8 ]
+        symbol [ _notifTimer %tmp.32 447 8 19 ];
+        %tmp.32 = getv ? :_notifTimer;
+        symbol [ start %tmp.33 447 20 25 ];
+        %tmp.33 = getv function %tmp.32 :start;
+        %tmp.34 = self;
+        symbol [ method %tmp.35 447 26 32 ];
+        %tmp.35 = getv function %tmp.34 :method;
+        %tmp.37 = const :_unlockNotif;
+        symbol [ _unlockNotif %tmp.37 447 34 46 const ];
+        %tmp.38 = invoke %tmp.34 %tmp.35(%tmp.37);
+        %tmp.39 = 5000;
+        %tmp.40 = false;
+        invoke %tmp.32 %tmp.33(%tmp.38, %tmp.39, %tmp.40);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 449 8 ]
+        [ "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_430_4_465_4_start" "c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_430_4_465_4_stop" ]
+        %b.1 = local;
+        symbol [ b %b.1 449 12 13 ];
+        %tmp.41 = lgetv %value;
+        symbol [ value %tmp.41 449 21 26 ];
+        %tmp.42 = 0;
+        %tmp.43 = agetv %tmp.41 %tmp.42;
+        %tmp.44 = 0xFF;
+        %tmp.45 = bitand %tmp.43 %tmp.44;
+        lputv %b.1 %tmp.45;
+        symbol [ b %b.1 449 12 13 ];
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 450 8 ]
+        %tmp.46 = lgetv %b.1;
+        symbol [ b %tmp.46 450 23 24 ];
+        %tmp.47 = 7;
+        %tmp.48 = shr %tmp.46 %tmp.47;
+        %tmp.49 = 0x01;
+        %tmp.50 = bitand %tmp.48 %tmp.49;
+        %tmp.51 = 1;
+        %tmp.52 = eq %tmp.50 %tmp.51;
+        symbol [ _linked1 ? 450 8 16 ];
+        putv self :_linked1 %tmp.52;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 451 8 ]
+        %tmp.53 = lgetv %b.1;
+        symbol [ b %tmp.53 451 23 24 ];
+        %tmp.54 = 6;
+        %tmp.55 = shr %tmp.53 %tmp.54;
+        %tmp.56 = 0x01;
+        %tmp.57 = bitand %tmp.55 %tmp.56;
+        %tmp.58 = 1;
+        %tmp.59 = eq %tmp.57 %tmp.58;
+        symbol [ _linked2 ? 451 8 16 ];
+        putv self :_linked2 %tmp.59;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 452 8 ]
+        %tmp.60 = lgetv %b.1;
+        symbol [ b %tmp.60 452 21 22 ];
+        %tmp.61 = 0x03;
+        %tmp.62 = bitand %tmp.60 %tmp.61;
+        symbol [ _notifType ? 452 8 18 ];
+        putv self :_notifType %tmp.62;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 454 8 ]
+        symbol [ System %tmp.63 454 8 14 ];
+        %tmp.63 = getm $.Toybox.System;
+        symbol [ println %tmp.64 454 15 22 ];
+        %tmp.64 = getv function %tmp.63 :println;
+        %tmp.65 = "BLE notify #";
+        symbol [ _rxCount %tmp.67 454 40 48 ];
+        %tmp.67 = getv ? :_rxCount;
+        %tmp.68 = add %tmp.65 %tmp.67;
+        %tmp.69 = ": byte=0x";
+        %tmp.70 = add %tmp.68 %tmp.69;
+        %tmp.71 = lgetv %b.1;
+        symbol [ b %tmp.71 455 26 27 ];
+        symbol [ format %tmp.72 455 28 34 ];
+        %tmp.72 = getv function %tmp.71 :format;
+        %tmp.73 = "%02X";
+        %tmp.74 = invoke %tmp.71 %tmp.72(%tmp.73);
+        %tmp.75 = add %tmp.70 %tmp.74;
+        %tmp.76 = " linked1=";
+        %tmp.77 = add %tmp.75 %tmp.76;
+        symbol [ _linked1 %tmp.79 456 26 34 ];
+        %tmp.79 = getv ? :_linked1;
+        %tmp.80 = add %tmp.77 %tmp.79;
+        %tmp.81 = " linked2=";
+        %tmp.82 = add %tmp.80 %tmp.81;
+        symbol [ _linked2 %tmp.84 457 26 34 ];
+        %tmp.84 = getv ? :_linked2;
+        %tmp.85 = add %tmp.82 %tmp.84;
+        %tmp.86 = " type=";
+        %tmp.87 = add %tmp.85 %tmp.86;
+        symbol [ _notifType %tmp.89 458 26 36 ];
+        %tmp.89 = getv ? :_notifType;
+        %tmp.90 = add %tmp.87 %tmp.89;
+        invoke %tmp.63 %tmp.64(%tmp.90);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 460 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_460_8_460_62_if_stmt:
+        symbol [ _notifType %tmp.92 460 12 22 ];
+        %tmp.92 = getv ? :_notifType;
+        symbol [ NOTIFY_LINKED %tmp.94 460 26 39 ];
+        %tmp.94 = getv ? :NOTIFY_LINKED;
+        %tmp.95 = eq %tmp.92 %tmp.94;
+        bf %tmp.95 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_460_8_460_62_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_460_8_460_62_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_460_42_460_62_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 460 44 ]
+        %tmp.96 = self;
+        symbol [ _buzzDoubleTap %tmp.97 460 44 58 ];
+        %tmp.97 = getv function %tmp.96 :_buzzDoubleTap;
+        invoke %tmp.96 %tmp.97();
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_460_42_460_62_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_460_8_460_62_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_460_8_460_62_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 461 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_461_8_461_62_if_stmt:
+        symbol [ _notifType %tmp.99 461 12 22 ];
+        %tmp.99 = getv ? :_notifType;
+        symbol [ NOTIFY_ALERT_1 %tmp.101 461 26 40 ];
+        %tmp.101 = getv ? :NOTIFY_ALERT_1;
+        %tmp.102 = eq %tmp.99 %tmp.101;
+        bf %tmp.102 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_461_8_461_62_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_461_8_461_62_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_461_42_461_62_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 461 44 ]
+        %tmp.103 = self;
+        symbol [ _buzzAlert1 %tmp.104 461 44 55 ];
+        %tmp.104 = getv function %tmp.103 :_buzzAlert1;
+        invoke %tmp.103 %tmp.104();
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_461_42_461_62_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_461_8_461_62_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_461_8_461_62_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 462 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_462_8_462_62_if_stmt:
+        symbol [ _notifType %tmp.106 462 12 22 ];
+        %tmp.106 = getv ? :_notifType;
+        symbol [ NOTIFY_ALERT_2 %tmp.108 462 26 40 ];
+        %tmp.108 = getv ? :NOTIFY_ALERT_2;
+        %tmp.109 = eq %tmp.106 %tmp.108;
+        bf %tmp.109 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_462_8_462_62_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_462_8_462_62_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_462_42_462_62_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 462 44 ]
+        %tmp.110 = self;
+        symbol [ _buzzAlert2 %tmp.111 462 44 55 ];
+        %tmp.111 = getv function %tmp.110 :_buzzAlert2;
+        invoke %tmp.110 %tmp.111();
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_462_42_462_62_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_462_8_462_62_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_462_8_462_62_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 464 8 ]
+        symbol [ WatchUi %tmp.112 464 8 15 ];
+        %tmp.112 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.113 464 16 29 ];
+        %tmp.113 = getv function %tmp.112 :requestUpdate;
+        invoke %tmp.112 %tmp.113();
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_430_4_465_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 468; @symbol_functiondef = [_unlockNotif,468,13,25]; ]
+    function _unlockNotif() as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_468_36_471_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 469 8 ]
+        %tmp.1 = false;
+        symbol [ _notifLocked ? 469 8 20 ];
+        putv self :_notifLocked %tmp.1;
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 470 8 ]
+        symbol [ System %tmp.2 470 8 14 ];
+        %tmp.2 = getm $.Toybox.System;
+        symbol [ println %tmp.3 470 15 22 ];
+        %tmp.3 = getv function %tmp.2 :println;
+        %tmp.4 = "BLE: notification gate open";
+        invoke %tmp.2 %tmp.3(%tmp.4);
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_468_36_471_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 478; @symbol_functiondef = [_buzzDoubleTap,478,20,34]; ]
+    protected
+    function _buzzDoubleTap() as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_478_45_485_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 479 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_479_8_479_49_if_stmt:
+        symbol [ Attention %tmp.1 479 14 23 ];
+        %tmp.1 = getm $.Toybox.Attention;
+        %tmp.3 = const :vibrate;
+        symbol [ vibrate %tmp.3 479 29 36 const ];
+        %tmp.4 = canhazplz %tmp.1 %tmp.3;
+        %tmp.5 = not %tmp.4;
+        bf %tmp.5 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_479_8_479_49_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_479_8_479_49_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_479_39_479_49_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 479 41 ]
+        ret ?;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_479_39_479_49_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_479_8_479_49_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_479_8_479_49_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 480 8 ]
+        symbol [ Attention %tmp.6 480 8 17 ];
+        %tmp.6 = getm $.Toybox.Attention;
+        symbol [ vibrate %tmp.7 480 18 25 ];
+        %tmp.7 = getv function %tmp.6 :vibrate;
+        %tmp.8 = newa 3;
+        symbol [ Attention %tmp.11 481 16 25 ];
+        %tmp.11 = getm $.Toybox.Attention;
+        symbol [ VibeProfile %tmp.12 481 26 37 ];
+        %tmp.12 = getv function ? %tmp.11 :VibeProfile;
+        %tmp.13 = 100;
+        %tmp.14 = 120;
+        %tmp.9 = newc %tmp.12 (%tmp.13, %tmp.14);
+        %tmp.15 = dup %tmp.8;
+        %tmp.16 = aputv %tmp.15 0 %tmp.9;
+        symbol [ Attention %tmp.19 482 16 25 ];
+        %tmp.19 = getm $.Toybox.Attention;
+        symbol [ VibeProfile %tmp.20 482 26 37 ];
+        %tmp.20 = getv function ? %tmp.19 :VibeProfile;
+        %tmp.21 = 0;
+        %tmp.22 = 100;
+        %tmp.17 = newc %tmp.20 (%tmp.21, %tmp.22);
+        %tmp.23 = dup %tmp.16;
+        %tmp.24 = aputv %tmp.23 1 %tmp.17;
+        symbol [ Attention %tmp.27 483 16 25 ];
+        %tmp.27 = getm $.Toybox.Attention;
+        symbol [ VibeProfile %tmp.28 483 26 37 ];
+        %tmp.28 = getv function ? %tmp.27 :VibeProfile;
+        %tmp.29 = 100;
+        %tmp.30 = 120;
+        %tmp.25 = newc %tmp.28 (%tmp.29, %tmp.30);
+        %tmp.31 = dup %tmp.24;
+        %tmp.32 = aputv %tmp.31 2 %tmp.25;
+        invoke %tmp.6 %tmp.7(%tmp.32);
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_478_45_485_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 488; @symbol_functiondef = [_buzzAlert1,488,20,31]; ]
+    protected
+    function _buzzAlert1() as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_488_42_493_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 489 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_489_8_489_49_if_stmt:
+        symbol [ Attention %tmp.1 489 14 23 ];
+        %tmp.1 = getm $.Toybox.Attention;
+        %tmp.3 = const :vibrate;
+        symbol [ vibrate %tmp.3 489 29 36 const ];
+        %tmp.4 = canhazplz %tmp.1 %tmp.3;
+        %tmp.5 = not %tmp.4;
+        bf %tmp.5 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_489_8_489_49_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_489_8_489_49_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_489_39_489_49_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 489 41 ]
+        ret ?;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_489_39_489_49_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_489_8_489_49_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_489_8_489_49_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 490 8 ]
+        symbol [ Attention %tmp.6 490 8 17 ];
+        %tmp.6 = getm $.Toybox.Attention;
+        symbol [ vibrate %tmp.7 490 18 25 ];
+        %tmp.7 = getv function %tmp.6 :vibrate;
+        %tmp.8 = newa 1;
+        symbol [ Attention %tmp.11 491 16 25 ];
+        %tmp.11 = getm $.Toybox.Attention;
+        symbol [ VibeProfile %tmp.12 491 26 37 ];
+        %tmp.12 = getv function ? %tmp.11 :VibeProfile;
+        %tmp.13 = 100;
+        %tmp.14 = 2000;
+        %tmp.9 = newc %tmp.12 (%tmp.13, %tmp.14);
+        %tmp.15 = dup %tmp.8;
+        %tmp.16 = aputv %tmp.15 0 %tmp.9;
+        invoke %tmp.6 %tmp.7(%tmp.16);
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_488_42_493_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 497; @symbol_functiondef = [_buzzAlert2,497,20,31]; ]
+    protected
+    function _buzzAlert2() as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_497_42_502_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 498 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_498_8_498_49_if_stmt:
+        symbol [ Attention %tmp.1 498 14 23 ];
+        %tmp.1 = getm $.Toybox.Attention;
+        %tmp.3 = const :vibrate;
+        symbol [ vibrate %tmp.3 498 29 36 const ];
+        %tmp.4 = canhazplz %tmp.1 %tmp.3;
+        %tmp.5 = not %tmp.4;
+        bf %tmp.5 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_498_8_498_49_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_498_8_498_49_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_498_39_498_49_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 498 41 ]
+        ret ?;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_498_39_498_49_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_498_8_498_49_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_498_8_498_49_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 499 8 ]
+        %tmp.6 = self;
+        symbol [ _buzzTriplet %tmp.7 499 8 20 ];
+        %tmp.7 = getv function %tmp.6 :_buzzTriplet;
+        invoke %tmp.6 %tmp.7();
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 500 8 ]
+        symbol [ _buzzTimer %tmp.9 500 8 18 ];
+        %tmp.9 = getv ? :_buzzTimer;
+        symbol [ start %tmp.10 500 19 24 ];
+        %tmp.10 = getv function %tmp.9 :start;
+        %tmp.11 = self;
+        symbol [ method %tmp.12 500 25 31 ];
+        %tmp.12 = getv function %tmp.11 :method;
+        %tmp.14 = const :_buzzTriplet;
+        symbol [ _buzzTriplet %tmp.14 500 33 45 const ];
+        %tmp.15 = invoke %tmp.11 %tmp.12(%tmp.14);
+        %tmp.16 = 480;
+        %tmp.17 = false;
+        invoke %tmp.9 %tmp.10(%tmp.15, %tmp.16, %tmp.17);
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 501 8 ]
+        symbol [ _buzzTimer2 %tmp.19 501 8 19 ];
+        %tmp.19 = getv ? :_buzzTimer2;
+        symbol [ start %tmp.20 501 20 25 ];
+        %tmp.20 = getv function %tmp.19 :start;
+        %tmp.21 = self;
+        symbol [ method %tmp.22 501 26 32 ];
+        %tmp.22 = getv function %tmp.21 :method;
+        %tmp.24 = const :_buzzTriplet;
+        symbol [ _buzzTriplet %tmp.24 501 34 46 const ];
+        %tmp.25 = invoke %tmp.21 %tmp.22(%tmp.24);
+        %tmp.26 = 960;
+        %tmp.27 = false;
+        invoke %tmp.19 %tmp.20(%tmp.25, %tmp.26, %tmp.27);
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_497_42_502_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 505; @symbol_functiondef = [_buzzTriplet,505,13,25]; ]
+    function _buzzTriplet() as Void {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_505_36_514_4_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 506 8 ]
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_506_8_506_49_if_stmt:
+        symbol [ Attention %tmp.1 506 14 23 ];
+        %tmp.1 = getm $.Toybox.Attention;
+        %tmp.3 = const :vibrate;
+        symbol [ vibrate %tmp.3 506 29 36 const ];
+        %tmp.4 = canhazplz %tmp.1 %tmp.3;
+        %tmp.5 = not %tmp.4;
+        bf %tmp.5 @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_506_8_506_49_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_506_8_506_49_if_true:
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_506_39_506_49_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 506 41 ]
+        ret ?;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_506_39_506_49_stop:
+        goto @c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_506_8_506_49_if_end;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_506_8_506_49_if_end:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 507 8 ]
+        symbol [ Attention %tmp.6 507 8 17 ];
+        %tmp.6 = getm $.Toybox.Attention;
+        symbol [ vibrate %tmp.7 507 18 25 ];
+        %tmp.7 = getv function %tmp.6 :vibrate;
+        %tmp.8 = newa 5;
+        symbol [ Attention %tmp.11 508 16 25 ];
+        %tmp.11 = getm $.Toybox.Attention;
+        symbol [ VibeProfile %tmp.12 508 26 37 ];
+        %tmp.12 = getv function ? %tmp.11 :VibeProfile;
+        %tmp.13 = 100;
+        %tmp.14 = 80;
+        %tmp.9 = newc %tmp.12 (%tmp.13, %tmp.14);
+        %tmp.15 = dup %tmp.8;
+        %tmp.16 = aputv %tmp.15 0 %tmp.9;
+        symbol [ Attention %tmp.19 509 16 25 ];
+        %tmp.19 = getm $.Toybox.Attention;
+        symbol [ VibeProfile %tmp.20 509 26 37 ];
+        %tmp.20 = getv function ? %tmp.19 :VibeProfile;
+        %tmp.21 = 0;
+        %tmp.22 = 80;
+        %tmp.17 = newc %tmp.20 (%tmp.21, %tmp.22);
+        %tmp.23 = dup %tmp.16;
+        %tmp.24 = aputv %tmp.23 1 %tmp.17;
+        symbol [ Attention %tmp.27 510 16 25 ];
+        %tmp.27 = getm $.Toybox.Attention;
+        symbol [ VibeProfile %tmp.28 510 26 37 ];
+        %tmp.28 = getv function ? %tmp.27 :VibeProfile;
+        %tmp.29 = 100;
+        %tmp.30 = 80;
+        %tmp.25 = newc %tmp.28 (%tmp.29, %tmp.30);
+        %tmp.31 = dup %tmp.24;
+        %tmp.32 = aputv %tmp.31 2 %tmp.25;
+        symbol [ Attention %tmp.35 511 16 25 ];
+        %tmp.35 = getm $.Toybox.Attention;
+        symbol [ VibeProfile %tmp.36 511 26 37 ];
+        %tmp.36 = getv function ? %tmp.35 :VibeProfile;
+        %tmp.37 = 0;
+        %tmp.38 = 80;
+        %tmp.33 = newc %tmp.36 (%tmp.37, %tmp.38);
+        %tmp.39 = dup %tmp.32;
+        %tmp.40 = aputv %tmp.39 3 %tmp.33;
+        symbol [ Attention %tmp.43 512 16 25 ];
+        %tmp.43 = getm $.Toybox.Attention;
+        symbol [ VibeProfile %tmp.44 512 26 37 ];
+        %tmp.44 = getv function ? %tmp.43 :VibeProfile;
+        %tmp.45 = 100;
+        %tmp.46 = 80;
+        %tmp.41 = newc %tmp.44 (%tmp.45, %tmp.46);
+        %tmp.47 = dup %tmp.40;
+        %tmp.48 = aputv %tmp.47 4 %tmp.41;
+        invoke %tmp.6 %tmp.7(%tmp.48);
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_505_36_514_4_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 519; @symbol_functiondef = [getState,519,13,21]; @symbol_return<0> = [Number,519,32,38]; ]
+    function getState() as Number {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_519_40_519_62_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 519 42 ]
+        symbol [ _state %tmp.2 519 49 55 ];
+        %tmp.2 = getv ? :_state;
+        ret %tmp.2;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_519_40_519_62_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 520; @symbol_functiondef = [getStatus,520,13,22]; @symbol_return<0> = [String,520,32,38]; ]
+    function getStatus() as String {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_520_40_520_62_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 520 42 ]
+        symbol [ _status %tmp.2 520 49 56 ];
+        %tmp.2 = getv ? :_status;
+        ret %tmp.2;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_520_40_520_62_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 521; @symbol_functiondef = [getDeviceName,521,13,26]; @symbol_return<0> = [String,521,32,38]; ]
+    function getDeviceName() as String {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_521_40_521_62_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 521 42 ]
+        symbol [ _deviceName %tmp.2 521 49 60 ];
+        %tmp.2 = getv ? :_deviceName;
+        ret %tmp.2;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_521_40_521_62_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 522; @symbol_functiondef = [getRssi,522,13,20]; @symbol_return<0> = [Number,522,32,38]; ]
+    function getRssi() as Number {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_522_40_522_62_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 522 42 ]
+        symbol [ _rssi %tmp.2 522 49 54 ];
+        %tmp.2 = getv ? :_rssi;
+        ret %tmp.2;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_522_40_522_62_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 523; @symbol_functiondef = [getRxHex,523,13,21]; @symbol_return<0> = [String,523,32,38]; ]
+    function getRxHex() as String {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_523_40_523_62_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 523 42 ]
+        symbol [ _rxHex %tmp.2 523 49 55 ];
+        %tmp.2 = getv ? :_rxHex;
+        ret %tmp.2;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_523_40_523_62_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 524; @symbol_functiondef = [getRxCount,524,13,23]; @symbol_return<0> = [Number,524,32,38]; ]
+    function getRxCount() as Number {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_524_40_524_62_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 524 42 ]
+        symbol [ _rxCount %tmp.2 524 49 57 ];
+        %tmp.2 = getv ? :_rxCount;
+        ret %tmp.2;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_524_40_524_62_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 525; @symbol_functiondef = [getLinked1,525,13,23]; @symbol_return<0> = [Boolean,525,32,39]; ]
+    function getLinked1() as Boolean {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_525_40_525_62_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 525 42 ]
+        symbol [ _linked1 %tmp.2 525 49 57 ];
+        %tmp.2 = getv ? :_linked1;
+        ret %tmp.2;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_525_40_525_62_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 526; @symbol_functiondef = [getLinked2,526,13,23]; @symbol_return<0> = [Boolean,526,32,39]; ]
+    function getLinked2() as Boolean {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_526_40_526_62_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 526 42 ]
+        symbol [ _linked2 %tmp.2 526 49 57 ];
+        %tmp.2 = getv ? :_linked2;
+        ret %tmp.2;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_526_40_526_62_stop:
+    }
+    [ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 527; @symbol_functiondef = [getNotifType,527,13,25]; @symbol_return<0> = [Number,527,32,38]; ]
+    function getNotifType() as Number {
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_527_40_527_62_start:
+[ "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc" 527 42 ]
+        symbol [ _notifType %tmp.2 527 49 59 ];
+        %tmp.2 = getv ? :_notifType;
+        ret %tmp.2;
+c__Users_ralls_myGarminApp_myGarminApp_source_BleManager_mc_527_40_527_62_stop:
+    }
+}
+[ @file = "c:\Users\ralls\myGarminApp\myGarminApp\source\BleManager.mc"; @line = 17; ]
+<init> {
+}
