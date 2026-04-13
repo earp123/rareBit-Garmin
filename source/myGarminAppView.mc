@@ -14,6 +14,7 @@
 //   88%  bottom text   — single short line, very muted
 // ============================================================
 
+import Toybox.BluetoothLowEnergy;
 import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.System;
@@ -48,6 +49,8 @@ class myGarminAppView extends WatchUi.View {
     hidden var _timerRunning as Boolean = false;
     hidden var _animFrame    as Number  = 0;   // 0-5
     hidden var _isRound      as Boolean = false;
+    hidden var _timerPushed  as Boolean = false;
+    hidden var _menuShown    as Boolean = false;
 
     function initialize(ble as BleManager) {
         View.initialize();
@@ -62,6 +65,11 @@ class myGarminAppView extends WatchUi.View {
     function onLayout(dc as Graphics.Dc) as Void { }
 
     function onShow() as Void {
+        _menuShown = false;
+        var state = _ble.getState();
+        if (state == BLE_IDLE || state == BLE_ERROR) {
+            _ble.startScan();
+        }
         _syncTimer();
         WatchUi.requestUpdate();
     }
@@ -72,6 +80,33 @@ class myGarminAppView extends WatchUi.View {
     }
 
     function onUpdate(dc as Graphics.Dc) as Void {
+        var state = _ble.getState();
+
+        // ── Navigate to timer view on first successful subscription ──
+        if (state == BLE_SUBSCRIBED && !_timerPushed) {
+            _timerPushed = true;
+            WatchUi.pushView(new TimerView(_ble), new TimerDelegate(), WatchUi.SLIDE_UP);
+            return;
+        }
+        if (state != BLE_SUBSCRIBED) {
+            _timerPushed = false;
+        }
+
+        // ── Show device picker when one or more devices are found ──
+        if (state == BLE_FOUND && !_menuShown) {
+            _menuShown = true;
+            var devices = _ble.getFoundDevices();
+            var menu = new WatchUi.Menu2({:title => "Select Device"});
+            for (var i = 0; i < devices.size(); i++) {
+                var result = devices[i] as BluetoothLowEnergy.ScanResult;
+                var name = result.getDeviceName();
+                if (name == null || name.length() == 0) { name = "Unknown"; }
+                menu.addItem(new WatchUi.MenuItem(name, null, result, {}));
+            }
+            WatchUi.pushView(menu, new DeviceMenuDelegate(_ble), WatchUi.SLIDE_UP);
+            return;
+        }
+
         var w  = dc.getWidth();
         var h  = dc.getHeight();
         var cx = w / 2;
@@ -79,8 +114,6 @@ class myGarminAppView extends WatchUi.View {
         // ── Clear ────────────────────────────────────────────
         dc.setColor(C_BG, C_BG);
         dc.clear();
-
-        var state = _ble.getState();
 
         // ── Safe zone ────────────────────────────────────────
         // Round: inscribed-square inset ≈ h * 0.15

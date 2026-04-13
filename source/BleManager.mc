@@ -51,7 +51,8 @@ const NOTIFY_UNUSED  = 3;   // 0b11 — reserved
 class BleManager extends BluetoothLowEnergy.BleDelegate {
 
     // Scan-phase state (available while BLE_FOUND)
-    hidden var _scanResult  as BluetoothLowEnergy.ScanResult or Null = null;
+    hidden var _scanResult   as BluetoothLowEnergy.ScanResult or Null = null;
+    hidden var _foundDevices as Array = [];
 
     // Connection-phase state (available while connected)
     hidden var _device      as BluetoothLowEnergy.Device or Null = null;
@@ -67,16 +68,48 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
     hidden var _notifType    as Number       = -1;     // last NOTIFY_* value, -1 = none yet
     hidden var _notifLocked  as Boolean      = false;  // true during 3 s post-connect gate
     hidden var _notifTimer   as Timer.Timer;           // one-shot to clear the lock
-    hidden var _buzzTimer    as Timer.Timer;           // one-shot to chain second buzz burst
-    hidden var _buzzTimer2   as Timer.Timer;           // one-shot to chain third buzz burst
     hidden var _svcUuid      as BluetoothLowEnergy.Uuid;
     hidden var _charUuid     as BluetoothLowEnergy.Uuid;
+
+    // Pre-allocated vibe sequences — avoids object allocation in callbacks
+    hidden var _vibeDoubleTap as Array;
+    hidden var _vibeAlert1    as Array;
+    hidden var _vibeAlert2    as Array;  // full 3-burst sequence encoded with gap profiles
 
     function initialize() {
         BleDelegate.initialize();
         _notifTimer = new Timer.Timer();
-        _buzzTimer  = new Timer.Timer();
-        _buzzTimer2 = new Timer.Timer();
+
+        _vibeDoubleTap = [
+            new Attention.VibeProfile(100, 120),
+            new Attention.VibeProfile(  0, 100),
+            new Attention.VibeProfile(100, 120)
+        ];
+        _vibeAlert1 = [
+            new Attention.VibeProfile(100, 2000)
+        ];
+        // Three staccato bursts separated by 300 ms gaps, all in one vibrate call.
+        // Eliminates timer-chained callbacks which cause "Too Many Arguments" on
+        // CIQ 6.x when the runtime passes an unexpected arg to the callback.
+        _vibeAlert2 = [
+            new Attention.VibeProfile(100,  80),
+            new Attention.VibeProfile(  0,  80),
+            new Attention.VibeProfile(100,  80),
+            new Attention.VibeProfile(  0,  80),
+            new Attention.VibeProfile(100,  80),
+            new Attention.VibeProfile(  0, 300),
+            new Attention.VibeProfile(100,  80),
+            new Attention.VibeProfile(  0,  80),
+            new Attention.VibeProfile(100,  80),
+            new Attention.VibeProfile(  0,  80),
+            new Attention.VibeProfile(100,  80),
+            new Attention.VibeProfile(  0, 300),
+            new Attention.VibeProfile(100,  80),
+            new Attention.VibeProfile(  0,  80),
+            new Attention.VibeProfile(100,  80),
+            new Attention.VibeProfile(  0,  80),
+            new Attention.VibeProfile(100,  80)
+        ];
 
         _svcUuid  = BluetoothLowEnergy.stringToUuid(TARGET_SERVICE_UUID_STR);
         _charUuid = BluetoothLowEnergy.stringToUuid(TARGET_CHAR_UUID_STR);
@@ -187,11 +220,12 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
     }
 
     hidden function _clearSession() as Void {
-        _scanResult = null;
-        _device     = null;
-        _deviceName = "";
-        _rssi       = 0;
-        _rxHex      = "--";
+        _scanResult   = null;
+        _foundDevices = [];
+        _device       = null;
+        _deviceName   = "";
+        _rssi         = 0;
+        _rxHex        = "--";
         _rxCount      = 0;
         _linked1      = false;
         _linked2      = false;
@@ -278,37 +312,29 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         while (item != null) {
             var result = item as BluetoothLowEnergy.ScanResult;
 
-            // Update an already-found candidate with fresher data (e.g. scan
-            // response packet that arrives after the primary advertisement).
-            if (_state == BLE_FOUND && _scanResult != null) {
-                if (result.isSameDevice(_scanResult)) {
-                    _scanResult = result;
-                    var updatedName = _nameFromResult(result);
-                    if (updatedName != null) {
-                        System.println("BLE: name update -> " + updatedName);
-                        _deviceName = updatedName;
-                        WatchUi.requestUpdate();
-                    }
-                }
-                item = scanResults.next();
-                continue;
-            }
-
             // Check every result for our service UUID.
             var uuidIter = result.getServiceUuids();
             var uuidObj  = uuidIter.next();
             while (uuidObj != null) {
                 var uuid = uuidObj as BluetoothLowEnergy.Uuid;
                 if (uuid.equals(_svcUuid)) {
-                    var name = _nameFromResult(result);
-                    System.println("BLE: UUID match — getDeviceName=" +
-                        result.getDeviceName() + " parsed=" + name +
-                        " RSSI=" + result.getRssi());
-                    _scanResult = result;
-                    _deviceName = "Relay";
-                    _rssi       = result.getRssi();
-                    _state      = BLE_FOUND;
-                    WatchUi.requestUpdate();
+                    // Dedup: update existing entry with fresher data, or add new.
+                    var matched = false;
+                    for (var i = 0; i < _foundDevices.size(); i++) {
+                        var existing = _foundDevices[i] as BluetoothLowEnergy.ScanResult;
+                        if (result.isSameDevice(existing)) {
+                            _foundDevices[i] = result;
+                            matched = true;
+                            break;
+                        }
+                    }
+                    if (!matched) {
+                        _foundDevices.add(result);
+                        _state = BLE_FOUND;
+                        System.println("BLE: found device " +
+                            result.getDeviceName() + " RSSI=" + result.getRssi());
+                        WatchUi.requestUpdate();
+                    }
                     break;
                 }
                 uuidObj = uuidIter.next();
@@ -477,52 +503,54 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
     // Double-tap — subscription confirmed, and device-linked events.
     hidden function _buzzDoubleTap() as Void {
         if (!(Attention has :vibrate)) { return; }
-        Attention.vibrate([
-            new Attention.VibeProfile(100, 120),
-            new Attention.VibeProfile(  0, 100),
-            new Attention.VibeProfile(100, 120)
-        ]);
+        try { Attention.vibrate(_vibeDoubleTap); } catch (ex instanceof Lang.Exception) {}
     }
 
     // Long single buzz — device 1 alert.
     hidden function _buzzAlert1() as Void {
         if (!(Attention has :vibrate)) { return; }
-        Attention.vibrate([
-            new Attention.VibeProfile(100, 2000)
-        ]);
+        try { Attention.vibrate(_vibeAlert1); } catch (ex instanceof Lang.Exception) {}
     }
 
-    // Staccato device 2 alert — two 3-tap bursts chained via _buzzTimer.
-    // Burst duration: 3 taps × 160 ms = 480 ms. Gap before burst 2: 300 ms.
+    // Three staccato bursts — device 2 alert.
+    // Encoded as a single vibrate call; no timer callbacks required.
     hidden function _buzzAlert2() as Void {
         if (!(Attention has :vibrate)) { return; }
-        _buzzTriplet();
-        _buzzTimer.start(method(:_buzzTriplet),  480, false);
-        _buzzTimer2.start(method(:_buzzTriplet), 960, false);
+        try { Attention.vibrate(_vibeAlert2); } catch (ex instanceof Lang.Exception) {}
     }
 
-    // Three-tap burst. Public so method(:) can reference it as a callback.
-    function _buzzTriplet() as Void {
-        if (!(Attention has :vibrate)) { return; }
-        Attention.vibrate([
-            new Attention.VibeProfile(100,  80),
-            new Attention.VibeProfile(  0,  80),
-            new Attention.VibeProfile(100,  80),
-            new Attention.VibeProfile(  0,  80),
-            new Attention.VibeProfile(100,  80)
-        ]);
+    // Connect to a specific device chosen from the picker.
+    function connectToResult(result as BluetoothLowEnergy.ScanResult) as Void {
+        if (_state != BLE_FOUND && _state != BLE_SCANNING) { return; }
+        _stopScanInternal();
+        _scanResult = result;
+        var name = _nameFromResult(result);
+        _deviceName = (name != null) ? name : "Device";
+        _state  = BLE_CONNECTING;
+        _status = "Pairing with " + _deviceName + "...";
+        WatchUi.requestUpdate();
+        System.println("BLE: pairDevice " + _deviceName);
+        try {
+            BluetoothLowEnergy.pairDevice(result);
+        } catch (ex instanceof Lang.Exception) {
+            _state  = BLE_ERROR;
+            _status = "Pair failed: " + ex.getErrorMessage();
+            System.println("BLE pairDevice error: " + ex.getErrorMessage());
+            WatchUi.requestUpdate();
+        }
     }
 
     // ----------------------------------------------------------
     //  Getters for the View
     // ----------------------------------------------------------
-    function getState()      as Number  { return _state;      }
-    function getStatus()     as String  { return _status;     }
-    function getDeviceName() as String  { return _deviceName; }
-    function getRssi()       as Number  { return _rssi;       }
-    function getRxHex()      as String  { return _rxHex;      }
-    function getRxCount()    as Number  { return _rxCount;    }
-    function getLinked1()    as Boolean { return _linked1;    }
-    function getLinked2()    as Boolean { return _linked2;    }
-    function getNotifType()  as Number  { return _notifType;  }
+    function getState()        as Number  { return _state;        }
+    function getStatus()       as String  { return _status;       }
+    function getDeviceName()   as String  { return _deviceName;   }
+    function getRssi()         as Number  { return _rssi;         }
+    function getRxHex()        as String  { return _rxHex;        }
+    function getRxCount()      as Number  { return _rxCount;      }
+    function getLinked1()      as Boolean { return _linked1;      }
+    function getLinked2()      as Boolean { return _linked2;      }
+    function getNotifType()    as Number  { return _notifType;    }
+    function getFoundDevices() as Array   { return _foundDevices; }
 }

@@ -1,0 +1,26 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build for device (venu2plus)",
+            "type": "shell",
+            "command": "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Sdks\\connectiq-sdk-win-9.1.0-2026-03-09-6a872a80b\\bin\\monkeyc.bat",
+            "args": [
+                "-o", "${workspaceFolder}\\bin\\rareBitGarmin.prg",
+                "-f", "${workspaceFolder}\\monkey.jungle",
+                "-y", "C:\\Users\\ralls\\MyMCFolder\\developer_key",
+                "-d", "venu2plus",
+                "--warn"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
