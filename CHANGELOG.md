@@ -32,18 +32,17 @@ This branch overhauls the main UI from a BLE scanner card view into a sports mat
 
 ### Bug Fixes
 
-#### Haptic Crash — `Too Many Arguments Error` (partially resolved)
-- **Root cause identified:** CIQ 6.x runtime on physical hardware passes an unexpected argument to `Timer.Timer` callbacks, causing "Too Many Arguments Error — Failed invoking <symbol>"
-- **What was fixed:** Removed `_buzzTimer` and `_buzzTimer2` entirely; `_buzzAlert2` now encodes all three staccato bursts as a single `Attention.vibrate()` call using gap `VibeProfile` entries — no timer callbacks used for haptics
-- **Vibe sequences pre-allocated** in `initialize()` to avoid repeated object allocation during BLE notification callbacks
-- All `Attention.vibrate()` calls wrapped in `try/catch`
-- **Status: crash persists** — further investigation needed; likely unrelated second crash site or the same CIQ runtime quirk manifesting elsewhere
+#### Haptic Crash — `Too Many Timers Error` (resolved)
+- **Root cause:** CIQ 6.x enforces a hard limit of 3 concurrent `Timer.Timer` objects (instantiation consumes a slot, not just `.start()`). The app had 3 permanent timer objects (view spinner + `BleManager._notifTimer` + countdown), leaving no slot for `Attention.vibrate()`'s internal timer — crash on every AR2 alert
+- **Fix:** Replaced `_notifTimer` (`Timer.Timer`) with a `System.getTimer()` timestamp comparison — identical 5 s debounce behavior, zero timer slots consumed. Permanent timer count drops from 3 → 2, freeing one slot for haptics
+- **Also fixed:** An earlier incorrect workaround had added a parameter to `onTick` and `_unlockNotif` callbacks. "Too Many Arguments Error" in CIQ means the function declares *more* parameters than the caller provides (not fewer) — zero-arg signatures are correct for `Timer.Timer` callbacks and have been restored
+- **AR2 pattern:** Tuned to four 500 ms pulses with 200 ms gaps (~2.8 s total), clearly distinct from AR1's single long buzz
+- **Status: resolved** — both alerts confirmed working on device while countdown timer is running
 
 ---
 
 ### Known Issues
 
-- **App crash on AR2 alert haptic sequence** — crash source not yet pinned to a specific line in the new build; next step is to retrieve the updated crash log after deploying the current `.prg`
 - Launcher icon is 24×24 (original placeholder); device expects 70×70 — upscaled at runtime, no functional impact
 - No supported languages defined in manifest — cosmetic warning only
 
@@ -57,6 +56,7 @@ This branch overhauls the main UI from a BLE scanner card view into a sports mat
 | `source/myGarminAppDelegate.mc` | No changes |
 | `source/TimerView.mc` | New timer UI with count-up, countdown, clock, and AR1/AR2 indicators |
 | `source/TimerDelegate.mc` | No changes |
-| `source/BleManager.mc` | Multi-device scan accumulation; `connectToResult()`; pre-allocated vibe sequences; haptic crash fix |
+| `source/BleManager.mc` | Multi-device scan accumulation; `connectToResult()`; pre-allocated vibe sequences; `_notifTimer` replaced with timestamp debounce; haptic crash resolved |
 | `source/DeviceMenuDelegate.mc` | **New** — handles device picker selection and back |
 | `.vscode/tasks.json` | **New** — direct monkeyc build task for venu2plus |
+| `.claude/settings.json` | **New** — PostToolUse hook: auto-builds on every `.mc` file edit |
