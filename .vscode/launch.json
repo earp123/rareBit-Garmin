@@ -1,0 +1,11 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run on venu3",
+            "request": "launch",
+            "type": "monkeyc",
+            "device": "venu3"
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import sys,json; d=json.load(sys.stdin); fp=d.get('tool_input',{}).get('file_path',''); exit(0 if fp.endswith('.mc') else 1)\" && /c/Users/ralls/AppData/Roaming/Garmin/ConnectIQ/Sdks/connectiq-sdk-win-9.1.0-2026-03-09-6a872a80b/bin/monkeyc -o bin/rareBitGarmin.prg -f monkey.jungle -y /c/Users/ralls/MyMCFolder/developer_key -d venu2plus 2>&1 || true",
+            "statusMessage": "Building rareBitGarmin..."
+          }
+        ]
+      }
+    ]
+  }
+}

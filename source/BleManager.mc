@@ -17,7 +17,6 @@
 import Toybox.Attention;
 import Toybox.BluetoothLowEnergy;
 import Toybox.Lang;
-import Toybox.Timer;
 import Toybox.WatchUi;
 import Toybox.System;
 
@@ -66,8 +65,7 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
     hidden var _linked1      as Boolean      = false;  // MSB   — tertiary device 1 linked
     hidden var _linked2      as Boolean      = false;  // MSB-1 — tertiary device 2 linked
     hidden var _notifType    as Number       = -1;     // last NOTIFY_* value, -1 = none yet
-    hidden var _notifLocked  as Boolean      = false;  // true during 3 s post-connect gate
-    hidden var _notifTimer   as Timer.Timer;           // one-shot to clear the lock
+    hidden var _lastNotifMs  as Number        = 0;      // System.getTimer() stamp of last processed notification
     hidden var _svcUuid      as BluetoothLowEnergy.Uuid;
     hidden var _charUuid     as BluetoothLowEnergy.Uuid;
 
@@ -78,8 +76,6 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
 
     function initialize() {
         BleDelegate.initialize();
-        _notifTimer = new Timer.Timer();
-
         _vibeDoubleTap = [
             new Attention.VibeProfile(100, 120),
             new Attention.VibeProfile(  0, 100),
@@ -88,27 +84,15 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         _vibeAlert1 = [
             new Attention.VibeProfile(100, 2000)
         ];
-        // Three staccato bursts separated by 300 ms gaps, all in one vibrate call.
-        // Eliminates timer-chained callbacks which cause "Too Many Arguments" on
-        // CIQ 6.x when the runtime passes an unexpected arg to the callback.
+        // Four 500ms pulses with 200ms gaps — 2.8s total.
         _vibeAlert2 = [
-            new Attention.VibeProfile(100,  80),
-            new Attention.VibeProfile(  0,  80),
-            new Attention.VibeProfile(100,  80),
-            new Attention.VibeProfile(  0,  80),
-            new Attention.VibeProfile(100,  80),
-            new Attention.VibeProfile(  0, 300),
-            new Attention.VibeProfile(100,  80),
-            new Attention.VibeProfile(  0,  80),
-            new Attention.VibeProfile(100,  80),
-            new Attention.VibeProfile(  0,  80),
-            new Attention.VibeProfile(100,  80),
-            new Attention.VibeProfile(  0, 300),
-            new Attention.VibeProfile(100,  80),
-            new Attention.VibeProfile(  0,  80),
-            new Attention.VibeProfile(100,  80),
-            new Attention.VibeProfile(  0,  80),
-            new Attention.VibeProfile(100,  80)
+            new Attention.VibeProfile(100, 500),
+            new Attention.VibeProfile(  0, 200),
+            new Attention.VibeProfile(100, 500),
+            new Attention.VibeProfile(  0, 200),
+            new Attention.VibeProfile(100, 500),
+            new Attention.VibeProfile(  0, 200),
+            new Attention.VibeProfile(100, 500)
         ];
 
         _svcUuid  = BluetoothLowEnergy.stringToUuid(TARGET_SERVICE_UUID_STR);
@@ -230,8 +214,7 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         _linked1      = false;
         _linked2      = false;
         _notifType    = -1;
-        _notifLocked  = false;
-        _notifTimer.stop();
+        _lastNotifMs  = 0;
     }
 
     // After connecting: find our characteristic and write 0x0001 to its
@@ -461,16 +444,15 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
             return;
         }
 
-        // Discard notifications during the 3 s post-subscription window
-        // to absorb stacked packets from a wide advertising interval.
-        if (_notifLocked) {
-            System.println("BLE notify #" + _rxCount + ": suppressed (locked)");
+        // Debounce: discard notifications within 5 s of the last processed one.
+        // Uses System.getTimer() instead of Timer.Timer to avoid consuming a
+        // system timer slot — the device limit is 3 and all slots are needed.
+        var now = System.getTimer();
+        if ((now - _lastNotifMs) < 5000) {
+            System.println("BLE notify #" + _rxCount + ": suppressed (debounce)");
             return;
         }
-
-        // Re-arm the lock so rapid follow-on notifications are suppressed.
-        _notifLocked = true;
-        _notifTimer.start(method(:_unlockNotif), 5000, false);
+        _lastNotifMs = now;
 
         var b      = value[0] & 0xFF;
         _linked1   = ((b >> 7) & 0x01) == 1;
@@ -488,12 +470,6 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         if (_notifType == NOTIFY_ALERT_2) { _buzzAlert2();    }
 
         WatchUi.requestUpdate();
-    }
-
-    // Called by _notifTimer after 3 s — opens the notification gate.
-    function _unlockNotif() as Void {
-        _notifLocked = false;
-        System.println("BLE: notification gate open");
     }
 
     // ----------------------------------------------------------
