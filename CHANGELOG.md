@@ -46,6 +46,11 @@ This branch overhauls the main UI from a BLE scanner card view into a sports mat
 - Launcher icon is 24×24 (original placeholder); device expects 70×70 — upscaled at runtime, no functional impact
 - No supported languages defined in manifest — cosmetic warning only
 
+### TODO
+
+- [ ] Fix UI names (app name, device name strings) before release
+- [ ] Add proper icon assets (launcher icon at 70×70, any additional required sizes)
+
 ---
 
 ### Files Changed (vs `main`)
