@@ -4,12 +4,15 @@ import Toybox.WatchUi;
 
 class myGarminAppApp extends Application.AppBase {
 
-    hidden var _bleMgr as BleManager;
+    hidden var _bleMgr     as BleManager;
+    hidden var _matchTimer as MatchTimer;
 
     function initialize() {
         AppBase.initialize();
         // Create the BleManager once; it registers the BLE delegate and profile.
         _bleMgr = new BleManager();
+        // App-owned so match time survives BLE drops and reconnects.
+        _matchTimer = new MatchTimer();
     }
 
     function onStart(state as Dictionary?) as Void {
@@ -23,8 +26,8 @@ class myGarminAppApp extends Application.AppBase {
 
     function getInitialView() as [Views] or [Views, InputDelegates] {
         return [
-            new myGarminAppView(_bleMgr),
-            new myGarminAppDelegate(_bleMgr)
+            new myGarminAppView(_bleMgr, _matchTimer),
+            new myGarminAppDelegate(_bleMgr, _matchTimer)
         ];
     }
 

@@ -10,7 +10,8 @@
 //
 // Vertical stack within the safe zone:
 //   14%  colored dot   — state indicator only, no text
-//   50%  main area     — card, spinner, or AR symbols
+//   50%  main area     — card, spinner, or live screen
+//                        (big match-timer digits + AR symbols)
 //   88%  bottom text   — single short line, very muted
 // ============================================================
 
@@ -45,15 +46,17 @@ const SPINNER_PW  = 4;    // spinner arc pen width px
 class myGarminAppView extends WatchUi.View {
 
     hidden var _ble          as BleManager;
+    hidden var _matchTimer   as MatchTimer;
     hidden var _timer        as Timer.Timer;
-    hidden var _timerRunning as Boolean = false;
+    hidden var _tickPeriod   as Number  = 0;   // current tick period ms, 0 = stopped
     hidden var _animFrame    as Number  = 0;   // 0-11 (spinner uses %6, blink uses %4)
     hidden var _isRound      as Boolean = false;
 
-    function initialize(ble as BleManager) {
+    function initialize(ble as BleManager, matchTimer as MatchTimer) {
         View.initialize();
-        _ble   = ble;
-        _timer = new Timer.Timer();
+        _ble        = ble;
+        _matchTimer = matchTimer;
+        _timer      = new Timer.Timer();
         // Detect screen shape once — doesn't change at runtime
         var shape = System.getDeviceSettings().screenShape;
         _isRound = (shape == System.SCREEN_SHAPE_ROUND ||
@@ -69,7 +72,7 @@ class myGarminAppView extends WatchUi.View {
 
     function onHide() as Void {
         _timer.stop();
-        _timerRunning = false;
+        _tickPeriod = 0;
     }
 
     function onUpdate(dc as Graphics.Dc) as Void {
@@ -144,7 +147,7 @@ class myGarminAppView extends WatchUi.View {
         }
 
         if (state == BLE_SUBSCRIBED) {
-            _drawArStatus(dc, w, cx, cy);
+            _drawLiveScreen(dc, w, cx, cy);
             return;
         }
 
@@ -210,45 +213,50 @@ class myGarminAppView extends WatchUi.View {
     }
 
     // ----------------------------------------------------------
-    //  Subscribed screen — symbol-forward AR status
+    //  Live (subscribed) screen — match timer + AR symbols
     //
-    //  Each linked AR renders as a large shape symbol with its
-    //  number inside (placeholder art until custom icons exist):
+    //  Big timer digits dominate the center; linked AR symbols sit
+    //  in a row above them.  Each linked AR renders as a shape
+    //  symbol with its number inside (placeholder art until custom
+    //  icons exist):
     //    AR1 — circle outline
     //    AR2 — triangle outline
     //  An unlinked AR draws nothing.  While an AR's alert window
     //  is open the symbol blinks (~300 ms phases) between its
     //  default shape and a contrasting filled diamond.
     // ----------------------------------------------------------
-    hidden function _drawArStatus(
+    hidden function _drawLiveScreen(
         dc as Graphics.Dc,
         w  as Number,
         cx as Number,
         cy as Number) as Void
     {
+        // ── Match timer — big numbers, center stage ──────────
+        var timerColor = _matchTimer.isRunning() ? C_TEXT_PRI : C_TEXT_SEC;
+        dc.setColor(timerColor, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx, cy, Graphics.FONT_NUMBER_MEDIUM, _matchTimer.format(),
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+
+        // ── AR symbol row above the digits ───────────────────
         // Show a symbol while linked, or while its alert is still
         // blinking (so an alert stays visible even on an unlink race).
         var show1 = _ble.getLinked1() || _ble.isAlerting1();
         var show2 = _ble.getLinked2() || _ble.isAlerting2();
+        if (!show1 && !show2) { return; }
 
-        if (!show1 && !show2) {
-            dc.setColor(C_TEXT_SEC, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(cx, cy, Graphics.FONT_TINY, "no ARs linked",
-                Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-            return;
-        }
-
-        var r       = (w * 0.14).toNumber();       // symbol radius
+        var r       = (w * 0.07).toNumber();       // symbol radius
+        var fhNum   = dc.getFontHeight(Graphics.FONT_NUMBER_MEDIUM);
+        var symY    = cy - fhNum / 2 - r - 6;
         var blinkOn = (_animFrame % 4) < 2;        // 300 ms on / 300 ms off
 
         if (show1 && show2) {
-            var off = (w * 0.18).toNumber();
-            _drawArSymbol(dc, cx - off, cy, r, 1, _ble.isAlerting1() && blinkOn);
-            _drawArSymbol(dc, cx + off, cy, r, 2, _ble.isAlerting2() && blinkOn);
+            var off = (w * 0.12).toNumber();
+            _drawArSymbol(dc, cx - off, symY, r, 1, _ble.isAlerting1() && blinkOn);
+            _drawArSymbol(dc, cx + off, symY, r, 2, _ble.isAlerting2() && blinkOn);
         } else if (show1) {
-            _drawArSymbol(dc, cx, cy, r, 1, _ble.isAlerting1() && blinkOn);
+            _drawArSymbol(dc, cx, symY, r, 1, _ble.isAlerting1() && blinkOn);
         } else {
-            _drawArSymbol(dc, cx, cy, r, 2, _ble.isAlerting2() && blinkOn);
+            _drawArSymbol(dc, cx, symY, r, 2, _ble.isAlerting2() && blinkOn);
         }
     }
 
@@ -289,7 +297,7 @@ class myGarminAppView extends WatchUi.View {
             dc.setColor(C_TEXT_PRI, Graphics.COLOR_TRANSPARENT);
         }
 
-        dc.drawText(x, y, Graphics.FONT_LARGE, arNum.toString(),
+        dc.drawText(x, y, Graphics.FONT_SMALL, arNum.toString(),
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
@@ -324,24 +332,30 @@ class myGarminAppView extends WatchUi.View {
     }
 
     // ----------------------------------------------------------
-    //  Timer — runs during animated states (spinner) and while an
-    //  AR alert blink window is open
+    //  Tick source — two speeds:
+    //   150 ms  spinner states, or an AR alert blink window open
+    //   500 ms  match timer running (keeps the seconds display fresh)
+    //   stopped otherwise
     // ----------------------------------------------------------
     hidden function _syncTimer() as Void {
-        var state    = _ble.getState();
-        var needTick = (state == BLE_SCANNING   ||
-                        state == BLE_CONNECTING  ||
-                        state == BLE_CONNECTED)  ||
-                       (state == BLE_SUBSCRIBED &&
-                        (_ble.isAlerting1() || _ble.isAlerting2()));
-        if (needTick && !_timerRunning) {
-            _timer.start(method(:_onTick), 150, true);
-            _timerRunning = true;
-        } else if (!needTick && _timerRunning) {
-            _timer.stop();
-            _timerRunning = false;
-            _animFrame    = 0;
+        var state = _ble.getState();
+        var fast  = (state == BLE_SCANNING   ||
+                     state == BLE_CONNECTING  ||
+                     state == BLE_CONNECTED)  ||
+                    (state == BLE_SUBSCRIBED &&
+                     (_ble.isAlerting1() || _ble.isAlerting2()));
+        var slow  = (state == BLE_SUBSCRIBED && _matchTimer.isRunning());
+
+        var period = fast ? 150 : (slow ? 500 : 0);
+        if (period == _tickPeriod) { return; }
+
+        _timer.stop();
+        if (period > 0) {
+            _timer.start(method(:_onTick), period, true);
+        } else {
+            _animFrame = 0;
         }
+        _tickPeriod = period;
     }
 
     function _onTick() as Void {
@@ -374,7 +388,11 @@ class myGarminAppView extends WatchUi.View {
         if (state == BLE_FOUND)      { return "tap  |  back=rescan"; }
         if (state == BLE_CONNECTING) { return "connecting...";     }
         if (state == BLE_CONNECTED)  { return "enabling notify..."; }
-        if (state == BLE_SUBSCRIBED) { return "back to disconnect"; }
+        if (state == BLE_SUBSCRIBED) {
+            if (_matchTimer.isRunning())          { return "tap to pause"; }
+            if (_matchTimer.getElapsedMs() > 0)   { return "tap=resume  |  menu=reset"; }
+            return "tap to start";
+        }
         if (state == BLE_ERROR)      { return _ble.getStatus();    }
         return "";
     }
