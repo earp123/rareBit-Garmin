@@ -6,16 +6,20 @@
 // SELECT (start button) —
 //   IDLE / ERROR / FOUND  →  start scan  (or re-scan)
 //   FOUND                 →  connect to the found device
-//   (ignored while connecting / subscribing to avoid double-tap)
+//   SUBSCRIBED            →  start / pause the match timer
+//   (ignored while connecting to avoid double-tap)
 //
 // BACK —
 //   SCANNING              →  stop scan
 //   SUBSCRIBED / CONNECTED / CONNECTING  →  disconnect / abort
 //   otherwise             →  exit app (default behavior)
 //
+// MENU —
+//   SUBSCRIBED            →  open match settings (reset/half/interval)
+//   otherwise             →  disconnect if needed and re-scan
+//
 // TAP (touch screen) —
-//   FOUND state           →  same as SELECT (connect)
-//   otherwise             →  same as SELECT
+//   same as SELECT
 // ============================================================
 
 import Toybox.Lang;
@@ -23,11 +27,13 @@ import Toybox.WatchUi;
 
 class myGarminAppDelegate extends WatchUi.BehaviorDelegate {
 
-    hidden var _ble as BleManager;
+    hidden var _ble        as BleManager;
+    hidden var _matchTimer as MatchTimer;
 
-    function initialize(ble as BleManager) {
+    function initialize(ble as BleManager, matchTimer as MatchTimer) {
         BehaviorDelegate.initialize();
-        _ble = ble;
+        _ble        = ble;
+        _matchTimer = matchTimer;
     }
 
     // SELECT button (or equivalent "confirm" gesture)
@@ -40,6 +46,10 @@ class myGarminAppDelegate extends WatchUi.BehaviorDelegate {
                    state == BLE_ERROR) {
             // Start (or restart) a BLE scan.
             _ble.startScan();
+        } else if (state == BLE_SUBSCRIBED) {
+            // Live screen — SELECT drives the match timer.
+            _matchTimer.toggle();
+            WatchUi.requestUpdate();
         }
         // Swallow the event in all cases so the system doesn't also act on it.
         return true;
@@ -74,12 +84,17 @@ class myGarminAppDelegate extends WatchUi.BehaviorDelegate {
         return onSelect();
     }
 
-    // Menu button (kept from the original template, now repurposed)
+    // Menu button
     function onMenu() as Boolean {
-        // Re-scan from any state.
         var state = _ble.getState();
-        if (state == BLE_SUBSCRIBED ||
-            state == BLE_CONNECTED  ||
+        if (state == BLE_SUBSCRIBED) {
+            // Live screen — MENU opens the match settings menu
+            // (reset / half / interval).
+            pushMatchMenu(_matchTimer);
+            return true;
+        }
+        // Elsewhere — disconnect if needed and re-scan.
+        if (state == BLE_CONNECTED  ||
             state == BLE_CONNECTING) {
             _ble.disconnect();
         }

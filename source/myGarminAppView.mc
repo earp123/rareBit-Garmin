@@ -10,7 +10,8 @@
 //
 // Vertical stack within the safe zone:
 //   14%  colored dot   — state indicator only, no text
-//   50%  main area     — card or spinner
+//   50%  main area     — card, spinner, or live screen
+//                        (big match-timer digits + AR symbols)
 //   88%  bottom text   — single short line, very muted
 // ============================================================
 
@@ -33,6 +34,8 @@ const C_ACC_ACTIVE  = 0xFFAA00;  // amber — scanning / connecting
 const C_ACC_FOUND   = 0xFFFFFF;  // white — device waiting
 const C_ACC_LIVE    = 0x00CC66;  // green — data flowing
 const C_ACC_ERROR   = 0xCC2200;  // red
+const C_ACC_ALERT   = 0xFFAA00;  // amber — AR alert blink contrast symbol
+const C_COUNTUP     = 0x55AAEE;  // soft blue — secondary count-up digits
 
 // ── Geometry ─────────────────────────────────────────────────
 const CARD_PAD    = 14;   // px padding inside card
@@ -44,15 +47,17 @@ const SPINNER_PW  = 4;    // spinner arc pen width px
 class myGarminAppView extends WatchUi.View {
 
     hidden var _ble          as BleManager;
+    hidden var _matchTimer   as MatchTimer;
     hidden var _timer        as Timer.Timer;
-    hidden var _timerRunning as Boolean = false;
-    hidden var _animFrame    as Number  = 0;   // 0-5
+    hidden var _tickPeriod   as Number  = 0;   // current tick period ms, 0 = stopped
+    hidden var _animFrame    as Number  = 0;   // 0-11 (spinner uses %6, blink uses %4)
     hidden var _isRound      as Boolean = false;
 
-    function initialize(ble as BleManager) {
+    function initialize(ble as BleManager, matchTimer as MatchTimer) {
         View.initialize();
-        _ble   = ble;
-        _timer = new Timer.Timer();
+        _ble        = ble;
+        _matchTimer = matchTimer;
+        _timer      = new Timer.Timer();
         // Detect screen shape once — doesn't change at runtime
         var shape = System.getDeviceSettings().screenShape;
         _isRound = (shape == System.SCREEN_SHAPE_ROUND ||
@@ -68,7 +73,7 @@ class myGarminAppView extends WatchUi.View {
 
     function onHide() as Void {
         _timer.stop();
-        _timerRunning = false;
+        _tickPeriod = 0;
     }
 
     function onUpdate(dc as Graphics.Dc) as Void {
@@ -143,7 +148,7 @@ class myGarminAppView extends WatchUi.View {
         }
 
         if (state == BLE_SUBSCRIBED) {
-            _drawSubscribedCard(dc, w, cx, cy);
+            _drawLiveScreen(dc, w, cx, cy);
             return;
         }
 
@@ -209,78 +214,108 @@ class myGarminAppView extends WatchUi.View {
     }
 
     // ----------------------------------------------------------
-    //  Subscribed card — link status indicators + last alert label
+    //  Live (subscribed) screen — match timers + AR symbols
+    //
+    //  Vertical stack, all centered on the column so the layout
+    //  stays inside a round screen's usable area:
+    //    AR symbol row (above the digits)
+    //    COUNTDOWN — big numbers, center stage
+    //                (white running, gray paused, amber in
+    //                 stoppage time after expiry)
+    //    COUNT-UP  — secondary: smaller, soft blue, synchronized
+    //
+    //  Each linked AR renders as a shape symbol with its number
+    //  inside (placeholder art until custom icons exist):
+    //    AR1 — circle outline
+    //    AR2 — triangle outline
+    //  An unlinked AR draws nothing.  While an AR's alert window
+    //  is open the symbol blinks (~300 ms phases) between its
+    //  default shape and a contrasting filled diamond.
     // ----------------------------------------------------------
-    hidden function _drawSubscribedCard(
+    hidden function _drawLiveScreen(
         dc as Graphics.Dc,
         w  as Number,
         cx as Number,
         cy as Number) as Void
     {
-        var fhMed  = dc.getFontHeight(Graphics.FONT_MEDIUM);
-        var fhTiny = dc.getFontHeight(Graphics.FONT_TINY);
-        var gap    = 8;
-        var cardW  = (w * CARD_W_PCT).toNumber();
-        var cardH  = fhMed + gap + fhTiny + CARD_PAD * 2;
-        var cardX  = cx - cardW / 2;
-        var cardY  = cy - cardH / 2;
+        // ── Countdown — big numbers, center stage ────────────
+        var cdColor = _matchTimer.isRunning()
+            ? (_matchTimer.isExpired() ? C_ACC_ALERT : C_TEXT_PRI)
+            : C_TEXT_SEC;
+        dc.setColor(cdColor, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx, cy, Graphics.FONT_NUMBER_MEDIUM,
+            _matchTimer.formatCountdown(),
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
-        // Card shell
-        dc.setColor(C_CARD_FILL, Graphics.COLOR_TRANSPARENT);
-        dc.fillRoundedRectangle(cardX, cardY, cardW, cardH, CARD_RADIUS);
-        dc.setPenWidth(2);
-        dc.setColor(C_CARD_BORDER, Graphics.COLOR_TRANSPARENT);
-        dc.drawRoundedRectangle(cardX, cardY, cardW, cardH, CARD_RADIUS);
-        dc.setPenWidth(1);
+        // ── Count-up — secondary, right below the countdown ──
+        var fhCd = dc.getFontHeight(Graphics.FONT_NUMBER_MEDIUM);
+        var fhCu = dc.getFontHeight(Graphics.FONT_MEDIUM);
+        var cuY  = cy + fhCd / 2 + fhCu / 2 + 2;
+        dc.setColor(C_COUNTUP, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx, cuY, Graphics.FONT_MEDIUM,
+            _matchTimer.formatCountUp(),
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
-        // ── Top row: D1 ● / ● D2 link indicators ─────────────
-        // Two dots with labels, symmetrically placed around cx.
-        var blockH  = fhMed + gap + fhTiny;
-        var rowY    = cy - blockH / 2 + fhMed / 2;
-        var dotR    = 6;
-        var spacing = cardW / 4;   // offset from center to each pair
+        // ── AR symbol row above the digits ───────────────────
+        // Show a symbol while linked, or while its alert is still
+        // blinking (so an alert stays visible even on an unlink race).
+        var show1 = _ble.getLinked1() || _ble.isAlerting1();
+        var show2 = _ble.getLinked2() || _ble.isAlerting2();
+        if (!show1 && !show2) { return; }
 
-        // D1 — left of center
-        var d1x = cx - spacing;
-        var d1Color = _ble.getLinked1() ? C_ACC_LIVE : C_TEXT_SEC;
-        dc.setColor(d1Color, Graphics.COLOR_TRANSPARENT);
-        if (_ble.getLinked1()) {
-            dc.fillCircle(d1x - dotR - 4, rowY, dotR);
+        var r       = (w * 0.07).toNumber();       // symbol radius
+        var symY    = cy - fhCd / 2 - r - 6;
+        var blinkOn = (_animFrame % 4) < 2;        // 300 ms on / 300 ms off
+
+        if (show1 && show2) {
+            var off = (w * 0.12).toNumber();
+            _drawArSymbol(dc, cx - off, symY, r, 1, _ble.isAlerting1() && blinkOn);
+            _drawArSymbol(dc, cx + off, symY, r, 2, _ble.isAlerting2() && blinkOn);
+        } else if (show1) {
+            _drawArSymbol(dc, cx, symY, r, 1, _ble.isAlerting1() && blinkOn);
         } else {
-            dc.drawCircle(d1x - dotR - 4, rowY, dotR);
+            _drawArSymbol(dc, cx, symY, r, 2, _ble.isAlerting2() && blinkOn);
         }
-        dc.drawText(d1x + 4, rowY, Graphics.FONT_MEDIUM, "D1",
-            Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
+    }
 
-        // D2 — right of center
-        var d2x = cx + spacing;
-        var d2Color = _ble.getLinked2() ? C_ACC_LIVE : C_TEXT_SEC;
-        dc.setColor(d2Color, Graphics.COLOR_TRANSPARENT);
-        if (_ble.getLinked2()) {
-            dc.fillCircle(d2x + dotR + 4, rowY, dotR);
+    // Draw one AR symbol centered at (x, y) with circumradius r.
+    // contrast=true draws the alert-blink contrast symbol instead
+    // of the AR's default shape.
+    hidden function _drawArSymbol(
+        dc       as Graphics.Dc,
+        x        as Number,
+        y        as Number,
+        r        as Number,
+        arNum    as Number,
+        contrast as Boolean) as Void
+    {
+        if (contrast) {
+            // Contrast symbol — filled diamond, number inverted.
+            dc.setColor(C_ACC_ALERT, Graphics.COLOR_TRANSPARENT);
+            dc.fillPolygon([[x, y - r], [x + r, y], [x, y + r], [x - r, y]]);
+            dc.setColor(C_BG, Graphics.COLOR_TRANSPARENT);
         } else {
-            dc.drawCircle(d2x + dotR + 4, rowY, dotR);
+            dc.setPenWidth(3);
+            dc.setColor(C_ACC_LIVE, Graphics.COLOR_TRANSPARENT);
+            if (arNum == 1) {
+                dc.drawCircle(x, y, r);
+            } else {
+                // Triangle with vertices on the circumradius (centroid = center)
+                var ax = x;
+                var ay = y - r;
+                var bx = x - (r * 0.87).toNumber();
+                var by = y + (r * 0.5).toNumber();
+                var ex = x + (r * 0.87).toNumber();
+                var ey = y + (r * 0.5).toNumber();
+                dc.drawLine(ax, ay, bx, by);
+                dc.drawLine(bx, by, ex, ey);
+                dc.drawLine(ex, ey, ax, ay);
+            }
+            dc.setPenWidth(1);
+            dc.setColor(C_TEXT_PRI, Graphics.COLOR_TRANSPARENT);
         }
-        dc.drawText(d2x - 4, rowY, Graphics.FONT_MEDIUM, "D2",
-            Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER);
 
-        // ── Bottom row: last alert label ──────────────────────
-        var alertY = cy + blockH / 2 - fhTiny / 2;
-        var notifType = _ble.getNotifType();
-        var alertText = "--";
-        var alertColor = C_TEXT_SEC;
-        if (notifType == NOTIFY_LINKED) {
-            alertText  = "LINKED";
-            alertColor = C_ACC_LIVE;
-        } else if (notifType == NOTIFY_ALERT_1) {
-            alertText  = "ALERT  D1";
-            alertColor = C_TEXT_PRI;
-        } else if (notifType == NOTIFY_ALERT_2) {
-            alertText  = "ALERT  D2";
-            alertColor = C_TEXT_PRI;
-        }
-        dc.setColor(alertColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, alertY, Graphics.FONT_TINY, alertText,
+        dc.drawText(x, y, Graphics.FONT_SMALL, arNum.toString(),
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
@@ -298,7 +333,7 @@ class myGarminAppView extends WatchUi.View {
         color  as Number) as Void
     {
         var r          = dc.getWidth() / 4;
-        var startAngle = 90 - _animFrame * 60;
+        var startAngle = 90 - (_animFrame % 6) * 60;
         var endAngle   = startAngle - 120;
 
         // Track
@@ -315,25 +350,36 @@ class myGarminAppView extends WatchUi.View {
     }
 
     // ----------------------------------------------------------
-    //  Timer — runs only during animated states
+    //  Tick source — two speeds:
+    //   150 ms  spinner states, or an AR alert blink window open
+    //   500 ms  match timer running (keeps the seconds display fresh)
+    //   stopped otherwise
     // ----------------------------------------------------------
     hidden function _syncTimer() as Void {
-        var state    = _ble.getState();
-        var needTick = (state == BLE_SCANNING   ||
-                        state == BLE_CONNECTING  ||
-                        state == BLE_CONNECTED);
-        if (needTick && !_timerRunning) {
-            _timer.start(method(:_onTick), 150, true);
-            _timerRunning = true;
-        } else if (!needTick && _timerRunning) {
-            _timer.stop();
-            _timerRunning = false;
-            _animFrame    = 0;
+        var state = _ble.getState();
+        var fast  = (state == BLE_SCANNING   ||
+                     state == BLE_CONNECTING  ||
+                     state == BLE_CONNECTED)  ||
+                    (state == BLE_SUBSCRIBED &&
+                     (_ble.isAlerting1() || _ble.isAlerting2()));
+        var slow  = (state == BLE_SUBSCRIBED && _matchTimer.isRunning());
+
+        var period = fast ? 150 : (slow ? 500 : 0);
+        if (period == _tickPeriod) { return; }
+
+        _timer.stop();
+        if (period > 0) {
+            _timer.start(method(:_onTick), period, true);
+        } else {
+            _animFrame = 0;
         }
+        _tickPeriod = period;
     }
 
     function _onTick() as Void {
-        _animFrame = (_animFrame + 1) % 6;
+        // 12 is divisible by both the spinner cycle (6 frames) and the
+        // blink cycle (4 frames), so neither jumps at the wraparound.
+        _animFrame = (_animFrame + 1) % 12;
         WatchUi.requestUpdate();
     }
 
@@ -360,7 +406,11 @@ class myGarminAppView extends WatchUi.View {
         if (state == BLE_FOUND)      { return "tap  |  back=rescan"; }
         if (state == BLE_CONNECTING) { return "connecting...";     }
         if (state == BLE_CONNECTED)  { return "enabling notify..."; }
-        if (state == BLE_SUBSCRIBED) { return "back to disconnect"; }
+        if (state == BLE_SUBSCRIBED) {
+            if (_matchTimer.isRunning())          { return "tap to pause"; }
+            if (_matchTimer.getElapsedMs() > 0)   { return "tap=resume  menu=settings"; }
+            return "tap=start  menu=settings";
+        }
         if (state == BLE_ERROR)      { return _ble.getStatus();    }
         return "";
     }
