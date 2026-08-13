@@ -16,8 +16,9 @@ class myGarminAppApp extends Application.AppBase {
     }
 
     function onStop(state as Dictionary?) as Void {
-        // Clean up — stop any in-progress scan when the app exits.
-        _bleMgr.stopScan();
+        // Clean up — stop any scan and unpair any live connection so the
+        // GATT interface is never left hanging when the app exits.
+        _bleMgr.teardown();
     }
 
     function getInitialView() as [Views] or [Views, InputDelegates] {

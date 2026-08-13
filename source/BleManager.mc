@@ -163,6 +163,16 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
     }
 
     function disconnect() as Void {
+        teardown();
+        _status = "Disconnected. Tap SELECT to scan again.";
+        WatchUi.requestUpdate();
+    }
+
+    // Full teardown — stop any scan, release any GATT connection, and
+    // clear all session state.  Safe to call from any state; also used
+    // on app exit so nothing is left running or paired behind us.
+    function teardown() as Void {
+        _stopScanInternal();
         if (_device != null) {
             try {
                 BluetoothLowEnergy.unpairDevice(_device);
@@ -171,9 +181,7 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
             }
         }
         _clearSession();
-        _state  = BLE_IDLE;
-        _status = "Disconnected. Tap SELECT to scan again.";
-        WatchUi.requestUpdate();
+        _state = BLE_IDLE;
     }
 
     // ----------------------------------------------------------
@@ -381,8 +389,9 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
     {
         System.println("BLE: connState=" + state);
         if (state == BluetoothLowEnergy.CONNECTION_STATE_CONNECTED) {
-            _device = device;
-            _state  = BLE_CONNECTED;
+            _device     = device;
+            _scanResult = null;   // consumed by pairDevice — don't hold it stale
+            _state      = BLE_CONNECTED;
             // Last-chance name update from the connected Device object,
             // in case neither ad packet carried the name.
             var devName = device.getName();
@@ -410,6 +419,10 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         if (status == BluetoothLowEnergy.STATUS_SUCCESS) {
             _state       = BLE_SUBSCRIBED;
             _status      = "Subscribed! Waiting for notifications...";
+            // Close the notification gate for 3 s to absorb stale packets
+            // stacked up during a wide advertising interval.
+            _notifLocked = true;
+            _notifTimer.start(method(:_unlockNotif), 3000, false);
             _buzzDoubleTap();
         } else {
             _state  = BLE_ERROR;
@@ -435,20 +448,19 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
             return;
         }
 
-        // Discard notifications during the 3 s post-subscription window
-        // to absorb stacked packets from a wide advertising interval.
-        if (_notifLocked) {
-            System.println("BLE notify #" + _rxCount + ": suppressed (locked)");
-            return;
-        }
-
-        // Re-arm the lock so rapid follow-on notifications are suppressed.
-        _notifLocked = true;
-        _notifTimer.start(method(:_unlockNotif), 5000, false);
-
         var b      = value[0] & 0xFF;
         _linked1   = ((b >> 7) & 0x01) == 1;
         _linked2   = ((b >> 6) & 0x01) == 1;
+
+        // During the 3 s post-subscription gate, absorb stacked stale
+        // packets: keep the link-status bits fresh but skip the alert
+        // label and buzz.
+        if (_notifLocked) {
+            System.println("BLE notify #" + _rxCount + ": gated (linked bits updated)");
+            WatchUi.requestUpdate();
+            return;
+        }
+
         _notifType = b & 0x03;
 
         System.println("BLE notify #" + _rxCount +
@@ -464,7 +476,7 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         WatchUi.requestUpdate();
     }
 
-    // Called by _notifTimer after 3 s — opens the notification gate.
+    // Called by _notifTimer 3 s after subscribing — opens the notification gate.
     function _unlockNotif() as Void {
         _notifLocked = false;
         System.println("BLE: notification gate open");
