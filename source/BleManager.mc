@@ -42,10 +42,13 @@ const BLE_ERROR       = 6;  // something went wrong (see status string)
 //  NOTIFICATION TYPE CONSTANTS
 //  Encoded in the two least-significant bits of the status byte.
 // ============================================================
-const NOTIFY_LINKED  = 0;   // 0b00 — a tertiary device linked/unlinked
-const NOTIFY_ALERT_1 = 1;   // 0b01 — device 1 alert
-const NOTIFY_ALERT_2 = 2;   // 0b10 — device 2 alert
+const NOTIFY_LINKED  = 0;   // 0b00 — an AR device linked/unlinked
+const NOTIFY_ALERT_1 = 1;   // 0b01 — AR1 alert
+const NOTIFY_ALERT_2 = 2;   // 0b10 — AR2 alert
 const NOTIFY_UNUSED  = 3;   // 0b11 — reserved
+
+// How long an alert stays visually active (symbol blink) in ms.
+const ALERT_BLINK_MS = 3000;
 
 // ============================================================
 class BleManager extends BluetoothLowEnergy.BleDelegate {
@@ -62,9 +65,11 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
     hidden var _rssi        as Number  = 0;
     hidden var _rxHex       as String  = "--";
     hidden var _rxCount     as Number  = 0;
-    hidden var _linked1      as Boolean      = false;  // MSB   — tertiary device 1 linked
-    hidden var _linked2      as Boolean      = false;  // MSB-1 — tertiary device 2 linked
+    hidden var _linked1      as Boolean      = false;  // MSB   — AR1 linked
+    hidden var _linked2      as Boolean      = false;  // MSB-1 — AR2 linked
     hidden var _notifType    as Number       = -1;     // last NOTIFY_* value, -1 = none yet
+    hidden var _alert1Until  as Number       = 0;      // System.getTimer() deadline for AR1 blink
+    hidden var _alert2Until  as Number       = 0;      // System.getTimer() deadline for AR2 blink
     hidden var _notifLocked  as Boolean      = false;  // true during 3 s post-connect gate
     hidden var _notifTimer   as Timer.Timer;           // one-shot to clear the lock
     hidden var _buzzTimer    as Timer.Timer;           // one-shot to chain second buzz burst
@@ -204,6 +209,8 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         _linked1      = false;
         _linked2      = false;
         _notifType    = -1;
+        _alert1Until  = 0;
+        _alert2Until  = 0;
         _notifLocked  = false;
         _notifTimer.stop();
     }
@@ -433,8 +440,8 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
 
     // Notification received.
     // Byte layout:
-    //   bit 7 (MSB)   — linked status of tertiary device 1 (1=linked)
-    //   bit 6         — linked status of tertiary device 2 (1=linked)
+    //   bit 7 (MSB)   — linked status of AR1 (1=linked)
+    //   bit 6         — linked status of AR2 (1=linked)
     //   bits 5-2      — reserved
     //   bits 1-0 (LSB)— notification type (NOTIFY_* constants)
     function onCharacteristicChanged(
@@ -470,8 +477,14 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
             " type="    + _notifType);
 
         if (_notifType == NOTIFY_LINKED)  { _buzzDoubleTap(); }
-        if (_notifType == NOTIFY_ALERT_1) { _buzzAlert1();    }
-        if (_notifType == NOTIFY_ALERT_2) { _buzzAlert2();    }
+        if (_notifType == NOTIFY_ALERT_1) {
+            _alert1Until = System.getTimer() + ALERT_BLINK_MS;
+            _buzzAlert1();
+        }
+        if (_notifType == NOTIFY_ALERT_2) {
+            _alert2Until = System.getTimer() + ALERT_BLINK_MS;
+            _buzzAlert2();
+        }
 
         WatchUi.requestUpdate();
     }
@@ -486,7 +499,7 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
     //  Haptic feedback
     // ----------------------------------------------------------
 
-    // Double-tap — subscription confirmed, and device-linked events.
+    // Double-tap — subscription confirmed, and AR-linked events.
     hidden function _buzzDoubleTap() as Void {
         if (!(Attention has :vibrate)) { return; }
         Attention.vibrate([
@@ -496,7 +509,7 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         ]);
     }
 
-    // Long single buzz — device 1 alert.
+    // Long single buzz — AR1 alert.
     hidden function _buzzAlert1() as Void {
         if (!(Attention has :vibrate)) { return; }
         Attention.vibrate([
@@ -504,7 +517,7 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         ]);
     }
 
-    // Staccato device 2 alert — two 3-tap bursts chained via _buzzTimer.
+    // Staccato AR2 alert — two 3-tap bursts chained via _buzzTimer.
     // Burst duration: 3 taps × 160 ms = 480 ms. Gap before burst 2: 300 ms.
     hidden function _buzzAlert2() as Void {
         if (!(Attention has :vibrate)) { return; }
@@ -537,4 +550,8 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
     function getLinked1()    as Boolean { return _linked1;    }
     function getLinked2()    as Boolean { return _linked2;    }
     function getNotifType()  as Number  { return _notifType;  }
+
+    // True while the AR's alert blink window (ALERT_BLINK_MS) is open.
+    function isAlerting1()   as Boolean { return System.getTimer() < _alert1Until; }
+    function isAlerting2()   as Boolean { return System.getTimer() < _alert2Until; }
 }
