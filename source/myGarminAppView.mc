@@ -35,6 +35,7 @@ const C_ACC_FOUND   = 0xFFFFFF;  // white — device waiting
 const C_ACC_LIVE    = 0x00CC66;  // green — data flowing
 const C_ACC_ERROR   = 0xCC2200;  // red
 const C_ACC_ALERT   = 0xFFAA00;  // amber — AR alert blink contrast symbol
+const C_COUNTUP     = 0x55AAEE;  // soft blue — secondary count-up digits
 
 // ── Geometry ─────────────────────────────────────────────────
 const CARD_PAD    = 14;   // px padding inside card
@@ -213,12 +214,18 @@ class myGarminAppView extends WatchUi.View {
     }
 
     // ----------------------------------------------------------
-    //  Live (subscribed) screen — match timer + AR symbols
+    //  Live (subscribed) screen — match timers + AR symbols
     //
-    //  Big timer digits dominate the center; linked AR symbols sit
-    //  in a row above them.  Each linked AR renders as a shape
-    //  symbol with its number inside (placeholder art until custom
-    //  icons exist):
+    //  Vertical stack, all centered on the column so the layout
+    //  stays inside a round screen's usable area:
+    //    AR symbol row (above the digits)
+    //    COUNTDOWN — big numbers, center stage
+    //                (white running, gray paused, amber in
+    //                 stoppage time after expiry)
+    //    COUNT-UP  — secondary: smaller, soft blue, synchronized
+    //
+    //  Each linked AR renders as a shape symbol with its number
+    //  inside (placeholder art until custom icons exist):
     //    AR1 — circle outline
     //    AR2 — triangle outline
     //  An unlinked AR draws nothing.  While an AR's alert window
@@ -231,10 +238,22 @@ class myGarminAppView extends WatchUi.View {
         cx as Number,
         cy as Number) as Void
     {
-        // ── Match timer — big numbers, center stage ──────────
-        var timerColor = _matchTimer.isRunning() ? C_TEXT_PRI : C_TEXT_SEC;
-        dc.setColor(timerColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, cy, Graphics.FONT_NUMBER_MEDIUM, _matchTimer.format(),
+        // ── Countdown — big numbers, center stage ────────────
+        var cdColor = _matchTimer.isRunning()
+            ? (_matchTimer.isExpired() ? C_ACC_ALERT : C_TEXT_PRI)
+            : C_TEXT_SEC;
+        dc.setColor(cdColor, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx, cy, Graphics.FONT_NUMBER_MEDIUM,
+            _matchTimer.formatCountdown(),
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+
+        // ── Count-up — secondary, right below the countdown ──
+        var fhCd = dc.getFontHeight(Graphics.FONT_NUMBER_MEDIUM);
+        var fhCu = dc.getFontHeight(Graphics.FONT_MEDIUM);
+        var cuY  = cy + fhCd / 2 + fhCu / 2 + 2;
+        dc.setColor(C_COUNTUP, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx, cuY, Graphics.FONT_MEDIUM,
+            _matchTimer.formatCountUp(),
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
         // ── AR symbol row above the digits ───────────────────
@@ -245,8 +264,7 @@ class myGarminAppView extends WatchUi.View {
         if (!show1 && !show2) { return; }
 
         var r       = (w * 0.07).toNumber();       // symbol radius
-        var fhNum   = dc.getFontHeight(Graphics.FONT_NUMBER_MEDIUM);
-        var symY    = cy - fhNum / 2 - r - 6;
+        var symY    = cy - fhCd / 2 - r - 6;
         var blinkOn = (_animFrame % 4) < 2;        // 300 ms on / 300 ms off
 
         if (show1 && show2) {
@@ -390,8 +408,8 @@ class myGarminAppView extends WatchUi.View {
         if (state == BLE_CONNECTED)  { return "enabling notify..."; }
         if (state == BLE_SUBSCRIBED) {
             if (_matchTimer.isRunning())          { return "tap to pause"; }
-            if (_matchTimer.getElapsedMs() > 0)   { return "tap=resume  |  menu=reset"; }
-            return "tap to start";
+            if (_matchTimer.getElapsedMs() > 0)   { return "tap=resume  menu=settings"; }
+            return "tap=start  menu=settings";
         }
         if (state == BLE_ERROR)      { return _ble.getStatus();    }
         return "";

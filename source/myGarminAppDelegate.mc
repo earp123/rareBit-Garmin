@@ -15,7 +15,7 @@
 //   otherwise             →  exit app (default behavior)
 //
 // MENU —
-//   SUBSCRIBED            →  reset the match timer
+//   SUBSCRIBED            →  open match settings (reset/half/interval)
 //   otherwise             →  disconnect if needed and re-scan
 //
 // TAP (touch screen) —
@@ -88,9 +88,9 @@ class myGarminAppDelegate extends WatchUi.BehaviorDelegate {
     function onMenu() as Boolean {
         var state = _ble.getState();
         if (state == BLE_SUBSCRIBED) {
-            // Live screen — MENU resets the match timer.
-            _matchTimer.reset();
-            WatchUi.requestUpdate();
+            // Live screen — MENU opens the match settings menu
+            // (reset / half / interval).
+            pushMatchMenu(_matchTimer);
             return true;
         }
         // Elsewhere — disconnect if needed and re-scan.
