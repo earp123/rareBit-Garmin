@@ -4,7 +4,7 @@ All notable changes to rareBit Official are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [Unreleased] — 2026-08-13
+## [Unreleased] — 2026-08-14
 
 Match timer feature, AR alert UI, and BLE robustness work ([#1](https://github.com/earp123/rareBit-Garmin/pull/1)).
 
