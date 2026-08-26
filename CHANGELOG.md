@@ -14,6 +14,10 @@ simulator test build, and a Venu Sq 2 launch-crash fix.
 - **Settings menu on BACK** — BACK (or MENU) on the live screen now opens a
   Menu2 settings menu: Interval, Half, Reset Timer, Disconnect. BACK no longer
   disconnects from the live screen; Disconnect moved into the menu.
+- **Exit App menu item** — with the live screen latched and BACK owning the
+  settings menu, the menu's last entry is the app's exit path
+  (`System.exit()`, which still runs the BLE teardown via `onStop`).
+  Deliberately two presses so a stray BACK can never kill the app mid-match.
 - **MM:SS interval picker** — replaces the 5-minute preset list and the
   minutes-only custom picker. Up/down arrows over each field; tap above /
   below the digit row to adjust (left half = minutes, right half = seconds,

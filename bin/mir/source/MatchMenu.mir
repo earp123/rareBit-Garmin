@@ -8,9 +8,9 @@ import Toybox.System;
 import Toybox.WatchUi;
 [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 21; @symbol_functiondef = [pushMatchMenu,21,9,22]; @symbol_param<0> = [mt,21,23,25]; @symbol_param<0>_type<0> = [MatchTimer,21,29,39]; @symbol_param<1> = [ble,21,41,44]; @symbol_param<1>_type<0> = [BleManager,21,48,58]; ]
 function pushMatchMenu(mt as MatchTimer, ble as BleManager) as Void {
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_21_68_38_0_start:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_21_68_42_0_start:
 [ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 22 4 ]
-    [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_21_68_38_0_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_21_68_38_0_stop" ]
+    [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_21_68_42_0_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_21_68_42_0_stop" ]
     %menu.1 = local;
     symbol [ menu %menu.1 22 8 12 ];
     symbol [ WatchUi %tmp.3 22 19 26 ];
@@ -176,1020 +176,1056 @@ C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_32_24_36_4_start:
 C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_32_24_36_4_stop:
     goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_32_4_36_4_if_end;
 C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_32_4_36_4_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 37 4 ]
-    symbol [ WatchUi %tmp.101 37 4 11 ];
-    %tmp.101 = getm $.Toybox.WatchUi;
-    symbol [ pushView %tmp.102 37 12 20 ];
-    %tmp.102 = getv function %tmp.101 :pushView;
-    %tmp.103 = lgetv %menu.1;
-    symbol [ menu %tmp.103 37 21 25 ];
-    symbol [ MatchMenuDelegate %tmp.107 37 31 48 ];
-    %tmp.107 = getv ? :MatchMenuDelegate;
-    %tmp.108 = lgetv %mt;
-    symbol [ mt %tmp.108 37 49 51 ];
-    %tmp.109 = lgetv %ble;
-    symbol [ ble %tmp.109 37 53 56 ];
-    %tmp.104 = newc %tmp.107 (%tmp.108, %tmp.109);
-    symbol [ WatchUi %tmp.110 37 59 66 ];
-    %tmp.110 = getm $.Toybox.WatchUi;
-    symbol [ SLIDE_UP %tmp.111 37 67 75 ];
-    %tmp.111 = getv %tmp.110 :SLIDE_UP;
-    invoke %tmp.101 %tmp.102(%tmp.103, %tmp.104, %tmp.111);
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_21_68_38_0_stop:
-}
-[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 40; @symbol_functiondef = [_halfSubLabel,40,9,22]; @symbol_param<0> = [mt,40,23,25]; @symbol_param<0>_type<0> = [MatchTimer,40,29,39]; @symbol_return<0> = [String,40,44,50]; ]
-function _halfSubLabel(mt as MatchTimer) as String {
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_40_51_44_0_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 40 4 ]
+    %tmp.101 = lgetv %menu.1;
+    symbol [ menu %tmp.101 40 4 8 ];
+    symbol [ addItem %tmp.102 40 9 16 ];
+    %tmp.102 = getv function %tmp.101 :addItem;
+    symbol [ WatchUi %tmp.105 40 21 28 ];
+    %tmp.105 = getm $.Toybox.WatchUi;
+    symbol [ MenuItem %tmp.106 40 29 37 ];
+    %tmp.106 = getv function ? %tmp.105 :MenuItem;
+    %tmp.107 = "Exit App";
+    %tmp.108 = null;
+    %tmp.110 = const :exitApp;
+    symbol [ exitApp %tmp.110 40 57 64 const ];
+    %tmp.111 = null;
+    %tmp.103 = newc %tmp.106 (%tmp.107, %tmp.108, %tmp.110, %tmp.111);
+    invoke %tmp.101 %tmp.102(%tmp.103);
 [ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 41 4 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_41_11_43_10_begin:
+    symbol [ WatchUi %tmp.112 41 4 11 ];
+    %tmp.112 = getm $.Toybox.WatchUi;
+    symbol [ pushView %tmp.113 41 12 20 ];
+    %tmp.113 = getv function %tmp.112 :pushView;
+    %tmp.114 = lgetv %menu.1;
+    symbol [ menu %tmp.114 41 21 25 ];
+    symbol [ MatchMenuDelegate %tmp.118 41 31 48 ];
+    %tmp.118 = getv ? :MatchMenuDelegate;
+    %tmp.119 = lgetv %mt;
+    symbol [ mt %tmp.119 41 49 51 ];
+    %tmp.120 = lgetv %ble;
+    symbol [ ble %tmp.120 41 53 56 ];
+    %tmp.115 = newc %tmp.118 (%tmp.119, %tmp.120);
+    symbol [ WatchUi %tmp.121 41 59 66 ];
+    %tmp.121 = getm $.Toybox.WatchUi;
+    symbol [ SLIDE_UP %tmp.122 41 67 75 ];
+    %tmp.122 = getv %tmp.121 :SLIDE_UP;
+    invoke %tmp.112 %tmp.113(%tmp.114, %tmp.115, %tmp.122);
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_21_68_42_0_stop:
+}
+[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 44; @symbol_functiondef = [_halfSubLabel,44,9,22]; @symbol_param<0> = [mt,44,23,25]; @symbol_param<0>_type<0> = [MatchTimer,44,29,39]; @symbol_return<0> = [String,44,44,50]; ]
+function _halfSubLabel(mt as MatchTimer) as String {
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_44_51_48_0_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 45 4 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_45_11_47_10_begin:
     %tmp.1 = lgetv %mt;
-    symbol [ mt %tmp.1 41 11 13 ];
-    symbol [ isSecondHalf %tmp.2 41 14 26 ];
+    symbol [ mt %tmp.1 45 11 13 ];
+    symbol [ isSecondHalf %tmp.2 45 14 26 ];
     %tmp.2 = getv function %tmp.1 :isSecondHalf;
     %tmp.3 = invoke %tmp.1 %tmp.2();
-    bf %tmp.3 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_41_11_43_10_else_false;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_41_11_43_10_true:
+    bf %tmp.3 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_45_11_47_10_else_false;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_45_11_47_10_true:
     %tmp.4 = "2nd — up from ";
     %tmp.5 = lgetv %mt;
-    symbol [ mt %tmp.5 42 29 31 ];
-    symbol [ formatInterval %tmp.6 42 32 46 ];
+    symbol [ mt %tmp.5 46 29 31 ];
+    symbol [ formatInterval %tmp.6 46 32 46 ];
     %tmp.6 = getv function %tmp.5 :formatInterval;
     %tmp.7 = invoke %tmp.5 %tmp.6();
     %tmp.8 = add %tmp.4 %tmp.7;
     push %tmp.8;
-    goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_41_11_43_10_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_41_11_43_10_else_false:
+    goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_45_11_47_10_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_45_11_47_10_else_false:
     %tmp.9 = "1st — up from 00:00";
     push %tmp.9;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_41_11_43_10_end:
-    %tmp.10 = phi [%tmp.3 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_41_11_43_10_begin] [%tmp.8 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_41_11_43_10_true] [%tmp.9 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_41_11_43_10_else_false] [%tmp.10 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_41_11_43_10_end];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_45_11_47_10_end:
+    %tmp.10 = phi [%tmp.3 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_45_11_47_10_begin] [%tmp.8 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_45_11_47_10_true] [%tmp.9 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_45_11_47_10_else_false] [%tmp.10 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_45_11_47_10_end];
     ret %tmp.10;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_40_51_44_0_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_44_51_48_0_stop:
 }
-[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 46; @symbol_classdef = [MatchMenuDelegate,46,6,23]; @symbol_extends<0> = [WatchUi,46,32,39]; @symbol_extends<1> = [Menu2InputDelegate,46,40,58]; ]
+[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 50; @symbol_classdef = [MatchMenuDelegate,50,6,23]; @symbol_extends<0> = [WatchUi,50,32,39]; @symbol_extends<1> = [Menu2InputDelegate,50,40,58]; ]
 class MatchMenuDelegate extends WatchUi.Menu2InputDelegate {
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 46; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 50; ]
     <init> {
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 46; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 50; ]
     static
     <init> {
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 48; @position = 15; @symbol_vardef = [_mt,48,15,18]; @symbol_type<0> = [MatchTimer,48,23,33]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 52; @position = 15; @symbol_vardef = [_mt,52,15,18]; @symbol_type<0> = [MatchTimer,52,23,33]; ]
     protected
     var _mt as MatchTimer;
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 49; @position = 15; @symbol_vardef = [_ble,49,15,19]; @symbol_type<0> = [BleManager,49,23,33]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 53; @position = 15; @symbol_vardef = [_ble,53,15,19]; @symbol_type<0> = [BleManager,53,23,33]; ]
     protected
     var _ble as BleManager;
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 51; @symbol_functiondef = [initialize,51,13,23]; @symbol_param<0> = [mt,51,24,26]; @symbol_param<0>_type<0> = [MatchTimer,51,30,40]; @symbol_param<1> = [ble,51,42,45]; @symbol_param<1>_type<0> = [BleManager,51,49,59]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 55; @symbol_functiondef = [initialize,55,13,23]; @symbol_param<0> = [mt,55,24,26]; @symbol_param<0>_type<0> = [MatchTimer,55,30,40]; @symbol_param<1> = [ble,55,42,45]; @symbol_param<1>_type<0> = [BleManager,55,49,59]; ]
     function initialize(mt as MatchTimer, ble as BleManager) as Void {
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_51_61_55_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 52 8 ]
-        symbol [ Menu2InputDelegate %tmp.2 52 8 26 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_55_61_59_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 56 8 ]
+        symbol [ Menu2InputDelegate %tmp.2 56 8 26 ];
         %tmp.2 = getv ? :Menu2InputDelegate;
-        symbol [ initialize %tmp.3 52 27 37 ];
+        symbol [ initialize %tmp.3 56 27 37 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 53 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 57 8 ]
         %tmp.4 = lgetv %mt;
-        symbol [ mt %tmp.4 53 15 17 ];
-        symbol [ _mt ? 53 8 11 ];
+        symbol [ mt %tmp.4 57 15 17 ];
+        symbol [ _mt ? 57 8 11 ];
         putv self :_mt %tmp.4;
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 54 8 ]
-        %tmp.5 = lgetv %ble;
-        symbol [ ble %tmp.5 54 15 18 ];
-        symbol [ _ble ? 54 8 12 ];
-        putv self :_ble %tmp.5;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_51_61_55_4_stop:
-    }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 57; @symbol_functiondef = [onSelect,57,13,21]; @symbol_param<0> = [item,57,22,26]; @symbol_param<0>_type<0> = [WatchUi,57,30,37]; @symbol_param<0>_type<1> = [MenuItem,57,38,46]; ]
-    function onSelect(item as WatchUi.MenuItem) as Void {
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_57_56_85_4_start:
 [ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 58 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_57_56_85_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_57_56_85_4_stop" ]
+        %tmp.5 = lgetv %ble;
+        symbol [ ble %tmp.5 58 15 18 ];
+        symbol [ _ble ? 58 8 12 ];
+        putv self :_ble %tmp.5;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_55_61_59_4_stop:
+    }
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 61; @symbol_functiondef = [onSelect,61,13,21]; @symbol_param<0> = [item,61,22,26]; @symbol_param<0>_type<0> = [WatchUi,61,30,37]; @symbol_param<0>_type<1> = [MenuItem,61,38,46]; ]
+    function onSelect(item as WatchUi.MenuItem) as Void {
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_61_56_92_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 62 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_61_56_92_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_61_56_92_4_stop" ]
         %id.1 = local;
-        symbol [ id %id.1 58 12 14 ];
+        symbol [ id %id.1 62 12 14 ];
         %tmp.1 = lgetv %item;
-        symbol [ item %tmp.1 58 17 21 ];
-        symbol [ getId %tmp.2 58 22 27 ];
+        symbol [ item %tmp.1 62 17 21 ];
+        symbol [ getId %tmp.2 62 22 27 ];
         %tmp.2 = getv function %tmp.1 :getId;
         %tmp.3 = invoke %tmp.1 %tmp.2();
         lputv %id.1 %tmp.3;
-        symbol [ id %id.1 58 12 14 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 59 8 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_59_8_84_8_if_stmt:
+        symbol [ id %id.1 62 12 14 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 63 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_63_8_91_8_if_stmt:
         %tmp.4 = lgetv %id.1;
-        symbol [ id %tmp.4 59 12 14 ];
+        symbol [ id %tmp.4 63 12 14 ];
         %tmp.6 = const :interval;
-        symbol [ interval %tmp.6 59 19 27 const ];
+        symbol [ interval %tmp.6 63 19 27 const ];
         %tmp.7 = eq %tmp.4 %tmp.6;
-        bf %tmp.7 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_59_8_84_8_if_false;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_59_8_84_8_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_59_29_64_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 60 12 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_59_29_64_8_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_59_29_64_8_stop" ]
+        bf %tmp.7 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_63_8_91_8_if_false;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_63_8_91_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_63_29_68_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 64 12 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_63_29_68_8_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_63_29_68_8_stop" ]
         %view.2 = local;
-        symbol [ view %view.2 60 16 20 ];
-        symbol [ IntervalPickerView %tmp.11 60 27 45 ];
+        symbol [ view %view.2 64 16 20 ];
+        symbol [ IntervalPickerView %tmp.11 64 27 45 ];
         %tmp.11 = getv ? :IntervalPickerView;
-        symbol [ _mt %tmp.13 61 16 19 ];
+        symbol [ _mt %tmp.13 65 16 19 ];
         %tmp.13 = getv ? :_mt;
-        symbol [ getIntervalMinPart %tmp.14 61 20 38 ];
+        symbol [ getIntervalMinPart %tmp.14 65 20 38 ];
         %tmp.14 = getv function %tmp.13 :getIntervalMinPart;
         %tmp.15 = invoke %tmp.13 %tmp.14();
-        symbol [ _mt %tmp.17 61 42 45 ];
+        symbol [ _mt %tmp.17 65 42 45 ];
         %tmp.17 = getv ? :_mt;
-        symbol [ getIntervalSecPart %tmp.18 61 46 64 ];
+        symbol [ getIntervalSecPart %tmp.18 65 46 64 ];
         %tmp.18 = getv function %tmp.17 :getIntervalSecPart;
         %tmp.19 = invoke %tmp.17 %tmp.18();
         %tmp.8 = newc %tmp.11 (%tmp.15, %tmp.19);
         lputv %view.2 %tmp.8;
-        symbol [ view %view.2 60 16 20 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 62 12 ]
-        symbol [ WatchUi %tmp.20 62 12 19 ];
+        symbol [ view %view.2 64 16 20 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 66 12 ]
+        symbol [ WatchUi %tmp.20 66 12 19 ];
         %tmp.20 = getm $.Toybox.WatchUi;
-        symbol [ pushView %tmp.21 62 20 28 ];
+        symbol [ pushView %tmp.21 66 20 28 ];
         %tmp.21 = getv function %tmp.20 :pushView;
         %tmp.22 = lgetv %view.2;
-        symbol [ view %tmp.22 62 29 33 ];
-        symbol [ IntervalPickerDelegate %tmp.26 63 20 42 ];
+        symbol [ view %tmp.22 66 29 33 ];
+        symbol [ IntervalPickerDelegate %tmp.26 67 20 42 ];
         %tmp.26 = getv ? :IntervalPickerDelegate;
-        symbol [ _mt %tmp.28 63 43 46 ];
+        symbol [ _mt %tmp.28 67 43 46 ];
         %tmp.28 = getv ? :_mt;
         %tmp.29 = lgetv %view.2;
-        symbol [ view %tmp.29 63 48 52 ];
+        symbol [ view %tmp.29 67 48 52 ];
         %tmp.23 = newc %tmp.26 (%tmp.28, %tmp.29);
-        symbol [ WatchUi %tmp.30 63 55 62 ];
+        symbol [ WatchUi %tmp.30 67 55 62 ];
         %tmp.30 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_LEFT %tmp.31 63 63 73 ];
+        symbol [ SLIDE_LEFT %tmp.31 67 63 73 ];
         %tmp.31 = getv %tmp.30 :SLIDE_LEFT;
         invoke %tmp.20 %tmp.21(%tmp.22, %tmp.23, %tmp.31);
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_59_29_64_8_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_59_8_84_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_59_8_84_8_if_false:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 64 15 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_64_15_84_8_if_stmt:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_63_29_68_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_63_8_91_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_63_8_91_8_if_false:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 68 15 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_68_15_91_8_if_stmt:
         %tmp.32 = lgetv %id.1;
-        symbol [ id %tmp.32 64 19 21 ];
+        symbol [ id %tmp.32 68 19 21 ];
         %tmp.34 = const :half;
-        symbol [ half %tmp.34 64 26 30 const ];
+        symbol [ half %tmp.34 68 26 30 const ];
         %tmp.35 = eq %tmp.32 %tmp.34;
-        bf %tmp.35 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_64_15_84_8_if_false;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_64_15_84_8_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_64_32_72_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 65 12 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_64_32_72_8_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_64_32_72_8_stop" ]
+        bf %tmp.35 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_68_15_91_8_if_false;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_68_15_91_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_68_32_76_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 69 12 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_68_32_76_8_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_68_32_76_8_stop" ]
         %menu.3 = local;
-        symbol [ menu %menu.3 65 16 20 ];
-        symbol [ WatchUi %tmp.38 65 27 34 ];
+        symbol [ menu %menu.3 69 16 20 ];
+        symbol [ WatchUi %tmp.38 69 27 34 ];
         %tmp.38 = getm $.Toybox.WatchUi;
-        symbol [ Menu2 %tmp.39 65 35 40 ];
+        symbol [ Menu2 %tmp.39 69 35 40 ];
         %tmp.39 = getv function ? %tmp.38 :Menu2;
         %tmp.40 = newd 1;
         %tmp.42 = const :title;
-        symbol [ title %tmp.42 65 43 48 const ];
+        symbol [ title %tmp.42 69 43 48 const ];
         %tmp.43 = "Half";
         %tmp.44 = dup %tmp.40;
         %tmp.45 = aputv %tmp.44 %tmp.42 %tmp.43;
         %tmp.36 = newc %tmp.39 (%tmp.45);
         lputv %menu.3 %tmp.36;
-        symbol [ menu %menu.3 65 16 20 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 66 12 ]
+        symbol [ menu %menu.3 69 16 20 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 70 12 ]
         %tmp.46 = lgetv %menu.3;
-        symbol [ menu %tmp.46 66 12 16 ];
-        symbol [ addItem %tmp.47 66 17 24 ];
+        symbol [ menu %tmp.46 70 12 16 ];
+        symbol [ addItem %tmp.47 70 17 24 ];
         %tmp.47 = getv function %tmp.46 :addItem;
-        symbol [ WatchUi %tmp.50 66 29 36 ];
+        symbol [ WatchUi %tmp.50 70 29 36 ];
         %tmp.50 = getm $.Toybox.WatchUi;
-        symbol [ MenuItem %tmp.51 66 37 45 ];
+        symbol [ MenuItem %tmp.51 70 37 45 ];
         %tmp.51 = getv function ? %tmp.50 :MenuItem;
         %tmp.52 = "1st";
         %tmp.53 = "count up from 00:00";
         %tmp.55 = const :first;
-        symbol [ first %tmp.55 67 40 45 const ];
+        symbol [ first %tmp.55 71 40 45 const ];
         %tmp.56 = null;
         %tmp.48 = newc %tmp.51 (%tmp.52, %tmp.53, %tmp.55, %tmp.56);
         invoke %tmp.46 %tmp.47(%tmp.48);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 68 12 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 72 12 ]
         %tmp.57 = lgetv %menu.3;
-        symbol [ menu %tmp.57 68 12 16 ];
-        symbol [ addItem %tmp.58 68 17 24 ];
+        symbol [ menu %tmp.57 72 12 16 ];
+        symbol [ addItem %tmp.58 72 17 24 ];
         %tmp.58 = getv function %tmp.57 :addItem;
-        symbol [ WatchUi %tmp.61 68 29 36 ];
+        symbol [ WatchUi %tmp.61 72 29 36 ];
         %tmp.61 = getm $.Toybox.WatchUi;
-        symbol [ MenuItem %tmp.62 68 37 45 ];
+        symbol [ MenuItem %tmp.62 72 37 45 ];
         %tmp.62 = getv function ? %tmp.61 :MenuItem;
         %tmp.63 = "2nd";
         %tmp.64 = "count up from ";
-        symbol [ _mt %tmp.66 69 35 38 ];
+        symbol [ _mt %tmp.66 73 35 38 ];
         %tmp.66 = getv ? :_mt;
-        symbol [ formatInterval %tmp.67 69 39 53 ];
+        symbol [ formatInterval %tmp.67 73 39 53 ];
         %tmp.67 = getv function %tmp.66 :formatInterval;
         %tmp.68 = invoke %tmp.66 %tmp.67();
         %tmp.69 = add %tmp.64 %tmp.68;
         %tmp.71 = const :second;
-        symbol [ second %tmp.71 69 58 64 const ];
+        symbol [ second %tmp.71 73 58 64 const ];
         %tmp.72 = null;
         %tmp.59 = newc %tmp.62 (%tmp.63, %tmp.69, %tmp.71, %tmp.72);
         invoke %tmp.57 %tmp.58(%tmp.59);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 70 12 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 74 12 ]
         %tmp.73 = lgetv %menu.3;
-        symbol [ menu %tmp.73 70 12 16 ];
-        symbol [ setFocus %tmp.74 70 17 25 ];
+        symbol [ menu %tmp.73 74 12 16 ];
+        symbol [ setFocus %tmp.74 74 17 25 ];
         %tmp.74 = getv function %tmp.73 :setFocus;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_70_26_70_51_begin:
-        symbol [ _mt %tmp.76 70 26 29 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_74_26_74_51_begin:
+        symbol [ _mt %tmp.76 74 26 29 ];
         %tmp.76 = getv ? :_mt;
-        symbol [ isSecondHalf %tmp.77 70 30 42 ];
+        symbol [ isSecondHalf %tmp.77 74 30 42 ];
         %tmp.77 = getv function %tmp.76 :isSecondHalf;
         %tmp.78 = invoke %tmp.76 %tmp.77();
-        bf %tmp.78 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_70_26_70_51_else_false;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_70_26_70_51_true:
+        bf %tmp.78 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_74_26_74_51_else_false;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_74_26_74_51_true:
         %tmp.79 = 1;
         push %tmp.79;
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_70_26_70_51_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_70_26_70_51_else_false:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_74_26_74_51_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_74_26_74_51_else_false:
         %tmp.80 = 0;
         push %tmp.80;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_70_26_70_51_end:
-        %tmp.81 = phi [%tmp.78 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_70_26_70_51_begin] [%tmp.79 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_70_26_70_51_true] [%tmp.80 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_70_26_70_51_else_false] [%tmp.81 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_70_26_70_51_end];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_74_26_74_51_end:
+        %tmp.81 = phi [%tmp.78 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_74_26_74_51_begin] [%tmp.79 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_74_26_74_51_true] [%tmp.80 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_74_26_74_51_else_false] [%tmp.81 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_74_26_74_51_end];
         invoke %tmp.73 %tmp.74(%tmp.81);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 71 12 ]
-        symbol [ WatchUi %tmp.82 71 12 19 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 75 12 ]
+        symbol [ WatchUi %tmp.82 75 12 19 ];
         %tmp.82 = getm $.Toybox.WatchUi;
-        symbol [ pushView %tmp.83 71 20 28 ];
+        symbol [ pushView %tmp.83 75 20 28 ];
         %tmp.83 = getv function %tmp.82 :pushView;
         %tmp.84 = lgetv %menu.3;
-        symbol [ menu %tmp.84 71 29 33 ];
-        symbol [ HalfMenuDelegate %tmp.88 71 39 55 ];
+        symbol [ menu %tmp.84 75 29 33 ];
+        symbol [ HalfMenuDelegate %tmp.88 75 39 55 ];
         %tmp.88 = getv ? :HalfMenuDelegate;
-        symbol [ _mt %tmp.90 71 56 59 ];
+        symbol [ _mt %tmp.90 75 56 59 ];
         %tmp.90 = getv ? :_mt;
         %tmp.85 = newc %tmp.88 (%tmp.90);
-        symbol [ WatchUi %tmp.91 71 62 69 ];
+        symbol [ WatchUi %tmp.91 75 62 69 ];
         %tmp.91 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_LEFT %tmp.92 71 70 80 ];
+        symbol [ SLIDE_LEFT %tmp.92 75 70 80 ];
         %tmp.92 = getv %tmp.91 :SLIDE_LEFT;
         invoke %tmp.82 %tmp.83(%tmp.84, %tmp.85, %tmp.92);
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_64_32_72_8_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_64_15_84_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_64_15_84_8_if_false:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 72 15 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_72_15_84_8_if_stmt:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_68_32_76_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_68_15_91_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_68_15_91_8_if_false:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 76 15 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_76_15_91_8_if_stmt:
         %tmp.93 = lgetv %id.1;
-        symbol [ id %tmp.93 72 19 21 ];
+        symbol [ id %tmp.93 76 19 21 ];
         %tmp.95 = const :reset;
-        symbol [ reset %tmp.95 72 26 31 const ];
+        symbol [ reset %tmp.95 76 26 31 const ];
         %tmp.96 = eq %tmp.93 %tmp.95;
-        bf %tmp.96 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_72_15_84_8_if_false;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_72_15_84_8_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_72_33_75_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 73 12 ]
-        symbol [ _mt %tmp.98 73 12 15 ];
+        bf %tmp.96 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_76_15_91_8_if_false;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_76_15_91_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_76_33_79_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 77 12 ]
+        symbol [ _mt %tmp.98 77 12 15 ];
         %tmp.98 = getv ? :_mt;
-        symbol [ reset %tmp.99 73 16 21 ];
+        symbol [ reset %tmp.99 77 16 21 ];
         %tmp.99 = getv function %tmp.98 :reset;
         invoke %tmp.98 %tmp.99();
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 74 12 ]
-        symbol [ WatchUi %tmp.100 74 12 19 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 78 12 ]
+        symbol [ WatchUi %tmp.100 78 12 19 ];
         %tmp.100 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.101 74 20 27 ];
+        symbol [ popView %tmp.101 78 20 27 ];
         %tmp.101 = getv function %tmp.100 :popView;
-        symbol [ WatchUi %tmp.102 74 28 35 ];
+        symbol [ WatchUi %tmp.102 78 28 35 ];
         %tmp.102 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_DOWN %tmp.103 74 36 46 ];
+        symbol [ SLIDE_DOWN %tmp.103 78 36 46 ];
         %tmp.103 = getv %tmp.102 :SLIDE_DOWN;
         invoke %tmp.100 %tmp.101(%tmp.103);
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_72_33_75_8_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_72_15_84_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_72_15_84_8_if_false:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 75 15 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_75_15_84_8_if_stmt:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_76_33_79_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_76_15_91_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_76_15_91_8_if_false:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 79 15 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_79_15_91_8_if_stmt:
         %tmp.104 = lgetv %id.1;
-        symbol [ id %tmp.104 75 19 21 ];
+        symbol [ id %tmp.104 79 19 21 ];
         %tmp.106 = const :disconnect;
-        symbol [ disconnect %tmp.106 75 26 36 const ];
+        symbol [ disconnect %tmp.106 79 26 36 const ];
         %tmp.107 = eq %tmp.104 %tmp.106;
-        bf %tmp.107 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_75_15_84_8_if_false;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_75_15_84_8_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_75_38_78_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 76 12 ]
-        symbol [ WatchUi %tmp.108 76 12 19 ];
+        bf %tmp.107 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_79_15_91_8_if_false;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_79_15_91_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_79_38_82_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 80 12 ]
+        symbol [ WatchUi %tmp.108 80 12 19 ];
         %tmp.108 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.109 76 20 27 ];
+        symbol [ popView %tmp.109 80 20 27 ];
         %tmp.109 = getv function %tmp.108 :popView;
-        symbol [ WatchUi %tmp.110 76 28 35 ];
+        symbol [ WatchUi %tmp.110 80 28 35 ];
         %tmp.110 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_DOWN %tmp.111 76 36 46 ];
+        symbol [ SLIDE_DOWN %tmp.111 80 36 46 ];
         %tmp.111 = getv %tmp.110 :SLIDE_DOWN;
         invoke %tmp.108 %tmp.109(%tmp.111);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 77 12 ]
-        symbol [ _ble %tmp.113 77 12 16 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 81 12 ]
+        symbol [ _ble %tmp.113 81 12 16 ];
         %tmp.113 = getv ? :_ble;
-        symbol [ disconnect %tmp.114 77 17 27 ];
+        symbol [ disconnect %tmp.114 81 17 27 ];
         %tmp.114 = getv function %tmp.113 :disconnect;
         invoke %tmp.113 %tmp.114();
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_75_38_78_8_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_75_15_84_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_75_15_84_8_if_false:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 78 15 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_78_15_84_8_if_stmt:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_79_38_82_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_79_15_91_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_79_15_91_8_if_false:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 82 15 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_82_15_91_8_if_stmt:
         %tmp.115 = lgetv %id.1;
-        symbol [ id %tmp.115 78 19 21 ];
+        symbol [ id %tmp.115 82 19 21 ];
         %tmp.117 = const :rescan;
-        symbol [ rescan %tmp.117 78 26 32 const ];
+        symbol [ rescan %tmp.117 82 26 32 const ];
         %tmp.118 = eq %tmp.115 %tmp.117;
-        bf %tmp.118 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_78_15_84_8_if_false;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_78_15_84_8_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_78_34_81_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 79 12 ]
-        symbol [ WatchUi %tmp.119 79 12 19 ];
+        bf %tmp.118 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_82_15_91_8_if_false;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_82_15_91_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_82_34_85_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 83 12 ]
+        symbol [ WatchUi %tmp.119 83 12 19 ];
         %tmp.119 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.120 79 20 27 ];
+        symbol [ popView %tmp.120 83 20 27 ];
         %tmp.120 = getv function %tmp.119 :popView;
-        symbol [ WatchUi %tmp.121 79 28 35 ];
+        symbol [ WatchUi %tmp.121 83 28 35 ];
         %tmp.121 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_DOWN %tmp.122 79 36 46 ];
+        symbol [ SLIDE_DOWN %tmp.122 83 36 46 ];
         %tmp.122 = getv %tmp.121 :SLIDE_DOWN;
         invoke %tmp.119 %tmp.120(%tmp.122);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 80 12 ]
-        symbol [ _ble %tmp.124 80 12 16 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 84 12 ]
+        symbol [ _ble %tmp.124 84 12 16 ];
         %tmp.124 = getv ? :_ble;
-        symbol [ startScan %tmp.125 80 17 26 ];
+        symbol [ startScan %tmp.125 84 17 26 ];
         %tmp.125 = getv function %tmp.124 :startScan;
         invoke %tmp.124 %tmp.125();
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_78_34_81_8_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_78_15_84_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_78_15_84_8_if_false:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 81 15 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_81_15_84_8_if_stmt:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_81_19_81_46_begin:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_82_34_85_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_82_15_91_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_82_15_91_8_if_false:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 85 15 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_85_15_91_8_if_stmt:
         %tmp.126 = lgetv %id.1;
-        symbol [ id %tmp.126 81 19 21 ];
-        %tmp.128 = const :simAlert1;
-        symbol [ simAlert1 %tmp.128 81 26 35 const ];
+        symbol [ id %tmp.126 85 19 21 ];
+        %tmp.128 = const :exitApp;
+        symbol [ exitApp %tmp.128 85 26 33 const ];
         %tmp.129 = eq %tmp.126 %tmp.128;
-        bt %tmp.129 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_81_15_84_8_if_true;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_81_39_81_46_false:
-        %tmp.130 = lgetv %id.1;
-        symbol [ id %tmp.130 81 39 41 ];
-        %tmp.132 = const :simAlert2;
-        symbol [ simAlert2 %tmp.132 81 46 55 const ];
-        %tmp.133 = eq %tmp.130 %tmp.132;
-        push %tmp.133;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_81_39_81_46_end:
-        %tmp.134 = phi [%tmp.129 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_81_19_81_46_begin] [%tmp.133 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_81_39_81_46_false] [%tmp.134 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_81_39_81_46_end];
-        bf %tmp.134 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_81_15_84_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_81_15_84_8_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_81_57_84_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 82 12 ]
-        symbol [ WatchUi %tmp.135 82 12 19 ];
-        %tmp.135 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.136 82 20 27 ];
-        %tmp.136 = getv function %tmp.135 :popView;
-        symbol [ WatchUi %tmp.137 82 28 35 ];
-        %tmp.137 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_DOWN %tmp.138 82 36 46 ];
-        %tmp.138 = getv %tmp.137 :SLIDE_DOWN;
-        invoke %tmp.135 %tmp.136(%tmp.138);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 83 12 ]
-        symbol [ _ble %tmp.140 83 12 16 ];
-        %tmp.140 = getv ? :_ble;
-        symbol [ simulateAlert %tmp.141 83 17 30 ];
-        %tmp.141 = getv function %tmp.140 :simulateAlert;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_83_31_83_54_begin:
-        %tmp.142 = lgetv %id.1;
-        symbol [ id %tmp.142 83 31 33 ];
-        %tmp.144 = const :simAlert1;
-        symbol [ simAlert1 %tmp.144 83 38 47 const ];
-        %tmp.145 = eq %tmp.142 %tmp.144;
-        bf %tmp.145 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_83_31_83_54_else_false;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_83_31_83_54_true:
-        %tmp.146 = 1;
-        push %tmp.146;
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_83_31_83_54_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_83_31_83_54_else_false:
-        %tmp.147 = 2;
-        push %tmp.147;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_83_31_83_54_end:
-        %tmp.148 = phi [%tmp.145 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_83_31_83_54_begin] [%tmp.146 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_83_31_83_54_true] [%tmp.147 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_83_31_83_54_else_false] [%tmp.148 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_83_31_83_54_end];
-        invoke %tmp.140 %tmp.141(%tmp.148);
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_81_57_84_8_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_81_15_84_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_81_15_84_8_if_end:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_78_15_84_8_if_end:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_75_15_84_8_if_end:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_72_15_84_8_if_end:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_64_15_84_8_if_end:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_59_8_84_8_if_end:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_57_56_85_4_stop:
+        bf %tmp.129 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_85_15_91_8_if_false;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_85_15_91_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_85_35_88_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 87 12 ]
+        symbol [ System %tmp.130 87 12 18 ];
+        %tmp.130 = getm $.Toybox.System;
+        symbol [ exit %tmp.131 87 19 23 ];
+        %tmp.131 = getv function %tmp.130 :exit;
+        invoke %tmp.130 %tmp.131();
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_85_35_88_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_85_15_91_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_85_15_91_8_if_false:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 88 15 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_88_15_91_8_if_stmt:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_88_19_88_46_begin:
+        %tmp.132 = lgetv %id.1;
+        symbol [ id %tmp.132 88 19 21 ];
+        %tmp.134 = const :simAlert1;
+        symbol [ simAlert1 %tmp.134 88 26 35 const ];
+        %tmp.135 = eq %tmp.132 %tmp.134;
+        bt %tmp.135 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_88_15_91_8_if_true;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_88_39_88_46_false:
+        %tmp.136 = lgetv %id.1;
+        symbol [ id %tmp.136 88 39 41 ];
+        %tmp.138 = const :simAlert2;
+        symbol [ simAlert2 %tmp.138 88 46 55 const ];
+        %tmp.139 = eq %tmp.136 %tmp.138;
+        push %tmp.139;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_88_39_88_46_end:
+        %tmp.140 = phi [%tmp.135 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_88_19_88_46_begin] [%tmp.139 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_88_39_88_46_false] [%tmp.140 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_88_39_88_46_end];
+        bf %tmp.140 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_88_15_91_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_88_15_91_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_88_57_91_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 89 12 ]
+        symbol [ WatchUi %tmp.141 89 12 19 ];
+        %tmp.141 = getm $.Toybox.WatchUi;
+        symbol [ popView %tmp.142 89 20 27 ];
+        %tmp.142 = getv function %tmp.141 :popView;
+        symbol [ WatchUi %tmp.143 89 28 35 ];
+        %tmp.143 = getm $.Toybox.WatchUi;
+        symbol [ SLIDE_DOWN %tmp.144 89 36 46 ];
+        %tmp.144 = getv %tmp.143 :SLIDE_DOWN;
+        invoke %tmp.141 %tmp.142(%tmp.144);
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 90 12 ]
+        symbol [ _ble %tmp.146 90 12 16 ];
+        %tmp.146 = getv ? :_ble;
+        symbol [ simulateAlert %tmp.147 90 17 30 ];
+        %tmp.147 = getv function %tmp.146 :simulateAlert;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_90_31_90_54_begin:
+        %tmp.148 = lgetv %id.1;
+        symbol [ id %tmp.148 90 31 33 ];
+        %tmp.150 = const :simAlert1;
+        symbol [ simAlert1 %tmp.150 90 38 47 const ];
+        %tmp.151 = eq %tmp.148 %tmp.150;
+        bf %tmp.151 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_90_31_90_54_else_false;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_90_31_90_54_true:
+        %tmp.152 = 1;
+        push %tmp.152;
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_90_31_90_54_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_90_31_90_54_else_false:
+        %tmp.153 = 2;
+        push %tmp.153;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_90_31_90_54_end:
+        %tmp.154 = phi [%tmp.151 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_90_31_90_54_begin] [%tmp.152 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_90_31_90_54_true] [%tmp.153 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_90_31_90_54_else_false] [%tmp.154 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_90_31_90_54_end];
+        invoke %tmp.146 %tmp.147(%tmp.154);
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_88_57_91_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_88_15_91_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_88_15_91_8_if_end:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_85_15_91_8_if_end:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_82_15_91_8_if_end:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_79_15_91_8_if_end:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_76_15_91_8_if_end:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_68_15_91_8_if_end:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_63_8_91_8_if_end:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_61_56_92_4_stop:
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 87; @symbol_functiondef = [onBack,87,13,19]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 94; @symbol_functiondef = [onBack,94,13,19]; ]
     function onBack() as Void {
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_87_30_89_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 88 8 ]
-        symbol [ WatchUi %tmp.1 88 8 15 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_94_30_96_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 95 8 ]
+        symbol [ WatchUi %tmp.1 95 8 15 ];
         %tmp.1 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.2 88 16 23 ];
+        symbol [ popView %tmp.2 95 16 23 ];
         %tmp.2 = getv function %tmp.1 :popView;
-        symbol [ WatchUi %tmp.3 88 24 31 ];
+        symbol [ WatchUi %tmp.3 95 24 31 ];
         %tmp.3 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_DOWN %tmp.4 88 32 42 ];
+        symbol [ SLIDE_DOWN %tmp.4 95 32 42 ];
         %tmp.4 = getv %tmp.3 :SLIDE_DOWN;
         invoke %tmp.1 %tmp.2(%tmp.4);
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_87_30_89_4_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_94_30_96_4_stop:
     }
 }
-[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 92; @symbol_classdef = [HalfMenuDelegate,92,6,22]; @symbol_extends<0> = [WatchUi,92,31,38]; @symbol_extends<1> = [Menu2InputDelegate,92,39,57]; ]
+[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 99; @symbol_classdef = [HalfMenuDelegate,99,6,22]; @symbol_extends<0> = [WatchUi,99,31,38]; @symbol_extends<1> = [Menu2InputDelegate,99,39,57]; ]
 class HalfMenuDelegate extends WatchUi.Menu2InputDelegate {
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 92; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 99; ]
     <init> {
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 92; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 99; ]
     static
     <init> {
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 94; @position = 15; @symbol_vardef = [_mt,94,15,18]; @symbol_type<0> = [MatchTimer,94,22,32]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 101; @position = 15; @symbol_vardef = [_mt,101,15,18]; @symbol_type<0> = [MatchTimer,101,22,32]; ]
     protected
     var _mt as MatchTimer;
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 96; @symbol_functiondef = [initialize,96,13,23]; @symbol_param<0> = [mt,96,24,26]; @symbol_param<0>_type<0> = [MatchTimer,96,30,40]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 103; @symbol_functiondef = [initialize,103,13,23]; @symbol_param<0> = [mt,103,24,26]; @symbol_param<0>_type<0> = [MatchTimer,103,30,40]; ]
     function initialize(mt as MatchTimer) as Void {
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_96_42_99_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 97 8 ]
-        symbol [ Menu2InputDelegate %tmp.2 97 8 26 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_103_42_106_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 104 8 ]
+        symbol [ Menu2InputDelegate %tmp.2 104 8 26 ];
         %tmp.2 = getv ? :Menu2InputDelegate;
-        symbol [ initialize %tmp.3 97 27 37 ];
+        symbol [ initialize %tmp.3 104 27 37 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 98 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 105 8 ]
         %tmp.4 = lgetv %mt;
-        symbol [ mt %tmp.4 98 14 16 ];
-        symbol [ _mt ? 98 8 11 ];
+        symbol [ mt %tmp.4 105 14 16 ];
+        symbol [ _mt ? 105 8 11 ];
         putv self :_mt %tmp.4;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_96_42_99_4_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_103_42_106_4_stop:
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 101; @symbol_functiondef = [onSelect,101,13,21]; @symbol_param<0> = [item,101,22,26]; @symbol_param<0>_type<0> = [WatchUi,101,30,37]; @symbol_param<0>_type<1> = [MenuItem,101,38,46]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 108; @symbol_functiondef = [onSelect,108,13,21]; @symbol_param<0> = [item,108,22,26]; @symbol_param<0>_type<0> = [WatchUi,108,30,37]; @symbol_param<0>_type<1> = [MenuItem,108,38,46]; ]
     function onSelect(item as WatchUi.MenuItem) as Void {
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_101_56_106_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 102 8 ]
-        symbol [ _mt %tmp.2 102 8 11 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_108_56_113_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 109 8 ]
+        symbol [ _mt %tmp.2 109 8 11 ];
         %tmp.2 = getv ? :_mt;
-        symbol [ setSecondHalf %tmp.3 102 12 25 ];
+        symbol [ setSecondHalf %tmp.3 109 12 25 ];
         %tmp.3 = getv function %tmp.2 :setSecondHalf;
         %tmp.4 = lgetv %item;
-        symbol [ item %tmp.4 102 26 30 ];
-        symbol [ getId %tmp.5 102 31 36 ];
+        symbol [ item %tmp.4 109 26 30 ];
+        symbol [ getId %tmp.5 109 31 36 ];
         %tmp.5 = getv function %tmp.4 :getId;
         %tmp.6 = invoke %tmp.4 %tmp.5();
         %tmp.8 = const :second;
-        symbol [ second %tmp.8 102 43 49 const ];
+        symbol [ second %tmp.8 109 43 49 const ];
         %tmp.9 = eq %tmp.6 %tmp.8;
         invoke %tmp.2 %tmp.3(%tmp.9);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 104 8 ]
-        symbol [ WatchUi %tmp.10 104 8 15 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 111 8 ]
+        symbol [ WatchUi %tmp.10 111 8 15 ];
         %tmp.10 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.11 104 16 23 ];
+        symbol [ popView %tmp.11 111 16 23 ];
         %tmp.11 = getv function %tmp.10 :popView;
-        symbol [ WatchUi %tmp.12 104 24 31 ];
+        symbol [ WatchUi %tmp.12 111 24 31 ];
         %tmp.12 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_IMMEDIATE %tmp.13 104 32 47 ];
+        symbol [ SLIDE_IMMEDIATE %tmp.13 111 32 47 ];
         %tmp.13 = getv %tmp.12 :SLIDE_IMMEDIATE;
         invoke %tmp.10 %tmp.11(%tmp.13);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 105 8 ]
-        symbol [ WatchUi %tmp.14 105 8 15 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 112 8 ]
+        symbol [ WatchUi %tmp.14 112 8 15 ];
         %tmp.14 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.15 105 16 23 ];
+        symbol [ popView %tmp.15 112 16 23 ];
         %tmp.15 = getv function %tmp.14 :popView;
-        symbol [ WatchUi %tmp.16 105 24 31 ];
+        symbol [ WatchUi %tmp.16 112 24 31 ];
         %tmp.16 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_DOWN %tmp.17 105 32 42 ];
+        symbol [ SLIDE_DOWN %tmp.17 112 32 42 ];
         %tmp.17 = getv %tmp.16 :SLIDE_DOWN;
         invoke %tmp.14 %tmp.15(%tmp.17);
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_101_56_106_4_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_108_56_113_4_stop:
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 108; @symbol_functiondef = [onBack,108,13,19]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 115; @symbol_functiondef = [onBack,115,13,19]; ]
     function onBack() as Void {
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_108_30_110_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 109 8 ]
-        symbol [ WatchUi %tmp.1 109 8 15 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_115_30_117_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 116 8 ]
+        symbol [ WatchUi %tmp.1 116 8 15 ];
         %tmp.1 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.2 109 16 23 ];
+        symbol [ popView %tmp.2 116 16 23 ];
         %tmp.2 = getv function %tmp.1 :popView;
-        symbol [ WatchUi %tmp.3 109 24 31 ];
+        symbol [ WatchUi %tmp.3 116 24 31 ];
         %tmp.3 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_IMMEDIATE %tmp.4 109 32 47 ];
+        symbol [ SLIDE_IMMEDIATE %tmp.4 116 32 47 ];
         %tmp.4 = getv %tmp.3 :SLIDE_IMMEDIATE;
         invoke %tmp.1 %tmp.2(%tmp.4);
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_108_30_110_4_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_115_30_117_4_stop:
     }
 }
-[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 124; @position = 6; @symbol_constdef = [IVP_SEC_STEP,124,6,18]; ]
+[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 131; @position = 6; @symbol_constdef = [IVP_SEC_STEP,131,6,18]; ]
 const IVP_SEC_STEP = 15;
-[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 126; @symbol_classdef = [IntervalPickerView,126,6,24]; @symbol_extends<0> = [WatchUi,126,33,40]; @symbol_extends<1> = [View,126,41,45]; ]
+[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 133; @symbol_classdef = [IntervalPickerView,133,6,24]; @symbol_extends<0> = [WatchUi,133,33,40]; @symbol_extends<1> = [View,133,41,45]; ]
 class IntervalPickerView extends WatchUi.View {
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 126; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 133; ]
     <init> {
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 126; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 133; ]
     static
     <init> {
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 128; @position = 8; @symbol_vardef = [minutes,128,8,15]; @symbol_type<0> = [Number,128,19,25]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 135; @position = 8; @symbol_vardef = [minutes,135,8,15]; @symbol_type<0> = [Number,135,19,25]; ]
     var minutes as Number;
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 129; @position = 8; @symbol_vardef = [seconds,129,8,15]; @symbol_type<0> = [Number,129,19,25]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 136; @position = 8; @symbol_vardef = [seconds,136,8,15]; @symbol_type<0> = [Number,136,19,25]; ]
     var seconds as Number;
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 134; @position = 8; @symbol_vardef = [zoneTop,134,8,15]; @symbol_type<0> = [Number,134,19,25]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 141; @position = 8; @symbol_vardef = [zoneTop,141,8,15]; @symbol_type<0> = [Number,141,19,25]; ]
     var zoneTop as Number = 0;
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 135; @position = 8; @symbol_vardef = [zoneBot,135,8,15]; @symbol_type<0> = [Number,135,19,25]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 142; @position = 8; @symbol_vardef = [zoneBot,142,8,15]; @symbol_type<0> = [Number,142,19,25]; ]
     var zoneBot as Number = 0;
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 137; @symbol_functiondef = [initialize,137,13,23]; @symbol_param<0> = [minutes0,137,24,32]; @symbol_param<0>_type<0> = [Number,137,36,42]; @symbol_param<1> = [seconds0,137,44,52]; @symbol_param<1>_type<0> = [Number,137,56,62]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 144; @symbol_functiondef = [initialize,144,13,23]; @symbol_param<0> = [minutes0,144,24,32]; @symbol_param<0>_type<0> = [Number,144,36,42]; @symbol_param<1> = [seconds0,144,44,52]; @symbol_param<1>_type<0> = [Number,144,56,62]; ]
     function initialize(minutes0 as Number, seconds0 as Number) as Void {
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_137_64_141_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 138 8 ]
-        symbol [ View %tmp.2 138 8 12 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_144_64_148_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 145 8 ]
+        symbol [ View %tmp.2 145 8 12 ];
         %tmp.2 = getv ? :View;
-        symbol [ initialize %tmp.3 138 13 23 ];
+        symbol [ initialize %tmp.3 145 13 23 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 139 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 146 8 ]
         %tmp.4 = lgetv %minutes0;
-        symbol [ minutes0 %tmp.4 139 18 26 ];
-        symbol [ minutes ? 139 8 15 ];
+        symbol [ minutes0 %tmp.4 146 18 26 ];
+        symbol [ minutes ? 146 8 15 ];
         putv self :minutes %tmp.4;
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 140 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 147 8 ]
         %tmp.5 = lgetv %seconds0;
-        symbol [ seconds0 %tmp.5 140 18 26 ];
-        symbol [ seconds ? 140 8 15 ];
+        symbol [ seconds0 %tmp.5 147 18 26 ];
+        symbol [ seconds ? 147 8 15 ];
         putv self :seconds %tmp.5;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_137_64_141_4_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_144_64_148_4_stop:
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 143; @symbol_functiondef = [onUpdate,143,13,21]; @symbol_param<0> = [dc,143,22,24]; @symbol_param<0>_type<0> = [Graphics,143,28,36]; @symbol_param<0>_type<1> = [Dc,143,37,39]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 150; @symbol_functiondef = [onUpdate,150,13,21]; @symbol_param<0> = [dc,150,22,24]; @symbol_param<0>_type<0> = [Graphics,150,28,36]; @symbol_param<0>_type<1> = [Dc,150,37,39]; ]
     function onUpdate(dc as Graphics.Dc) as Void {
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_143_49_186_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 144 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_143_49_186_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_143_49_186_4_stop" ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_150_49_193_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 151 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_150_49_193_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_150_49_193_4_stop" ]
         %w.1 = local;
-        symbol [ w %w.1 144 12 13 ];
+        symbol [ w %w.1 151 12 13 ];
         %tmp.1 = lgetv %dc;
-        symbol [ dc %tmp.1 144 17 19 ];
-        symbol [ getWidth %tmp.2 144 20 28 ];
+        symbol [ dc %tmp.1 151 17 19 ];
+        symbol [ getWidth %tmp.2 151 20 28 ];
         %tmp.2 = getv function %tmp.1 :getWidth;
         %tmp.3 = invoke %tmp.1 %tmp.2();
         lputv %w.1 %tmp.3;
-        symbol [ w %w.1 144 12 13 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 145 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_143_49_186_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_143_49_186_4_stop" ]
+        symbol [ w %w.1 151 12 13 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 152 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_150_49_193_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_150_49_193_4_stop" ]
         %h.2 = local;
-        symbol [ h %h.2 145 12 13 ];
+        symbol [ h %h.2 152 12 13 ];
         %tmp.4 = lgetv %dc;
-        symbol [ dc %tmp.4 145 17 19 ];
-        symbol [ getHeight %tmp.5 145 20 29 ];
+        symbol [ dc %tmp.4 152 17 19 ];
+        symbol [ getHeight %tmp.5 152 20 29 ];
         %tmp.5 = getv function %tmp.4 :getHeight;
         %tmp.6 = invoke %tmp.4 %tmp.5();
         lputv %h.2 %tmp.6;
-        symbol [ h %h.2 145 12 13 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 146 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_143_49_186_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_143_49_186_4_stop" ]
+        symbol [ h %h.2 152 12 13 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 153 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_150_49_193_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_150_49_193_4_stop" ]
         %cx.3 = local;
-        symbol [ cx %cx.3 146 12 14 ];
+        symbol [ cx %cx.3 153 12 14 ];
         %tmp.7 = lgetv %w.1;
-        symbol [ w %tmp.7 146 17 18 ];
+        symbol [ w %tmp.7 153 17 18 ];
         %tmp.8 = 2;
         %tmp.9 = div %tmp.7 %tmp.8;
         lputv %cx.3 %tmp.9;
-        symbol [ cx %cx.3 146 12 14 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 147 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_143_49_186_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_143_49_186_4_stop" ]
+        symbol [ cx %cx.3 153 12 14 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 154 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_150_49_193_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_150_49_193_4_stop" ]
         %cy.4 = local;
-        symbol [ cy %cy.4 147 12 14 ];
+        symbol [ cy %cy.4 154 12 14 ];
         %tmp.10 = lgetv %h.2;
-        symbol [ h %tmp.10 147 17 18 ];
+        symbol [ h %tmp.10 154 17 18 ];
         %tmp.11 = 2;
         %tmp.12 = div %tmp.10 %tmp.11;
         lputv %cy.4 %tmp.12;
-        symbol [ cy %cy.4 147 12 14 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 149 8 ]
+        symbol [ cy %cy.4 154 12 14 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 156 8 ]
         %tmp.13 = lgetv %dc;
-        symbol [ dc %tmp.13 149 8 10 ];
-        symbol [ setColor %tmp.14 149 11 19 ];
+        symbol [ dc %tmp.13 156 8 10 ];
+        symbol [ setColor %tmp.14 156 11 19 ];
         %tmp.14 = getv function %tmp.13 :setColor;
-        symbol [ C_BG %tmp.16 149 20 24 ];
+        symbol [ C_BG %tmp.16 156 20 24 ];
         %tmp.16 = getv ? :C_BG;
-        symbol [ C_BG %tmp.18 149 26 30 ];
+        symbol [ C_BG %tmp.18 156 26 30 ];
         %tmp.18 = getv ? :C_BG;
         invoke %tmp.13 %tmp.14(%tmp.16, %tmp.18);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 150 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 157 8 ]
         %tmp.19 = lgetv %dc;
-        symbol [ dc %tmp.19 150 8 10 ];
-        symbol [ clear %tmp.20 150 11 16 ];
+        symbol [ dc %tmp.19 157 8 10 ];
+        symbol [ clear %tmp.20 157 11 16 ];
         %tmp.20 = getv function %tmp.19 :clear;
         invoke %tmp.19 %tmp.20();
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 152 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 159 8 ]
         %tmp.21 = lgetv %dc;
-        symbol [ dc %tmp.21 152 8 10 ];
-        symbol [ setColor %tmp.22 152 11 19 ];
+        symbol [ dc %tmp.21 159 8 10 ];
+        symbol [ setColor %tmp.22 159 11 19 ];
         %tmp.22 = getv function %tmp.21 :setColor;
-        symbol [ C_TEXT_SEC %tmp.24 152 20 30 ];
+        symbol [ C_TEXT_SEC %tmp.24 159 20 30 ];
         %tmp.24 = getv ? :C_TEXT_SEC;
-        symbol [ Graphics %tmp.25 152 32 40 ];
+        symbol [ Graphics %tmp.25 159 32 40 ];
         %tmp.25 = getm $.Toybox.Graphics;
-        symbol [ COLOR_TRANSPARENT %tmp.26 152 41 58 ];
+        symbol [ COLOR_TRANSPARENT %tmp.26 159 41 58 ];
         %tmp.26 = getv %tmp.25 :COLOR_TRANSPARENT;
         invoke %tmp.21 %tmp.22(%tmp.24, %tmp.26);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 153 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 160 8 ]
         %tmp.27 = lgetv %dc;
-        symbol [ dc %tmp.27 153 8 10 ];
-        symbol [ drawText %tmp.28 153 11 19 ];
+        symbol [ dc %tmp.27 160 8 10 ];
+        symbol [ drawText %tmp.28 160 11 19 ];
         %tmp.28 = getv function %tmp.27 :drawText;
         %tmp.29 = lgetv %cx.3;
-        symbol [ cx %tmp.29 153 20 22 ];
+        symbol [ cx %tmp.29 160 20 22 ];
         %tmp.30 = lgetv %h.2;
-        symbol [ h %tmp.30 153 25 26 ];
+        symbol [ h %tmp.30 160 25 26 ];
         %tmp.31 = 0.16;
         %tmp.32 = mul %tmp.30 %tmp.31;
-        symbol [ toNumber %tmp.33 153 35 43 ];
+        symbol [ toNumber %tmp.33 160 35 43 ];
         %tmp.33 = getv function %tmp.32 :toNumber;
         %tmp.34 = invoke %tmp.32 %tmp.33();
-        symbol [ Graphics %tmp.35 153 47 55 ];
+        symbol [ Graphics %tmp.35 160 47 55 ];
         %tmp.35 = getm $.Toybox.Graphics;
-        symbol [ FONT_TINY %tmp.36 153 56 65 ];
+        symbol [ FONT_TINY %tmp.36 160 56 65 ];
         %tmp.36 = getv %tmp.35 :FONT_TINY;
         %tmp.37 = "INTERVAL";
-        symbol [ Graphics %tmp.38 154 12 20 ];
+        symbol [ Graphics %tmp.38 161 12 20 ];
         %tmp.38 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_CENTER %tmp.39 154 21 40 ];
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.39 161 21 40 ];
         %tmp.39 = getv %tmp.38 :TEXT_JUSTIFY_CENTER;
-        symbol [ Graphics %tmp.40 154 43 51 ];
+        symbol [ Graphics %tmp.40 161 43 51 ];
         %tmp.40 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_VCENTER %tmp.41 154 52 72 ];
+        symbol [ TEXT_JUSTIFY_VCENTER %tmp.41 161 52 72 ];
         %tmp.41 = getv %tmp.40 :TEXT_JUSTIFY_VCENTER;
         %tmp.42 = bitor %tmp.39 %tmp.41;
         invoke %tmp.27 %tmp.28(%tmp.29, %tmp.34, %tmp.36, %tmp.37, %tmp.42);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 157 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_143_49_186_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_143_49_186_4_stop" ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 164 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_150_49_193_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_150_49_193_4_stop" ]
         %font.5 = local;
-        symbol [ font %font.5 157 12 16 ];
-        symbol [ Graphics %tmp.43 157 19 27 ];
+        symbol [ font %font.5 164 12 16 ];
+        symbol [ Graphics %tmp.43 164 19 27 ];
         %tmp.43 = getm $.Toybox.Graphics;
-        symbol [ FONT_NUMBER_MEDIUM %tmp.44 157 28 46 ];
+        symbol [ FONT_NUMBER_MEDIUM %tmp.44 164 28 46 ];
         %tmp.44 = getv %tmp.43 :FONT_NUMBER_MEDIUM;
         lputv %font.5 %tmp.44;
-        symbol [ font %font.5 157 12 16 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 158 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_143_49_186_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_143_49_186_4_stop" ]
+        symbol [ font %font.5 164 12 16 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 165 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_150_49_193_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_150_49_193_4_stop" ]
         %off.6 = local;
-        symbol [ off %off.6 158 12 15 ];
+        symbol [ off %off.6 165 12 15 ];
         %tmp.45 = lgetv %w.1;
-        symbol [ w %tmp.45 158 20 21 ];
+        symbol [ w %tmp.45 165 20 21 ];
         %tmp.46 = 0.16;
         %tmp.47 = mul %tmp.45 %tmp.46;
-        symbol [ toNumber %tmp.48 158 30 38 ];
+        symbol [ toNumber %tmp.48 165 30 38 ];
         %tmp.48 = getv function %tmp.47 :toNumber;
         %tmp.49 = invoke %tmp.47 %tmp.48();
         lputv %off.6 %tmp.49;
-        symbol [ off %off.6 158 12 15 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 159 8 ]
+        symbol [ off %off.6 165 12 15 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 166 8 ]
         %tmp.50 = lgetv %dc;
-        symbol [ dc %tmp.50 159 8 10 ];
-        symbol [ setColor %tmp.51 159 11 19 ];
+        symbol [ dc %tmp.50 166 8 10 ];
+        symbol [ setColor %tmp.51 166 11 19 ];
         %tmp.51 = getv function %tmp.50 :setColor;
-        symbol [ C_TEXT_PRI %tmp.53 159 20 30 ];
+        symbol [ C_TEXT_PRI %tmp.53 166 20 30 ];
         %tmp.53 = getv ? :C_TEXT_PRI;
-        symbol [ Graphics %tmp.54 159 32 40 ];
+        symbol [ Graphics %tmp.54 166 32 40 ];
         %tmp.54 = getm $.Toybox.Graphics;
-        symbol [ COLOR_TRANSPARENT %tmp.55 159 41 58 ];
+        symbol [ COLOR_TRANSPARENT %tmp.55 166 41 58 ];
         %tmp.55 = getv %tmp.54 :COLOR_TRANSPARENT;
         invoke %tmp.50 %tmp.51(%tmp.53, %tmp.55);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 160 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 167 8 ]
         %tmp.56 = lgetv %dc;
-        symbol [ dc %tmp.56 160 8 10 ];
-        symbol [ drawText %tmp.57 160 11 19 ];
+        symbol [ dc %tmp.56 167 8 10 ];
+        symbol [ drawText %tmp.57 167 11 19 ];
         %tmp.57 = getv function %tmp.56 :drawText;
         %tmp.58 = lgetv %cx.3;
-        symbol [ cx %tmp.58 160 20 22 ];
+        symbol [ cx %tmp.58 167 20 22 ];
         %tmp.59 = lgetv %cy.4;
-        symbol [ cy %tmp.59 160 24 26 ];
+        symbol [ cy %tmp.59 167 24 26 ];
         %tmp.60 = lgetv %font.5;
-        symbol [ font %tmp.60 160 28 32 ];
+        symbol [ font %tmp.60 167 28 32 ];
         %tmp.61 = ":";
-        symbol [ Graphics %tmp.62 161 12 20 ];
+        symbol [ Graphics %tmp.62 168 12 20 ];
         %tmp.62 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_CENTER %tmp.63 161 21 40 ];
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.63 168 21 40 ];
         %tmp.63 = getv %tmp.62 :TEXT_JUSTIFY_CENTER;
-        symbol [ Graphics %tmp.64 161 43 51 ];
+        symbol [ Graphics %tmp.64 168 43 51 ];
         %tmp.64 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_VCENTER %tmp.65 161 52 72 ];
+        symbol [ TEXT_JUSTIFY_VCENTER %tmp.65 168 52 72 ];
         %tmp.65 = getv %tmp.64 :TEXT_JUSTIFY_VCENTER;
         %tmp.66 = bitor %tmp.63 %tmp.65;
         invoke %tmp.56 %tmp.57(%tmp.58, %tmp.59, %tmp.60, %tmp.61, %tmp.66);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 162 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 169 8 ]
         %tmp.67 = lgetv %dc;
-        symbol [ dc %tmp.67 162 8 10 ];
-        symbol [ drawText %tmp.68 162 11 19 ];
+        symbol [ dc %tmp.67 169 8 10 ];
+        symbol [ drawText %tmp.68 169 11 19 ];
         %tmp.68 = getv function %tmp.67 :drawText;
         %tmp.69 = lgetv %cx.3;
-        symbol [ cx %tmp.69 162 20 22 ];
+        symbol [ cx %tmp.69 169 20 22 ];
         %tmp.70 = lgetv %off.6;
-        symbol [ off %tmp.70 162 25 28 ];
+        symbol [ off %tmp.70 169 25 28 ];
         %tmp.71 = sub %tmp.69 %tmp.70;
         %tmp.72 = lgetv %cy.4;
-        symbol [ cy %tmp.72 162 30 32 ];
+        symbol [ cy %tmp.72 169 30 32 ];
         %tmp.73 = lgetv %font.5;
-        symbol [ font %tmp.73 162 34 38 ];
-        symbol [ minutes %tmp.75 162 40 47 ];
+        symbol [ font %tmp.73 169 34 38 ];
+        symbol [ minutes %tmp.75 169 40 47 ];
         %tmp.75 = getv ? :minutes;
-        symbol [ format %tmp.76 162 48 54 ];
+        symbol [ format %tmp.76 169 48 54 ];
         %tmp.76 = getv function %tmp.75 :format;
         %tmp.77 = "%02d";
         %tmp.78 = invoke %tmp.75 %tmp.76(%tmp.77);
-        symbol [ Graphics %tmp.79 163 12 20 ];
+        symbol [ Graphics %tmp.79 170 12 20 ];
         %tmp.79 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_CENTER %tmp.80 163 21 40 ];
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.80 170 21 40 ];
         %tmp.80 = getv %tmp.79 :TEXT_JUSTIFY_CENTER;
-        symbol [ Graphics %tmp.81 163 43 51 ];
+        symbol [ Graphics %tmp.81 170 43 51 ];
         %tmp.81 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_VCENTER %tmp.82 163 52 72 ];
+        symbol [ TEXT_JUSTIFY_VCENTER %tmp.82 170 52 72 ];
         %tmp.82 = getv %tmp.81 :TEXT_JUSTIFY_VCENTER;
         %tmp.83 = bitor %tmp.80 %tmp.82;
         invoke %tmp.67 %tmp.68(%tmp.71, %tmp.72, %tmp.73, %tmp.78, %tmp.83);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 164 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 171 8 ]
         %tmp.84 = lgetv %dc;
-        symbol [ dc %tmp.84 164 8 10 ];
-        symbol [ drawText %tmp.85 164 11 19 ];
+        symbol [ dc %tmp.84 171 8 10 ];
+        symbol [ drawText %tmp.85 171 11 19 ];
         %tmp.85 = getv function %tmp.84 :drawText;
         %tmp.86 = lgetv %cx.3;
-        symbol [ cx %tmp.86 164 20 22 ];
+        symbol [ cx %tmp.86 171 20 22 ];
         %tmp.87 = lgetv %off.6;
-        symbol [ off %tmp.87 164 25 28 ];
+        symbol [ off %tmp.87 171 25 28 ];
         %tmp.88 = add %tmp.86 %tmp.87;
         %tmp.89 = lgetv %cy.4;
-        symbol [ cy %tmp.89 164 30 32 ];
+        symbol [ cy %tmp.89 171 30 32 ];
         %tmp.90 = lgetv %font.5;
-        symbol [ font %tmp.90 164 34 38 ];
-        symbol [ seconds %tmp.92 164 40 47 ];
+        symbol [ font %tmp.90 171 34 38 ];
+        symbol [ seconds %tmp.92 171 40 47 ];
         %tmp.92 = getv ? :seconds;
-        symbol [ format %tmp.93 164 48 54 ];
+        symbol [ format %tmp.93 171 48 54 ];
         %tmp.93 = getv function %tmp.92 :format;
         %tmp.94 = "%02d";
         %tmp.95 = invoke %tmp.92 %tmp.93(%tmp.94);
-        symbol [ Graphics %tmp.96 165 12 20 ];
+        symbol [ Graphics %tmp.96 172 12 20 ];
         %tmp.96 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_CENTER %tmp.97 165 21 40 ];
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.97 172 21 40 ];
         %tmp.97 = getv %tmp.96 :TEXT_JUSTIFY_CENTER;
-        symbol [ Graphics %tmp.98 165 43 51 ];
+        symbol [ Graphics %tmp.98 172 43 51 ];
         %tmp.98 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_VCENTER %tmp.99 165 52 72 ];
+        symbol [ TEXT_JUSTIFY_VCENTER %tmp.99 172 52 72 ];
         %tmp.99 = getv %tmp.98 :TEXT_JUSTIFY_VCENTER;
         %tmp.100 = bitor %tmp.97 %tmp.99;
         invoke %tmp.84 %tmp.85(%tmp.88, %tmp.89, %tmp.90, %tmp.95, %tmp.100);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 168 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_143_49_186_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_143_49_186_4_stop" ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 175 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_150_49_193_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_150_49_193_4_stop" ]
         %digitH.7 = local;
-        symbol [ digitH %digitH.7 168 12 18 ];
+        symbol [ digitH %digitH.7 175 12 18 ];
         %tmp.101 = lgetv %dc;
-        symbol [ dc %tmp.101 168 22 24 ];
-        symbol [ getFontHeight %tmp.102 168 25 38 ];
+        symbol [ dc %tmp.101 175 22 24 ];
+        symbol [ getFontHeight %tmp.102 175 25 38 ];
         %tmp.102 = getv function %tmp.101 :getFontHeight;
         %tmp.103 = lgetv %font.5;
-        symbol [ font %tmp.103 168 39 43 ];
+        symbol [ font %tmp.103 175 39 43 ];
         %tmp.104 = invoke %tmp.101 %tmp.102(%tmp.103);
-        symbol [ CD_VIS_SCALE %tmp.106 168 47 59 ];
+        symbol [ CD_VIS_SCALE %tmp.106 175 47 59 ];
         %tmp.106 = getv ? :CD_VIS_SCALE;
         %tmp.107 = mul %tmp.104 %tmp.106;
-        symbol [ toNumber %tmp.108 168 61 69 ];
+        symbol [ toNumber %tmp.108 175 61 69 ];
         %tmp.108 = getv function %tmp.107 :toNumber;
         %tmp.109 = invoke %tmp.107 %tmp.108();
         lputv %digitH.7 %tmp.109;
-        symbol [ digitH %digitH.7 168 12 18 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 169 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_143_49_186_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_143_49_186_4_stop" ]
+        symbol [ digitH %digitH.7 175 12 18 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 176 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_150_49_193_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_150_49_193_4_stop" ]
         %arrOff.8 = local;
-        symbol [ arrOff %arrOff.8 169 12 18 ];
+        symbol [ arrOff %arrOff.8 176 12 18 ];
         %tmp.110 = lgetv %digitH.7;
-        symbol [ digitH %tmp.110 169 21 27 ];
+        symbol [ digitH %tmp.110 176 21 27 ];
         %tmp.111 = 2;
         %tmp.112 = div %tmp.110 %tmp.111;
         %tmp.113 = lgetv %h.2;
-        symbol [ h %tmp.113 169 35 36 ];
+        symbol [ h %tmp.113 176 35 36 ];
         %tmp.114 = 0.07;
         %tmp.115 = mul %tmp.113 %tmp.114;
-        symbol [ toNumber %tmp.116 169 45 53 ];
+        symbol [ toNumber %tmp.116 176 45 53 ];
         %tmp.116 = getv function %tmp.115 :toNumber;
         %tmp.117 = invoke %tmp.115 %tmp.116();
         %tmp.118 = add %tmp.112 %tmp.117;
         lputv %arrOff.8 %tmp.118;
-        symbol [ arrOff %arrOff.8 169 12 18 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 170 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_143_49_186_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_143_49_186_4_stop" ]
+        symbol [ arrOff %arrOff.8 176 12 18 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 177 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_150_49_193_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_150_49_193_4_stop" ]
         %arrW.9 = local;
-        symbol [ arrW %arrW.9 170 12 16 ];
+        symbol [ arrW %arrW.9 177 12 16 ];
         %tmp.119 = lgetv %w.1;
-        symbol [ w %tmp.119 170 22 23 ];
+        symbol [ w %tmp.119 177 22 23 ];
         %tmp.120 = 0.045;
         %tmp.121 = mul %tmp.119 %tmp.120;
-        symbol [ toNumber %tmp.122 170 33 41 ];
+        symbol [ toNumber %tmp.122 177 33 41 ];
         %tmp.122 = getv function %tmp.121 :toNumber;
         %tmp.123 = invoke %tmp.121 %tmp.122();
         lputv %arrW.9 %tmp.123;
-        symbol [ arrW %arrW.9 170 12 16 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 174 8 ]
+        symbol [ arrW %arrW.9 177 12 16 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 181 8 ]
         %tmp.124 = lgetv %cy.4;
-        symbol [ cy %tmp.124 174 18 20 ];
+        symbol [ cy %tmp.124 181 18 20 ];
         %tmp.125 = lgetv %digitH.7;
-        symbol [ digitH %tmp.125 174 23 29 ];
+        symbol [ digitH %tmp.125 181 23 29 ];
         %tmp.126 = 2;
         %tmp.127 = div %tmp.125 %tmp.126;
         %tmp.128 = sub %tmp.124 %tmp.127;
         %tmp.129 = 4;
         %tmp.130 = sub %tmp.128 %tmp.129;
-        symbol [ zoneTop ? 174 8 15 ];
+        symbol [ zoneTop ? 181 8 15 ];
         putv self :zoneTop %tmp.130;
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 175 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 182 8 ]
         %tmp.131 = lgetv %cy.4;
-        symbol [ cy %tmp.131 175 18 20 ];
+        symbol [ cy %tmp.131 182 18 20 ];
         %tmp.132 = lgetv %digitH.7;
-        symbol [ digitH %tmp.132 175 23 29 ];
+        symbol [ digitH %tmp.132 182 23 29 ];
         %tmp.133 = 2;
         %tmp.134 = div %tmp.132 %tmp.133;
         %tmp.135 = add %tmp.131 %tmp.134;
         %tmp.136 = 4;
         %tmp.137 = add %tmp.135 %tmp.136;
-        symbol [ zoneBot ? 175 8 15 ];
+        symbol [ zoneBot ? 182 8 15 ];
         putv self :zoneBot %tmp.137;
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 176 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 183 8 ]
         %tmp.138 = lgetv %dc;
-        symbol [ dc %tmp.138 176 8 10 ];
-        symbol [ setColor %tmp.139 176 11 19 ];
+        symbol [ dc %tmp.138 183 8 10 ];
+        symbol [ setColor %tmp.139 183 11 19 ];
         %tmp.139 = getv function %tmp.138 :setColor;
-        symbol [ C_TEXT_SEC %tmp.141 176 20 30 ];
+        symbol [ C_TEXT_SEC %tmp.141 183 20 30 ];
         %tmp.141 = getv ? :C_TEXT_SEC;
-        symbol [ Graphics %tmp.142 176 32 40 ];
+        symbol [ Graphics %tmp.142 183 32 40 ];
         %tmp.142 = getm $.Toybox.Graphics;
-        symbol [ COLOR_TRANSPARENT %tmp.143 176 41 58 ];
+        symbol [ COLOR_TRANSPARENT %tmp.143 183 41 58 ];
         %tmp.143 = getv %tmp.142 :COLOR_TRANSPARENT;
         invoke %tmp.138 %tmp.139(%tmp.141, %tmp.143);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 177 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 184 8 ]
         %tmp.144 = self;
-        symbol [ _drawArrow %tmp.145 177 8 18 ];
+        symbol [ _drawArrow %tmp.145 184 8 18 ];
         %tmp.145 = getv function %tmp.144 :_drawArrow;
         %tmp.146 = lgetv %dc;
-        symbol [ dc %tmp.146 177 19 21 ];
+        symbol [ dc %tmp.146 184 19 21 ];
         %tmp.147 = lgetv %cx.3;
-        symbol [ cx %tmp.147 177 23 25 ];
+        symbol [ cx %tmp.147 184 23 25 ];
         %tmp.148 = lgetv %off.6;
-        symbol [ off %tmp.148 177 28 31 ];
+        symbol [ off %tmp.148 184 28 31 ];
         %tmp.149 = sub %tmp.147 %tmp.148;
         %tmp.150 = lgetv %cy.4;
-        symbol [ cy %tmp.150 177 33 35 ];
+        symbol [ cy %tmp.150 184 33 35 ];
         %tmp.151 = lgetv %arrOff.8;
-        symbol [ arrOff %tmp.151 177 38 44 ];
+        symbol [ arrOff %tmp.151 184 38 44 ];
         %tmp.152 = sub %tmp.150 %tmp.151;
         %tmp.153 = lgetv %arrW.9;
-        symbol [ arrW %tmp.153 177 46 50 ];
+        symbol [ arrW %tmp.153 184 46 50 ];
         %tmp.154 = true;
         invoke %tmp.144 %tmp.145(%tmp.146, %tmp.149, %tmp.152, %tmp.153, %tmp.154);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 178 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 185 8 ]
         %tmp.155 = self;
-        symbol [ _drawArrow %tmp.156 178 8 18 ];
+        symbol [ _drawArrow %tmp.156 185 8 18 ];
         %tmp.156 = getv function %tmp.155 :_drawArrow;
         %tmp.157 = lgetv %dc;
-        symbol [ dc %tmp.157 178 19 21 ];
+        symbol [ dc %tmp.157 185 19 21 ];
         %tmp.158 = lgetv %cx.3;
-        symbol [ cx %tmp.158 178 23 25 ];
+        symbol [ cx %tmp.158 185 23 25 ];
         %tmp.159 = lgetv %off.6;
-        symbol [ off %tmp.159 178 28 31 ];
+        symbol [ off %tmp.159 185 28 31 ];
         %tmp.160 = add %tmp.158 %tmp.159;
         %tmp.161 = lgetv %cy.4;
-        symbol [ cy %tmp.161 178 33 35 ];
+        symbol [ cy %tmp.161 185 33 35 ];
         %tmp.162 = lgetv %arrOff.8;
-        symbol [ arrOff %tmp.162 178 38 44 ];
+        symbol [ arrOff %tmp.162 185 38 44 ];
         %tmp.163 = sub %tmp.161 %tmp.162;
         %tmp.164 = lgetv %arrW.9;
-        symbol [ arrW %tmp.164 178 46 50 ];
+        symbol [ arrW %tmp.164 185 46 50 ];
         %tmp.165 = true;
         invoke %tmp.155 %tmp.156(%tmp.157, %tmp.160, %tmp.163, %tmp.164, %tmp.165);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 179 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 186 8 ]
         %tmp.166 = self;
-        symbol [ _drawArrow %tmp.167 179 8 18 ];
+        symbol [ _drawArrow %tmp.167 186 8 18 ];
         %tmp.167 = getv function %tmp.166 :_drawArrow;
         %tmp.168 = lgetv %dc;
-        symbol [ dc %tmp.168 179 19 21 ];
+        symbol [ dc %tmp.168 186 19 21 ];
         %tmp.169 = lgetv %cx.3;
-        symbol [ cx %tmp.169 179 23 25 ];
+        symbol [ cx %tmp.169 186 23 25 ];
         %tmp.170 = lgetv %off.6;
-        symbol [ off %tmp.170 179 28 31 ];
+        symbol [ off %tmp.170 186 28 31 ];
         %tmp.171 = sub %tmp.169 %tmp.170;
         %tmp.172 = lgetv %cy.4;
-        symbol [ cy %tmp.172 179 33 35 ];
+        symbol [ cy %tmp.172 186 33 35 ];
         %tmp.173 = lgetv %arrOff.8;
-        symbol [ arrOff %tmp.173 179 38 44 ];
+        symbol [ arrOff %tmp.173 186 38 44 ];
         %tmp.174 = add %tmp.172 %tmp.173;
         %tmp.175 = lgetv %arrW.9;
-        symbol [ arrW %tmp.175 179 46 50 ];
+        symbol [ arrW %tmp.175 186 46 50 ];
         %tmp.176 = false;
         invoke %tmp.166 %tmp.167(%tmp.168, %tmp.171, %tmp.174, %tmp.175, %tmp.176);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 180 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 187 8 ]
         %tmp.177 = self;
-        symbol [ _drawArrow %tmp.178 180 8 18 ];
+        symbol [ _drawArrow %tmp.178 187 8 18 ];
         %tmp.178 = getv function %tmp.177 :_drawArrow;
         %tmp.179 = lgetv %dc;
-        symbol [ dc %tmp.179 180 19 21 ];
+        symbol [ dc %tmp.179 187 19 21 ];
         %tmp.180 = lgetv %cx.3;
-        symbol [ cx %tmp.180 180 23 25 ];
+        symbol [ cx %tmp.180 187 23 25 ];
         %tmp.181 = lgetv %off.6;
-        symbol [ off %tmp.181 180 28 31 ];
+        symbol [ off %tmp.181 187 28 31 ];
         %tmp.182 = add %tmp.180 %tmp.181;
         %tmp.183 = lgetv %cy.4;
-        symbol [ cy %tmp.183 180 33 35 ];
+        symbol [ cy %tmp.183 187 33 35 ];
         %tmp.184 = lgetv %arrOff.8;
-        symbol [ arrOff %tmp.184 180 38 44 ];
+        symbol [ arrOff %tmp.184 187 38 44 ];
         %tmp.185 = add %tmp.183 %tmp.184;
         %tmp.186 = lgetv %arrW.9;
-        symbol [ arrW %tmp.186 180 46 50 ];
+        symbol [ arrW %tmp.186 187 46 50 ];
         %tmp.187 = false;
         invoke %tmp.177 %tmp.178(%tmp.179, %tmp.182, %tmp.185, %tmp.186, %tmp.187);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 182 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 189 8 ]
         %tmp.188 = lgetv %dc;
-        symbol [ dc %tmp.188 182 8 10 ];
-        symbol [ setColor %tmp.189 182 11 19 ];
+        symbol [ dc %tmp.188 189 8 10 ];
+        symbol [ setColor %tmp.189 189 11 19 ];
         %tmp.189 = getv function %tmp.188 :setColor;
-        symbol [ C_HINT %tmp.191 182 20 26 ];
+        symbol [ C_HINT %tmp.191 189 20 26 ];
         %tmp.191 = getv ? :C_HINT;
-        symbol [ Graphics %tmp.192 182 28 36 ];
+        symbol [ Graphics %tmp.192 189 28 36 ];
         %tmp.192 = getm $.Toybox.Graphics;
-        symbol [ COLOR_TRANSPARENT %tmp.193 182 37 54 ];
+        symbol [ COLOR_TRANSPARENT %tmp.193 189 37 54 ];
         %tmp.193 = getv %tmp.192 :COLOR_TRANSPARENT;
         invoke %tmp.188 %tmp.189(%tmp.191, %tmp.193);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 183 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 190 8 ]
         %tmp.194 = lgetv %dc;
-        symbol [ dc %tmp.194 183 8 10 ];
-        symbol [ drawText %tmp.195 183 11 19 ];
+        symbol [ dc %tmp.194 190 8 10 ];
+        symbol [ drawText %tmp.195 190 11 19 ];
         %tmp.195 = getv function %tmp.194 :drawText;
         %tmp.196 = lgetv %cx.3;
-        symbol [ cx %tmp.196 183 20 22 ];
+        symbol [ cx %tmp.196 190 20 22 ];
         %tmp.197 = lgetv %h.2;
-        symbol [ h %tmp.197 183 25 26 ];
+        symbol [ h %tmp.197 190 25 26 ];
         %tmp.198 = 0.84;
         %tmp.199 = mul %tmp.197 %tmp.198;
-        symbol [ toNumber %tmp.200 183 35 43 ];
+        symbol [ toNumber %tmp.200 190 35 43 ];
         %tmp.200 = getv function %tmp.199 :toNumber;
         %tmp.201 = invoke %tmp.199 %tmp.200();
-        symbol [ Graphics %tmp.202 183 47 55 ];
+        symbol [ Graphics %tmp.202 190 47 55 ];
         %tmp.202 = getm $.Toybox.Graphics;
-        symbol [ FONT_TINY %tmp.203 183 56 65 ];
+        symbol [ FONT_TINY %tmp.203 190 56 65 ];
         %tmp.203 = getv %tmp.202 :FONT_TINY;
         %tmp.204 = "tap middle to set";
-        symbol [ Graphics %tmp.205 185 12 20 ];
+        symbol [ Graphics %tmp.205 192 12 20 ];
         %tmp.205 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_CENTER %tmp.206 185 21 40 ];
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.206 192 21 40 ];
         %tmp.206 = getv %tmp.205 :TEXT_JUSTIFY_CENTER;
-        symbol [ Graphics %tmp.207 185 43 51 ];
+        symbol [ Graphics %tmp.207 192 43 51 ];
         %tmp.207 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_VCENTER %tmp.208 185 52 72 ];
+        symbol [ TEXT_JUSTIFY_VCENTER %tmp.208 192 52 72 ];
         %tmp.208 = getv %tmp.207 :TEXT_JUSTIFY_VCENTER;
         %tmp.209 = bitor %tmp.206 %tmp.208;
         invoke %tmp.194 %tmp.195(%tmp.196, %tmp.201, %tmp.203, %tmp.204, %tmp.209);
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_143_49_186_4_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_150_49_193_4_stop:
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 189; @symbol_functiondef = [_drawArrow,189,20,30]; @symbol_param<0> = [dc,190,8,10]; @symbol_param<0>_type<0> = [Graphics,190,17,25]; @symbol_param<0>_type<1> = [Dc,190,26,28]; @symbol_param<1> = [x,191,8,9]; @symbol_param<1>_type<0> = [Number,191,17,23]; @symbol_param<2> = [y,192,8,9]; @symbol_param<2>_type<0> = [Number,192,17,23]; @symbol_param<3> = [halfW,193,8,13]; @symbol_param<3>_type<0> = [Number,193,17,23]; @symbol_param<4> = [up,194,8,10]; @symbol_param<4>_type<0> = [Boolean,194,17,24]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 196; @symbol_functiondef = [_drawArrow,196,20,30]; @symbol_param<0> = [dc,197,8,10]; @symbol_param<0>_type<0> = [Graphics,197,17,25]; @symbol_param<0>_type<1> = [Dc,197,26,28]; @symbol_param<1> = [x,198,8,9]; @symbol_param<1>_type<0> = [Number,198,17,23]; @symbol_param<2> = [y,199,8,9]; @symbol_param<2>_type<0> = [Number,199,17,23]; @symbol_param<3> = [halfW,200,8,13]; @symbol_param<3>_type<0> = [Number,200,17,23]; @symbol_param<4> = [up,201,8,10]; @symbol_param<4>_type<0> = [Boolean,201,17,24]; ]
     protected
     function _drawArrow(dc as Graphics.Dc, x as Number, y as Number, halfW as Number, up as Boolean) as Void {
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_195_4_202_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 196 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_195_4_202_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_195_4_202_4_stop" ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_202_4_209_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 203 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_202_4_209_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_202_4_209_4_stop" ]
         %hh.1 = local;
-        symbol [ hh %hh.1 196 12 14 ];
+        symbol [ hh %hh.1 203 12 14 ];
         %tmp.1 = lgetv %halfW;
-        symbol [ halfW %tmp.1 196 18 23 ];
+        symbol [ halfW %tmp.1 203 18 23 ];
         %tmp.2 = 0.8;
         %tmp.3 = mul %tmp.1 %tmp.2;
-        symbol [ toNumber %tmp.4 196 31 39 ];
+        symbol [ toNumber %tmp.4 203 31 39 ];
         %tmp.4 = getv function %tmp.3 :toNumber;
         %tmp.5 = invoke %tmp.3 %tmp.4();
         lputv %hh.1 %tmp.5;
-        symbol [ hh %hh.1 196 12 14 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 197 8 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_197_8_201_8_if_stmt:
+        symbol [ hh %hh.1 203 12 14 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 204 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_204_8_208_8_if_stmt:
         %tmp.6 = lgetv %up;
-        symbol [ up %tmp.6 197 12 14 ];
-        bf %tmp.6 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_197_8_201_8_if_else_false;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_197_8_201_8_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_197_16_199_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 198 12 ]
+        symbol [ up %tmp.6 204 12 14 ];
+        bf %tmp.6 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_204_8_208_8_if_else_false;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_204_8_208_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_204_16_206_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 205 12 ]
         %tmp.7 = lgetv %dc;
-        symbol [ dc %tmp.7 198 12 14 ];
-        symbol [ fillPolygon %tmp.8 198 15 26 ];
+        symbol [ dc %tmp.7 205 12 14 ];
+        symbol [ fillPolygon %tmp.8 205 15 26 ];
         %tmp.8 = getv function %tmp.7 :fillPolygon;
         %tmp.9 = newa 3;
         %tmp.10 = newa 2;
         %tmp.11 = lgetv %x;
-        symbol [ x %tmp.11 198 29 30 ];
+        symbol [ x %tmp.11 205 29 30 ];
         %tmp.12 = dup %tmp.10;
         %tmp.13 = aputv %tmp.12 0 %tmp.11;
         %tmp.14 = lgetv %y;
-        symbol [ y %tmp.14 198 32 33 ];
+        symbol [ y %tmp.14 205 32 33 ];
         %tmp.15 = lgetv %hh.1;
-        symbol [ hh %tmp.15 198 36 38 ];
+        symbol [ hh %tmp.15 205 36 38 ];
         %tmp.16 = sub %tmp.14 %tmp.15;
         %tmp.17 = dup %tmp.13;
         %tmp.18 = aputv %tmp.17 1 %tmp.16;
@@ -1197,16 +1233,16 @@ C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_197_16_199_8_start:
         %tmp.20 = aputv %tmp.19 0 %tmp.18;
         %tmp.21 = newa 2;
         %tmp.22 = lgetv %x;
-        symbol [ x %tmp.22 198 42 43 ];
+        symbol [ x %tmp.22 205 42 43 ];
         %tmp.23 = lgetv %halfW;
-        symbol [ halfW %tmp.23 198 46 51 ];
+        symbol [ halfW %tmp.23 205 46 51 ];
         %tmp.24 = add %tmp.22 %tmp.23;
         %tmp.25 = dup %tmp.21;
         %tmp.26 = aputv %tmp.25 0 %tmp.24;
         %tmp.27 = lgetv %y;
-        symbol [ y %tmp.27 198 53 54 ];
+        symbol [ y %tmp.27 205 53 54 ];
         %tmp.28 = lgetv %hh.1;
-        symbol [ hh %tmp.28 198 57 59 ];
+        symbol [ hh %tmp.28 205 57 59 ];
         %tmp.29 = add %tmp.27 %tmp.28;
         %tmp.30 = dup %tmp.26;
         %tmp.31 = aputv %tmp.30 1 %tmp.29;
@@ -1214,41 +1250,41 @@ C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_197_16_199_8_start:
         %tmp.33 = aputv %tmp.32 1 %tmp.31;
         %tmp.34 = newa 2;
         %tmp.35 = lgetv %x;
-        symbol [ x %tmp.35 198 63 64 ];
+        symbol [ x %tmp.35 205 63 64 ];
         %tmp.36 = lgetv %halfW;
-        symbol [ halfW %tmp.36 198 67 72 ];
+        symbol [ halfW %tmp.36 205 67 72 ];
         %tmp.37 = sub %tmp.35 %tmp.36;
         %tmp.38 = dup %tmp.34;
         %tmp.39 = aputv %tmp.38 0 %tmp.37;
         %tmp.40 = lgetv %y;
-        symbol [ y %tmp.40 198 74 75 ];
+        symbol [ y %tmp.40 205 74 75 ];
         %tmp.41 = lgetv %hh.1;
-        symbol [ hh %tmp.41 198 78 80 ];
+        symbol [ hh %tmp.41 205 78 80 ];
         %tmp.42 = add %tmp.40 %tmp.41;
         %tmp.43 = dup %tmp.39;
         %tmp.44 = aputv %tmp.43 1 %tmp.42;
         %tmp.45 = dup %tmp.33;
         %tmp.46 = aputv %tmp.45 2 %tmp.44;
         invoke %tmp.7 %tmp.8(%tmp.46);
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_197_16_199_8_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_197_8_201_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_197_8_201_8_if_else_false:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_199_15_201_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 200 12 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_204_16_206_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_204_8_208_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_204_8_208_8_if_else_false:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_206_15_208_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 207 12 ]
         %tmp.47 = lgetv %dc;
-        symbol [ dc %tmp.47 200 12 14 ];
-        symbol [ fillPolygon %tmp.48 200 15 26 ];
+        symbol [ dc %tmp.47 207 12 14 ];
+        symbol [ fillPolygon %tmp.48 207 15 26 ];
         %tmp.48 = getv function %tmp.47 :fillPolygon;
         %tmp.49 = newa 3;
         %tmp.50 = newa 2;
         %tmp.51 = lgetv %x;
-        symbol [ x %tmp.51 200 29 30 ];
+        symbol [ x %tmp.51 207 29 30 ];
         %tmp.52 = dup %tmp.50;
         %tmp.53 = aputv %tmp.52 0 %tmp.51;
         %tmp.54 = lgetv %y;
-        symbol [ y %tmp.54 200 32 33 ];
+        symbol [ y %tmp.54 207 32 33 ];
         %tmp.55 = lgetv %hh.1;
-        symbol [ hh %tmp.55 200 36 38 ];
+        symbol [ hh %tmp.55 207 36 38 ];
         %tmp.56 = add %tmp.54 %tmp.55;
         %tmp.57 = dup %tmp.53;
         %tmp.58 = aputv %tmp.57 1 %tmp.56;
@@ -1256,16 +1292,16 @@ C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_199_15_201_8_start:
         %tmp.60 = aputv %tmp.59 0 %tmp.58;
         %tmp.61 = newa 2;
         %tmp.62 = lgetv %x;
-        symbol [ x %tmp.62 200 42 43 ];
+        symbol [ x %tmp.62 207 42 43 ];
         %tmp.63 = lgetv %halfW;
-        symbol [ halfW %tmp.63 200 46 51 ];
+        symbol [ halfW %tmp.63 207 46 51 ];
         %tmp.64 = add %tmp.62 %tmp.63;
         %tmp.65 = dup %tmp.61;
         %tmp.66 = aputv %tmp.65 0 %tmp.64;
         %tmp.67 = lgetv %y;
-        symbol [ y %tmp.67 200 53 54 ];
+        symbol [ y %tmp.67 207 53 54 ];
         %tmp.68 = lgetv %hh.1;
-        symbol [ hh %tmp.68 200 57 59 ];
+        symbol [ hh %tmp.68 207 57 59 ];
         %tmp.69 = sub %tmp.67 %tmp.68;
         %tmp.70 = dup %tmp.66;
         %tmp.71 = aputv %tmp.70 1 %tmp.69;
@@ -1273,559 +1309,559 @@ C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_199_15_201_8_start:
         %tmp.73 = aputv %tmp.72 1 %tmp.71;
         %tmp.74 = newa 2;
         %tmp.75 = lgetv %x;
-        symbol [ x %tmp.75 200 63 64 ];
+        symbol [ x %tmp.75 207 63 64 ];
         %tmp.76 = lgetv %halfW;
-        symbol [ halfW %tmp.76 200 67 72 ];
+        symbol [ halfW %tmp.76 207 67 72 ];
         %tmp.77 = sub %tmp.75 %tmp.76;
         %tmp.78 = dup %tmp.74;
         %tmp.79 = aputv %tmp.78 0 %tmp.77;
         %tmp.80 = lgetv %y;
-        symbol [ y %tmp.80 200 74 75 ];
+        symbol [ y %tmp.80 207 74 75 ];
         %tmp.81 = lgetv %hh.1;
-        symbol [ hh %tmp.81 200 78 80 ];
+        symbol [ hh %tmp.81 207 78 80 ];
         %tmp.82 = sub %tmp.80 %tmp.81;
         %tmp.83 = dup %tmp.79;
         %tmp.84 = aputv %tmp.83 1 %tmp.82;
         %tmp.85 = dup %tmp.73;
         %tmp.86 = aputv %tmp.85 2 %tmp.84;
         invoke %tmp.47 %tmp.48(%tmp.86);
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_199_15_201_8_stop:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_197_8_201_8_if_end:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_195_4_202_4_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_206_15_208_8_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_204_8_208_8_if_end:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_202_4_209_4_stop:
     }
 }
-[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 210; @symbol_classdef = [IntervalPickerDelegate,210,6,28]; @symbol_extends<0> = [WatchUi,210,37,44]; @symbol_extends<1> = [InputDelegate,210,45,58]; ]
+[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 217; @symbol_classdef = [IntervalPickerDelegate,217,6,28]; @symbol_extends<0> = [WatchUi,217,37,44]; @symbol_extends<1> = [InputDelegate,217,45,58]; ]
 class IntervalPickerDelegate extends WatchUi.InputDelegate {
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 210; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 217; ]
     <init> {
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 210; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 217; ]
     static
     <init> {
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 212; @position = 15; @symbol_vardef = [_mt,212,15,18]; @symbol_type<0> = [MatchTimer,212,24,34]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 219; @position = 15; @symbol_vardef = [_mt,219,15,18]; @symbol_type<0> = [MatchTimer,219,24,34]; ]
     protected
     var _mt as MatchTimer;
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 213; @position = 15; @symbol_vardef = [_view,213,15,20]; @symbol_type<0> = [IntervalPickerView,213,24,42]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 220; @position = 15; @symbol_vardef = [_view,220,15,20]; @symbol_type<0> = [IntervalPickerView,220,24,42]; ]
     protected
     var _view as IntervalPickerView;
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 215; @symbol_functiondef = [initialize,215,13,23]; @symbol_param<0> = [mt,215,24,26]; @symbol_param<0>_type<0> = [MatchTimer,215,30,40]; @symbol_param<1> = [view,215,42,46]; @symbol_param<1>_type<0> = [IntervalPickerView,215,50,68]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 222; @symbol_functiondef = [initialize,222,13,23]; @symbol_param<0> = [mt,222,24,26]; @symbol_param<0>_type<0> = [MatchTimer,222,30,40]; @symbol_param<1> = [view,222,42,46]; @symbol_param<1>_type<0> = [IntervalPickerView,222,50,68]; ]
     function initialize(mt as MatchTimer, view as IntervalPickerView) as Void {
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_215_70_219_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 216 8 ]
-        symbol [ InputDelegate %tmp.2 216 8 21 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_222_70_226_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 223 8 ]
+        symbol [ InputDelegate %tmp.2 223 8 21 ];
         %tmp.2 = getv ? :InputDelegate;
-        symbol [ initialize %tmp.3 216 22 32 ];
+        symbol [ initialize %tmp.3 223 22 32 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 217 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 224 8 ]
         %tmp.4 = lgetv %mt;
-        symbol [ mt %tmp.4 217 16 18 ];
-        symbol [ _mt ? 217 8 11 ];
+        symbol [ mt %tmp.4 224 16 18 ];
+        symbol [ _mt ? 224 8 11 ];
         putv self :_mt %tmp.4;
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 218 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 225 8 ]
         %tmp.5 = lgetv %view;
-        symbol [ view %tmp.5 218 16 20 ];
-        symbol [ _view ? 218 8 13 ];
+        symbol [ view %tmp.5 225 16 20 ];
+        symbol [ _view ? 225 8 13 ];
         putv self :_view %tmp.5;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_215_70_219_4_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_222_70_226_4_stop:
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 221; @symbol_functiondef = [onTap,221,13,18]; @symbol_param<0> = [clickEvent,221,19,29]; @symbol_param<0>_type<0> = [WatchUi,221,33,40]; @symbol_param<0>_type<1> = [ClickEvent,221,41,51]; @symbol_return<0> = [Boolean,221,56,63]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 228; @symbol_functiondef = [onTap,228,13,18]; @symbol_param<0> = [clickEvent,228,19,29]; @symbol_param<0>_type<0> = [WatchUi,228,33,40]; @symbol_param<0>_type<1> = [ClickEvent,228,41,51]; @symbol_return<0> = [Boolean,228,56,63]; ]
     function onTap(clickEvent as WatchUi.ClickEvent) as Boolean {
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_221_64_242_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 222 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_221_64_242_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_221_64_242_4_stop" ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_64_249_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 229 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_64_249_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_64_249_4_stop" ]
         %xy.1 = local;
-        symbol [ xy %xy.1 222 12 14 ];
+        symbol [ xy %xy.1 229 12 14 ];
         %tmp.1 = lgetv %clickEvent;
-        symbol [ clickEvent %tmp.1 222 17 27 ];
-        symbol [ getCoordinates %tmp.2 222 28 42 ];
+        symbol [ clickEvent %tmp.1 229 17 27 ];
+        symbol [ getCoordinates %tmp.2 229 28 42 ];
         %tmp.2 = getv function %tmp.1 :getCoordinates;
         %tmp.3 = invoke %tmp.1 %tmp.2();
         lputv %xy.1 %tmp.3;
-        symbol [ xy %xy.1 222 12 14 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 223 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_221_64_242_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_221_64_242_4_stop" ]
+        symbol [ xy %xy.1 229 12 14 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 230 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_64_249_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_64_249_4_stop" ]
         %ds.2 = local;
-        symbol [ ds %ds.2 223 12 14 ];
-        symbol [ System %tmp.4 223 17 23 ];
+        symbol [ ds %ds.2 230 12 14 ];
+        symbol [ System %tmp.4 230 17 23 ];
         %tmp.4 = getm $.Toybox.System;
-        symbol [ getDeviceSettings %tmp.5 223 24 41 ];
+        symbol [ getDeviceSettings %tmp.5 230 24 41 ];
         %tmp.5 = getv function %tmp.4 :getDeviceSettings;
         %tmp.6 = invoke %tmp.4 %tmp.5();
         lputv %ds.2 %tmp.6;
-        symbol [ ds %ds.2 223 12 14 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 224 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_221_64_242_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_221_64_242_4_stop" ]
+        symbol [ ds %ds.2 230 12 14 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 231 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_64_249_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_64_249_4_stop" ]
         %isMin.3 = local;
-        symbol [ isMin %isMin.3 224 12 17 ];
+        symbol [ isMin %isMin.3 231 12 17 ];
         %tmp.7 = lgetv %xy.1;
-        symbol [ xy %tmp.7 224 20 22 ];
+        symbol [ xy %tmp.7 231 20 22 ];
         %tmp.8 = 0;
         %tmp.9 = agetv %tmp.7 %tmp.8;
         %tmp.10 = lgetv %ds.2;
-        symbol [ ds %tmp.10 224 28 30 ];
-        symbol [ screenWidth %tmp.11 224 31 42 ];
+        symbol [ ds %tmp.10 231 28 30 ];
+        symbol [ screenWidth %tmp.11 231 31 42 ];
         %tmp.11 = getv %tmp.10 :screenWidth;
         %tmp.12 = 2;
         %tmp.13 = div %tmp.11 %tmp.12;
         %tmp.14 = lt %tmp.9 %tmp.13;
         lputv %isMin.3 %tmp.14;
-        symbol [ isMin %isMin.3 224 12 17 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 228 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_221_64_242_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_221_64_242_4_stop" ]
+        symbol [ isMin %isMin.3 231 12 17 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 235 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_64_249_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_64_249_4_stop" ]
         %top.4 = local;
-        symbol [ top %top.4 228 12 15 ];
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_18_228_74_begin:
-        symbol [ _view %tmp.16 228 19 24 ];
+        symbol [ top %top.4 235 12 15 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_235_18_235_74_begin:
+        symbol [ _view %tmp.16 235 19 24 ];
         %tmp.16 = getv ? :_view;
-        symbol [ zoneBot %tmp.17 228 25 32 ];
+        symbol [ zoneBot %tmp.17 235 25 32 ];
         %tmp.17 = getv %tmp.16 :zoneBot;
         %tmp.18 = 0;
         %tmp.19 = gt %tmp.17 %tmp.18;
-        bf %tmp.19 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_18_228_74_else_false;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_18_228_74_true:
-        symbol [ _view %tmp.21 228 40 45 ];
+        bf %tmp.19 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_235_18_235_74_else_false;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_235_18_235_74_true:
+        symbol [ _view %tmp.21 235 40 45 ];
         %tmp.21 = getv ? :_view;
-        symbol [ zoneTop %tmp.22 228 46 53 ];
+        symbol [ zoneTop %tmp.22 235 46 53 ];
         %tmp.22 = getv %tmp.21 :zoneTop;
         push %tmp.22;
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_18_228_74_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_18_228_74_else_false:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_235_18_235_74_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_235_18_235_74_else_false:
         %tmp.23 = lgetv %ds.2;
-        symbol [ ds %tmp.23 228 56 58 ];
-        symbol [ screenHeight %tmp.24 228 59 71 ];
+        symbol [ ds %tmp.23 235 56 58 ];
+        symbol [ screenHeight %tmp.24 235 59 71 ];
         %tmp.24 = getv %tmp.23 :screenHeight;
         %tmp.25 = 3;
         %tmp.26 = div %tmp.24 %tmp.25;
         push %tmp.26;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_18_228_74_end:
-        %tmp.27 = phi [%tmp.19 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_18_228_74_begin] [%tmp.22 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_18_228_74_true] [%tmp.26 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_18_228_74_else_false] [%tmp.27 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_18_228_74_end];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_235_18_235_74_end:
+        %tmp.27 = phi [%tmp.19 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_235_18_235_74_begin] [%tmp.22 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_235_18_235_74_true] [%tmp.26 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_235_18_235_74_else_false] [%tmp.27 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_235_18_235_74_end];
         lputv %top.4 %tmp.27;
-        symbol [ top %top.4 228 12 15 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 229 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_221_64_242_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_221_64_242_4_stop" ]
+        symbol [ top %top.4 235 12 15 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 236 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_64_249_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_64_249_4_stop" ]
         %bot.5 = local;
-        symbol [ bot %bot.5 229 12 15 ];
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_229_18_229_78_begin:
-        symbol [ _view %tmp.29 229 19 24 ];
+        symbol [ bot %bot.5 236 12 15 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_236_18_236_78_begin:
+        symbol [ _view %tmp.29 236 19 24 ];
         %tmp.29 = getv ? :_view;
-        symbol [ zoneBot %tmp.30 229 25 32 ];
+        symbol [ zoneBot %tmp.30 236 25 32 ];
         %tmp.30 = getv %tmp.29 :zoneBot;
         %tmp.31 = 0;
         %tmp.32 = gt %tmp.30 %tmp.31;
-        bf %tmp.32 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_229_18_229_78_else_false;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_229_18_229_78_true:
-        symbol [ _view %tmp.34 229 40 45 ];
+        bf %tmp.32 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_236_18_236_78_else_false;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_236_18_236_78_true:
+        symbol [ _view %tmp.34 236 40 45 ];
         %tmp.34 = getv ? :_view;
-        symbol [ zoneBot %tmp.35 229 46 53 ];
+        symbol [ zoneBot %tmp.35 236 46 53 ];
         %tmp.35 = getv %tmp.34 :zoneBot;
         push %tmp.35;
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_229_18_229_78_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_229_18_229_78_else_false:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_236_18_236_78_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_236_18_236_78_else_false:
         %tmp.36 = lgetv %ds.2;
-        symbol [ ds %tmp.36 229 56 58 ];
-        symbol [ screenHeight %tmp.37 229 59 71 ];
+        symbol [ ds %tmp.36 236 56 58 ];
+        symbol [ screenHeight %tmp.37 236 59 71 ];
         %tmp.37 = getv %tmp.36 :screenHeight;
         %tmp.38 = 2;
         %tmp.39 = mul %tmp.37 %tmp.38;
         %tmp.40 = 3;
         %tmp.41 = div %tmp.39 %tmp.40;
         push %tmp.41;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_229_18_229_78_end:
-        %tmp.42 = phi [%tmp.32 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_229_18_229_78_begin] [%tmp.35 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_229_18_229_78_true] [%tmp.41 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_229_18_229_78_else_false] [%tmp.42 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_229_18_229_78_end];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_236_18_236_78_end:
+        %tmp.42 = phi [%tmp.32 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_236_18_236_78_begin] [%tmp.35 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_236_18_236_78_true] [%tmp.41 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_236_18_236_78_else_false] [%tmp.42 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_236_18_236_78_end];
         lputv %bot.5 %tmp.42;
-        symbol [ bot %bot.5 229 12 15 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 230 8 ]
-        symbol [ System %tmp.43 230 8 14 ];
+        symbol [ bot %bot.5 236 12 15 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 237 8 ]
+        symbol [ System %tmp.43 237 8 14 ];
         %tmp.43 = getm $.Toybox.System;
-        symbol [ println %tmp.44 230 15 22 ];
+        symbol [ println %tmp.44 237 15 22 ];
         %tmp.44 = getv function %tmp.43 :println;
         %tmp.45 = "IVP: tap ";
         %tmp.46 = lgetv %xy.1;
-        symbol [ xy %tmp.46 230 37 39 ];
+        symbol [ xy %tmp.46 237 37 39 ];
         %tmp.47 = 0;
         %tmp.48 = agetv %tmp.46 %tmp.47;
         %tmp.49 = add %tmp.45 %tmp.48;
         %tmp.50 = ",";
         %tmp.51 = add %tmp.49 %tmp.50;
         %tmp.52 = lgetv %xy.1;
-        symbol [ xy %tmp.52 230 51 53 ];
+        symbol [ xy %tmp.52 237 51 53 ];
         %tmp.53 = 1;
         %tmp.54 = agetv %tmp.52 %tmp.53;
         %tmp.55 = add %tmp.51 %tmp.54;
         %tmp.56 = " zones=[";
         %tmp.57 = add %tmp.55 %tmp.56;
         %tmp.58 = lgetv %top.4;
-        symbol [ top %tmp.58 231 25 28 ];
+        symbol [ top %tmp.58 238 25 28 ];
         %tmp.59 = add %tmp.57 %tmp.58;
         %tmp.60 = ",";
         %tmp.61 = add %tmp.59 %tmp.60;
         %tmp.62 = lgetv %bot.5;
-        symbol [ bot %tmp.62 231 37 40 ];
+        symbol [ bot %tmp.62 238 37 40 ];
         %tmp.63 = add %tmp.61 %tmp.62;
         %tmp.64 = "]";
         %tmp.65 = add %tmp.63 %tmp.64;
         invoke %tmp.43 %tmp.44(%tmp.65);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 233 8 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_233_8_236_8_if_stmt:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 240 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_240_8_243_8_if_stmt:
         %tmp.66 = lgetv %xy.1;
-        symbol [ xy %tmp.66 233 12 14 ];
+        symbol [ xy %tmp.66 240 12 14 ];
         %tmp.67 = 1;
         %tmp.68 = agetv %tmp.66 %tmp.67;
         %tmp.69 = lgetv %top.4;
-        symbol [ top %tmp.69 233 20 23 ];
+        symbol [ top %tmp.69 240 20 23 ];
         %tmp.70 = lt %tmp.68 %tmp.69;
-        bf %tmp.70 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_233_8_236_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_233_8_236_8_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_233_25_236_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 234 12 ]
+        bf %tmp.70 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_240_8_243_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_240_8_243_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_240_25_243_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 241 12 ]
         %tmp.71 = self;
-        symbol [ _bump %tmp.72 234 12 17 ];
+        symbol [ _bump %tmp.72 241 12 17 ];
         %tmp.72 = getv function %tmp.71 :_bump;
         %tmp.73 = lgetv %isMin.3;
-        symbol [ isMin %tmp.73 234 18 23 ];
+        symbol [ isMin %tmp.73 241 18 23 ];
         %tmp.74 = 1;
         invoke %tmp.71 %tmp.72(%tmp.73, %tmp.74);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 235 12 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 242 12 ]
         %tmp.75 = true;
         ret %tmp.75;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_233_25_236_8_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_233_8_236_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_233_8_236_8_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 237 8 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_237_8_240_8_if_stmt:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_240_25_243_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_240_8_243_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_240_8_243_8_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 244 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_244_8_247_8_if_stmt:
         %tmp.76 = lgetv %xy.1;
-        symbol [ xy %tmp.76 237 12 14 ];
+        symbol [ xy %tmp.76 244 12 14 ];
         %tmp.77 = 1;
         %tmp.78 = agetv %tmp.76 %tmp.77;
         %tmp.79 = lgetv %bot.5;
-        symbol [ bot %tmp.79 237 20 23 ];
+        symbol [ bot %tmp.79 244 20 23 ];
         %tmp.80 = gt %tmp.78 %tmp.79;
-        bf %tmp.80 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_237_8_240_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_237_8_240_8_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_237_25_240_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 238 12 ]
+        bf %tmp.80 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_244_8_247_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_244_8_247_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_244_25_247_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 245 12 ]
         %tmp.81 = self;
-        symbol [ _bump %tmp.82 238 12 17 ];
+        symbol [ _bump %tmp.82 245 12 17 ];
         %tmp.82 = getv function %tmp.81 :_bump;
         %tmp.83 = lgetv %isMin.3;
-        symbol [ isMin %tmp.83 238 18 23 ];
+        symbol [ isMin %tmp.83 245 18 23 ];
         %tmp.84 = -1;
         invoke %tmp.81 %tmp.82(%tmp.83, %tmp.84);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 239 12 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 246 12 ]
         %tmp.85 = true;
         ret %tmp.85;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_237_25_240_8_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_237_8_240_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_237_8_240_8_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 241 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_244_25_247_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_244_8_247_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_244_8_247_8_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 248 8 ]
         %tmp.86 = self;
-        symbol [ _confirm %tmp.87 241 15 23 ];
+        symbol [ _confirm %tmp.87 248 15 23 ];
         %tmp.87 = getv function %tmp.86 :_confirm;
         %tmp.88 = invoke %tmp.86 %tmp.87();
         ret %tmp.88;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_221_64_242_4_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_228_64_249_4_stop:
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 244; @symbol_functiondef = [onKey,244,13,18]; @symbol_param<0> = [keyEvent,244,19,27]; @symbol_param<0>_type<0> = [WatchUi,244,31,38]; @symbol_param<0>_type<1> = [KeyEvent,244,39,47]; @symbol_return<0> = [Boolean,244,52,59]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 251; @symbol_functiondef = [onKey,251,13,18]; @symbol_param<0> = [keyEvent,251,19,27]; @symbol_param<0>_type<0> = [WatchUi,251,31,38]; @symbol_param<0>_type<1> = [KeyEvent,251,39,47]; @symbol_return<0> = [Boolean,251,52,59]; ]
     function onKey(keyEvent as WatchUi.KeyEvent) as Boolean {
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_244_60_255_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 245 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_244_60_255_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_244_60_255_4_stop" ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_251_60_262_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 252 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_251_60_262_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_251_60_262_4_stop" ]
         %k.1 = local;
-        symbol [ k %k.1 245 12 13 ];
+        symbol [ k %k.1 252 12 13 ];
         %tmp.1 = lgetv %keyEvent;
-        symbol [ keyEvent %tmp.1 245 16 24 ];
-        symbol [ getKey %tmp.2 245 25 31 ];
+        symbol [ keyEvent %tmp.1 252 16 24 ];
+        symbol [ getKey %tmp.2 252 25 31 ];
         %tmp.2 = getv function %tmp.1 :getKey;
         %tmp.3 = invoke %tmp.1 %tmp.2();
         lputv %k.1 %tmp.3;
-        symbol [ k %k.1 245 12 13 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 246 8 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_246_8_248_8_if_stmt:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_246_12_246_51_begin:
+        symbol [ k %k.1 252 12 13 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 253 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_253_8_255_8_if_stmt:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_253_12_253_51_begin:
         %tmp.4 = lgetv %k.1;
-        symbol [ k %tmp.4 246 12 13 ];
-        symbol [ WatchUi %tmp.5 246 17 24 ];
+        symbol [ k %tmp.4 253 12 13 ];
+        symbol [ WatchUi %tmp.5 253 17 24 ];
         %tmp.5 = getm $.Toybox.WatchUi;
-        symbol [ KEY_ENTER %tmp.6 246 25 34 ];
+        symbol [ KEY_ENTER %tmp.6 253 25 34 ];
         %tmp.6 = getv %tmp.5 :KEY_ENTER;
         %tmp.7 = eq %tmp.4 %tmp.6;
-        bt %tmp.7 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_246_8_248_8_if_true;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_246_38_246_51_false:
+        bt %tmp.7 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_253_8_255_8_if_true;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_253_38_253_51_false:
         %tmp.8 = lgetv %k.1;
-        symbol [ k %tmp.8 246 38 39 ];
-        symbol [ WatchUi %tmp.9 246 43 50 ];
+        symbol [ k %tmp.8 253 38 39 ];
+        symbol [ WatchUi %tmp.9 253 43 50 ];
         %tmp.9 = getm $.Toybox.WatchUi;
-        symbol [ KEY_START %tmp.10 246 51 60 ];
+        symbol [ KEY_START %tmp.10 253 51 60 ];
         %tmp.10 = getv %tmp.9 :KEY_START;
         %tmp.11 = eq %tmp.8 %tmp.10;
         push %tmp.11;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_246_38_246_51_end:
-        %tmp.12 = phi [%tmp.7 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_246_12_246_51_begin] [%tmp.11 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_246_38_246_51_false] [%tmp.12 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_246_38_246_51_end];
-        bf %tmp.12 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_246_8_248_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_246_8_248_8_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_246_62_248_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 247 12 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_253_38_253_51_end:
+        %tmp.12 = phi [%tmp.7 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_253_12_253_51_begin] [%tmp.11 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_253_38_253_51_false] [%tmp.12 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_253_38_253_51_end];
+        bf %tmp.12 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_253_8_255_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_253_8_255_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_253_62_255_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 254 12 ]
         %tmp.13 = self;
-        symbol [ _confirm %tmp.14 247 19 27 ];
+        symbol [ _confirm %tmp.14 254 19 27 ];
         %tmp.14 = getv function %tmp.13 :_confirm;
         %tmp.15 = invoke %tmp.13 %tmp.14();
         ret %tmp.15;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_246_62_248_8_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_246_8_248_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_246_8_248_8_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 249 8 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_249_8_253_8_if_stmt:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_253_62_255_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_253_8_255_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_253_8_255_8_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 256 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_256_8_260_8_if_stmt:
         %tmp.16 = lgetv %k.1;
-        symbol [ k %tmp.16 249 12 13 ];
-        symbol [ WatchUi %tmp.17 249 17 24 ];
+        symbol [ k %tmp.16 256 12 13 ];
+        symbol [ WatchUi %tmp.17 256 17 24 ];
         %tmp.17 = getm $.Toybox.WatchUi;
-        symbol [ KEY_ESC %tmp.18 249 25 32 ];
+        symbol [ KEY_ESC %tmp.18 256 25 32 ];
         %tmp.18 = getv %tmp.17 :KEY_ESC;
         %tmp.19 = eq %tmp.16 %tmp.18;
-        bf %tmp.19 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_249_8_253_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_249_8_253_8_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_249_34_253_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 251 12 ]
-        symbol [ WatchUi %tmp.20 251 12 19 ];
+        bf %tmp.19 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_256_8_260_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_256_8_260_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_256_34_260_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 258 12 ]
+        symbol [ WatchUi %tmp.20 258 12 19 ];
         %tmp.20 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.21 251 20 27 ];
+        symbol [ popView %tmp.21 258 20 27 ];
         %tmp.21 = getv function %tmp.20 :popView;
-        symbol [ WatchUi %tmp.22 251 28 35 ];
+        symbol [ WatchUi %tmp.22 258 28 35 ];
         %tmp.22 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_RIGHT %tmp.23 251 36 47 ];
+        symbol [ SLIDE_RIGHT %tmp.23 258 36 47 ];
         %tmp.23 = getv %tmp.22 :SLIDE_RIGHT;
         invoke %tmp.20 %tmp.21(%tmp.23);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 252 12 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 259 12 ]
         %tmp.24 = true;
         ret %tmp.24;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_249_34_253_8_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_249_8_253_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_249_8_253_8_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 254 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_256_34_260_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_256_8_260_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_256_8_260_8_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 261 8 ]
         %tmp.25 = false;
         ret %tmp.25;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_244_60_255_4_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_251_60_262_4_stop:
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 258; @symbol_functiondef = [onSwipe,258,13,20]; @symbol_param<0> = [swipeEvent,258,21,31]; @symbol_param<0>_type<0> = [WatchUi,258,35,42]; @symbol_param<0>_type<1> = [SwipeEvent,258,43,53]; @symbol_return<0> = [Boolean,258,58,65]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 265; @symbol_functiondef = [onSwipe,265,13,20]; @symbol_param<0> = [swipeEvent,265,21,31]; @symbol_param<0>_type<0> = [WatchUi,265,35,42]; @symbol_param<0>_type<1> = [SwipeEvent,265,43,53]; @symbol_return<0> = [Boolean,265,58,65]; ]
     function onSwipe(swipeEvent as WatchUi.SwipeEvent) as Boolean {
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_258_66_260_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 259 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_265_66_267_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 266 8 ]
         %tmp.1 = true;
         ret %tmp.1;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_258_66_260_4_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_265_66_267_4_stop:
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 262; @symbol_functiondef = [_bump,262,20,25]; @symbol_param<0> = [isMinutes,262,26,35]; @symbol_param<0>_type<0> = [Boolean,262,39,46]; @symbol_param<1> = [dir,262,48,51]; @symbol_param<1>_type<0> = [Number,262,55,61]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 269; @symbol_functiondef = [_bump,269,20,25]; @symbol_param<0> = [isMinutes,269,26,35]; @symbol_param<0>_type<0> = [Boolean,269,39,46]; @symbol_param<1> = [dir,269,48,51]; @symbol_param<1>_type<0> = [Number,269,55,61]; ]
     protected
     function _bump(isMinutes as Boolean, dir as Number) as Void {
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_262_71_279_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 263 8 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_263_8_273_8_if_stmt:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_269_71_286_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 270 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_270_8_280_8_if_stmt:
         %tmp.1 = lgetv %isMinutes;
-        symbol [ isMinutes %tmp.1 263 12 21 ];
-        bf %tmp.1 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_263_8_273_8_if_else_false;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_263_8_273_8_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_263_23_268_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 264 12 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_263_23_268_8_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_263_23_268_8_stop" ]
+        symbol [ isMinutes %tmp.1 270 12 21 ];
+        bf %tmp.1 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_270_8_280_8_if_else_false;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_270_8_280_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_270_23_275_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 271 12 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_270_23_275_8_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_270_23_275_8_stop" ]
         %m.1 = local;
-        symbol [ m %m.1 264 16 17 ];
-        symbol [ _view %tmp.3 264 20 25 ];
+        symbol [ m %m.1 271 16 17 ];
+        symbol [ _view %tmp.3 271 20 25 ];
         %tmp.3 = getv ? :_view;
-        symbol [ minutes %tmp.4 264 26 33 ];
+        symbol [ minutes %tmp.4 271 26 33 ];
         %tmp.4 = getv %tmp.3 :minutes;
         %tmp.5 = lgetv %dir;
-        symbol [ dir %tmp.5 264 36 39 ];
+        symbol [ dir %tmp.5 271 36 39 ];
         %tmp.6 = add %tmp.4 %tmp.5;
         lputv %m.1 %tmp.6;
-        symbol [ m %m.1 264 16 17 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 265 12 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_265_12_265_34_if_stmt:
+        symbol [ m %m.1 271 16 17 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 272 12 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_272_12_272_34_if_stmt:
         %tmp.7 = lgetv %m.1;
-        symbol [ m %tmp.7 265 16 17 ];
+        symbol [ m %tmp.7 272 16 17 ];
         %tmp.8 = 0;
         %tmp.9 = lt %tmp.7 %tmp.8;
-        bf %tmp.9 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_265_12_265_34_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_265_12_265_34_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_265_24_265_34_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 265 26 ]
+        bf %tmp.9 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_272_12_272_34_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_272_12_272_34_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_272_24_272_34_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 272 26 ]
         %tmp.10 = 99;
         lputv %m.1 %tmp.10;
-        symbol [ m %m.1 265 26 27 ];
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_265_24_265_34_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_265_12_265_34_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_265_12_265_34_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 266 12 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_266_12_266_34_if_stmt:
+        symbol [ m %m.1 272 26 27 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_272_24_272_34_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_272_12_272_34_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_272_12_272_34_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 273 12 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_273_12_273_34_if_stmt:
         %tmp.11 = lgetv %m.1;
-        symbol [ m %tmp.11 266 16 17 ];
+        symbol [ m %tmp.11 273 16 17 ];
         %tmp.12 = 99;
         %tmp.13 = gt %tmp.11 %tmp.12;
-        bf %tmp.13 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_266_12_266_34_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_266_12_266_34_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_266_24_266_34_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 266 26 ]
+        bf %tmp.13 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_273_12_273_34_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_273_12_273_34_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_273_24_273_34_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 273 26 ]
         %tmp.14 = 0;
         lputv %m.1 %tmp.14;
-        symbol [ m %m.1 266 26 27 ];
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_266_24_266_34_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_266_12_266_34_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_266_12_266_34_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 267 12 ]
-        symbol [ _view %tmp.15 267 12 17 ];
+        symbol [ m %m.1 273 26 27 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_273_24_273_34_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_273_12_273_34_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_273_12_273_34_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 274 12 ]
+        symbol [ _view %tmp.15 274 12 17 ];
         %tmp.15 = getv self :_view;
         %tmp.16 = lgetv %m.1;
-        symbol [ m %tmp.16 267 28 29 ];
-        symbol [ minutes ? 267 18 25 ];
+        symbol [ m %tmp.16 274 28 29 ];
+        symbol [ minutes ? 274 18 25 ];
         putv %tmp.15 :minutes %tmp.16;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_263_23_268_8_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_263_8_273_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_263_8_273_8_if_else_false:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_268_15_273_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 269 12 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_268_15_273_8_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_268_15_273_8_stop" ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_270_23_275_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_270_8_280_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_270_8_280_8_if_else_false:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_275_15_280_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 276 12 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_275_15_280_8_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_275_15_280_8_stop" ]
         %s.2 = local;
-        symbol [ s %s.2 269 16 17 ];
-        symbol [ _view %tmp.18 269 20 25 ];
+        symbol [ s %s.2 276 16 17 ];
+        symbol [ _view %tmp.18 276 20 25 ];
         %tmp.18 = getv ? :_view;
-        symbol [ seconds %tmp.19 269 26 33 ];
+        symbol [ seconds %tmp.19 276 26 33 ];
         %tmp.19 = getv %tmp.18 :seconds;
         %tmp.20 = lgetv %dir;
-        symbol [ dir %tmp.20 269 36 39 ];
-        symbol [ IVP_SEC_STEP %tmp.22 269 42 54 ];
+        symbol [ dir %tmp.20 276 36 39 ];
+        symbol [ IVP_SEC_STEP %tmp.22 276 42 54 ];
         %tmp.22 = getv ? :IVP_SEC_STEP;
         %tmp.23 = mul %tmp.20 %tmp.22;
         %tmp.24 = add %tmp.19 %tmp.23;
         lputv %s.2 %tmp.24;
-        symbol [ s %s.2 269 16 17 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 270 12 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_270_12_270_49_if_stmt:
+        symbol [ s %s.2 276 16 17 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 277 12 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_277_12_277_49_if_stmt:
         %tmp.25 = lgetv %s.2;
-        symbol [ s %tmp.25 270 16 17 ];
+        symbol [ s %tmp.25 277 16 17 ];
         %tmp.26 = 0;
         %tmp.27 = lt %tmp.25 %tmp.26;
-        bf %tmp.27 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_270_12_270_49_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_270_12_270_49_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_270_24_270_49_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 270 26 ]
+        bf %tmp.27 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_277_12_277_49_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_277_12_277_49_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_277_24_277_49_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 277 26 ]
         %tmp.28 = 60;
-        symbol [ IVP_SEC_STEP %tmp.30 270 35 47 ];
+        symbol [ IVP_SEC_STEP %tmp.30 277 35 47 ];
         %tmp.30 = getv ? :IVP_SEC_STEP;
         %tmp.31 = sub %tmp.28 %tmp.30;
         lputv %s.2 %tmp.31;
-        symbol [ s %s.2 270 26 27 ];
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_270_24_270_49_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_270_12_270_49_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_270_12_270_49_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 271 12 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_271_12_271_33_if_stmt:
+        symbol [ s %s.2 277 26 27 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_277_24_277_49_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_277_12_277_49_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_277_12_277_49_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 278 12 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_278_12_278_33_if_stmt:
         %tmp.32 = lgetv %s.2;
-        symbol [ s %tmp.32 271 16 17 ];
+        symbol [ s %tmp.32 278 16 17 ];
         %tmp.33 = 59;
         %tmp.34 = gt %tmp.32 %tmp.33;
-        bf %tmp.34 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_271_12_271_33_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_271_12_271_33_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_271_24_271_33_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 271 26 ]
+        bf %tmp.34 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_278_12_278_33_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_278_12_278_33_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_278_24_278_33_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 278 26 ]
         %tmp.35 = 0;
         lputv %s.2 %tmp.35;
-        symbol [ s %s.2 271 26 27 ];
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_271_24_271_33_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_271_12_271_33_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_271_12_271_33_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 272 12 ]
-        symbol [ _view %tmp.36 272 12 17 ];
+        symbol [ s %s.2 278 26 27 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_278_24_278_33_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_278_12_278_33_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_278_12_278_33_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 279 12 ]
+        symbol [ _view %tmp.36 279 12 17 ];
         %tmp.36 = getv self :_view;
         %tmp.37 = lgetv %s.2;
-        symbol [ s %tmp.37 272 28 29 ];
-        symbol [ seconds ? 272 18 25 ];
+        symbol [ s %tmp.37 279 28 29 ];
+        symbol [ seconds ? 279 18 25 ];
         putv %tmp.36 :seconds %tmp.37;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_268_15_273_8_stop:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_263_8_273_8_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 275 8 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_275_8_277_8_if_stmt:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_275_12_275_51_begin:
-        symbol [ _view %tmp.39 275 12 17 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_275_15_280_8_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_270_8_280_8_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 282 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_282_8_284_8_if_stmt:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_282_12_282_51_begin:
+        symbol [ _view %tmp.39 282 12 17 ];
         %tmp.39 = getv ? :_view;
-        symbol [ minutes %tmp.40 275 18 25 ];
+        symbol [ minutes %tmp.40 282 18 25 ];
         %tmp.40 = getv %tmp.39 :minutes;
         %tmp.41 = 0;
         %tmp.42 = eq %tmp.40 %tmp.41;
-        bf %tmp.42 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_275_8_277_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_275_34_275_51_true:
-        symbol [ _view %tmp.44 275 34 39 ];
+        bf %tmp.42 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_282_8_284_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_282_34_282_51_true:
+        symbol [ _view %tmp.44 282 34 39 ];
         %tmp.44 = getv ? :_view;
-        symbol [ seconds %tmp.45 275 40 47 ];
+        symbol [ seconds %tmp.45 282 40 47 ];
         %tmp.45 = getv %tmp.44 :seconds;
         %tmp.46 = 0;
         %tmp.47 = eq %tmp.45 %tmp.46;
         push %tmp.47;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_275_34_275_51_end:
-        %tmp.48 = phi [%tmp.42 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_275_12_275_51_begin] [%tmp.47 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_275_34_275_51_true] [%tmp.48 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_275_34_275_51_end];
-        bf %tmp.48 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_275_8_277_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_275_8_277_8_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_275_54_277_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 276 12 ]
-        symbol [ _view %tmp.49 276 12 17 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_282_34_282_51_end:
+        %tmp.48 = phi [%tmp.42 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_282_12_282_51_begin] [%tmp.47 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_282_34_282_51_true] [%tmp.48 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_282_34_282_51_end];
+        bf %tmp.48 @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_282_8_284_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_282_8_284_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_282_54_284_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 283 12 ]
+        symbol [ _view %tmp.49 283 12 17 ];
         %tmp.49 = getv self :_view;
-        symbol [ IVP_SEC_STEP %tmp.51 276 28 40 ];
+        symbol [ IVP_SEC_STEP %tmp.51 283 28 40 ];
         %tmp.51 = getv ? :IVP_SEC_STEP;
-        symbol [ seconds ? 276 18 25 ];
+        symbol [ seconds ? 283 18 25 ];
         putv %tmp.49 :seconds %tmp.51;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_275_54_277_8_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_275_8_277_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_275_8_277_8_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 278 8 ]
-        symbol [ WatchUi %tmp.52 278 8 15 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_282_54_284_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_282_8_284_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_282_8_284_8_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 285 8 ]
+        symbol [ WatchUi %tmp.52 285 8 15 ];
         %tmp.52 = getm $.Toybox.WatchUi;
-        symbol [ requestUpdate %tmp.53 278 16 29 ];
+        symbol [ requestUpdate %tmp.53 285 16 29 ];
         %tmp.53 = getv function %tmp.52 :requestUpdate;
         invoke %tmp.52 %tmp.53();
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_262_71_279_4_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_269_71_286_4_stop:
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 281; @symbol_functiondef = [_confirm,281,20,28]; @symbol_return<0> = [Boolean,281,34,41]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 288; @symbol_functiondef = [_confirm,288,20,28]; @symbol_return<0> = [Boolean,288,34,41]; ]
     protected
     function _confirm() as Boolean {
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_281_42_287_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 282 8 ]
-        symbol [ _mt %tmp.2 282 8 11 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_288_42_294_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 289 8 ]
+        symbol [ _mt %tmp.2 289 8 11 ];
         %tmp.2 = getv ? :_mt;
-        symbol [ setInterval %tmp.3 282 12 23 ];
+        symbol [ setInterval %tmp.3 289 12 23 ];
         %tmp.3 = getv function %tmp.2 :setInterval;
-        symbol [ _view %tmp.5 282 24 29 ];
+        symbol [ _view %tmp.5 289 24 29 ];
         %tmp.5 = getv ? :_view;
-        symbol [ minutes %tmp.6 282 30 37 ];
+        symbol [ minutes %tmp.6 289 30 37 ];
         %tmp.6 = getv %tmp.5 :minutes;
-        symbol [ _view %tmp.8 282 39 44 ];
+        symbol [ _view %tmp.8 289 39 44 ];
         %tmp.8 = getv ? :_view;
-        symbol [ seconds %tmp.9 282 45 52 ];
+        symbol [ seconds %tmp.9 289 45 52 ];
         %tmp.9 = getv %tmp.8 :seconds;
         invoke %tmp.2 %tmp.3(%tmp.6, %tmp.9);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 284 8 ]
-        symbol [ WatchUi %tmp.10 284 8 15 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 291 8 ]
+        symbol [ WatchUi %tmp.10 291 8 15 ];
         %tmp.10 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.11 284 16 23 ];
+        symbol [ popView %tmp.11 291 16 23 ];
         %tmp.11 = getv function %tmp.10 :popView;
-        symbol [ WatchUi %tmp.12 284 24 31 ];
+        symbol [ WatchUi %tmp.12 291 24 31 ];
         %tmp.12 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_IMMEDIATE %tmp.13 284 32 47 ];
+        symbol [ SLIDE_IMMEDIATE %tmp.13 291 32 47 ];
         %tmp.13 = getv %tmp.12 :SLIDE_IMMEDIATE;
         invoke %tmp.10 %tmp.11(%tmp.13);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 285 8 ]
-        symbol [ WatchUi %tmp.14 285 8 15 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 292 8 ]
+        symbol [ WatchUi %tmp.14 292 8 15 ];
         %tmp.14 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.15 285 16 23 ];
+        symbol [ popView %tmp.15 292 16 23 ];
         %tmp.15 = getv function %tmp.14 :popView;
-        symbol [ WatchUi %tmp.16 285 24 31 ];
+        symbol [ WatchUi %tmp.16 292 24 31 ];
         %tmp.16 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_DOWN %tmp.17 285 32 42 ];
+        symbol [ SLIDE_DOWN %tmp.17 292 32 42 ];
         %tmp.17 = getv %tmp.16 :SLIDE_DOWN;
         invoke %tmp.14 %tmp.15(%tmp.17);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 286 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc" 293 8 ]
         %tmp.18 = true;
         ret %tmp.18;
-C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_281_42_287_4_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_MatchMenu_mc_288_42_294_4_stop:
     }
 }
 [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\MatchMenu.mc"; @line = 16; ]

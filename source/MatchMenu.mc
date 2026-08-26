@@ -34,6 +34,10 @@ function pushMatchMenu(mt as MatchTimer, ble as BleManager) as Void {
         menu.addItem(new WatchUi.MenuItem("Test Alert 1", null, :simAlert1, null));
         menu.addItem(new WatchUi.MenuItem("Test Alert 2", null, :simAlert2, null));
     }
+    // Deliberate exit — BACK on the live screen only ever opens this
+    // menu, so this is the app's exit path (no accidental mid-match
+    // exits from a stray button press).
+    menu.addItem(new WatchUi.MenuItem("Exit App", null, :exitApp, null));
     WatchUi.pushView(menu, new MatchMenuDelegate(mt, ble), WatchUi.SLIDE_UP);
 }
 
@@ -78,6 +82,9 @@ class MatchMenuDelegate extends WatchUi.Menu2InputDelegate {
         } else if (id == :rescan) {
             WatchUi.popView(WatchUi.SLIDE_DOWN);
             _ble.startScan();
+        } else if (id == :exitApp) {
+            // AppBase.onStop runs BleManager.teardown() on the way out.
+            System.exit();
         } else if (id == :simAlert1 || id == :simAlert2) {
             WatchUi.popView(WatchUi.SLIDE_DOWN);
             _ble.simulateAlert(id == :simAlert1 ? 1 : 2);
