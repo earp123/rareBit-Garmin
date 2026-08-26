@@ -1,1 +1,5 @@
 project.manifest = manifest.xml
+
+# Device flavor — strip the (:simTest) SIM_TIMER_TEST=true variant.
+# The simulator UI-test flavor lives in monkey-sim.jungle.
+base.excludeAnnotations = simTest

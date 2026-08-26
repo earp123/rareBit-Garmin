@@ -4,6 +4,93 @@ All notable changes to rareBit Official are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased] — 2026-08-25
+
+Countdown maximization and centering, settings menu on BACK, MM:SS intervals,
+simulator test build, and a Venu Sq 2 launch-crash fix.
+
+### Added
+
+- **Settings menu on BACK** — BACK (or MENU) on the live screen now opens a
+  Menu2 settings menu: Interval, Half, Reset Timer, Disconnect. BACK no longer
+  disconnects from the live screen; Disconnect moved into the menu.
+- **MM:SS interval picker** — replaces the 5-minute preset list and the
+  minutes-only custom picker. Up/down arrows over each field; tap above /
+  below the digit row to adjust (left half = minutes, right half = seconds,
+  15 s steps), tap the digits or press SELECT to set, BACK to cancel. Swipes
+  are deliberately inert. Intervals may now include seconds (e.g. 12:30);
+  00:00 is disallowed. The picker's delegate is a raw `InputDelegate` —
+  a `BehaviorDelegate` converts touchscreen taps into the select behavior
+  before `onTap` ever runs, which made every arrow tap confirm instead.
+- **Half submenu** — explicit "1st" / "2nd" choice (focus starts on the
+  current setting). 2nd bases the count-up at the interval, so with the
+  default 45:00 interval the count-up starts at 45:00 and climbs from there;
+  1st counts up from 00:00. Same behavior as the old toggle, clearer UI.
+- **Real art assets** — app logo and AR paging icon. Full-resolution masters
+  live in `/assets` (`launcher_icon_master.png` 3100², `ar_icon_master.png`
+  320×377); watch-sized PNGs are generated from them into
+  `resources/drawables` (launcher 70×70 — resolves the long-standing
+  launcher-icon size warning — and AR icon 48×56). Regenerate from the
+  masters when the art changes.
+
+- **Simulator UI-test flavor** — `monkey-sim.jungle` + `SimMode.mc` build a
+  variant (`SIM_TIMER_TEST = true`) that boots straight into the live match
+  timer with both ARs linked, no BLE hardware needed. Build with
+  `monkeyc -f monkey-sim.jungle ...`, run with `monkeydo`. The normal
+  `monkey.jungle` build is unaffected. Note: `(:release)`/`(:debug)` are
+  reserved annotations tied to `-r` — the flavors use `(:simTest)`/
+  `(:noSimTest)` instead.
+- **Vector-font countdown** on devices with scalable faces — the layout
+  binary-searches the largest vector font ("RobotoCondensedBold" →
+  "RobotoRegular" fallbacks) that fits, and adopts it only when it beats the
+  best system font. Venu 3 gains ~10%, CIQ-6 devices (Venu 4 / Venu X1 /
+  vivoactive 6) ~50%+ from the Condensed faces.
+
+### Changed
+
+- **AR shape glyphs replaced by an icon alert flash** — the circle/triangle
+  symbols and linked-state indicators are gone. Idle live screen shows only
+  the timers; during an AR's 3-second alert window the AR icon
+  (`resources/drawables/ar_icon.png`, currently a placeholder) flashes in
+  300 ms phases above the digits with the AR number ("1", "2", or "1 2")
+  beside it in amber. Link-status double-tap haptics are unchanged; there is
+  just no persistent visual for link state anymore.
+- **Sim build: Test Alert menu items** — the SIM_TIMER_TEST settings menu
+  gains "Test Alert 1/2" entries (via `BleManager.simulateAlert`) to preview
+  the flash without BLE traffic. Absent from device builds.
+- **Countdown digits maximized on every screen** — seeing the timer at a
+  glance is the app's top priority. The live screen now sizes the countdown
+  per device at `onLayout()`: largest system number font (usually
+  `FONT_NUMBER_THAI_HOT`) or vector font that fits, with a round-screen chord
+  check so digits never clip the bezel. Visible digit height roughly doubles
+  on venu2-gen (99 px on venu2plus) and better than doubles on venu3+.
+- **Countdown dead-centered on the screen** — the digits' midpoint sits at
+  exactly h/2 on every device (sim-verified on venu2s / venusq2m / venu3 /
+  venuX1 / venu2plus). The live screen's bottom hint line was removed to make
+  room; its guidance now lives in the settings flow. On venu3 the reclaimed
+  space grew the vector countdown from 119 to 137 px.
+- **AR symbols no longer constrain the timer size** — the state dot is gone
+  from the live screen and the AR row floats in the gap above the digits
+  (clamped to the screen edge) instead of reserving stack space.
+
+### Fixed
+
+- **Venu Sq 2 (non-Music) removed from the manifest** — the base model has no
+  `Toybox.BluetoothLowEnergy` module (only Venu Sq 2 Music does, per Garmin's
+  API docs), so the app crashed at launch ("Symbol Not Found" instantiating
+  `BleManager`). Pre-existing on main; venusq2m remains supported and runs.
+
+### TODO
+
+- [ ] venu2plus verdict: acceptable but could stand to be bigger. The
+      2021-gen Venu devices cap out at `FONT_NUMBER_THAI_HOT` (no vector
+      fonts on CIQ 5.0). Next lever: bundle a custom digits-only bitmap font
+      (0–9 + colon); width headroom suggests roughly +15–20% before the round
+      chord binds.
+- [ ] On-device check of the 0.55 visual-height scalar and 0.70 vector
+      cap-height estimate on venu2plus and a venu3-gen watch, plus the
+      alert-flash icon size (48×56 — regenerable from the master at any size).
+
 ## [Unreleased] — 2026-08-14
 
 Match timer feature, AR alert UI, and BLE robustness work ([#1](https://github.com/earp123/rareBit-Garmin/pull/1)).

@@ -11,11 +11,13 @@
 //
 // BACK —
 //   SCANNING              →  stop scan
-//   SUBSCRIBED / CONNECTED / CONNECTING  →  disconnect / abort
+//   SUBSCRIBED            →  open the settings menu (interval / half /
+//                            reset / disconnect)
+//   CONNECTED / CONNECTING →  abort the connection attempt
 //   otherwise             →  exit app (default behavior)
 //
 // MENU —
-//   SUBSCRIBED            →  open match settings (reset/half/interval)
+//   SUBSCRIBED            →  open the settings menu (same as BACK)
 //   otherwise             →  disconnect if needed and re-scan
 //
 // TAP (touch screen) —
@@ -62,9 +64,14 @@ class myGarminAppDelegate extends WatchUi.BehaviorDelegate {
             _ble.stopScan();
             return true;  // handled — don't exit the app
         }
+        if (state == BLE_SUBSCRIBED) {
+            // Live screen — BACK opens the settings menu.  Disconnect
+            // now lives inside that menu.
+            pushMatchMenu(_matchTimer, _ble);
+            return true;
+        }
         if (state == BLE_CONNECTING  ||
-            state == BLE_CONNECTED   ||
-            state == BLE_SUBSCRIBED) {
+            state == BLE_CONNECTED) {
             _ble.disconnect();
             return true;  // handled — stay in app
         }
@@ -88,9 +95,8 @@ class myGarminAppDelegate extends WatchUi.BehaviorDelegate {
     function onMenu() as Boolean {
         var state = _ble.getState();
         if (state == BLE_SUBSCRIBED) {
-            // Live screen — MENU opens the match settings menu
-            // (reset / half / interval).
-            pushMatchMenu(_matchTimer);
+            // Live screen — MENU opens the settings menu (same as BACK).
+            pushMatchMenu(_matchTimer, _ble);
             return true;
         }
         // Elsewhere — disconnect if needed and re-scan.

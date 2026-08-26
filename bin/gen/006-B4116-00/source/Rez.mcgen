@@ -6,7 +6,6 @@ using Toybox.Graphics as Gfx;
 
 module Rez {
     module Drawables {
-        (:initialized) var ArIcon as ResourceId;
         (:initialized) var LauncherIcon as ResourceId;
     } // Drawables
 
@@ -36,8 +35,8 @@ module Rez {
         } // prompt_font_enhanced_readability__body_with_title
 
         module system_size__menu_header {
-            const width as Number = 416;
-            const height as Number = 95;
+            const width as Number = 320;
+            const height as Number = 68;
         } // system_size__menu_header
 
         module system_loc__hint_button_left_bottom {
@@ -49,24 +48,22 @@ module Rez {
         } // prompt_font_enhanced_readability__body_no_title
 
         module prompt_loc__body_no_title {
-            const x as Number = 42;
-            const y as Number = 62;
+            const x as Number = 0;
+            const y as Number = 65;
         } // prompt_loc__body_no_title
 
         module system_icon_dark__about {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_dark__about.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_dark__about.svg";
             const compress as String = "true";
             const dithering as String = "none";
             const automaticPalette as String = "true";
-            const packingFormat as String = "png";
         } // system_icon_dark__about
 
         module system_icon_light__question {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_light__question.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_light__question.svg";
             const compress as String = "true";
             const dithering as String = "none";
             const automaticPalette as String = "true";
-            const packingFormat as String = "png";
         } // system_icon_light__question
 
         module system_loc__hint_button_left_top {
@@ -75,20 +72,19 @@ module Rez {
 
         module prompt_font__title {
             const justification = Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER;
-            const font = Graphics.FONT_XTINY;
+            const font = Graphics.FONT_SMALL;
         } // prompt_font__title
 
         module system_icon_dark__discard {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_dark__discard.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_dark__discard.svg";
             const compress as String = "true";
             const dithering as String = "none";
             const automaticPalette as String = "true";
-            const packingFormat as String = "png";
         } // system_icon_dark__discard
 
         module system_size__menu_item {
-            const width as Number = 416;
-            const height as Number = 105;
+            const width as Number = 320;
+            const height as Number = 98;
         } // system_size__menu_item
 
         module system_color_dark__text {
@@ -97,20 +93,18 @@ module Rez {
         } // system_color_dark__text
 
         module system_icon_destructive__discard {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_destructive__discard.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_destructive__discard.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // system_icon_destructive__discard
 
         module system_icon_dark__hint_action_menu {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_dark__hint_action_menu.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_dark__hint_action_menu.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // system_icon_dark__hint_action_menu
 
         module prompt_size__title {
-            const width as Number = 176;
-            const height as Number = 75;
+            const width as Number = 320;
+            const height as Number = 54;
         } // prompt_size__title
 
         module confirmation_font__body {
@@ -128,16 +122,16 @@ module Rez {
         } // system_icon_destructive__hint_button_left_top
 
         module system_size__launch_icon {
-            const scaleX as Number = 70;
-            const scaleY as Number = 70;
+            const scaleX as Number = 40;
+            const scaleY as Number = 40;
             const scaleRelativeTo as String = "screen";
         } // system_size__launch_icon
 
         module confirmation_input__confirm {
-            const y1 as Number = 322;
-            const x1 as Number = 79;
-            const y2 as Number = 416;
-            const x2 as Number = 311;
+            const y1 as Number = 300;
+            const x1 as Number = 0;
+            const y2 as Number = 360;
+            const x2 as Number = 320;
         } // confirmation_input__confirm
 
         module prompt_font__body_with_title {
@@ -146,8 +140,8 @@ module Rez {
         } // prompt_font__body_with_title
 
         module confirmation_loc__body {
-            const x as Number = 85;
-            const y as Number = 83;
+            const x as Number = 0;
+            const y as Number = 65;
         } // confirmation_loc__body
 
         module system_icon_destructive__hint_button_left_bottom {
@@ -160,21 +154,18 @@ module Rez {
         } // prompt_color_dark__background
 
         module system_icon_destructive__hint_action_menu {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_destructive__hint_action_menu.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_destructive__hint_action_menu.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // system_icon_destructive__hint_action_menu
 
         module system_loc__hint_action_menu {
-            const x as Number = 208;
-            const horizontalJustification as String = "center";
-            const y as Number = 332;
+            const x as Number = 0;
+            const y as Number = 306;
         } // system_loc__hint_action_menu
 
         module confirmation_icon__hint_confirm {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\confirmation_icon__hint_completion.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\confirmation_icon__hint_completion.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // confirmation_icon__hint_confirm
 
         module system_loc__hint_button_left_middle {
@@ -182,8 +173,8 @@ module Rez {
         } // system_loc__hint_button_left_middle
 
         module prompt_size__body_no_title {
-            const width as Number = 333;
-            const height as Number = 270;
+            const width as Number = 320;
+            const height as Number = 252;
         } // prompt_size__body_no_title
 
         module system_icon_light__hint_button_left_top {
@@ -204,18 +195,17 @@ module Rez {
         } // system_icon_dark__hint_button_left_top
 
         module system_input__action_menu {
-            const y1 as Number = 338;
+            const y1 as Number = 305;
             const x1 as Number = 0;
-            const y2 as Number = 390;
-            const x2 as Number = 390;
+            const y2 as Number = 360;
+            const x2 as Number = 320;
         } // system_input__action_menu
 
         module system_icon_light__save {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_light__save.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_light__save.svg";
             const compress as String = "true";
             const dithering as String = "none";
             const automaticPalette as String = "true";
-            const packingFormat as String = "png";
         } // system_icon_light__save
 
         module prompt_color_light__body {
@@ -228,11 +218,10 @@ module Rez {
         } // system_loc__subwindow
 
         module system_icon_light__warning {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_light__warning.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_light__warning.svg";
             const compress as String = "true";
             const dithering as String = "none";
             const automaticPalette as String = "true";
-            const packingFormat as String = "png";
         } // system_icon_light__warning
 
         module confirmation_color_light__body {
@@ -241,9 +230,8 @@ module Rez {
         } // confirmation_color_light__body
 
         module confirmation_icon_light__hint_keep {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\confirmation_icon__hint_keep.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\confirmation_icon__hint_keep.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // confirmation_icon_light__hint_keep
 
         module activity_color_light__background {
@@ -252,20 +240,18 @@ module Rez {
         } // activity_color_light__background
 
         module system_icon_positive__hint_button_right_top {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_positive__hint_button_right_top.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_positive__hint_button_right_top.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // system_icon_positive__hint_button_right_top
 
         module system_size__screen {
-            const width as Number = 416;
-            const height as Number = 416;
+            const width as Number = 320;
+            const height as Number = 360;
         } // system_size__screen
 
         module system_icon_destructive__hint_button_right_bottom {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_destructive__hint_button_right_bottom.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_destructive__hint_button_right_bottom.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // system_icon_destructive__hint_button_right_bottom
 
         module system_color_light__background {
@@ -274,15 +260,13 @@ module Rez {
         } // system_color_light__background
 
         module system_icon_destructive__hint_button_right_top {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_destructive__hint_button_right_top.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_destructive__hint_button_right_top.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // system_icon_destructive__hint_button_right_top
 
         module confirmation_loc__hint_confirm {
-            const x as Number = 208;
-            const horizontalJustification as String = "center";
-            const y as Number = 317;
+            const x as Number = 0;
+            const y as Number = 299;
         } // confirmation_loc__hint_confirm
 
         module activity_color_dark__text {
@@ -295,16 +279,15 @@ module Rez {
         } // confirmation_input__keep
 
         module prompt_loc__body_with_title {
-            const x as Number = 42;
-            const y as Number = 104;
+            const x as Number = 0;
+            const y as Number = 90;
         } // prompt_loc__body_with_title
 
         module system_icon_dark__search {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_dark__search.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_dark__search.svg";
             const compress as String = "true";
             const dithering as String = "none";
             const automaticPalette as String = "true";
-            const packingFormat as String = "png";
         } // system_icon_dark__search
 
         module activity_color_light__text {
@@ -313,17 +296,15 @@ module Rez {
         } // activity_color_light__text
 
         module confirmation_icon__hint_keep {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\confirmation_icon__hint_keep.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\confirmation_icon__hint_keep.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // confirmation_icon__hint_keep
 
         module system_icon_dark__save {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_dark__save.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_dark__save.svg";
             const compress as String = "true";
             const dithering as String = "none";
             const automaticPalette as String = "true";
-            const packingFormat as String = "png";
         } // system_icon_dark__save
 
         module system_icon_destructive__hint_button_left_middle {
@@ -331,11 +312,10 @@ module Rez {
         } // system_icon_destructive__hint_button_left_middle
 
         module system_icon_light__search {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_light__search.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_light__search.svg";
             const compress as String = "true";
             const dithering as String = "none";
             const automaticPalette as String = "true";
-            const packingFormat as String = "png";
         } // system_icon_light__search
 
         module system_icon_dark__hint_button_left_bottom {
@@ -347,14 +327,14 @@ module Rez {
         } // system_icon_positive__hint_button_left_top
 
         module system_loc__hint_button_right_bottom {
-            const x as Number = 332;
-            const y as Number = 258;
+            const x as Number = 307;
+            const y as Number = 287;
+            const verticalJustification as String = "center";
         } // system_loc__hint_button_right_bottom
 
         module confirmation_icon_dark__hint_reject {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\confirmation_icon__hint_reject.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\confirmation_icon__hint_reject.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // confirmation_icon_dark__hint_reject
 
         module confirmation_color_dark__body {
@@ -363,31 +343,28 @@ module Rez {
         } // confirmation_color_dark__body
 
         module confirmation_icon_light__hint_confirm {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\confirmation_icon__hint_completion.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\confirmation_icon__hint_completion.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // confirmation_icon_light__hint_confirm
 
         module prompt_color_dark__title {
-            const color as Number = 0xB3B3B3;
+            const color as Number = 0xFFFFFF;
             const background = Graphics.COLOR_TRANSPARENT;
         } // prompt_color_dark__title
 
         module system_icon_destructive__cancel {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_destructive__cancel.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_destructive__cancel.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // system_icon_destructive__cancel
 
         module system_icon_light__hint_button_right_bottom {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_light__hint_button_right_bottom.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_light__hint_button_right_bottom.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // system_icon_light__hint_button_right_bottom
 
         module prompt_loc__title {
-            const x as Number = 120;
-            const y as Number = 20;
+            const x as Number = 0;
+            const y as Number = 32;
         } // prompt_loc__title
 
         module confirmation_font_enhanced_readability__body {
@@ -395,14 +372,13 @@ module Rez {
         } // confirmation_font_enhanced_readability__body
 
         module prompt_color_light__title {
-            const color as Number = 0xB3B3B3;
+            const color as Number = 0xFFFFFF;
             const background = Graphics.COLOR_TRANSPARENT;
         } // prompt_color_light__title
 
         module system_icon_dark__hint_button_right_top {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_dark__hint_button_right_top.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_dark__hint_button_right_top.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // system_icon_dark__hint_button_right_top
 
         module system_icon_dark__hint_button_left_middle {
@@ -410,36 +386,32 @@ module Rez {
         } // system_icon_dark__hint_button_left_middle
 
         module confirmation_icon_dark__hint_keep {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\confirmation_icon__hint_keep.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\confirmation_icon__hint_keep.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // confirmation_icon_dark__hint_keep
 
         module system_icon_light__cancel {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_light__cancel.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_light__cancel.svg";
             const compress as String = "true";
             const dithering as String = "none";
             const automaticPalette as String = "true";
-            const packingFormat as String = "png";
         } // system_icon_light__cancel
 
         module confirmation_icon_light__hint_reject {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\confirmation_icon__hint_reject.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\confirmation_icon__hint_reject.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // confirmation_icon_light__hint_reject
 
         module system_icon_light__about {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_light__about.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_light__about.svg";
             const compress as String = "true";
             const dithering as String = "none";
             const automaticPalette as String = "true";
-            const packingFormat as String = "png";
         } // system_icon_light__about
 
         module system_size__toast_icon {
-            const scaleX as Number = 56;
-            const scaleY as Number = 56;
+            const scaleX as Number = 34;
+            const scaleY as Number = 34;
             const scaleRelativeTo as String = "screen";
         } // system_size__toast_icon
 
@@ -448,15 +420,13 @@ module Rez {
         } // system_icon_dark__hint_button_right_middle
 
         module confirmation_icon__hint_reject {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\confirmation_icon__hint_reject.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\confirmation_icon__hint_reject.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // confirmation_icon__hint_reject
 
         module system_icon_light__hint_action_menu {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_light__hint_action_menu.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_light__hint_action_menu.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // system_icon_light__hint_action_menu
 
         module system_icon_light__hint_button_right_middle {
@@ -468,15 +438,13 @@ module Rez {
         } // system_icon_destructive__hint_button_right_middle
 
         module confirmation_loc__hint_reject {
-            const x as Number = 208;
-            const horizontalJustification as String = "center";
+            const x as Number = 0;
             const y as Number = 0;
         } // confirmation_loc__hint_reject
 
         module confirmation_icon_dark__hint_delete {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\confirmation_icon__hint_delete.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\confirmation_icon__hint_delete.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // confirmation_icon_dark__hint_delete
 
         module activity_color_dark__background {
@@ -493,15 +461,14 @@ module Rez {
         } // system_icon_positive__hint_button_left_middle
 
         module system_size__menu_icon {
-            const scaleX as Number = 45;
-            const scaleY as Number = 45;
+            const scaleX as Number = 52;
+            const scaleY as Number = 52;
             const scaleRelativeTo as String = "screen";
         } // system_size__menu_icon
 
         module system_icon_destructive__warning {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_destructive__warning.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_destructive__warning.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // system_icon_destructive__warning
 
         module system_loc__hint_button_right_middle {
@@ -509,21 +476,21 @@ module Rez {
         } // system_loc__hint_button_right_middle
 
         module system_icon_dark__cancel {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_dark__cancel.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_dark__cancel.svg";
             const compress as String = "true";
             const dithering as String = "none";
             const automaticPalette as String = "true";
-            const packingFormat as String = "png";
         } // system_icon_dark__cancel
 
         module prompt_size__body_with_title {
-            const width as Number = 333;
-            const height as Number = 229;
+            const width as Number = 320;
+            const height as Number = 220;
         } // prompt_size__body_with_title
 
         module system_loc__hint_button_right_top {
-            const x as Number = 345;
-            const y as Number = 67;
+            const x as Number = 307;
+            const y as Number = 70;
+            const verticalJustification as String = "center";
         } // system_loc__hint_button_right_top
 
         module system_color_light__text {
@@ -532,26 +499,24 @@ module Rez {
         } // system_color_light__text
 
         module system_icon_light__check {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_light__check.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_light__check.svg";
             const compress as String = "true";
             const dithering as String = "none";
             const automaticPalette as String = "true";
-            const packingFormat as String = "png";
         } // system_icon_light__check
 
         module confirmation_input__reject {
             const y1 as Number = 0;
-            const x1 as Number = 79;
-            const y2 as Number = 70;
-            const x2 as Number = 311;
+            const x1 as Number = 0;
+            const y2 as Number = 60;
+            const x2 as Number = 320;
         } // confirmation_input__reject
 
         module system_icon_light__revert {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_light__revert.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_light__revert.svg";
             const compress as String = "true";
             const dithering as String = "none";
             const automaticPalette as String = "true";
-            const packingFormat as String = "png";
         } // system_icon_light__revert
 
         module system_size__subwindow {
@@ -563,27 +528,27 @@ module Rez {
         } // system_icon_positive__hint_button_left_bottom
 
         module system_icon_dark__check {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_dark__check.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_dark__check.svg";
             const compress as String = "true";
             const dithering as String = "none";
             const automaticPalette as String = "true";
-            const packingFormat as String = "png";
         } // system_icon_dark__check
 
         module confirmation_loc__hint_keep {
-            const x as Number = 313;
-            const y as Number = 234;
+            const x as Number = 260;
+            const y as Number = 288;
+            const verticalJustification as String = "center";
         } // confirmation_loc__hint_keep
 
         module confirmation_loc__hint_delete {
-            const x as Number = 324;
-            const y as Number = 19;
+            const x as Number = 260;
+            const y as Number = 70;
+            const verticalJustification as String = "center";
         } // confirmation_loc__hint_delete
 
         module system_icon_positive__hint_action_menu {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_positive__hint_action_menu.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_positive__hint_action_menu.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // system_icon_positive__hint_action_menu
 
         module system_icon_positive__hint_button_right_middle {
@@ -595,61 +560,54 @@ module Rez {
         } // system_icon_light__hint_button_left_middle
 
         module system_icon_dark__hint_button_right_bottom {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_dark__hint_button_right_bottom.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_dark__hint_button_right_bottom.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // system_icon_dark__hint_button_right_bottom
 
         module system_icon_positive__hint_button_right_bottom {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_positive__hint_button_right_bottom.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_positive__hint_button_right_bottom.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // system_icon_positive__hint_button_right_bottom
 
         module system_icon_dark__revert {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_dark__revert.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_dark__revert.svg";
             const compress as String = "true";
             const dithering as String = "none";
             const automaticPalette as String = "true";
-            const packingFormat as String = "png";
         } // system_icon_dark__revert
 
         module confirmation_icon_light__hint_delete {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\confirmation_icon__hint_delete.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\confirmation_icon__hint_delete.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // confirmation_icon_light__hint_delete
 
         module system_icon_dark__question {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_dark__question.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_dark__question.svg";
             const compress as String = "true";
             const dithering as String = "none";
             const automaticPalette as String = "true";
-            const packingFormat as String = "png";
         } // system_icon_dark__question
 
         module system_icon_light__discard {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_light__discard.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_light__discard.svg";
             const compress as String = "true";
             const dithering as String = "none";
             const automaticPalette as String = "true";
-            const packingFormat as String = "png";
         } // system_icon_light__discard
 
         module device_info {
-            const screenWidth as Number = 416;
-            const screenShape = Toybox.System.SCREEN_SHAPE_ROUND;
+            const screenWidth as Number = 320;
+            const screenShape = Toybox.System.SCREEN_SHAPE_RECTANGLE;
             const hasNightMode as Boolean = false;
-            const hasGpu as Boolean = true;
-            const screenHeight as Number = 416;
+            const hasGpu as Boolean = false;
+            const screenHeight as Number = 360;
             const hasTouchScreen as Boolean = true;
             const hasEnhancedReadabilityMode as Boolean = false;
         } // device_info
 
         module confirmation_icon_dark__hint_confirm {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\confirmation_icon__hint_completion.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\confirmation_icon__hint_completion.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // confirmation_icon_dark__hint_confirm
 
         module prompt_font__body_no_title {
@@ -658,21 +616,20 @@ module Rez {
         } // prompt_font__body_no_title
 
         module prompt_size__title_icon {
-            const scaleX as Float = 0.12;
+            const scaleX as Float = 0.14;
             const scaleRelativeTo as String = "screen";
         } // prompt_size__title_icon
 
         module system_icon_dark__warning {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_dark__warning.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_dark__warning.svg";
             const compress as String = "true";
             const dithering as String = "none";
             const automaticPalette as String = "true";
-            const packingFormat as String = "png";
         } // system_icon_dark__warning
 
         module prompt_loc__title_icon {
-            const x as Number = 208;
-            const y as Number = 42;
+            const x as Number = 160;
+            const y as Number = 47;
             const horizontalJustification as String = "center";
             const verticalJustification as String = "center";
         } // prompt_loc__title_icon
@@ -687,26 +644,23 @@ module Rez {
         } // prompt_color_dark__body
 
         module confirmation_icon__hint_delete {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\confirmation_icon__hint_delete.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\confirmation_icon__hint_delete.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // confirmation_icon__hint_delete
 
         module system_icon_light__hint_button_right_top {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_light__hint_button_right_top.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_light__hint_button_right_top.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // system_icon_light__hint_button_right_top
 
         module confirmation_size__body {
-            const width as Number = 246;
-            const height as Number = 250;
+            const width as Number = 320;
+            const height as Number = 220;
         } // confirmation_size__body
 
         module system_icon_positive__check {
-            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venu2\\system_icon_positive__check.svg";
+            const filename as String = "C:\\Users\\ralls\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\venusq2m\\system_icon_positive__check.svg";
             const dithering as String = "none";
-            const packingFormat as String = "png";
         } // system_icon_positive__check
     } // Styles
 } // Rez

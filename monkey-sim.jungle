@@ -1,0 +1,5 @@
+# Simulator UI-test flavor — SIM_TIMER_TEST = true.
+# Boots straight into the live match-timer screen (no BLE hardware).
+# Build:  monkeyc -f monkey-sim.jungle -o bin/rareBitGarmin-sim.prg -d venu2plus -y <key>
+project.manifest = manifest.xml
+base.excludeAnnotations = noSimTest

@@ -92,6 +92,15 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         // Declare the GATT profile we intend to access.
         // Must be done before pairDevice() is called.
         _registerProfile();
+
+        if (SIM_TIMER_TEST) {
+            // Simulator UI test — skip the BLE flow and boot straight
+            // into the live match-timer screen, both ARs linked.
+            _state   = BLE_SUBSCRIBED;
+            _status  = "SIM TEST MODE";
+            _linked1 = true;
+            _linked2 = true;
+        }
     }
 
     hidden function _registerProfile() as Void {
@@ -268,6 +277,7 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         status as BluetoothLowEnergy.Status) as Void
     {
         System.println("BLE: onProfileRegister status=" + status);
+        if (SIM_TIMER_TEST) { return; }  // sim test — stay in forced SUBSCRIBED state
         if (status == BluetoothLowEnergy.STATUS_SUCCESS) {
             _status = "Profile OK. Tap SELECT to start scanning.";
         } else {
@@ -536,6 +546,17 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
             new Attention.VibeProfile(  0,  80),
             new Attention.VibeProfile(100,  80)
         ]);
+    }
+
+    // ----------------------------------------------------------
+    //  Sim-test hook — open an AR's alert-flash window without BLE
+    //  traffic (wired to menu items only in the SIM_TIMER_TEST build).
+    // ----------------------------------------------------------
+    function simulateAlert(arNum as Number) as Void {
+        var until = System.getTimer() + ALERT_BLINK_MS;
+        if (arNum == 1) { _alert1Until = until; }
+        else            { _alert2Until = until; }
+        WatchUi.requestUpdate();
     }
 
     // ----------------------------------------------------------

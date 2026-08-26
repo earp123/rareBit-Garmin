@@ -1,62 +1,78 @@
 // ============================================================
 // MatchMenu.mc — settings UI for the match timer.
 //
-// MENU on the live screen opens a native Menu2 (renders well on
-// round screens):
+// BACK (or MENU) on the live screen opens a native Menu2:
+//   Interval    — MM:SS picker with up/down arrows per field
+//   Half        — 1st / 2nd submenu; 2nd bases the count-up at
+//                 the interval (counts up from e.g. 45:00)
+//                 instead of 00:00
 //   Reset Timer
-//   Half      — toggles the count-up base: 1st = 00:00,
-//               2nd = the selected interval (e.g. 45:00)
-//   Interval  — presets 5..45 min in 5-min steps, plus a
-//               Custom picker for any 1-99 min value
+//   Disconnect  — drops the BLE link, back to the scanner
 //
-// Selecting an interval (preset or custom) resets the timer and
-// returns straight to the live screen.
+// Confirming a picker / submenu selection pops straight back to
+// the live screen.
 // ============================================================
 
 import Toybox.Graphics;
 import Toybox.Lang;
+import Toybox.System;
 import Toybox.WatchUi;
 
-function pushMatchMenu(mt as MatchTimer) as Void {
-    var menu = new WatchUi.Menu2({:title => "Match"});
-    menu.addItem(new WatchUi.MenuItem("Reset Timer", null, :reset, null));
+function pushMatchMenu(mt as MatchTimer, ble as BleManager) as Void {
+    var menu = new WatchUi.Menu2({:title => "Settings"});
+    menu.addItem(new WatchUi.MenuItem("Interval", mt.formatInterval(), :interval, null));
     menu.addItem(new WatchUi.MenuItem("Half", _halfSubLabel(mt), :half, null));
-    menu.addItem(new WatchUi.MenuItem("Interval",
-        mt.getIntervalMin().toString() + " min", :interval, null));
-    WatchUi.pushView(menu, new MatchMenuDelegate(mt), WatchUi.SLIDE_UP);
+    menu.addItem(new WatchUi.MenuItem("Reset Timer", null, :reset, null));
+    menu.addItem(new WatchUi.MenuItem("Disconnect", null, :disconnect, null));
+    if (SIM_TIMER_TEST) {
+        // Sim build only — preview the paging-alert flash.
+        menu.addItem(new WatchUi.MenuItem("Test Alert 1", null, :simAlert1, null));
+        menu.addItem(new WatchUi.MenuItem("Test Alert 2", null, :simAlert2, null));
+    }
+    WatchUi.pushView(menu, new MatchMenuDelegate(mt, ble), WatchUi.SLIDE_UP);
 }
 
 function _halfSubLabel(mt as MatchTimer) as String {
     return mt.isSecondHalf()
-        ? "2nd — up from " + mt.getIntervalMin().format("%02d") + ":00"
+        ? "2nd — up from " + mt.formatInterval()
         : "1st — up from 00:00";
 }
 
 class MatchMenuDelegate extends WatchUi.Menu2InputDelegate {
 
-    hidden var _mt as MatchTimer;
+    hidden var _mt  as MatchTimer;
+    hidden var _ble as BleManager;
 
-    function initialize(mt as MatchTimer) {
+    function initialize(mt as MatchTimer, ble as BleManager) {
         Menu2InputDelegate.initialize();
-        _mt = mt;
+        _mt  = mt;
+        _ble = ble;
     }
 
     function onSelect(item as WatchUi.MenuItem) as Void {
         var id = item.getId();
-        if (id == :reset) {
+        if (id == :interval) {
+            var view = new IntervalPickerView(
+                _mt.getIntervalMinPart(), _mt.getIntervalSecPart());
+            WatchUi.pushView(view,
+                new IntervalPickerDelegate(_mt, view), WatchUi.SLIDE_LEFT);
+        } else if (id == :half) {
+            var menu = new WatchUi.Menu2({:title => "Half"});
+            menu.addItem(new WatchUi.MenuItem("1st",
+                "count up from 00:00", :first, null));
+            menu.addItem(new WatchUi.MenuItem("2nd",
+                "count up from " + _mt.formatInterval(), :second, null));
+            menu.setFocus(_mt.isSecondHalf() ? 1 : 0);
+            WatchUi.pushView(menu, new HalfMenuDelegate(_mt), WatchUi.SLIDE_LEFT);
+        } else if (id == :reset) {
             _mt.reset();
             WatchUi.popView(WatchUi.SLIDE_DOWN);
-        } else if (id == :half) {
-            _mt.setSecondHalf(!_mt.isSecondHalf());
-            item.setSubLabel(_halfSubLabel(_mt));
-            WatchUi.requestUpdate();
-        } else if (id == :interval) {
-            var menu = new WatchUi.Menu2({:title => "Interval"});
-            for (var m = 5; m <= 45; m += 5) {
-                menu.addItem(new WatchUi.MenuItem(m.toString() + " min", null, m, null));
-            }
-            menu.addItem(new WatchUi.MenuItem("Custom", null, :custom, null));
-            WatchUi.pushView(menu, new IntervalMenuDelegate(_mt), WatchUi.SLIDE_LEFT);
+        } else if (id == :disconnect) {
+            WatchUi.popView(WatchUi.SLIDE_DOWN);
+            _ble.disconnect();
+        } else if (id == :simAlert1 || id == :simAlert2) {
+            WatchUi.popView(WatchUi.SLIDE_DOWN);
+            _ble.simulateAlert(id == :simAlert1 ? 1 : 2);
         }
     }
 
@@ -65,7 +81,7 @@ class MatchMenuDelegate extends WatchUi.Menu2InputDelegate {
     }
 }
 
-class IntervalMenuDelegate extends WatchUi.Menu2InputDelegate {
+class HalfMenuDelegate extends WatchUi.Menu2InputDelegate {
 
     hidden var _mt as MatchTimer;
 
@@ -75,18 +91,10 @@ class IntervalMenuDelegate extends WatchUi.Menu2InputDelegate {
     }
 
     function onSelect(item as WatchUi.MenuItem) as Void {
-        var id = item.getId();
-        if (id == :custom) {
-            var view = new CustomIntervalView(_mt.getIntervalMin());
-            WatchUi.pushView(view,
-                new CustomIntervalDelegate(_mt, view), WatchUi.SLIDE_LEFT);
-        } else {
-            _mt.setIntervalMin(id as Number);
-            // Pop the interval menu and the settings menu — land on
-            // the live screen ready to start.
-            WatchUi.popView(WatchUi.SLIDE_DOWN);
-            WatchUi.popView(WatchUi.SLIDE_DOWN);
-        }
+        _mt.setSecondHalf(item.getId() == :second);
+        // Pop the half submenu and the settings menu — back to live.
+        WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+        WatchUi.popView(WatchUi.SLIDE_DOWN);
     }
 
     function onBack() as Void {
@@ -95,89 +103,178 @@ class IntervalMenuDelegate extends WatchUi.Menu2InputDelegate {
 }
 
 // ------------------------------------------------------------
-//  Custom interval picker — swipe up/down (or page buttons) to
-//  adjust minutes, SELECT/tap to set, BACK to cancel.
+//  Interval picker — MM:SS with up/down arrows per field.
+//
+//  Touch zones (thirds of the screen height):
+//    top third     — increment (left half = minutes, right = seconds)
+//    bottom third  — decrement (same left/right split)
+//    middle third  — confirm and return to the live screen
+//  SELECT also confirms; BACK returns to the settings menu.
+//  Swipes (page keys) adjust the minutes.
 // ------------------------------------------------------------
 
-class CustomIntervalView extends WatchUi.View {
+const IVP_SEC_STEP = 15;   // seconds field step per arrow tap
+
+class IntervalPickerView extends WatchUi.View {
 
     var minutes as Number;
+    var seconds as Number;
 
-    function initialize(initial as Number) {
+    // Tap-zone boundaries, set from the real drawn geometry each
+    // onUpdate() so the hit zones always match the arrows: above the
+    // digit band = increment, below = decrement, the band = confirm.
+    var zoneTop as Number = 0;
+    var zoneBot as Number = 0;
+
+    function initialize(minutes0 as Number, seconds0 as Number) {
         View.initialize();
-        minutes = initial;
+        minutes = minutes0;
+        seconds = seconds0;
     }
 
     function onUpdate(dc as Graphics.Dc) as Void {
         var w  = dc.getWidth();
         var h  = dc.getHeight();
         var cx = w / 2;
+        var cy = h / 2;
 
         dc.setColor(C_BG, C_BG);
         dc.clear();
 
-        // All anchors sit near the vertical center column, so the
-        // layout stays inside a round screen's usable area.
         dc.setColor(C_TEXT_SEC, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, (h * 0.20).toNumber(), Graphics.FONT_TINY,
-            "CUSTOM INTERVAL",
+        dc.drawText(cx, (h * 0.16).toNumber(), Graphics.FONT_TINY, "INTERVAL",
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
+        // MM : SS — fields flank the colon on the center column.
+        var font = Graphics.FONT_NUMBER_MEDIUM;
+        var off  = (w * 0.16).toNumber();
         dc.setColor(C_TEXT_PRI, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, (h * 0.45).toNumber(), Graphics.FONT_NUMBER_MEDIUM,
-            minutes.toString(),
+        dc.drawText(cx, cy, font, ":",
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(cx - off, cy, font, minutes.format("%02d"),
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(cx + off, cy, font, seconds.format("%02d"),
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
+        // Up / down arrows above and below each field.
+        var digitH = (dc.getFontHeight(font) * CD_VIS_SCALE).toNumber();
+        var arrOff = digitH / 2 + (h * 0.07).toNumber();
+        var arrW   = (w * 0.045).toNumber();
+
+        // Publish the tap zones: the digit band confirms, everything
+        // above/below it (arrows included) adjusts.
+        zoneTop = cy - digitH / 2 - 4;
+        zoneBot = cy + digitH / 2 + 4;
         dc.setColor(C_TEXT_SEC, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, (h * 0.64).toNumber(), Graphics.FONT_TINY, "min",
-            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        _drawArrow(dc, cx - off, cy - arrOff, arrW, true);
+        _drawArrow(dc, cx + off, cy - arrOff, arrW, true);
+        _drawArrow(dc, cx - off, cy + arrOff, arrW, false);
+        _drawArrow(dc, cx + off, cy + arrOff, arrW, false);
 
         dc.setColor(C_HINT, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, (h * 0.82).toNumber(), Graphics.FONT_TINY,
-            "swipe to adjust — tap to set",
+        dc.drawText(cx, (h * 0.84).toNumber(), Graphics.FONT_TINY,
+            "tap middle to set",
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+    }
+
+    // Solid triangle centered at (x, y); up or down.
+    hidden function _drawArrow(
+        dc    as Graphics.Dc,
+        x     as Number,
+        y     as Number,
+        halfW as Number,
+        up    as Boolean) as Void
+    {
+        var hh = (halfW * 0.8).toNumber();
+        if (up) {
+            dc.fillPolygon([[x, y - hh], [x + halfW, y + hh], [x - halfW, y + hh]]);
+        } else {
+            dc.fillPolygon([[x, y + hh], [x + halfW, y - hh], [x - halfW, y - hh]]);
+        }
     }
 }
 
-class CustomIntervalDelegate extends WatchUi.BehaviorDelegate {
+// Raw InputDelegate, NOT BehaviorDelegate: a BehaviorDelegate turns
+// touchscreen taps into the select behavior (onSelect) before the raw
+// onTap handler ever runs — observed in the simulator, where every
+// arrow tap confirmed instead of adjusting.  At the InputDelegate
+// level taps arrive with coordinates, untranslated.
+class IntervalPickerDelegate extends WatchUi.InputDelegate {
 
     hidden var _mt   as MatchTimer;
-    hidden var _view as CustomIntervalView;
+    hidden var _view as IntervalPickerView;
 
-    function initialize(mt as MatchTimer, view as CustomIntervalView) {
-        BehaviorDelegate.initialize();
+    function initialize(mt as MatchTimer, view as IntervalPickerView) {
+        InputDelegate.initialize();
         _mt   = mt;
         _view = view;
     }
 
-    function onNextPage() as Boolean { _bump(1);  return true; }
-    function onPreviousPage() as Boolean { _bump(-1); return true; }
-
-    hidden function _bump(delta as Number) as Void {
-        var v = _view.minutes + delta;
-        if (v < 1)  { v = 1;  }
-        if (v > 99) { v = 99; }
-        _view.minutes = v;
-        WatchUi.requestUpdate();
-    }
-
-    function onSelect() as Boolean { return _confirm(); }
-
     function onTap(clickEvent as WatchUi.ClickEvent) as Boolean {
+        var xy = clickEvent.getCoordinates();
+        var ds = System.getDeviceSettings();
+        var isMin = xy[0] < ds.screenWidth / 2;
+
+        // Zone boundaries come from the view's drawn geometry; fall
+        // back to screen thirds if a tap somehow beats the first draw.
+        var top = (_view.zoneBot > 0) ? _view.zoneTop : ds.screenHeight / 3;
+        var bot = (_view.zoneBot > 0) ? _view.zoneBot : ds.screenHeight * 2 / 3;
+        System.println("IVP: tap " + xy[0] + "," + xy[1] +
+            " zones=[" + top + "," + bot + "]");
+
+        if (xy[1] < top) {
+            _bump(isMin, 1);
+            return true;
+        }
+        if (xy[1] > bot) {
+            _bump(isMin, -1);
+            return true;
+        }
         return _confirm();
     }
 
-    hidden function _confirm() as Boolean {
-        _mt.setIntervalMin(_view.minutes);
-        // Pop picker, interval menu, and settings menu — back to live.
-        WatchUi.popView(WatchUi.SLIDE_DOWN);
-        WatchUi.popView(WatchUi.SLIDE_DOWN);
-        WatchUi.popView(WatchUi.SLIDE_DOWN);
+    function onKey(keyEvent as WatchUi.KeyEvent) as Boolean {
+        var k = keyEvent.getKey();
+        if (k == WatchUi.KEY_ENTER || k == WatchUi.KEY_START) {
+            return _confirm();
+        }
+        if (k == WatchUi.KEY_ESC) {
+            // BACK — cancel, return to the settings menu.
+            WatchUi.popView(WatchUi.SLIDE_RIGHT);
+            return true;
+        }
+        return false;
+    }
+
+    // Swallow swipes — adjustment is by tapping the arrows only.
+    function onSwipe(swipeEvent as WatchUi.SwipeEvent) as Boolean {
         return true;
     }
 
-    function onBack() as Boolean {
+    hidden function _bump(isMinutes as Boolean, dir as Number) as Void {
+        if (isMinutes) {
+            var m = _view.minutes + dir;
+            if (m < 0)  { m = 99; }
+            if (m > 99) { m = 0;  }
+            _view.minutes = m;
+        } else {
+            var s = _view.seconds + dir * IVP_SEC_STEP;
+            if (s < 0)  { s = 60 - IVP_SEC_STEP; }
+            if (s > 59) { s = 0; }
+            _view.seconds = s;
+        }
+        // Never allow a 00:00 interval.
+        if (_view.minutes == 0 && _view.seconds == 0) {
+            _view.seconds = IVP_SEC_STEP;
+        }
+        WatchUi.requestUpdate();
+    }
+
+    hidden function _confirm() as Boolean {
+        _mt.setInterval(_view.minutes, _view.seconds);
+        // Pop the picker and the settings menu — back to live, ready.
         WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+        WatchUi.popView(WatchUi.SLIDE_DOWN);
         return true;
     }
 }

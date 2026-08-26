@@ -21,7 +21,8 @@
             <iq:product id="venu3s"/>
             <iq:product id="venu441mm"/>
             <iq:product id="venu445mm"/>
-            <iq:product id="venusq2"/>
+            <!-- venusq2 (non-Music) removed: no Toybox.BluetoothLowEnergy
+                 support on that device — app crashed at launch there. -->
             <iq:product id="venusq2m"/>
             <iq:product id="venux1"/>
             <iq:product id="vivoactive5"/>

@@ -1,3 +1,9 @@
 <drawables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
-    <bitmap id="LauncherIcon" filename="launcher_icon.svg" dithering="none" />
+    <!-- Watch-sized PNGs generated from the full-res masters in
+         /assets — regenerate from there if the art changes, don't
+         edit these directly. -->
+    <bitmap id="LauncherIcon" filename="launcher_icon.png" dithering="none" />
+    <!-- AR paging-alert icon: drawn at native size, flashed with the
+         AR number beside it during an alert window. -->
+    <bitmap id="ArIcon" filename="ar_icon.png" dithering="none" />
 </drawables>

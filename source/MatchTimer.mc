@@ -84,12 +84,16 @@ class MatchTimer {
     // ----------------------------------------------------------
 
     // Changing the interval resets the timer — pick, then kick off.
-    function setIntervalMin(minutes as Number) as Void {
-        _intervalMs = minutes * 60 * 1000;
+    function setInterval(minutes as Number, seconds as Number) as Void {
+        _intervalMs = (minutes * 60 + seconds) * 1000;
         reset();
     }
 
-    function getIntervalMin() as Number { return _intervalMs / 60000; }
+    function getIntervalMinPart() as Number { return _intervalMs / 60000; }
+    function getIntervalSecPart() as Number { return (_intervalMs / 1000) % 60; }
+
+    // Interval as "MM:SS" for menu labels and half sublabels.
+    function formatInterval() as String { return _fmt(_intervalMs / 1000); }
 
     // 2nd half bases the count-up at the interval instead of 00:00.
     function setSecondHalf(second as Boolean) as Void { _secondHalf = second; }

@@ -17,6 +17,7 @@
 
 import Toybox.Graphics;
 import Toybox.Lang;
+import Toybox.Math;
 import Toybox.System;
 import Toybox.Timer;
 import Toybox.WatchUi;
@@ -44,6 +45,16 @@ const CARD_W_PCT  = 0.72; // card width as fraction of screen width
 const DOT_R       = 5;    // state dot radius px
 const SPINNER_PW  = 4;    // spinner arc pen width px
 
+// Garmin number fonts report ~40-50% more height than the visual
+// glyphs (metric padding).  Scale down for stacking math so the
+// count-up / AR row hug the digits instead of the padded box.
+// 0.55 was validated on-device by the earlier timer branch.
+const CD_VIS_SCALE = 0.55;
+
+// Vector-font sizing: digit (cap) height as a fraction of the
+// requested em size — Roboto lining figures are ≈ 0.71 em.
+const CD_VEC_CAP = 0.70;
+
 class myGarminAppView extends WatchUi.View {
 
     hidden var _ble          as BleManager;
@@ -52,19 +63,35 @@ class myGarminAppView extends WatchUi.View {
     hidden var _tickPeriod   as Number  = 0;   // current tick period ms, 0 = stopped
     hidden var _animFrame    as Number  = 0;   // 0-11 (spinner uses %6, blink uses %4)
     hidden var _isRound      as Boolean = false;
+    hidden var _arIcon       as Graphics.BitmapType;   // paging-alert icon
+
+    // Live-screen layout — computed once in onLayout().  _cdFont is
+    // the largest number font that fits this screen; _cdVisH its
+    // approximate visual glyph height (font height × CD_VIS_SCALE).
+    // The whole stack (AR row / countdown / count-up) is centered in
+    // the band between the top margin and the hint line, so these
+    // anchors replace the generic mainY anchor on the live screen.
+    hidden var _cdFont       as Graphics.FontDefinition = Graphics.FONT_NUMBER_MEDIUM;
+    hidden var _cdVisH       as Number  = 0;
+    hidden var _cdY          as Number  = 0;   // countdown vertical midpoint
+    hidden var _symY         as Number  = 0;   // AR symbol row midpoint
+    hidden var _cuY          as Number  = 0;   // count-up vertical midpoint
 
     function initialize(ble as BleManager, matchTimer as MatchTimer) {
         View.initialize();
         _ble        = ble;
         _matchTimer = matchTimer;
         _timer      = new Timer.Timer();
+        _arIcon     = WatchUi.loadResource(Rez.Drawables.ArIcon) as Graphics.BitmapType;
         // Detect screen shape once — doesn't change at runtime
         var shape = System.getDeviceSettings().screenShape;
         _isRound = (shape == System.SCREEN_SHAPE_ROUND ||
                     shape == System.SCREEN_SHAPE_SEMI_ROUND);
     }
 
-    function onLayout(dc as Graphics.Dc) as Void { }
+    function onLayout(dc as Graphics.Dc) as Void {
+        _pickCountdownFont(dc);
+    }
 
     function onShow() as Void {
         _syncTimer();
@@ -100,8 +127,12 @@ class myGarminAppView extends WatchUi.View {
         var txtY  = safeT + (safeH * 0.88).toNumber();
 
         // ── State dot ────────────────────────────────────────
-        dc.setColor(_accentColor(state), Graphics.COLOR_TRANSPARENT);
-        dc.fillCircle(cx, dotY, DOT_R);
+        // Skipped on the live screen — that headroom goes to the AR
+        // row so the countdown font can take the largest size.
+        if (state != BLE_SUBSCRIBED) {
+            dc.setColor(_accentColor(state), Graphics.COLOR_TRANSPARENT);
+            dc.fillCircle(cx, dotY, DOT_R);
+        }
 
         // ── Main area ────────────────────────────────────────
         _drawMain(dc, w, cx, mainY, state);
@@ -238,85 +269,155 @@ class myGarminAppView extends WatchUi.View {
         cx as Number,
         cy as Number) as Void
     {
-        // ── Countdown — big numbers, center stage ────────────
+        // ── Countdown — biggest font this screen can hold ────
+        // All vertical anchors were precomputed in onLayout().
         var cdColor = _matchTimer.isRunning()
             ? (_matchTimer.isExpired() ? C_ACC_ALERT : C_TEXT_PRI)
             : C_TEXT_SEC;
         dc.setColor(cdColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, cy, Graphics.FONT_NUMBER_MEDIUM,
+        dc.drawText(cx, _cdY, _cdFont,
             _matchTimer.formatCountdown(),
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
         // ── Count-up — secondary, right below the countdown ──
-        var fhCd = dc.getFontHeight(Graphics.FONT_NUMBER_MEDIUM);
-        var fhCu = dc.getFontHeight(Graphics.FONT_MEDIUM);
-        var cuY  = cy + fhCd / 2 + fhCu / 2 + 2;
         dc.setColor(C_COUNTUP, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, cuY, Graphics.FONT_MEDIUM,
+        dc.drawText(cx, _cuY, Graphics.FONT_MEDIUM,
             _matchTimer.formatCountUp(),
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
-        // ── AR symbol row above the digits ───────────────────
-        // Show a symbol while linked, or while its alert is still
-        // blinking (so an alert stays visible even on an unlink race).
-        var show1 = _ble.getLinked1() || _ble.isAlerting1();
-        var show2 = _ble.getLinked2() || _ble.isAlerting2();
-        if (!show1 && !show2) { return; }
+        // ── Paging-alert flash above the digits ──────────────
+        // Idle: nothing — the live screen is just the timers.  During
+        // an AR's alert window the AR icon flashes (300 ms phases)
+        // with the AR number beside it.
+        var a1 = _ble.isAlerting1();
+        var a2 = _ble.isAlerting2();
+        if (!a1 && !a2) { return; }
+        if ((_animFrame % 4) >= 2) { return; }     // flash off-phase
 
-        var r       = (w * 0.07).toNumber();       // symbol radius
-        var symY    = cy - fhCd / 2 - r - 6;
-        var blinkOn = (_animFrame % 4) < 2;        // 300 ms on / 300 ms off
-
-        if (show1 && show2) {
-            var off = (w * 0.12).toNumber();
-            _drawArSymbol(dc, cx - off, symY, r, 1, _ble.isAlerting1() && blinkOn);
-            _drawArSymbol(dc, cx + off, symY, r, 2, _ble.isAlerting2() && blinkOn);
-        } else if (show1) {
-            _drawArSymbol(dc, cx, symY, r, 1, _ble.isAlerting1() && blinkOn);
-        } else {
-            _drawArSymbol(dc, cx, symY, r, 2, _ble.isAlerting2() && blinkOn);
-        }
+        var num    = a1 ? (a2 ? "1 2" : "1") : "2";
+        var iconW  = _arIcon.getWidth();
+        var iconH  = _arIcon.getHeight();
+        var gap    = 8;
+        var numW   = dc.getTextWidthInPixels(num, Graphics.FONT_LARGE);
+        var left   = cx - (iconW + gap + numW) / 2;
+        dc.drawBitmap(left, _symY - iconH / 2, _arIcon);
+        dc.setColor(C_ACC_ALERT, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(left + iconW + gap, _symY, Graphics.FONT_LARGE, num,
+            Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
-    // Draw one AR symbol centered at (x, y) with circumradius r.
-    // contrast=true draws the alert-blink contrast symbol instead
-    // of the AR's default shape.
-    hidden function _drawArSymbol(
-        dc       as Graphics.Dc,
-        x        as Number,
-        y        as Number,
-        r        as Number,
-        arNum    as Number,
-        contrast as Boolean) as Void
-    {
-        if (contrast) {
-            // Contrast symbol — filled diamond, number inverted.
-            dc.setColor(C_ACC_ALERT, Graphics.COLOR_TRANSPARENT);
-            dc.fillPolygon([[x, y - r], [x + r, y], [x, y + r], [x - r, y]]);
-            dc.setColor(C_BG, Graphics.COLOR_TRANSPARENT);
+    // ----------------------------------------------------------
+    //  Countdown font selection — run once per layout.
+    //
+    //  Seeing the timer at a glance is this app's top priority: the
+    //  countdown is dead-centered on the screen and there is no hint
+    //  line on the live screen.  The only hard floor is the count-up
+    //  fitting between the digits and the bottom of the screen (disc
+    //  chord on round faces).  The AR symbol row is NOT reserved —
+    //  it floats in whatever gap remains above the digits (clamped
+    //  to the screen edge).
+    //
+    //  Two candidates compete and the taller countdown wins:
+    //   1. the largest system number font that fits, and
+    //   2. a vector font (CIQ 4.2.1+, needs scalable faces on the
+    //      device — venu3-gen and newer; returns null elsewhere)
+    //      sized continuously against the same constraints.
+    //
+    //  Width limit: rectangle screens use the full width; round
+    //  screens use the chord at the digits' top/bottom rows, so a
+    //  tall font can never push its corners off the disc.
+    // ----------------------------------------------------------
+    hidden function _pickCountdownFont(dc as Graphics.Dc) as Void {
+        var h = dc.getHeight();
+        var c = h / 2;
+
+        var cuVis = (dc.getFontHeight(Graphics.FONT_MEDIUM) * 0.60).toNumber();
+
+        // Lowest row the count-up's bottom may reach: screen bottom on
+        // rectangles, or the disc row where the chord still clears the
+        // count-up's own width on round screens.
+        var maxYB;
+        if (_isRound) {
+            var cuHalf = dc.getTextWidthInPixels("88:88", Graphics.FONT_MEDIUM) / 2 + 6;
+            maxYB = c + Math.sqrt((c * c - cuHalf * cuHalf).toFloat()).toNumber() - 2;
         } else {
-            dc.setPenWidth(3);
-            dc.setColor(C_ACC_LIVE, Graphics.COLOR_TRANSPARENT);
-            if (arNum == 1) {
-                dc.drawCircle(x, y, r);
-            } else {
-                // Triangle with vertices on the circumradius (centroid = center)
-                var ax = x;
-                var ay = y - r;
-                var bx = x - (r * 0.87).toNumber();
-                var by = y + (r * 0.5).toNumber();
-                var ex = x + (r * 0.87).toNumber();
-                var ey = y + (r * 0.5).toNumber();
-                dc.drawLine(ax, ay, bx, by);
-                dc.drawLine(bx, by, ex, ey);
-                dc.drawLine(ex, ey, ax, ay);
+            maxYB = h - 4;
+        }
+        // Countdown is centered at c, so its half-height is bounded by
+        // what still leaves room for the count-up below.
+        var maxVis = (maxYB - 2 - cuVis - c) * 2;
+
+        // ── Candidate 1: largest fitting system number font ──
+        var bestFont = Graphics.FONT_NUMBER_MILD as Graphics.FontType;
+        var bestVis  = (dc.getFontHeight(Graphics.FONT_NUMBER_MILD) * CD_VIS_SCALE).toNumber();
+        var fonts = [
+            Graphics.FONT_NUMBER_THAI_HOT,
+            Graphics.FONT_NUMBER_HOT,
+            Graphics.FONT_NUMBER_MEDIUM
+        ] as Array<Graphics.FontDefinition>;
+        for (var i = 0; i < fonts.size(); i++) {
+            var vis = (dc.getFontHeight(fonts[i]) * CD_VIS_SCALE).toNumber();
+            if (vis <= maxVis &&
+                dc.getTextWidthInPixels("88:88", fonts[i]) <= _cdMaxWidth(dc, vis)) {
+                bestFont = fonts[i];
+                bestVis  = vis;
+                break;
             }
-            dc.setPenWidth(1);
-            dc.setColor(C_TEXT_PRI, Graphics.COLOR_TRANSPARENT);
         }
 
-        dc.drawText(x, y, Graphics.FONT_SMALL, arNum.toString(),
-            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        // ── Candidate 2: vector font, sized to the same budget ──
+        // Binary-search the largest glyph height whose "88:88" fits
+        // its own row's chord.  Only adopted when it beats the system
+        // font — on devices whose widest available face is plain
+        // Roboto (e.g. venu3-gen) THAI_HOT may win; the Condensed
+        // faces on CIQ-6 devices are where it pays.
+        var usedVector = false;
+        if (Graphics has :getVectorFont) {
+            var lo = bestVis;      // floor: must beat this
+            var hi = maxVis;       // ceiling: height budget
+            for (var iter = 0; iter < 7 && hi - lo > 2; iter++) {
+                var vis = (lo + hi) / 2;
+                var vf  = Graphics.getVectorFont(
+                    {:face => ["RobotoCondensedBold", "RobotoCondensedRegular",
+                               "RobotoRegular", "Roboto"],
+                     :size => (vis / CD_VEC_CAP).toNumber()});
+                if (vf != null &&
+                    dc.getTextWidthInPixels("88:88", vf) <= _cdMaxWidth(dc, vis)) {
+                    bestFont   = vf;
+                    bestVis    = vis;
+                    usedVector = true;
+                    lo = vis;      // fits — try bigger
+                } else {
+                    hi = vis;      // too wide (or size capped) — go smaller
+                }
+            }
+        }
+
+        // ── Apply: countdown centered, count-up below, alert above ──
+        var iconHalf = _arIcon.getHeight() / 2;
+        _cdFont = bestFont;
+        _cdVisH = bestVis;
+        _cdY    = c;
+        _cuY    = c + bestVis / 2 + 2 + cuVis / 2;
+        // The alert flash floats above the digits; clamp to the screen
+        // edge and accept overlap on tight screens — the timer wins.
+        _symY = c - bestVis / 2 - 6 - iconHalf;
+        if (_symY < iconHalf + 2) { _symY = iconHalf + 2; }
+        System.println("View: countdown visH=" + _cdVisH + " cdY=" + _cdY +
+            " vector=" + (usedVector ? "yes" : "no"));
+    }
+
+    // Max countdown text width with the digits centered on the screen:
+    // rectangles use the full width, round screens the chord at the
+    // digits' top/bottom rows (dy = vis/2 from the disc center).
+    hidden function _cdMaxWidth(dc as Graphics.Dc, vis as Number) as Number {
+        var w = dc.getWidth();
+        if (!_isRound) { return w - 12; }
+        var c  = dc.getHeight() / 2;
+        var dy = vis / 2;
+        if (dy >= c) { return 0; }
+        var half = Math.sqrt((c * c - dy * dy).toFloat());
+        return (half.toNumber() - 6) * 2;
     }
 
     // ----------------------------------------------------------
@@ -406,11 +507,8 @@ class myGarminAppView extends WatchUi.View {
         if (state == BLE_FOUND)      { return "tap  |  back=rescan"; }
         if (state == BLE_CONNECTING) { return "connecting...";     }
         if (state == BLE_CONNECTED)  { return "enabling notify..."; }
-        if (state == BLE_SUBSCRIBED) {
-            if (_matchTimer.isRunning())          { return "tap to pause"; }
-            if (_matchTimer.getElapsedMs() > 0)   { return "tap=resume  menu=settings"; }
-            return "tap=start  menu=settings";
-        }
+        // BLE_SUBSCRIBED: no hint — the live screen gives every pixel
+        // to the timer (BACK opens the settings menu).
         if (state == BLE_ERROR)      { return _ble.getStatus();    }
         return "";
     }
