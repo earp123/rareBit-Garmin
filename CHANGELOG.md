@@ -75,6 +75,14 @@ simulator test build, and a Venu Sq 2 launch-crash fix.
 
 ### Fixed
 
+- **AR2 alert crash while the match timer runs** — the AR2 haptic chained
+  its bursts through two one-shot `Timer.Timer`s; with the view's tick timer
+  and the match timer's expiry one-shot already holding slots, the chain
+  blew the CIQ concurrent-timer limit ("Too Many Timers") — which is why it
+  only crashed with the timer running. The pattern is now four 500 ms buzzes
+  with 150 ms gaps (~2.5 s) encoded in a single `Attention.vibrate()` call,
+  zero timers — same class of fix the old timer branch used for its haptic
+  crash. `_buzzTimer` / `_buzzTimer2` are gone entirely.
 - **Venu Sq 2 (non-Music) removed from the manifest** — the base model has no
   `Toybox.BluetoothLowEnergy` module (only Venu Sq 2 Music does, per Garmin's
   API docs), so the app crashed at launch ("Symbol Not Found" instantiating

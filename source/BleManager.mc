@@ -72,16 +72,12 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
     hidden var _alert2Until  as Number       = 0;      // System.getTimer() deadline for AR2 blink
     hidden var _notifLocked  as Boolean      = false;  // true during 3 s post-connect gate
     hidden var _notifTimer   as Timer.Timer;           // one-shot to clear the lock
-    hidden var _buzzTimer    as Timer.Timer;           // one-shot to chain second buzz burst
-    hidden var _buzzTimer2   as Timer.Timer;           // one-shot to chain third buzz burst
     hidden var _svcUuid      as BluetoothLowEnergy.Uuid;
     hidden var _charUuid     as BluetoothLowEnergy.Uuid;
 
     function initialize() {
         BleDelegate.initialize();
         _notifTimer = new Timer.Timer();
-        _buzzTimer  = new Timer.Timer();
-        _buzzTimer2 = new Timer.Timer();
 
         _svcUuid  = BluetoothLowEnergy.stringToUuid(TARGET_SERVICE_UUID_STR);
         _charUuid = BluetoothLowEnergy.stringToUuid(TARGET_CHAR_UUID_STR);
@@ -527,24 +523,22 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         ]);
     }
 
-    // Staccato AR2 alert — two 3-tap bursts chained via _buzzTimer.
-    // Burst duration: 3 taps × 160 ms = 480 ms. Gap before burst 2: 300 ms.
+    // AR2 alert — four long buzzes with short gaps (~2.5 s total),
+    // encoded as a SINGLE vibrate call.  The old version chained
+    // bursts through two one-shot Timers; with the match timer
+    // running (view tick + expiry one-shot already holding slots)
+    // that blew the CIQ concurrent-timer limit and crashed.  Zero
+    // timers this way.  Distinct from AR1's single continuous buzz.
     hidden function _buzzAlert2() as Void {
         if (!(Attention has :vibrate)) { return; }
-        _buzzTriplet();
-        _buzzTimer.start(method(:_buzzTriplet),  480, false);
-        _buzzTimer2.start(method(:_buzzTriplet), 960, false);
-    }
-
-    // Three-tap burst. Public so method(:) can reference it as a callback.
-    function _buzzTriplet() as Void {
-        if (!(Attention has :vibrate)) { return; }
         Attention.vibrate([
-            new Attention.VibeProfile(100,  80),
-            new Attention.VibeProfile(  0,  80),
-            new Attention.VibeProfile(100,  80),
-            new Attention.VibeProfile(  0,  80),
-            new Attention.VibeProfile(100,  80)
+            new Attention.VibeProfile(100, 500),
+            new Attention.VibeProfile(  0, 150),
+            new Attention.VibeProfile(100, 500),
+            new Attention.VibeProfile(  0, 150),
+            new Attention.VibeProfile(100, 500),
+            new Attention.VibeProfile(  0, 150),
+            new Attention.VibeProfile(100, 500)
         ]);
     }
 
