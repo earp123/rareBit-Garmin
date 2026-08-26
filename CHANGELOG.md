@@ -6,8 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased] — 2026-08-25
 
-Countdown maximization and centering, settings menu on BACK, MM:SS intervals,
-simulator test build, and a Venu Sq 2 launch-crash fix.
+Field-test-ready overhaul: zero-touch connect flow with a timer-only
+fallback, maximized and centered countdown, settings menu on BACK (MM:SS
+interval picker, half submenu, exit), AR icon alert flash with real art
+assets, a simulator test build, and fixes for the AR2 haptic crash and the
+Venu Sq 2 launch crash.
 
 ### Added
 
@@ -69,9 +72,9 @@ simulator test build, and a Venu Sq 2 launch-crash fix.
 - **AR shape glyphs replaced by an icon alert flash** — the circle/triangle
   symbols and linked-state indicators are gone. Idle live screen shows only
   the timers; during an AR's 3-second alert window the AR icon
-  (`resources/drawables/ar_icon.png`, currently a placeholder) flashes in
-  300 ms phases above the digits with the AR number ("1", "2", or "1 2")
-  beside it in amber. Link-status double-tap haptics are unchanged; there is
+  (`resources/drawables/ar_icon.png`, generated from the master in
+  `/assets`) flashes in 300 ms phases above the digits with the AR number
+  ("1", "2", or "1 2") beside it in amber. Link-status double-tap haptics are unchanged; there is
   just no persistent visual for link state anymore.
 - **Sim build: Test Alert menu items** — the SIM_TIMER_TEST settings menu
   gains "Test Alert 1/2" entries (via `BleManager.simulateAlert`) to preview
@@ -117,7 +120,7 @@ simulator test build, and a Venu Sq 2 launch-crash fix.
       cap-height estimate on venu2plus and a venu3-gen watch, plus the
       alert-flash icon size (48×56 — regenerable from the master at any size).
 
-## [Unreleased] — 2026-08-14
+## 2026-08-14
 
 Match timer feature, AR alert UI, and BLE robustness work ([#1](https://github.com/earp123/rareBit-Garmin/pull/1)).
 
