@@ -3,25 +3,25 @@
 //
 // Handles physical button presses and screen taps.
 //
-// SELECT (start button) —
-//   IDLE / ERROR / FOUND  →  start scan  (or re-scan)
-//   FOUND                 →  connect to the found device
-//   SUBSCRIBED            →  start / pause the match timer
-//   (ignored while connecting to avoid double-tap)
+// The app auto-scans and auto-connects on launch; once "live" (timer
+// screen up — subscribed, or BLE given up) inputs drive the timer and
+// BLE events never change the routing.
+//
+// SELECT / TAP —
+//   live                  →  start / pause the match timer
+//   IDLE / ERROR          →  start (or retry) a scan
+//   (ignored while scanning / connecting — it's all automatic)
 //
 // BACK —
-//   SCANNING              →  stop scan
-//   SUBSCRIBED            →  open the settings menu (interval / half /
-//                            reset / disconnect)
-//   CONNECTED / CONNECTING →  abort the connection attempt
+//   live                  →  open the settings menu (interval / half /
+//                            reset / disconnect-or-rescan)
+//   SCANNING / CONNECTING / CONNECTED (pre-live)
+//                         →  skip BLE, go straight to the timer
 //   otherwise             →  exit app (default behavior)
 //
 // MENU —
-//   SUBSCRIBED            →  open the settings menu (same as BACK)
-//   otherwise             →  disconnect if needed and re-scan
-//
-// TAP (touch screen) —
-//   same as SELECT
+//   live                  →  open the settings menu (same as BACK)
+//   otherwise             →  restart the scan
 // ============================================================
 
 import Toybox.Lang;
@@ -40,18 +40,16 @@ class myGarminAppDelegate extends WatchUi.BehaviorDelegate {
 
     // SELECT button (or equivalent "confirm" gesture)
     function onSelect() as Boolean {
-        var state = _ble.getState();
-        if (state == BLE_FOUND) {
-            // A matching device is displayed — connect to it.
-            _ble.connectToDevice();
-        } else if (state == BLE_IDLE   ||
-                   state == BLE_ERROR) {
-            // Start (or restart) a BLE scan.
-            _ble.startScan();
-        } else if (state == BLE_SUBSCRIBED) {
+        if (_ble.isLive()) {
             // Live screen — SELECT drives the match timer.
             _matchTimer.toggle();
             WatchUi.requestUpdate();
+            return true;
+        }
+        var state = _ble.getState();
+        if (state == BLE_IDLE || state == BLE_ERROR) {
+            // Manual retry from a stopped/errored pre-live state.
+            _ble.startScan();
         }
         // Swallow the event in all cases so the system doesn't also act on it.
         return true;
@@ -59,26 +57,17 @@ class myGarminAppDelegate extends WatchUi.BehaviorDelegate {
 
     // BACK button
     function onBack() as Boolean {
-        var state = _ble.getState();
-        if (state == BLE_SCANNING) {
-            _ble.stopScan();
-            return true;  // handled — don't exit the app
-        }
-        if (state == BLE_SUBSCRIBED) {
-            // Live screen — BACK opens the settings menu.  Disconnect
-            // now lives inside that menu.
+        if (_ble.isLive()) {
+            // Live screen — BACK opens the settings menu.
             pushMatchMenu(_matchTimer, _ble);
             return true;
         }
-        if (state == BLE_CONNECTING  ||
+        var state = _ble.getState();
+        if (state == BLE_SCANNING   ||
+            state == BLE_CONNECTING ||
             state == BLE_CONNECTED) {
-            _ble.disconnect();
-            return true;  // handled — stay in app
-        }
-        if (state == BLE_FOUND) {
-            // User changed their mind — go back to idle / re-scan.
-            _ble.stopScan();   // clears FOUND state → IDLE
-            _ble.startScan();  // immediately re-scan
+            // Don't make the user wait out the scan — straight to the timer.
+            _ble.skipToTimer();
             return true;
         }
         // IDLE / ERROR — let the system handle BACK (exits app).
@@ -93,13 +82,13 @@ class myGarminAppDelegate extends WatchUi.BehaviorDelegate {
 
     // Menu button
     function onMenu() as Boolean {
-        var state = _ble.getState();
-        if (state == BLE_SUBSCRIBED) {
+        if (_ble.isLive()) {
             // Live screen — MENU opens the settings menu (same as BACK).
             pushMatchMenu(_matchTimer, _ble);
             return true;
         }
-        // Elsewhere — disconnect if needed and re-scan.
+        // Pre-live — restart the scan.
+        var state = _ble.getState();
         if (state == BLE_CONNECTED  ||
             state == BLE_CONNECTING) {
             _ble.disconnect();

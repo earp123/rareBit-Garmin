@@ -23,7 +23,12 @@ function pushMatchMenu(mt as MatchTimer, ble as BleManager) as Void {
     menu.addItem(new WatchUi.MenuItem("Interval", mt.formatInterval(), :interval, null));
     menu.addItem(new WatchUi.MenuItem("Half", _halfSubLabel(mt), :half, null));
     menu.addItem(new WatchUi.MenuItem("Reset Timer", null, :reset, null));
-    menu.addItem(new WatchUi.MenuItem("Disconnect", null, :disconnect, null));
+    if (ble.getState() == BLE_SUBSCRIBED) {
+        menu.addItem(new WatchUi.MenuItem("Disconnect", null, :disconnect, null));
+    } else {
+        // Timer-only / dropped — offer a way back onto the relay.
+        menu.addItem(new WatchUi.MenuItem("Rescan", null, :rescan, null));
+    }
     if (SIM_TIMER_TEST) {
         // Sim build only — preview the paging-alert flash.
         menu.addItem(new WatchUi.MenuItem("Test Alert 1", null, :simAlert1, null));
@@ -70,6 +75,9 @@ class MatchMenuDelegate extends WatchUi.Menu2InputDelegate {
         } else if (id == :disconnect) {
             WatchUi.popView(WatchUi.SLIDE_DOWN);
             _ble.disconnect();
+        } else if (id == :rescan) {
+            WatchUi.popView(WatchUi.SLIDE_DOWN);
+            _ble.startScan();
         } else if (id == :simAlert1 || id == :simAlert2) {
             WatchUi.popView(WatchUi.SLIDE_DOWN);
             _ble.simulateAlert(id == :simAlert1 ? 1 : 2);

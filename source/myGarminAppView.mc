@@ -94,6 +94,12 @@ class myGarminAppView extends WatchUi.View {
     }
 
     function onShow() as Void {
+        // Zero-touch flow: kick off the scan as soon as the app opens.
+        // Not re-triggered once live (e.g. after a menu Disconnect).
+        var state = _ble.getState();
+        if (!_ble.isLive() && (state == BLE_IDLE || state == BLE_ERROR)) {
+            _ble.startScan();
+        }
         _syncTimer();
         WatchUi.requestUpdate();
     }
@@ -112,6 +118,8 @@ class myGarminAppView extends WatchUi.View {
         dc.setColor(C_BG, C_BG);
         dc.clear();
 
+        // Scan-deadline fallback rides the animation tick.
+        _ble.checkScanTimeout();
         var state = _ble.getState();
 
         // ── Safe zone ────────────────────────────────────────
@@ -127,9 +135,9 @@ class myGarminAppView extends WatchUi.View {
         var txtY  = safeT + (safeH * 0.88).toNumber();
 
         // ── State dot ────────────────────────────────────────
-        // Skipped on the live screen — that headroom goes to the AR
-        // row so the countdown font can take the largest size.
-        if (state != BLE_SUBSCRIBED) {
+        // Skipped on the live screen — every pixel goes to the timer,
+        // even while a background rescan is running.
+        if (!_ble.isLive()) {
             dc.setColor(_accentColor(state), Graphics.COLOR_TRANSPARENT);
             dc.fillCircle(cx, dotY, DOT_R);
         }
@@ -137,12 +145,14 @@ class myGarminAppView extends WatchUi.View {
         // ── Main area ────────────────────────────────────────
         _drawMain(dc, w, cx, mainY, state);
 
-        // ── Bottom text ──────────────────────────────────────
-        var hint = _bottomText(state);
-        if (hint.length() > 0) {
-            dc.setColor(C_HINT, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(cx, txtY, Graphics.FONT_TINY, hint,
-                Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        // ── Bottom text (pre-live phases only) ───────────────
+        if (!_ble.isLive()) {
+            var hint = _bottomText(state);
+            if (hint.length() > 0) {
+                dc.setColor(C_HINT, Graphics.COLOR_TRANSPARENT);
+                dc.drawText(cx, txtY, Graphics.FONT_TINY, hint,
+                    Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            }
         }
 
         _syncTimer();
@@ -158,6 +168,13 @@ class myGarminAppView extends WatchUi.View {
         cy    as Number,
         state as Number) as Void
     {
+        // Live is latched — once the timer screen is up it stays up,
+        // regardless of what BLE is doing in the background.
+        if (_ble.isLive()) {
+            _drawLiveScreen(dc, w, cx, cy);
+            return;
+        }
+
         if (state == BLE_SCANNING ||
             state == BLE_CONNECTING ||
             state == BLE_CONNECTED) {
@@ -168,18 +185,6 @@ class myGarminAppView extends WatchUi.View {
 
         if (state == BLE_IDLE) {
             _drawCard(dc, w, cx, cy, "SCAN", null);
-            return;
-        }
-
-        if (state == BLE_FOUND) {
-            _drawCard(dc, w, cx, cy,
-                _ble.getDeviceName(),
-                _ble.getRssi().toString() + " dBm");
-            return;
-        }
-
-        if (state == BLE_SUBSCRIBED) {
-            _drawLiveScreen(dc, w, cx, cy);
             return;
         }
 
@@ -461,9 +466,9 @@ class myGarminAppView extends WatchUi.View {
         var fast  = (state == BLE_SCANNING   ||
                      state == BLE_CONNECTING  ||
                      state == BLE_CONNECTED)  ||
-                    (state == BLE_SUBSCRIBED &&
+                    (_ble.isLive() &&
                      (_ble.isAlerting1() || _ble.isAlerting2()));
-        var slow  = (state == BLE_SUBSCRIBED && _matchTimer.isRunning());
+        var slow  = (_ble.isLive() && _matchTimer.isRunning());
 
         var period = fast ? 150 : (slow ? 500 : 0);
         if (period == _tickPeriod) { return; }
@@ -503,12 +508,11 @@ class myGarminAppView extends WatchUi.View {
     // ----------------------------------------------------------
     hidden function _bottomText(state as Number) as String {
         if (state == BLE_IDLE)       { return "tap to scan";       }
-        if (state == BLE_SCANNING)   { return "back to stop";      }
-        if (state == BLE_FOUND)      { return "tap  |  back=rescan"; }
-        if (state == BLE_CONNECTING) { return "connecting...";     }
+        if (state == BLE_SCANNING)   { return "finding relay...  back=skip"; }
+        if (state == BLE_CONNECTING) { return "connecting...  back=skip"; }
         if (state == BLE_CONNECTED)  { return "enabling notify..."; }
-        // BLE_SUBSCRIBED: no hint — the live screen gives every pixel
-        // to the timer (BACK opens the settings menu).
+        // Live screen: no hint — every pixel goes to the timer
+        // (BACK opens the settings menu).
         if (state == BLE_ERROR)      { return _ble.getStatus();    }
         return "";
     }

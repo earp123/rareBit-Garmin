@@ -48,6 +48,20 @@ simulator test build, and a Venu Sq 2 launch-crash fix.
 
 ### Changed
 
+- **Zero-touch connect flow** — the app starts scanning the moment it opens
+  and pairs with the first advertisement matching the relay service UUID.
+  No confirmation card, no device picker (more than one rareBit relay in
+  range is not a real-world concern). The `BLE_FOUND` state is retired.
+- **Timer-only fallback** — if the scan finds no relay within 15 seconds the
+  app gives up on BLE (`BLE_OFFLINE`) and opens the match timer anyway: the
+  app is fully usable as a timer without the Bluetooth extras. BACK during
+  the scan/connect phase skips straight to the timer without waiting.
+- **The live screen is latched** — once the timer screen is up it never gets
+  replaced by BLE screens. A dropped connection triggers a quiet background
+  rescan (auto-reconnect when the relay reappears), still subject to the
+  15 s deadline; three consecutive pairing failures also fall back to
+  timer-only rather than looping. The settings menu shows Disconnect while
+  subscribed and Rescan otherwise.
 - **AR shape glyphs replaced by an icon alert flash** — the circle/triangle
   symbols and linked-state indicators are gone. Idle live screen shows only
   the timers; during an AR's 3-second alert window the AR icon

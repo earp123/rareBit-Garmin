@@ -30,13 +30,22 @@ const TARGET_CHAR_UUID_STR    = "33210002-28d5-4b7b-bad0-7dee1eee1b6d";
 // ============================================================
 //  BLE STATE CONSTANTS
 // ============================================================
-const BLE_IDLE        = 0;  // waiting for user to tap SELECT
-const BLE_SCANNING    = 1;  // actively scanning
-const BLE_FOUND       = 2;  // target device found, waiting for user
+const BLE_IDLE        = 0;  // not scanning (pre-scan or after disconnect)
+const BLE_SCANNING    = 1;  // actively scanning; auto-connects on match
+const BLE_FOUND       = 2;  // unused — scan now auto-connects (kept for numbering)
 const BLE_CONNECTING  = 3;  // pairDevice() called, waiting for link
 const BLE_CONNECTED   = 4;  // link up, writing CCCD to enable notify
 const BLE_SUBSCRIBED  = 5;  // notifications flowing
 const BLE_ERROR       = 6;  // something went wrong (see status string)
+const BLE_OFFLINE     = 7;  // gave up on BLE — timer-only mode
+
+// Scan gives up (→ BLE_OFFLINE, timer-only) after this long without a
+// matching advertisement.  Checked from the view's animation tick.
+const SCAN_TIMEOUT_MS = 15000;
+
+// Consecutive pairing failures before giving up (→ BLE_OFFLINE) instead
+// of rescanning forever against a relay that won't link.
+const MAX_PAIR_FAILS  = 3;
 
 // ============================================================
 //  NOTIFICATION TYPE CONSTANTS
@@ -72,6 +81,9 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
     hidden var _alert2Until  as Number       = 0;      // System.getTimer() deadline for AR2 blink
     hidden var _notifLocked  as Boolean      = false;  // true during 3 s post-connect gate
     hidden var _notifTimer   as Timer.Timer;           // one-shot to clear the lock
+    hidden var _everLive     as Boolean      = false;  // latched on first subscribe/give-up
+    hidden var _scanDeadline as Number       = 0;      // getTimer() ms when the scan gives up
+    hidden var _pairFails    as Number       = 0;      // consecutive pairing failures
     hidden var _svcUuid      as BluetoothLowEnergy.Uuid;
     hidden var _charUuid     as BluetoothLowEnergy.Uuid;
 
@@ -122,12 +134,13 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
     // ----------------------------------------------------------
 
     function startScan() as Void {
-        if (_state == BLE_IDLE   ||
-            _state == BLE_ERROR  ||
-            _state == BLE_FOUND) {
+        if (_state == BLE_IDLE    ||
+            _state == BLE_ERROR   ||
+            _state == BLE_OFFLINE) {
             _clearSession();
-            _state  = BLE_SCANNING;
-            _status = "Scanning... (UUID filter active)";
+            _state        = BLE_SCANNING;
+            _status       = "Scanning... (UUID filter active)";
+            _scanDeadline = System.getTimer() + SCAN_TIMEOUT_MS;
             System.println("BLE: start scan");
             try {
                 BluetoothLowEnergy.setScanState(
@@ -143,7 +156,7 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
 
     function stopScan() as Void {
         _stopScanInternal();
-        if (_state == BLE_SCANNING || _state == BLE_FOUND) {
+        if (_state == BLE_SCANNING) {
             _clearSession();
             _state  = BLE_IDLE;
             _status = "Scan stopped. Tap SELECT to retry.";
@@ -151,30 +164,64 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         }
     }
 
-    // Called when user taps the found-device button.
-    // Stop the scan first (kept alive for scan-response name capture),
-    // then call pairDevice() with the stored ScanResult.
-    function connectToDevice() as Void {
-        if (_state == BLE_FOUND && _scanResult != null) {
+    // The app is "live" (showing the match timer) once we've either
+    // subscribed or given up on BLE.  Latched — BLE drops and background
+    // rescans never pull the UI off the timer screen.
+    function isLive() as Boolean {
+        return _everLive || _state == BLE_SUBSCRIBED;
+    }
+
+    // Called from the view's tick while scanning: give up and fall back
+    // to timer-only mode once the scan deadline passes.
+    function checkScanTimeout() as Void {
+        if (_state == BLE_SCANNING &&
+            System.getTimer() > _scanDeadline) {
+            System.println("BLE: scan timeout — timer-only mode");
             _stopScanInternal();
-            _state  = BLE_CONNECTING;
-            _status = "Pairing with " + _deviceName + "...";
+            _clearSession();
+            _state    = BLE_OFFLINE;
+            _everLive = true;
+            _status   = "No relay found — timer only";
             WatchUi.requestUpdate();
-            System.println("BLE: pairDevice " + _deviceName);
-            try {
-                BluetoothLowEnergy.pairDevice(_scanResult);
-            } catch (ex instanceof Lang.Exception) {
-                _state  = BLE_ERROR;
-                _status = "Pair failed: " + ex.getErrorMessage();
-                System.println("BLE pairDevice error: " + ex.getErrorMessage());
-                WatchUi.requestUpdate();
-            }
+        }
+    }
+
+    // User skipped the connect phase (BACK during scan/connect) — quiesce
+    // BLE and go straight to the timer.
+    function skipToTimer() as Void {
+        teardown();
+        _state    = BLE_OFFLINE;
+        _everLive = true;
+        _status   = "Timer only (skipped scan)";
+        WatchUi.requestUpdate();
+    }
+
+    // Auto-connect to a freshly matched advertisement: stop the scan and
+    // pair immediately — no confirmation press.
+    hidden function _autoConnect() as Void {
+        _stopScanInternal();
+        _state  = BLE_CONNECTING;
+        _status = "Pairing with " + _deviceName + "...";
+        WatchUi.requestUpdate();
+        System.println("BLE: pairDevice " + _deviceName);
+        try {
+            BluetoothLowEnergy.pairDevice(_scanResult);
+        } catch (ex instanceof Lang.Exception) {
+            _state  = BLE_ERROR;
+            _status = "Pair failed: " + ex.getErrorMessage();
+            System.println("BLE pairDevice error: " + ex.getErrorMessage());
+            WatchUi.requestUpdate();
         }
     }
 
     function disconnect() as Void {
         teardown();
-        _status = "Disconnected. Tap SELECT to scan again.";
+        if (_everLive) {
+            _state = BLE_OFFLINE;
+            _status = "Disconnected — timer only";
+        } else {
+            _status = "Disconnected. Tap SELECT to scan again.";
+        }
         WatchUi.requestUpdate();
     }
 
@@ -291,29 +338,15 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         System.println("BLE: scan state=" + scanState + " status=" + status);
     }
 
-    // Batch of BLE advertisements received.
+    // Batch of BLE advertisements received.  First result advertising
+    // our service UUID wins — connect to it immediately (we don't expect
+    // more than one rareBit relay in range).
     function onScanResults(scanResults as BluetoothLowEnergy.Iterator) as Void {
-        if (_state != BLE_SCANNING && _state != BLE_FOUND) { return; }
+        if (_state != BLE_SCANNING) { return; }
 
         var item = scanResults.next();
         while (item != null) {
             var result = item as BluetoothLowEnergy.ScanResult;
-
-            // Update an already-found candidate with fresher data (e.g. scan
-            // response packet that arrives after the primary advertisement).
-            if (_state == BLE_FOUND && _scanResult != null) {
-                if (result.isSameDevice(_scanResult)) {
-                    _scanResult = result;
-                    var updatedName = _nameFromResult(result);
-                    if (updatedName != null) {
-                        System.println("BLE: name update -> " + updatedName);
-                        _deviceName = updatedName;
-                        WatchUi.requestUpdate();
-                    }
-                }
-                item = scanResults.next();
-                continue;
-            }
 
             // Check every result for our service UUID.
             var uuidIter = result.getServiceUuids();
@@ -326,11 +359,10 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
                         result.getDeviceName() + " parsed=" + name +
                         " RSSI=" + result.getRssi());
                     _scanResult = result;
-                    _deviceName = "Relay";
+                    _deviceName = (name != null) ? name : "Relay";
                     _rssi       = result.getRssi();
-                    _state      = BLE_FOUND;
-                    WatchUi.requestUpdate();
-                    break;
+                    _autoConnect();
+                    return;
                 }
                 uuidObj = uuidIter.next();
             }
@@ -414,10 +446,23 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         } else {
             var wasSub = (_state == BLE_SUBSCRIBED);
             _clearSession();
-            _state  = BLE_IDLE;
-            _status = wasSub
-                ? "Connection lost. Tap SELECT to reconnect."
-                : "Pairing failed. Tap SELECT to retry.";
+            if (!wasSub) { _pairFails++; }
+            if (!wasSub && _pairFails >= MAX_PAIR_FAILS) {
+                // Relay advertises but won't link — stop burning battery.
+                _state    = BLE_OFFLINE;
+                _everLive = true;
+                _status   = "Relay unreachable — timer only";
+                System.println("BLE: " + _pairFails + " pair failures — timer-only mode");
+            } else {
+                // Auto-rescan: reconnect when the relay reappears.  If the
+                // live screen is up it stays up (isLive is latched); the
+                // scan-deadline fallback still applies.
+                _state = BLE_IDLE;
+                System.println(wasSub
+                    ? "BLE: connection lost — rescanning"
+                    : "BLE: pairing failed — rescanning");
+                startScan();
+            }
             WatchUi.requestUpdate();
         }
     }
@@ -431,6 +476,8 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         System.println("BLE: descriptor write status=" + status);
         if (status == BluetoothLowEnergy.STATUS_SUCCESS) {
             _state       = BLE_SUBSCRIBED;
+            _everLive    = true;
+            _pairFails   = 0;
             _status      = "Subscribed! Waiting for notifications...";
             // Close the notification gate for 3 s to absorb stale packets
             // stacked up during a wide advertising interval.
