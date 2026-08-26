@@ -104,6 +104,8 @@ Venu Sq 2 launch crash.
   with 150 ms gaps (~2.5 s) encoded in a single `Attention.vibrate()` call,
   zero timers — same class of fix the old timer branch used for its haptic
   crash. `_buzzTimer` / `_buzzTimer2` are gone entirely.
+  **Confirmed fixed on-watch 2026-08-25** — AR2 page alert (flash + haptic)
+  works with the match timer running.
 - **Venu Sq 2 (non-Music) removed from the manifest** — the base model has no
   `Toybox.BluetoothLowEnergy` module (only Venu Sq 2 Music does, per Garmin's
   API docs), so the app crashed at launch ("Symbol Not Found" instantiating

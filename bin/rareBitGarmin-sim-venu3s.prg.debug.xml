@@ -1,0 +1,1639 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<debugInfo>
+    <manifest filename="C:\Users\ralls\GitHub\rareBit-Garmin\manifest.xml"/>
+    <pcToLineNum>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="1" lineNum="217" parent="globals/IntervalPickerDelegate" pc="268435460" symbol="&lt;init&gt;"/>
+        <entry filename="c:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\006-B4261-00\\source\\Rez.mcgen" id="2" lineNum="7" parent="globals/Rez" pc="268435472" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppApp.mc" id="3" lineNum="5" parent="globals/myGarminAppApp" pc="268435492" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppMenuDelegate.mc" id="4" lineNum="6" parent="globals/myGarminAppMenuDelegate" pc="268435504" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="5" lineNum="50" parent="globals/MatchMenuDelegate" pc="268435516" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="6" lineNum="44" parent="globals" pc="268435528" symbol="_halfSubLabel"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="6" lineNum="45" parent="globals" pc="268435538" symbol="_halfSubLabel"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="7" lineNum="133" parent="globals/IntervalPickerView" pc="268435570" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="8" lineNum="30" parent="globals/myGarminAppDelegate" pc="268435582" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="9" lineNum="63" parent="globals/BleManager" pc="268435594" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="10" lineNum="21" parent="globals" pc="268435606" symbol="pushMatchMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="10" lineNum="22" parent="globals" pc="268435617" symbol="pushMatchMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="10" lineNum="23" parent="globals" pc="268435657" symbol="pushMatchMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="10" lineNum="24" parent="globals" pc="268435707" symbol="pushMatchMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="10" lineNum="25" parent="globals" pc="268435760" symbol="pushMatchMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="10" lineNum="26" parent="globals" pc="268435804" symbol="pushMatchMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="10" lineNum="27" parent="globals" pc="268435817" symbol="pushMatchMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="10" lineNum="30" parent="globals" pc="268435864" symbol="pushMatchMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="10" lineNum="32" parent="globals" pc="268435908" symbol="pushMatchMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="10" lineNum="34" parent="globals" pc="268435912" symbol="pushMatchMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="10" lineNum="35" parent="globals" pc="268435956" symbol="pushMatchMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="10" lineNum="40" parent="globals" pc="268436003" symbol="pushMatchMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="10" lineNum="41" parent="globals" pc="268436047" symbol="pushMatchMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppApp.mc" id="11" lineNum="40" parent="globals" pc="268436087" symbol="getApp"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppApp.mc" id="11" lineNum="41" parent="globals" pc="268436097" symbol="getApp"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="12" lineNum="99" parent="globals/HalfMenuDelegate" pc="268436108" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="13" lineNum="58" parent="globals/myGarminAppView" pc="268436120" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="14" lineNum="288" parent="globals/IntervalPickerDelegate" pc="268436132" symbol="_confirm"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="14" lineNum="289" parent="globals/IntervalPickerDelegate" pc="268436134" symbol="_confirm"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="14" lineNum="291" parent="globals/IntervalPickerDelegate" pc="268436168" symbol="_confirm"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="14" lineNum="292" parent="globals/IntervalPickerDelegate" pc="268436182" symbol="_confirm"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="14" lineNum="293" parent="globals/IntervalPickerDelegate" pc="268436197" symbol="_confirm"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="15" lineNum="265" parent="globals/IntervalPickerDelegate" pc="268436199" symbol="onSwipe"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="15" lineNum="266" parent="globals/IntervalPickerDelegate" pc="268436201" symbol="onSwipe"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="16" lineNum="222" parent="globals/IntervalPickerDelegate" pc="268436203" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="16" lineNum="223" parent="globals/IntervalPickerDelegate" pc="268436205" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="16" lineNum="224" parent="globals/IntervalPickerDelegate" pc="268436217" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="16" lineNum="225" parent="globals/IntervalPickerDelegate" pc="268436226" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="17" lineNum="228" parent="globals/IntervalPickerDelegate" pc="268436236" symbol="onTap"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="17" lineNum="229" parent="globals/IntervalPickerDelegate" pc="268436239" symbol="onTap"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="17" lineNum="230" parent="globals/IntervalPickerDelegate" pc="268436248" symbol="onTap"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="17" lineNum="231" parent="globals/IntervalPickerDelegate" pc="268436260" symbol="onTap"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="17" lineNum="235" parent="globals/IntervalPickerDelegate" pc="268436276" symbol="onTap"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="17" lineNum="236" parent="globals/IntervalPickerDelegate" pc="268436315" symbol="onTap"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="17" lineNum="237" parent="globals/IntervalPickerDelegate" pc="268436357" symbol="onTap"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="17" lineNum="240" parent="globals/IntervalPickerDelegate" pc="268436416" symbol="onTap"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="17" lineNum="241" parent="globals/IntervalPickerDelegate" pc="268436427" symbol="onTap"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="17" lineNum="242" parent="globals/IntervalPickerDelegate" pc="268436440" symbol="onTap"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="17" lineNum="244" parent="globals/IntervalPickerDelegate" pc="268436445" symbol="onTap"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="17" lineNum="245" parent="globals/IntervalPickerDelegate" pc="268436456" symbol="onTap"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="17" lineNum="246" parent="globals/IntervalPickerDelegate" pc="268436469" symbol="onTap"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="17" lineNum="248" parent="globals/IntervalPickerDelegate" pc="268436474" symbol="onTap"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="18" lineNum="269" parent="globals/IntervalPickerDelegate" pc="268436481" symbol="_bump"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="18" lineNum="270" parent="globals/IntervalPickerDelegate" pc="268436484" symbol="_bump"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="18" lineNum="271" parent="globals/IntervalPickerDelegate" pc="268436489" symbol="_bump"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="18" lineNum="272" parent="globals/IntervalPickerDelegate" pc="268436504" symbol="_bump"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="18" lineNum="272" parent="globals/IntervalPickerDelegate" pc="268436511" symbol="_bump"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="18" lineNum="273" parent="globals/IntervalPickerDelegate" pc="268436518" symbol="_bump"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="18" lineNum="273" parent="globals/IntervalPickerDelegate" pc="268436526" symbol="_bump"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="18" lineNum="274" parent="globals/IntervalPickerDelegate" pc="268436532" symbol="_bump"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="18" lineNum="276" parent="globals/IntervalPickerDelegate" pc="268436548" symbol="_bump"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="18" lineNum="277" parent="globals/IntervalPickerDelegate" pc="268436566" symbol="_bump"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="18" lineNum="277" parent="globals/IntervalPickerDelegate" pc="268436573" symbol="_bump"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="18" lineNum="278" parent="globals/IntervalPickerDelegate" pc="268436580" symbol="_bump"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="18" lineNum="278" parent="globals/IntervalPickerDelegate" pc="268436588" symbol="_bump"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="18" lineNum="279" parent="globals/IntervalPickerDelegate" pc="268436594" symbol="_bump"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="18" lineNum="282" parent="globals/IntervalPickerDelegate" pc="268436607" symbol="_bump"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="18" lineNum="283" parent="globals/IntervalPickerDelegate" pc="268436637" symbol="_bump"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="18" lineNum="285" parent="globals/IntervalPickerDelegate" pc="268436653" symbol="_bump"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="19" lineNum="251" parent="globals/IntervalPickerDelegate" pc="268436665" symbol="onKey"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="19" lineNum="252" parent="globals/IntervalPickerDelegate" pc="268436668" symbol="onKey"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="19" lineNum="253" parent="globals/IntervalPickerDelegate" pc="268436677" symbol="onKey"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="19" lineNum="254" parent="globals/IntervalPickerDelegate" pc="268436693" symbol="onKey"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="19" lineNum="256" parent="globals/IntervalPickerDelegate" pc="268436703" symbol="onKey"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="19" lineNum="258" parent="globals/IntervalPickerDelegate" pc="268436711" symbol="onKey"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="19" lineNum="259" parent="globals/IntervalPickerDelegate" pc="268436726" symbol="onKey"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="19" lineNum="261" parent="globals/IntervalPickerDelegate" pc="268436731" symbol="onKey"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppApp.mc" id="20" lineNum="18" parent="globals/myGarminAppApp" pc="268436733" symbol="onStart"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppApp.mc" id="21" lineNum="27" parent="globals/myGarminAppApp" pc="268436736" symbol="getInitialView"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppApp.mc" id="21" lineNum="28" parent="globals/myGarminAppApp" pc="268436738" symbol="getInitialView"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppApp.mc" id="22" lineNum="10" parent="globals/myGarminAppApp" pc="268436805" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppApp.mc" id="22" lineNum="11" parent="globals/myGarminAppApp" pc="268436807" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppApp.mc" id="22" lineNum="13" parent="globals/myGarminAppApp" pc="268436819" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppApp.mc" id="22" lineNum="15" parent="globals/myGarminAppApp" pc="268436844" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppApp.mc" id="23" lineNum="34" parent="globals/myGarminAppApp" pc="268436870" symbol="getBleManager"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppApp.mc" id="23" lineNum="35" parent="globals/myGarminAppApp" pc="268436872" symbol="getBleManager"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppApp.mc" id="24" lineNum="21" parent="globals/myGarminAppApp" pc="268436878" symbol="onStop"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppApp.mc" id="24" lineNum="24" parent="globals/myGarminAppApp" pc="268436880" symbol="onStop"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppMenuDelegate.mc" id="25" lineNum="12" parent="globals/myGarminAppMenuDelegate" pc="268436893" symbol="onMenuItem"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppMenuDelegate.mc" id="26" lineNum="8" parent="globals/myGarminAppMenuDelegate" pc="268436896" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppMenuDelegate.mc" id="26" lineNum="9" parent="globals/myGarminAppMenuDelegate" pc="268436898" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="27" lineNum="94" parent="globals/MatchMenuDelegate" pc="268436911" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="27" lineNum="95" parent="globals/MatchMenuDelegate" pc="268436913" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="28" lineNum="55" parent="globals/MatchMenuDelegate" pc="268436929" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="28" lineNum="56" parent="globals/MatchMenuDelegate" pc="268436931" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="28" lineNum="57" parent="globals/MatchMenuDelegate" pc="268436943" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="28" lineNum="58" parent="globals/MatchMenuDelegate" pc="268436952" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="61" parent="globals/MatchMenuDelegate" pc="268436962" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="62" parent="globals/MatchMenuDelegate" pc="268436965" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="63" parent="globals/MatchMenuDelegate" pc="268436974" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="64" parent="globals/MatchMenuDelegate" pc="268436985" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="66" parent="globals/MatchMenuDelegate" pc="268437027" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="68" parent="globals/MatchMenuDelegate" pc="268437072" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="69" parent="globals/MatchMenuDelegate" pc="268437083" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="70" parent="globals/MatchMenuDelegate" pc="268437123" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="72" parent="globals/MatchMenuDelegate" pc="268437171" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="74" parent="globals/MatchMenuDelegate" pc="268437231" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="75" parent="globals/MatchMenuDelegate" pc="268437261" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="76" parent="globals/MatchMenuDelegate" pc="268437304" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="77" parent="globals/MatchMenuDelegate" pc="268437315" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="78" parent="globals/MatchMenuDelegate" pc="268437327" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="79" parent="globals/MatchMenuDelegate" pc="268437345" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="80" parent="globals/MatchMenuDelegate" pc="268437356" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="81" parent="globals/MatchMenuDelegate" pc="268437371" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="82" parent="globals/MatchMenuDelegate" pc="268437386" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="83" parent="globals/MatchMenuDelegate" pc="268437397" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="84" parent="globals/MatchMenuDelegate" pc="268437412" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="85" parent="globals/MatchMenuDelegate" pc="268437427" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="87" parent="globals/MatchMenuDelegate" pc="268437438" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="88" parent="globals/MatchMenuDelegate" pc="268437452" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="89" parent="globals/MatchMenuDelegate" pc="268437474" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="29" lineNum="90" parent="globals/MatchMenuDelegate" pc="268437489" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="30" lineNum="144" parent="globals/IntervalPickerView" pc="268437525" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="30" lineNum="145" parent="globals/IntervalPickerView" pc="268437527" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="30" lineNum="146" parent="globals/IntervalPickerView" pc="268437539" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="30" lineNum="147" parent="globals/IntervalPickerView" pc="268437548" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="150" parent="globals/IntervalPickerView" pc="268437558" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="151" parent="globals/IntervalPickerView" pc="268437561" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="152" parent="globals/IntervalPickerView" pc="268437570" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="153" parent="globals/IntervalPickerView" pc="268437579" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="154" parent="globals/IntervalPickerView" pc="268437586" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="156" parent="globals/IntervalPickerView" pc="268437593" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="157" parent="globals/IntervalPickerView" pc="268437605" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="159" parent="globals/IntervalPickerView" pc="268437613" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="160" parent="globals/IntervalPickerView" pc="268437630" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="164" parent="globals/IntervalPickerView" pc="268437665" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="165" parent="globals/IntervalPickerView" pc="268437669" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="166" parent="globals/IntervalPickerView" pc="268437685" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="167" parent="globals/IntervalPickerView" pc="268437702" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="169" parent="globals/IntervalPickerView" pc="268437725" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="171" parent="globals/IntervalPickerView" pc="268437764" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="175" parent="globals/IntervalPickerView" pc="268437803" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="176" parent="globals/IntervalPickerView" pc="268437828" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="177" parent="globals/IntervalPickerView" pc="268437850" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="181" parent="globals/IntervalPickerView" pc="268437866" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="182" parent="globals/IntervalPickerView" pc="268437884" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="183" parent="globals/IntervalPickerView" pc="268437902" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="184" parent="globals/IntervalPickerView" pc="268437919" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="185" parent="globals/IntervalPickerView" pc="268437943" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="186" parent="globals/IntervalPickerView" pc="268437967" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="187" parent="globals/IntervalPickerView" pc="268437991" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="189" parent="globals/IntervalPickerView" pc="268438015" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="31" lineNum="190" parent="globals/IntervalPickerView" pc="268438031" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="32" lineNum="196" parent="globals/IntervalPickerView" pc="268438067" symbol="_drawArrow"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="32" lineNum="203" parent="globals/IntervalPickerView" pc="268438070" symbol="_drawArrow"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="32" lineNum="204" parent="globals/IntervalPickerView" pc="268438086" symbol="_drawArrow"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="32" lineNum="205" parent="globals/IntervalPickerView" pc="268438091" symbol="_drawArrow"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="32" lineNum="207" parent="globals/IntervalPickerView" pc="268438174" symbol="_drawArrow"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="33" lineNum="59" parent="globals/myGarminAppDelegate" pc="268438255" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="33" lineNum="60" parent="globals/myGarminAppDelegate" pc="268438258" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="33" lineNum="62" parent="globals/myGarminAppDelegate" pc="268438272" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="33" lineNum="63" parent="globals/myGarminAppDelegate" pc="268438291" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="33" lineNum="65" parent="globals/myGarminAppDelegate" pc="268438296" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="33" lineNum="66" parent="globals/myGarminAppDelegate" pc="268438309" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="33" lineNum="70" parent="globals/myGarminAppDelegate" pc="268438333" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="33" lineNum="71" parent="globals/myGarminAppDelegate" pc="268438345" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="33" lineNum="74" parent="globals/myGarminAppDelegate" pc="268438350" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="34" lineNum="84" parent="globals/myGarminAppDelegate" pc="268438352" symbol="onMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="34" lineNum="85" parent="globals/myGarminAppDelegate" pc="268438355" symbol="onMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="34" lineNum="87" parent="globals/myGarminAppDelegate" pc="268438369" symbol="onMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="34" lineNum="88" parent="globals/myGarminAppDelegate" pc="268438388" symbol="onMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="34" lineNum="91" parent="globals/myGarminAppDelegate" pc="268438393" symbol="onMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="34" lineNum="92" parent="globals/myGarminAppDelegate" pc="268438406" symbol="onMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="34" lineNum="94" parent="globals/myGarminAppDelegate" pc="268438422" symbol="onMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="34" lineNum="96" parent="globals/myGarminAppDelegate" pc="268438437" symbol="onMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="34" lineNum="97" parent="globals/myGarminAppDelegate" pc="268438449" symbol="onMenu"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="35" lineNum="35" parent="globals/myGarminAppDelegate" pc="268438451" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="35" lineNum="36" parent="globals/myGarminAppDelegate" pc="268438453" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="35" lineNum="37" parent="globals/myGarminAppDelegate" pc="268438465" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="35" lineNum="38" parent="globals/myGarminAppDelegate" pc="268438474" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="36" lineNum="78" parent="globals/myGarminAppDelegate" pc="268438484" symbol="onTap"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="36" lineNum="80" parent="globals/myGarminAppDelegate" pc="268438486" symbol="onTap"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="37" lineNum="42" parent="globals/myGarminAppDelegate" pc="268438493" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="37" lineNum="43" parent="globals/myGarminAppDelegate" pc="268438496" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="37" lineNum="45" parent="globals/myGarminAppDelegate" pc="268438510" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="37" lineNum="46" parent="globals/myGarminAppDelegate" pc="268438522" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="37" lineNum="47" parent="globals/myGarminAppDelegate" pc="268438533" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="37" lineNum="49" parent="globals/myGarminAppDelegate" pc="268438538" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="37" lineNum="50" parent="globals/myGarminAppDelegate" pc="268438551" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="37" lineNum="52" parent="globals/myGarminAppDelegate" pc="268438566" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppDelegate.mc" id="37" lineNum="55" parent="globals/myGarminAppDelegate" pc="268438581" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="38" lineNum="217" parent="globals/BleManager" pc="268438583" symbol="disconnect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="38" lineNum="218" parent="globals/BleManager" pc="268438585" symbol="disconnect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="38" lineNum="219" parent="globals/BleManager" pc="268438592" symbol="disconnect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="38" lineNum="220" parent="globals/BleManager" pc="268438600" symbol="disconnect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="38" lineNum="221" parent="globals/BleManager" pc="268438609" symbol="disconnect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="38" lineNum="223" parent="globals/BleManager" pc="268438624" symbol="disconnect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="38" lineNum="225" parent="globals/BleManager" pc="268438636" symbol="disconnect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="39" lineNum="556" parent="globals/BleManager" pc="268438648" symbol="_buzzDoubleTap"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="39" lineNum="557" parent="globals/BleManager" pc="268438650" symbol="_buzzDoubleTap"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="39" lineNum="557" parent="globals/BleManager" pc="268438666" symbol="_buzzDoubleTap"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="39" lineNum="558" parent="globals/BleManager" pc="268438670" symbol="_buzzDoubleTap"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="40" lineNum="607" parent="globals/BleManager" pc="268438774" symbol="getStatus"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="40" lineNum="607" parent="globals/BleManager" pc="268438776" symbol="getStatus"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="41" lineNum="170" parent="globals/BleManager" pc="268438782" symbol="isLive"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="41" lineNum="171" parent="globals/BleManager" pc="268438784" symbol="isLive"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="42" lineNum="610" parent="globals/BleManager" pc="268438804" symbol="getRxHex"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="42" lineNum="610" parent="globals/BleManager" pc="268438806" symbol="getRxHex"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="43" lineNum="472" parent="globals/BleManager" pc="268438812" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="43" lineNum="476" parent="globals/BleManager" pc="268438814" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="43" lineNum="477" parent="globals/BleManager" pc="268438835" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="43" lineNum="478" parent="globals/BleManager" pc="268438842" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="43" lineNum="479" parent="globals/BleManager" pc="268438851" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="43" lineNum="480" parent="globals/BleManager" pc="268438859" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="43" lineNum="481" parent="globals/BleManager" pc="268438867" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="43" lineNum="484" parent="globals/BleManager" pc="268438879" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="43" lineNum="485" parent="globals/BleManager" pc="268438887" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="43" lineNum="486" parent="globals/BleManager" pc="268438918" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="43" lineNum="488" parent="globals/BleManager" pc="268438928" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="43" lineNum="489" parent="globals/BleManager" pc="268438937" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="43" lineNum="491" parent="globals/BleManager" pc="268438963" symbol="onDescriptorWrite"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="44" lineNum="334" parent="globals/BleManager" pc="268438975" symbol="onScanStateChange"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="44" lineNum="338" parent="globals/BleManager" pc="268438977" symbol="onScanStateChange"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="431" parent="globals/BleManager" pc="268439008" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="435" parent="globals/BleManager" pc="268439011" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="436" parent="globals/BleManager" pc="268439032" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="437" parent="globals/BleManager" pc="268439040" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="438" parent="globals/BleManager" pc="268439049" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="439" parent="globals/BleManager" pc="268439057" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="442" parent="globals/BleManager" pc="268439066" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="443" parent="globals/BleManager" pc="268439075" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="443" parent="globals/BleManager" pc="268439081" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="444" parent="globals/BleManager" pc="268439096" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="444" parent="globals/BleManager" pc="268439102" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="445" parent="globals/BleManager" pc="268439114" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="447" parent="globals/BleManager" pc="268439128" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="448" parent="globals/BleManager" pc="268439138" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="449" parent="globals/BleManager" pc="268439145" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="449" parent="globals/BleManager" pc="268439151" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="450" parent="globals/BleManager" pc="268439169" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="452" parent="globals/BleManager" pc="268439186" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="453" parent="globals/BleManager" pc="268439195" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="454" parent="globals/BleManager" pc="268439203" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="455" parent="globals/BleManager" pc="268439215" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="460" parent="globals/BleManager" pc="268439248" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="461" parent="globals/BleManager" pc="268439256" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="464" parent="globals/BleManager" pc="268439287" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="45" lineNum="466" parent="globals/BleManager" pc="268439294" symbol="onConnectedStateChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="46" lineNum="157" parent="globals/BleManager" pc="268439306" symbol="stopScan"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="46" lineNum="158" parent="globals/BleManager" pc="268439308" symbol="stopScan"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="46" lineNum="159" parent="globals/BleManager" pc="268439315" symbol="stopScan"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="46" lineNum="160" parent="globals/BleManager" pc="268439326" symbol="stopScan"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="46" lineNum="161" parent="globals/BleManager" pc="268439333" symbol="stopScan"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="46" lineNum="162" parent="globals/BleManager" pc="268439341" symbol="stopScan"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="46" lineNum="163" parent="globals/BleManager" pc="268439353" symbol="stopScan"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="47" lineNum="546" parent="globals/BleManager" pc="268439368" symbol="_unlockNotif"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="47" lineNum="547" parent="globals/BleManager" pc="268439370" symbol="_unlockNotif"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="47" lineNum="548" parent="globals/BleManager" pc="268439378" symbol="_unlockNotif"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="48" lineNum="608" parent="globals/BleManager" pc="268439397" symbol="getDeviceName"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="48" lineNum="608" parent="globals/BleManager" pc="268439399" symbol="getDeviceName"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="49" lineNum="114" parent="globals/BleManager" pc="268439405" symbol="_registerProfile"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="49" lineNum="116" parent="globals/BleManager" pc="268439408" symbol="_registerProfile"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="49" lineNum="123" parent="globals/BleManager" pc="268439489" symbol="_registerProfile"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="49" lineNum="124" parent="globals/BleManager" pc="268439507" symbol="_registerProfile"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="49" lineNum="125" parent="globals/BleManager" pc="268439525" symbol="_registerProfile"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="49" lineNum="126" parent="globals/BleManager" pc="268439544" symbol="_registerProfile"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="49" lineNum="127" parent="globals/BleManager" pc="268439553" symbol="_registerProfile"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="49" lineNum="128" parent="globals/BleManager" pc="268439565" symbol="_registerProfile"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="50" lineNum="191" parent="globals/BleManager" pc="268439604" symbol="skipToTimer"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="50" lineNum="192" parent="globals/BleManager" pc="268439606" symbol="skipToTimer"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="50" lineNum="193" parent="globals/BleManager" pc="268439613" symbol="skipToTimer"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="50" lineNum="194" parent="globals/BleManager" pc="268439622" symbol="skipToTimer"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="50" lineNum="195" parent="globals/BleManager" pc="268439630" symbol="skipToTimer"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="50" lineNum="196" parent="globals/BleManager" pc="268439642" symbol="skipToTimer"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="51" lineNum="248" parent="globals/BleManager" pc="268439654" symbol="_stopScanInternal"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="51" lineNum="250" parent="globals/BleManager" pc="268439657" symbol="_stopScanInternal"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="51" lineNum="251" parent="globals/BleManager" pc="268439677" symbol="_stopScanInternal"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="52" lineNum="609" parent="globals/BleManager" pc="268439709" symbol="getRssi"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="52" lineNum="609" parent="globals/BleManager" pc="268439711" symbol="getRssi"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="53" lineNum="201" parent="globals/BleManager" pc="268439717" symbol="_autoConnect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="53" lineNum="202" parent="globals/BleManager" pc="268439720" symbol="_autoConnect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="53" lineNum="203" parent="globals/BleManager" pc="268439727" symbol="_autoConnect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="53" lineNum="204" parent="globals/BleManager" pc="268439736" symbol="_autoConnect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="53" lineNum="205" parent="globals/BleManager" pc="268439760" symbol="_autoConnect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="53" lineNum="206" parent="globals/BleManager" pc="268439771" symbol="_autoConnect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="53" lineNum="208" parent="globals/BleManager" pc="268439795" symbol="_autoConnect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="53" lineNum="209" parent="globals/BleManager" pc="268439819" symbol="_autoConnect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="53" lineNum="210" parent="globals/BleManager" pc="268439838" symbol="_autoConnect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="53" lineNum="211" parent="globals/BleManager" pc="268439847" symbol="_autoConnect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="53" lineNum="212" parent="globals/BleManager" pc="268439867" symbol="_autoConnect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="53" lineNum="213" parent="globals/BleManager" pc="268439893" symbol="_autoConnect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="54" lineNum="318" parent="globals/BleManager" pc="268439917" symbol="onProfileRegister"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="54" lineNum="322" parent="globals/BleManager" pc="268439919" symbol="onProfileRegister"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="54" lineNum="323" parent="globals/BleManager" pc="268439940" symbol="onProfileRegister"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="54" lineNum="323" parent="globals/BleManager" pc="268439944" symbol="onProfileRegister"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="54" lineNum="324" parent="globals/BleManager" pc="268439948" symbol="onProfileRegister"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="54" lineNum="325" parent="globals/BleManager" pc="268439955" symbol="onProfileRegister"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="54" lineNum="327" parent="globals/BleManager" pc="268439970" symbol="onProfileRegister"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="54" lineNum="328" parent="globals/BleManager" pc="268439979" symbol="onProfileRegister"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="54" lineNum="330" parent="globals/BleManager" pc="268440005" symbol="onProfileRegister"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="55" lineNum="410" parent="globals/BleManager" pc="268440017" symbol="_bytesToString"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="55" lineNum="411" parent="globals/BleManager" pc="268440020" symbol="_bytesToString"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="55" lineNum="412" parent="globals/BleManager" pc="268440027" symbol="_bytesToString"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="55" lineNum="413" parent="globals/BleManager" pc="268440043" symbol="_bytesToString"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="55" lineNum="414" parent="globals/BleManager" pc="268440054" symbol="_bytesToString"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="55" lineNum="414" parent="globals/BleManager" pc="268440061" symbol="_bytesToString"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="55" lineNum="415" parent="globals/BleManager" pc="268440067" symbol="_bytesToString"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="55" lineNum="417" parent="globals/BleManager" pc="268440096" symbol="_bytesToString"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="56" lineNum="611" parent="globals/BleManager" pc="268440099" symbol="getRxCount"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="56" lineNum="611" parent="globals/BleManager" pc="268440101" symbol="getRxCount"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="57" lineNum="596" parent="globals/BleManager" pc="268440107" symbol="simulateAlert"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="57" lineNum="597" parent="globals/BleManager" pc="268440110" symbol="simulateAlert"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="57" lineNum="598" parent="globals/BleManager" pc="268440126" symbol="simulateAlert"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="57" lineNum="598" parent="globals/BleManager" pc="268440134" symbol="simulateAlert"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="57" lineNum="599" parent="globals/BleManager" pc="268440146" symbol="simulateAlert"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="57" lineNum="600" parent="globals/BleManager" pc="268440155" symbol="simulateAlert"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="379" parent="globals/BleManager" pc="268440167" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="381" parent="globals/BleManager" pc="268440170" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="382" parent="globals/BleManager" pc="268440179" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="383" parent="globals/BleManager" pc="268440198" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="387" parent="globals/BleManager" pc="268440212" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="388" parent="globals/BleManager" pc="268440221" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="389" parent="globals/BleManager" pc="268440227" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="390" parent="globals/BleManager" pc="268440230" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="391" parent="globals/BleManager" pc="268440244" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="392" parent="globals/BleManager" pc="268440255" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="392" parent="globals/BleManager" pc="268440262" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="393" parent="globals/BleManager" pc="268440268" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="393" parent="globals/BleManager" pc="268440285" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="394" parent="globals/BleManager" pc="268440291" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="396" parent="globals/BleManager" pc="268440305" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="397" parent="globals/BleManager" pc="268440321" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="398" parent="globals/BleManager" pc="268440346" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="399" parent="globals/BleManager" pc="268440358" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="400" parent="globals/BleManager" pc="268440400" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="402" parent="globals/BleManager" pc="268440414" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="58" lineNum="406" parent="globals/BleManager" pc="268440430" symbol="_nameFromResult"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="272" parent="globals/BleManager" pc="268440432" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="273" parent="globals/BleManager" pc="268440435" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="274" parent="globals/BleManager" pc="268440447" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="276" parent="globals/BleManager" pc="268440458" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="277" parent="globals/BleManager" pc="268440474" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="278" parent="globals/BleManager" pc="268440480" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="279" parent="globals/BleManager" pc="268440489" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="280" parent="globals/BleManager" pc="268440501" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="281" parent="globals/BleManager" pc="268440519" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="282" parent="globals/BleManager" pc="268440530" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="284" parent="globals/BleManager" pc="268440537" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="285" parent="globals/BleManager" pc="268440553" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="286" parent="globals/BleManager" pc="268440559" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="287" parent="globals/BleManager" pc="268440568" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="288" parent="globals/BleManager" pc="268440580" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="289" parent="globals/BleManager" pc="268440598" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="290" parent="globals/BleManager" pc="268440609" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="292" parent="globals/BleManager" pc="268440616" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="293" parent="globals/BleManager" pc="268440637" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="294" parent="globals/BleManager" pc="268440643" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="295" parent="globals/BleManager" pc="268440652" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="296" parent="globals/BleManager" pc="268440664" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="297" parent="globals/BleManager" pc="268440682" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="298" parent="globals/BleManager" pc="268440693" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="301" parent="globals/BleManager" pc="268440700" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="302" parent="globals/BleManager" pc="268440715" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="303" parent="globals/BleManager" pc="268440733" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="304" parent="globals/BleManager" pc="268440751" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="305" parent="globals/BleManager" pc="268440770" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="306" parent="globals/BleManager" pc="268440779" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="307" parent="globals/BleManager" pc="268440799" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="59" lineNum="309" parent="globals/BleManager" pc="268440837" symbol="_enableNotifications"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="60" lineNum="613" parent="globals/BleManager" pc="268440849" symbol="getLinked2"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="60" lineNum="613" parent="globals/BleManager" pc="268440851" symbol="getLinked2"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="61" lineNum="612" parent="globals/BleManager" pc="268440857" symbol="getLinked1"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="61" lineNum="612" parent="globals/BleManager" pc="268440859" symbol="getLinked1"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="62" lineNum="231" parent="globals/BleManager" pc="268440865" symbol="teardown"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="62" lineNum="232" parent="globals/BleManager" pc="268440868" symbol="teardown"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="62" lineNum="233" parent="globals/BleManager" pc="268440875" symbol="teardown"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="62" lineNum="235" parent="globals/BleManager" pc="268440884" symbol="teardown"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="62" lineNum="236" parent="globals/BleManager" pc="268440908" symbol="teardown"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="62" lineNum="237" parent="globals/BleManager" pc="268440927" symbol="teardown"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="62" lineNum="240" parent="globals/BleManager" pc="268440968" symbol="teardown"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="62" lineNum="241" parent="globals/BleManager" pc="268440975" symbol="teardown"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="63" lineNum="344" parent="globals/BleManager" pc="268440984" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="63" lineNum="345" parent="globals/BleManager" pc="268440987" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="63" lineNum="345" parent="globals/BleManager" pc="268440998" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="63" lineNum="347" parent="globals/BleManager" pc="268441002" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="63" lineNum="348" parent="globals/BleManager" pc="268441011" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="63" lineNum="349" parent="globals/BleManager" pc="268441017" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="63" lineNum="352" parent="globals/BleManager" pc="268441021" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="63" lineNum="353" parent="globals/BleManager" pc="268441030" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="63" lineNum="354" parent="globals/BleManager" pc="268441039" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="63" lineNum="355" parent="globals/BleManager" pc="268441045" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="63" lineNum="356" parent="globals/BleManager" pc="268441049" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="63" lineNum="357" parent="globals/BleManager" pc="268441066" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="63" lineNum="358" parent="globals/BleManager" pc="268441078" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="63" lineNum="361" parent="globals/BleManager" pc="268441127" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="63" lineNum="362" parent="globals/BleManager" pc="268441136" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="63" lineNum="363" parent="globals/BleManager" pc="268441159" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="63" lineNum="364" parent="globals/BleManager" pc="268441173" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="63" lineNum="365" parent="globals/BleManager" pc="268441180" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="63" lineNum="367" parent="globals/BleManager" pc="268441184" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="63" lineNum="370" parent="globals/BleManager" pc="268441196" symbol="onScanResults"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="64" lineNum="176" parent="globals/BleManager" pc="268441209" symbol="checkScanTimeout"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="64" lineNum="177" parent="globals/BleManager" pc="268441211" symbol="checkScanTimeout"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="64" lineNum="179" parent="globals/BleManager" pc="268441241" symbol="checkScanTimeout"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="64" lineNum="180" parent="globals/BleManager" pc="268441259" symbol="checkScanTimeout"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="64" lineNum="181" parent="globals/BleManager" pc="268441266" symbol="checkScanTimeout"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="64" lineNum="182" parent="globals/BleManager" pc="268441273" symbol="checkScanTimeout"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="64" lineNum="183" parent="globals/BleManager" pc="268441282" symbol="checkScanTimeout"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="64" lineNum="184" parent="globals/BleManager" pc="268441290" symbol="checkScanTimeout"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="64" lineNum="185" parent="globals/BleManager" pc="268441302" symbol="checkScanTimeout"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="500" parent="globals/BleManager" pc="268441317" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="504" parent="globals/BleManager" pc="268441320" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="505" parent="globals/BleManager" pc="268441335" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="506" parent="globals/BleManager" pc="268441348" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="507" parent="globals/BleManager" pc="268441378" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="508" parent="globals/BleManager" pc="268441389" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="511" parent="globals/BleManager" pc="268441393" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="512" parent="globals/BleManager" pc="268441403" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="513" parent="globals/BleManager" pc="268441421" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="518" parent="globals/BleManager" pc="268441439" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="519" parent="globals/BleManager" pc="268441447" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="520" parent="globals/BleManager" pc="268441477" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="521" parent="globals/BleManager" pc="268441488" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="524" parent="globals/BleManager" pc="268441492" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="526" parent="globals/BleManager" pc="268441504" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="532" parent="globals/BleManager" pc="268441585" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="532" parent="globals/BleManager" pc="268441595" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="533" parent="globals/BleManager" pc="268441605" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="534" parent="globals/BleManager" pc="268441616" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="535" parent="globals/BleManager" pc="268441637" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="537" parent="globals/BleManager" pc="268441647" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="538" parent="globals/BleManager" pc="268441658" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="539" parent="globals/BleManager" pc="268441679" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="65" lineNum="542" parent="globals/BleManager" pc="268441689" symbol="onCharacteristicChanged"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="66" lineNum="614" parent="globals/BleManager" pc="268441701" symbol="getNotifType"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="66" lineNum="614" parent="globals/BleManager" pc="268441703" symbol="getNotifType"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="67" lineNum="136" parent="globals/BleManager" pc="268441709" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="67" lineNum="137" parent="globals/BleManager" pc="268441712" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="67" lineNum="140" parent="globals/BleManager" pc="268441744" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="67" lineNum="141" parent="globals/BleManager" pc="268441751" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="67" lineNum="142" parent="globals/BleManager" pc="268441760" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="67" lineNum="143" parent="globals/BleManager" pc="268441772" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="67" lineNum="144" parent="globals/BleManager" pc="268441793" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="67" lineNum="146" parent="globals/BleManager" pc="268441811" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="67" lineNum="148" parent="globals/BleManager" pc="268441832" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="67" lineNum="149" parent="globals/BleManager" pc="268441851" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="67" lineNum="150" parent="globals/BleManager" pc="268441860" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="67" lineNum="151" parent="globals/BleManager" pc="268441872" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="67" lineNum="153" parent="globals/BleManager" pc="268441910" symbol="startScan"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="68" lineNum="254" parent="globals/BleManager" pc="268441925" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="68" lineNum="255" parent="globals/BleManager" pc="268441927" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="68" lineNum="256" parent="globals/BleManager" pc="268441935" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="68" lineNum="257" parent="globals/BleManager" pc="268441943" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="68" lineNum="258" parent="globals/BleManager" pc="268441955" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="68" lineNum="259" parent="globals/BleManager" pc="268441963" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="68" lineNum="260" parent="globals/BleManager" pc="268441975" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="68" lineNum="261" parent="globals/BleManager" pc="268441983" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="68" lineNum="262" parent="globals/BleManager" pc="268441991" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="68" lineNum="263" parent="globals/BleManager" pc="268441999" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="68" lineNum="264" parent="globals/BleManager" pc="268442008" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="68" lineNum="265" parent="globals/BleManager" pc="268442016" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="68" lineNum="266" parent="globals/BleManager" pc="268442024" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="68" lineNum="267" parent="globals/BleManager" pc="268442032" symbol="_clearSession"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="69" lineNum="566" parent="globals/BleManager" pc="268442045" symbol="_buzzAlert1"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="69" lineNum="567" parent="globals/BleManager" pc="268442047" symbol="_buzzAlert1"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="69" lineNum="567" parent="globals/BleManager" pc="268442063" symbol="_buzzAlert1"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="69" lineNum="568" parent="globals/BleManager" pc="268442067" symbol="_buzzAlert1"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="70" lineNum="421" parent="globals/BleManager" pc="268442115" symbol="_stripPrefix"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="70" lineNum="422" parent="globals/BleManager" pc="268442118" symbol="_stripPrefix"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="70" lineNum="423" parent="globals/BleManager" pc="268442125" symbol="_stripPrefix"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="70" lineNum="425" parent="globals/BleManager" pc="268442173" symbol="_stripPrefix"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="70" lineNum="427" parent="globals/BleManager" pc="268442200" symbol="_stripPrefix"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="71" lineNum="606" parent="globals/BleManager" pc="268442203" symbol="getState"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="71" lineNum="606" parent="globals/BleManager" pc="268442205" symbol="getState"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="72" lineNum="90" parent="globals/BleManager" pc="268442211" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="72" lineNum="91" parent="globals/BleManager" pc="268442213" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="72" lineNum="92" parent="globals/BleManager" pc="268442225" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="72" lineNum="94" parent="globals/BleManager" pc="268442254" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="72" lineNum="95" parent="globals/BleManager" pc="268442278" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="72" lineNum="98" parent="globals/BleManager" pc="268442302" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="72" lineNum="102" parent="globals/BleManager" pc="268442316" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="72" lineNum="104" parent="globals/BleManager" pc="268442323" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="72" lineNum="107" parent="globals/BleManager" pc="268442327" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="72" lineNum="108" parent="globals/BleManager" pc="268442336" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="72" lineNum="109" parent="globals/BleManager" pc="268442348" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="72" lineNum="110" parent="globals/BleManager" pc="268442356" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="73" lineNum="617" parent="globals/BleManager" pc="268442368" symbol="isAlerting1"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="73" lineNum="617" parent="globals/BleManager" pc="268442370" symbol="isAlerting1"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="74" lineNum="579" parent="globals/BleManager" pc="268442387" symbol="_buzzAlert2"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="74" lineNum="580" parent="globals/BleManager" pc="268442389" symbol="_buzzAlert2"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="74" lineNum="580" parent="globals/BleManager" pc="268442405" symbol="_buzzAlert2"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="74" lineNum="581" parent="globals/BleManager" pc="268442409" symbol="_buzzAlert2"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="75" lineNum="618" parent="globals/BleManager" pc="268442634" symbol="isAlerting2"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\BleManager.mc" id="75" lineNum="618" parent="globals/BleManager" pc="268442636" symbol="isAlerting2"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="76" lineNum="115" parent="globals/HalfMenuDelegate" pc="268442653" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="76" lineNum="116" parent="globals/HalfMenuDelegate" pc="268442655" symbol="onBack"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="77" lineNum="103" parent="globals/HalfMenuDelegate" pc="268442670" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="77" lineNum="104" parent="globals/HalfMenuDelegate" pc="268442672" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="77" lineNum="105" parent="globals/HalfMenuDelegate" pc="268442684" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="78" lineNum="108" parent="globals/HalfMenuDelegate" pc="268442694" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="78" lineNum="109" parent="globals/HalfMenuDelegate" pc="268442696" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="78" lineNum="111" parent="globals/HalfMenuDelegate" pc="268442723" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchMenu.mc" id="78" lineNum="112" parent="globals/HalfMenuDelegate" pc="268442737" symbol="onSelect"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="79" lineNum="509" parent="globals/myGarminAppView" pc="268442753" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="79" lineNum="510" parent="globals/myGarminAppView" pc="268442755" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="79" lineNum="510" parent="globals/myGarminAppView" pc="268442762" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="79" lineNum="511" parent="globals/myGarminAppView" pc="268442771" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="79" lineNum="511" parent="globals/myGarminAppView" pc="268442779" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="79" lineNum="512" parent="globals/myGarminAppView" pc="268442788" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="79" lineNum="512" parent="globals/myGarminAppView" pc="268442796" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="79" lineNum="513" parent="globals/myGarminAppView" pc="268442805" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="79" lineNum="513" parent="globals/myGarminAppView" pc="268442813" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="79" lineNum="516" parent="globals/myGarminAppView" pc="268442822" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="79" lineNum="516" parent="globals/myGarminAppView" pc="268442830" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="79" lineNum="517" parent="globals/myGarminAppView" pc="268442845" symbol="_bottomText"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="335" parent="globals/myGarminAppView" pc="268442851" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="336" parent="globals/myGarminAppView" pc="268442854" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="337" parent="globals/myGarminAppView" pc="268442863" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="339" parent="globals/myGarminAppView" pc="268442870" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="345" parent="globals/myGarminAppView" pc="268442895" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="346" parent="globals/myGarminAppView" pc="268442903" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="347" parent="globals/myGarminAppView" pc="268442927" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="349" parent="globals/myGarminAppView" pc="268442973" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="353" parent="globals/myGarminAppView" pc="268442980" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="356" parent="globals/myGarminAppView" pc="268442996" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="357" parent="globals/myGarminAppView" pc="268443000" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="358" parent="globals/myGarminAppView" pc="268443025" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="363" parent="globals/myGarminAppView" pc="268443032" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="364" parent="globals/myGarminAppView" pc="268443048" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="365" parent="globals/myGarminAppView" pc="268443076" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="367" parent="globals/myGarminAppView" pc="268443119" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="368" parent="globals/myGarminAppView" pc="268443126" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="369" parent="globals/myGarminAppView" pc="268443130" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="379" parent="globals/myGarminAppView" pc="268443146" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="380" parent="globals/myGarminAppView" pc="268443149" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="381" parent="globals/myGarminAppView" pc="268443164" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="382" parent="globals/myGarminAppView" pc="268443168" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="383" parent="globals/myGarminAppView" pc="268443172" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="384" parent="globals/myGarminAppView" pc="268443197" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="385" parent="globals/myGarminAppView" pc="268443207" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="389" parent="globals/myGarminAppView" pc="268443257" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="391" parent="globals/myGarminAppView" pc="268443295" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="392" parent="globals/myGarminAppView" pc="268443299" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="393" parent="globals/myGarminAppView" pc="268443303" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="394" parent="globals/myGarminAppView" pc="268443306" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="396" parent="globals/myGarminAppView" pc="268443313" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="402" parent="globals/myGarminAppView" pc="268443330" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="403" parent="globals/myGarminAppView" pc="268443346" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="404" parent="globals/myGarminAppView" pc="268443355" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="405" parent="globals/myGarminAppView" pc="268443364" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="406" parent="globals/myGarminAppView" pc="268443373" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="409" parent="globals/myGarminAppView" pc="268443397" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="410" parent="globals/myGarminAppView" pc="268443418" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="410" parent="globals/myGarminAppView" pc="268443432" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="80" lineNum="411" parent="globals/myGarminAppView" pc="268443447" symbol="_pickCountdownFont"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="202" parent="globals/myGarminAppView" pc="268443509" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="210" parent="globals/myGarminAppView" pc="268443512" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="211" parent="globals/myGarminAppView" pc="268443525" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="212" parent="globals/myGarminAppView" pc="268443538" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="214" parent="globals/myGarminAppView" pc="268443559" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="215" parent="globals/myGarminAppView" pc="268443575" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="218" parent="globals/myGarminAppView" pc="268443601" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="219" parent="globals/myGarminAppView" pc="268443611" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="222" parent="globals/myGarminAppView" pc="268443621" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="223" parent="globals/myGarminAppView" pc="268443637" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="225" parent="globals/myGarminAppView" pc="268443657" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="226" parent="globals/myGarminAppView" pc="268443669" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="227" parent="globals/myGarminAppView" pc="268443686" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="228" parent="globals/myGarminAppView" pc="268443706" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="230" parent="globals/myGarminAppView" pc="268443718" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="233" parent="globals/myGarminAppView" pc="268443723" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="234" parent="globals/myGarminAppView" pc="268443727" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="235" parent="globals/myGarminAppView" pc="268443737" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="236" parent="globals/myGarminAppView" pc="268443753" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="238" parent="globals/myGarminAppView" pc="268443769" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="239" parent="globals/myGarminAppView" pc="268443786" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="242" parent="globals/myGarminAppView" pc="268443806" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="243" parent="globals/myGarminAppView" pc="268443823" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="246" parent="globals/myGarminAppView" pc="268443846" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="81" lineNum="247" parent="globals/myGarminAppView" pc="268443863" symbol="_drawCard"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="82" lineNum="418" parent="globals/myGarminAppView" pc="268443884" symbol="_cdMaxWidth"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="82" lineNum="419" parent="globals/myGarminAppView" pc="268443887" symbol="_cdMaxWidth"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="82" lineNum="420" parent="globals/myGarminAppView" pc="268443896" symbol="_cdMaxWidth"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="82" lineNum="420" parent="globals/myGarminAppView" pc="268443905" symbol="_cdMaxWidth"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="82" lineNum="421" parent="globals/myGarminAppView" pc="268443914" symbol="_cdMaxWidth"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="82" lineNum="422" parent="globals/myGarminAppView" pc="268443926" symbol="_cdMaxWidth"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="82" lineNum="423" parent="globals/myGarminAppView" pc="268443933" symbol="_cdMaxWidth"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="82" lineNum="423" parent="globals/myGarminAppView" pc="268443941" symbol="_cdMaxWidth"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="82" lineNum="424" parent="globals/myGarminAppView" pc="268443946" symbol="_cdMaxWidth"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="82" lineNum="425" parent="globals/myGarminAppView" pc="268443977" symbol="_cdMaxWidth"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="83" lineNum="107" parent="globals/myGarminAppView" pc="268443991" symbol="onHide"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="83" lineNum="108" parent="globals/myGarminAppView" pc="268443993" symbol="onHide"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="83" lineNum="109" parent="globals/myGarminAppView" pc="268444005" symbol="onHide"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="84" lineNum="96" parent="globals/myGarminAppView" pc="268444014" symbol="onShow"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="84" lineNum="99" parent="globals/myGarminAppView" pc="268444017" symbol="onShow"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="84" lineNum="100" parent="globals/myGarminAppView" pc="268444030" symbol="onShow"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="84" lineNum="101" parent="globals/myGarminAppView" pc="268444060" symbol="onShow"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="84" lineNum="103" parent="globals/myGarminAppView" pc="268444075" symbol="onShow"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="84" lineNum="104" parent="globals/myGarminAppView" pc="268444082" symbol="onShow"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="85" lineNum="164" parent="globals/myGarminAppView" pc="268444094" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="85" lineNum="173" parent="globals/myGarminAppView" pc="268444096" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="85" lineNum="174" parent="globals/myGarminAppView" pc="268444110" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="85" lineNum="175" parent="globals/myGarminAppView" pc="268444127" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="85" lineNum="178" parent="globals/myGarminAppView" pc="268444131" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="85" lineNum="182" parent="globals/myGarminAppView" pc="268444155" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="85" lineNum="183" parent="globals/myGarminAppView" pc="268444180" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="85" lineNum="186" parent="globals/myGarminAppView" pc="268444184" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="85" lineNum="187" parent="globals/myGarminAppView" pc="268444191" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="85" lineNum="188" parent="globals/myGarminAppView" pc="268444214" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="85" lineNum="191" parent="globals/myGarminAppView" pc="268444218" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="85" lineNum="192" parent="globals/myGarminAppView" pc="268444226" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="85" lineNum="193" parent="globals/myGarminAppView" pc="268444249" symbol="_drawMain"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="86" lineNum="92" parent="globals/myGarminAppView" pc="268444254" symbol="onLayout"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="86" lineNum="93" parent="globals/myGarminAppView" pc="268444256" symbol="onLayout"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="271" parent="globals/myGarminAppView" pc="268444268" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="279" parent="globals/myGarminAppView" pc="268444271" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="282" parent="globals/myGarminAppView" pc="268444322" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="283" parent="globals/myGarminAppView" pc="268444336" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="288" parent="globals/myGarminAppView" pc="268444371" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="289" parent="globals/myGarminAppView" pc="268444387" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="297" parent="globals/myGarminAppView" pc="268444419" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="298" parent="globals/myGarminAppView" pc="268444432" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="299" parent="globals/myGarminAppView" pc="268444445" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="299" parent="globals/myGarminAppView" pc="268444457" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="300" parent="globals/myGarminAppView" pc="268444461" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="300" parent="globals/myGarminAppView" pc="268444475" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="302" parent="globals/myGarminAppView" pc="268444479" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="303" parent="globals/myGarminAppView" pc="268444512" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="304" parent="globals/myGarminAppView" pc="268444525" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="305" parent="globals/myGarminAppView" pc="268444538" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="306" parent="globals/myGarminAppView" pc="268444542" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="307" parent="globals/myGarminAppView" pc="268444557" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="308" parent="globals/myGarminAppView" pc="268444573" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="309" parent="globals/myGarminAppView" pc="268444601" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="87" lineNum="310" parent="globals/myGarminAppView" pc="268444618" symbol="_drawLiveScreen"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="88" lineNum="464" parent="globals/myGarminAppView" pc="268444648" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="88" lineNum="465" parent="globals/myGarminAppView" pc="268444651" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="88" lineNum="466" parent="globals/myGarminAppView" pc="268444664" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="88" lineNum="471" parent="globals/myGarminAppView" pc="268444744" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="88" lineNum="473" parent="globals/myGarminAppView" pc="268444774" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="88" lineNum="474" parent="globals/myGarminAppView" pc="268444799" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="88" lineNum="474" parent="globals/myGarminAppView" pc="268444810" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="88" lineNum="476" parent="globals/myGarminAppView" pc="268444814" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="88" lineNum="477" parent="globals/myGarminAppView" pc="268444826" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="88" lineNum="478" parent="globals/myGarminAppView" pc="268444833" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="88" lineNum="480" parent="globals/myGarminAppView" pc="268444866" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="88" lineNum="482" parent="globals/myGarminAppView" pc="268444874" symbol="_syncTimer"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="89" lineNum="485" parent="globals/myGarminAppView" pc="268444884" symbol="_onTick"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="89" lineNum="488" parent="globals/myGarminAppView" pc="268444886" symbol="_onTick"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="89" lineNum="489" parent="globals/myGarminAppView" pc="268444904" symbol="_onTick"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="90" lineNum="495" parent="globals/myGarminAppView" pc="268444916" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="90" lineNum="496" parent="globals/myGarminAppView" pc="268444918" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="90" lineNum="496" parent="globals/myGarminAppView" pc="268444925" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="90" lineNum="497" parent="globals/myGarminAppView" pc="268444933" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="90" lineNum="497" parent="globals/myGarminAppView" pc="268444941" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="90" lineNum="498" parent="globals/myGarminAppView" pc="268444950" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="90" lineNum="498" parent="globals/myGarminAppView" pc="268444958" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="90" lineNum="499" parent="globals/myGarminAppView" pc="268444967" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="90" lineNum="499" parent="globals/myGarminAppView" pc="268444975" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="90" lineNum="500" parent="globals/myGarminAppView" pc="268444984" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="90" lineNum="500" parent="globals/myGarminAppView" pc="268444992" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="90" lineNum="501" parent="globals/myGarminAppView" pc="268445001" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="90" lineNum="501" parent="globals/myGarminAppView" pc="268445009" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="90" lineNum="502" parent="globals/myGarminAppView" pc="268445017" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="90" lineNum="502" parent="globals/myGarminAppView" pc="268445025" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="90" lineNum="503" parent="globals/myGarminAppView" pc="268445034" symbol="_accentColor"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="91" lineNum="435" parent="globals/myGarminAppView" pc="268445039" symbol="_drawSpinner"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="91" lineNum="441" parent="globals/myGarminAppView" pc="268445042" symbol="_drawSpinner"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="91" lineNum="442" parent="globals/myGarminAppView" pc="268445054" symbol="_drawSpinner"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="91" lineNum="443" parent="globals/myGarminAppView" pc="268445070" symbol="_drawSpinner"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="91" lineNum="446" parent="globals/myGarminAppView" pc="268445077" symbol="_drawSpinner"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="91" lineNum="447" parent="globals/myGarminAppView" pc="268445089" symbol="_drawSpinner"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="91" lineNum="448" parent="globals/myGarminAppView" pc="268445105" symbol="_drawSpinner"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="91" lineNum="451" parent="globals/myGarminAppView" pc="268445121" symbol="_drawSpinner"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="91" lineNum="452" parent="globals/myGarminAppView" pc="268445135" symbol="_drawSpinner"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="91" lineNum="455" parent="globals/myGarminAppView" pc="268445157" symbol="_drawSpinner"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="92" lineNum="80" parent="globals/myGarminAppView" pc="268445170" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="92" lineNum="81" parent="globals/myGarminAppView" pc="268445173" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="92" lineNum="82" parent="globals/myGarminAppView" pc="268445185" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="92" lineNum="83" parent="globals/myGarminAppView" pc="268445194" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="92" lineNum="84" parent="globals/myGarminAppView" pc="268445203" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="92" lineNum="85" parent="globals/myGarminAppView" pc="268445232" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="92" lineNum="87" parent="globals/myGarminAppView" pc="268445270" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="92" lineNum="88" parent="globals/myGarminAppView" pc="268445287" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="112" parent="globals/myGarminAppView" pc="268445311" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="113" parent="globals/myGarminAppView" pc="268445314" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="114" parent="globals/myGarminAppView" pc="268445323" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="115" parent="globals/myGarminAppView" pc="268445332" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="118" parent="globals/myGarminAppView" pc="268445339" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="119" parent="globals/myGarminAppView" pc="268445351" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="122" parent="globals/myGarminAppView" pc="268445359" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="123" parent="globals/myGarminAppView" pc="268445371" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="128" parent="globals/myGarminAppView" pc="268445384" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="129" parent="globals/myGarminAppView" pc="268445413" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="130" parent="globals/myGarminAppView" pc="268445417" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="133" parent="globals/myGarminAppView" pc="268445427" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="134" parent="globals/myGarminAppView" pc="268445446" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="135" parent="globals/myGarminAppView" pc="268445465" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="140" parent="globals/myGarminAppView" pc="268445484" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="141" parent="globals/myGarminAppView" pc="268445499" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="142" parent="globals/myGarminAppView" pc="268445521" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="146" parent="globals/myGarminAppView" pc="268445540" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="149" parent="globals/myGarminAppView" pc="268445559" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="150" parent="globals/myGarminAppView" pc="268445574" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="151" parent="globals/myGarminAppView" pc="268445586" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="152" parent="globals/myGarminAppView" pc="268445598" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="153" parent="globals/myGarminAppView" pc="268445614" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\myGarminAppView.mc" id="93" lineNum="158" parent="globals/myGarminAppView" pc="268445640" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="94" lineNum="96" parent="globals/MatchTimer" pc="268445648" symbol="formatInterval"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="94" lineNum="96" parent="globals/MatchTimer" pc="268445650" symbol="formatInterval"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="95" lineNum="106" parent="globals/MatchTimer" pc="268445668" symbol="getElapsedMs"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="95" lineNum="107" parent="globals/MatchTimer" pc="268445670" symbol="getElapsedMs"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="96" lineNum="92" parent="globals/MatchTimer" pc="268445709" symbol="getIntervalMinPart"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="96" lineNum="92" parent="globals/MatchTimer" pc="268445711" symbol="getIntervalMinPart"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="97" lineNum="126" parent="globals/MatchTimer" pc="268445722" symbol="formatCountUp"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="97" lineNum="127" parent="globals/MatchTimer" pc="268445725" symbol="formatCountUp"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="97" lineNum="128" parent="globals/MatchTimer" pc="268445744" symbol="formatCountUp"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="98" lineNum="149" parent="globals/MatchTimer" pc="268445766" symbol="_buzzExpiry"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="98" lineNum="150" parent="globals/MatchTimer" pc="268445768" symbol="_buzzExpiry"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="98" lineNum="150" parent="globals/MatchTimer" pc="268445784" symbol="_buzzExpiry"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="98" lineNum="151" parent="globals/MatchTimer" pc="268445788" symbol="_buzzExpiry"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="99" lineNum="49" parent="globals/MatchTimer" pc="268445954" symbol="isRunning"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="99" lineNum="49" parent="globals/MatchTimer" pc="268445956" symbol="isRunning"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="100" lineNum="87" parent="globals/MatchTimer" pc="268445962" symbol="setInterval"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="100" lineNum="88" parent="globals/MatchTimer" pc="268445964" symbol="setInterval"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="100" lineNum="89" parent="globals/MatchTimer" pc="268445983" symbol="setInterval"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="101" lineNum="131" parent="globals/MatchTimer" pc="268445991" symbol="_fmt"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="101" lineNum="132" parent="globals/MatchTimer" pc="268445994" symbol="_fmt"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="101" lineNum="133" parent="globals/MatchTimer" pc="268446001" symbol="_fmt"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="101" lineNum="134" parent="globals/MatchTimer" pc="268446008" symbol="_fmt"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="102" lineNum="55" parent="globals/MatchTimer" pc="268446044" symbol="start"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="102" lineNum="56" parent="globals/MatchTimer" pc="268446047" symbol="start"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="102" lineNum="57" parent="globals/MatchTimer" pc="268446056" symbol="start"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="102" lineNum="58" parent="globals/MatchTimer" pc="268446073" symbol="start"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="102" lineNum="61" parent="globals/MatchTimer" pc="268446081" symbol="start"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="102" lineNum="62" parent="globals/MatchTimer" pc="268446094" symbol="start"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="102" lineNum="63" parent="globals/MatchTimer" pc="268446101" symbol="start"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="103" lineNum="51" parent="globals/MatchTimer" pc="268446138" symbol="toggle"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="103" lineNum="52" parent="globals/MatchTimer" pc="268446140" symbol="toggle"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="103" lineNum="52" parent="globals/MatchTimer" pc="268446148" symbol="toggle"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="103" lineNum="52" parent="globals/MatchTimer" pc="268446158" symbol="toggle"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="104" lineNum="99" parent="globals/MatchTimer" pc="268446166" symbol="setSecondHalf"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="104" lineNum="99" parent="globals/MatchTimer" pc="268446168" symbol="setSecondHalf"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="105" lineNum="68" parent="globals/MatchTimer" pc="268446178" symbol="pause"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="105" lineNum="69" parent="globals/MatchTimer" pc="268446180" symbol="pause"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="105" lineNum="70" parent="globals/MatchTimer" pc="268446188" symbol="pause"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="105" lineNum="71" parent="globals/MatchTimer" pc="268446217" symbol="pause"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="105" lineNum="72" parent="globals/MatchTimer" pc="268446225" symbol="pause"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="106" lineNum="141" parent="globals/MatchTimer" pc="268446241" symbol="onExpiry"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="106" lineNum="142" parent="globals/MatchTimer" pc="268446243" symbol="onExpiry"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="106" lineNum="143" parent="globals/MatchTimer" pc="268446261" symbol="onExpiry"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="106" lineNum="144" parent="globals/MatchTimer" pc="268446268" symbol="onExpiry"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="107" lineNum="93" parent="globals/MatchTimer" pc="268446280" symbol="getIntervalSecPart"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="107" lineNum="93" parent="globals/MatchTimer" pc="268446282" symbol="getIntervalSecPart"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="108" lineNum="118" parent="globals/MatchTimer" pc="268446295" symbol="formatCountdown"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="108" lineNum="119" parent="globals/MatchTimer" pc="268446298" symbol="formatCountdown"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="108" lineNum="120" parent="globals/MatchTimer" pc="268446312" symbol="formatCountdown"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="108" lineNum="120" parent="globals/MatchTimer" pc="268446319" symbol="formatCountdown"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="108" lineNum="121" parent="globals/MatchTimer" pc="268446325" symbol="formatCountdown"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="109" lineNum="100" parent="globals/MatchTimer" pc="268446344" symbol="isSecondHalf"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="109" lineNum="100" parent="globals/MatchTimer" pc="268446346" symbol="isSecondHalf"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="110" lineNum="76" parent="globals/MatchTimer" pc="268446352" symbol="reset"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="110" lineNum="77" parent="globals/MatchTimer" pc="268446354" symbol="reset"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="110" lineNum="78" parent="globals/MatchTimer" pc="268446362" symbol="reset"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="110" lineNum="79" parent="globals/MatchTimer" pc="268446370" symbol="reset"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="111" lineNum="41" parent="globals/MatchTimer" pc="268446383" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="111" lineNum="42" parent="globals/MatchTimer" pc="268446385" symbol="initialize"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="112" lineNum="112" parent="globals/MatchTimer" pc="268446415" symbol="isExpired"/>
+        <entry filename="C:\\Users\\ralls\\GitHub\\rareBit-Garmin\\source\\MatchTimer.mc" id="112" lineNum="113" parent="globals/MatchTimer" pc="268446417" symbol="isExpired"/>
+        <entry filename="c:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\006-B4261-00\\source\\Rez.mcgen" id="113" lineNum="14" parent="globals/Rez/Layouts" pc="268446430" symbol="MainLayout"/>
+        <entry filename="c:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\006-B4261-00\\source\\Rez.mcgen" id="113" lineNum="15" parent="globals/Rez/Layouts" pc="268446440" symbol="MainLayout"/>
+        <entry filename="c:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\006-B4261-00\\source\\Rez.mcgen" id="114" lineNum="20" parent="globals/Rez/Menus/MainMenu" pc="268446443" symbol="&lt;init&gt;"/>
+        <entry filename="c:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\006-B4261-00\\source\\Rez.mcgen" id="115" lineNum="21" parent="globals/Rez/Menus/MainMenu" pc="268446455" symbol="initialize"/>
+        <entry filename="c:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\006-B4261-00\\source\\Rez.mcgen" id="115" lineNum="22" parent="globals/Rez/Menus/MainMenu" pc="268446457" symbol="initialize"/>
+        <entry filename="c:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\006-B4261-00\\source\\Rez.mcgen" id="115" lineNum="23" parent="globals/Rez/Menus/MainMenu" pc="268446469" symbol="initialize"/>
+        <entry filename="c:\\Users\\ralls\\GitHub\\rareBit-Garmin\\bin\\gen\\006-B4261-00\\source\\Rez.mcgen" id="115" lineNum="24" parent="globals/Rez/Menus/MainMenu" pc="268446488" symbol="initialize"/>
+    </pcToLineNum>
+    <symbolTable>
+        <entry id="116" method="true" symbol="isSecondHalf"/>
+        <entry id="8388639" module="true" symbol="Graphics"/>
+        <entry id="80" method="true" symbol="_accentColor"/>
+        <entry id="69" method="true" symbol="getRxCount"/>
+        <entry field="true" id="32" symbol="_alert1Until"/>
+        <entry id="109" method="true" symbol="formatCountdown"/>
+        <entry field="true" id="8389344" symbol="seconds"/>
+        <entry field="true" id="84" symbol="_cdFont"/>
+        <entry id="115" method="true" symbol="isRunning"/>
+        <entry id="8388632" method="true" symbol="&lt;init&gt;"/>
+        <entry id="129" symbol="rescan"/>
+        <entry id="43" method="true" symbol="_enableNotifications"/>
+        <entry id="5" module="true" symbol="globals/Rez/Menus"/>
+        <entry id="100" method="true" symbol="_buzzExpiry"/>
+        <entry id="124" method="true" symbol="MainLayout"/>
+        <entry field="true" id="101" symbol="_elapsedMs"/>
+        <entry field="true" id="31" symbol="zoneTop"/>
+        <entry field="true" id="42" symbol="_deviceName"/>
+        <entry id="112" method="true" symbol="getIntervalMinPart"/>
+        <entry id="134" symbol="item_scan"/>
+        <entry field="true" id="122" symbol="ArIcon"/>
+        <entry id="108" method="true" symbol="formatCountUp"/>
+        <entry id="8392220" method="true" symbol="getVectorFont"/>
+        <entry id="60" method="true" symbol="_stopScanInternal"/>
+        <entry id="85" method="true" symbol="_cdMaxWidth"/>
+        <entry id="15" object="true" symbol="myGarminAppDelegate"/>
+        <entry id="111" method="true" symbol="getElapsedMs"/>
+        <entry field="true" id="88" symbol="_cuY"/>
+        <entry field="true" id="55" symbol="_rxHex"/>
+        <entry field="true" id="49" symbol="_notifTimer"/>
+        <entry id="37" method="true" symbol="_buzzDoubleTap"/>
+        <entry field="true" id="8388611" module="true" symbol="Toybox"/>
+        <entry field="true" id="54" symbol="_rxCount"/>
+        <entry id="8391256" method="true" symbol="onScanResults"/>
+        <entry field="true" id="8388782" method="true" symbol="size"/>
+        <entry id="8392382" method="true" symbol="reset"/>
+        <entry field="true" id="48" symbol="_notifLocked"/>
+        <entry id="71" method="true" symbol="getStatus"/>
+        <entry field="true" id="126" symbol="AppName"/>
+        <entry id="9" object="true" symbol="IntervalPickerDelegate"/>
+        <entry id="8389339" symbol="second"/>
+        <entry id="8391255" method="true" symbol="onScanStateChange"/>
+        <entry id="8391262" method="true" symbol="onDescriptorWrite"/>
+        <entry id="119" method="true" symbol="setInterval"/>
+        <entry field="true" id="104" symbol="_intervalMs"/>
+        <entry id="6" module="true" symbol="globals/Rez/Strings"/>
+        <entry field="true" id="58" symbol="_state"/>
+        <entry field="true" id="87" symbol="_cdY"/>
+        <entry id="8389080" method="true" symbol="onMenu"/>
+        <entry id="121" method="true" symbol="toggle"/>
+        <entry id="8388648" module="true" symbol="WatchUi"/>
+        <entry id="8389081" method="true" symbol="onBack"/>
+        <entry id="38" method="true" symbol="_bytesToString"/>
+        <entry id="2" module="true" symbol="globals/Rez"/>
+        <entry id="8391340" symbol="descriptors"/>
+        <entry id="91" method="true" symbol="_drawMain"/>
+        <entry id="127" symbol="interval"/>
+        <entry id="94" method="true" symbol="_onTick"/>
+        <entry id="83" method="true" symbol="_bottomText"/>
+        <entry id="8389124" method="true" symbol="onUpdate"/>
+        <entry field="true" id="86" symbol="_cdVisH"/>
+        <entry field="true" id="57" symbol="_scanResult"/>
+        <entry id="8391263" method="true" symbol="onCharacteristicChanged"/>
+        <entry id="97" method="true" symbol="_syncTimer"/>
+        <entry field="true" id="28" symbol="_ble"/>
+        <entry id="8388771" module="true" object="true" symbol="Drawables"/>
+        <entry id="8391258" method="true" symbol="onConnectedStateChanged"/>
+        <entry id="24" module="true" symbol="Menus"/>
+        <entry id="14" object="true" symbol="myGarminAppApp"/>
+        <entry id="8389275" method="true" symbol="getApp"/>
+        <entry id="4" module="true" symbol="globals/Rez/Layouts"/>
+        <entry field="true" id="106" symbol="_secondHalf"/>
+        <entry id="18" method="true" symbol="pushMatchMenu"/>
+        <entry id="8389122" method="true" symbol="onLayout"/>
+        <entry id="117" method="true" symbol="onExpiry"/>
+        <entry id="67" method="true" symbol="getLinked2"/>
+        <entry id="66" method="true" symbol="getLinked1"/>
+        <entry id="113" method="true" symbol="getIntervalSecPart"/>
+        <entry field="true" id="41" symbol="_device"/>
+        <entry id="63" method="true" symbol="_unlockNotif"/>
+        <entry id="8389098" method="true" symbol="onTap"/>
+        <entry field="true" id="8388801" symbol="BLE_ERROR"/>
+        <entry id="8388987" method="true" symbol="vibrate"/>
+        <entry field="true" id="99" symbol="_timer"/>
+        <entry id="74" method="true" symbol="isLive"/>
+        <entry id="17" object="true" symbol="myGarminAppView"/>
+        <entry id="78" method="true" symbol="stopScan"/>
+        <entry field="true" id="39" symbol="_charUuid"/>
+        <entry id="76" method="true" symbol="skipToTimer"/>
+        <entry id="73" method="true" symbol="isAlerting2"/>
+        <entry id="72" method="true" symbol="isAlerting1"/>
+        <entry field="true" id="53" symbol="_rssi"/>
+        <entry id="16" object="true" symbol="myGarminAppMenuDelegate"/>
+        <entry id="110" method="true" symbol="formatInterval"/>
+        <entry id="114" method="true" symbol="isExpired"/>
+        <entry id="3" module="true" symbol="globals/Rez/Drawables"/>
+        <entry field="true" id="82" symbol="_arIcon"/>
+        <entry id="8" object="true" symbol="HalfMenuDelegate"/>
+        <entry id="125" object="true" symbol="MainMenu"/>
+        <entry field="true" id="51" symbol="_pairFails"/>
+        <entry id="90" method="true" symbol="_drawLiveScreen"/>
+        <entry field="true" id="102" symbol="_expiryTimer"/>
+        <entry field="true" id="21" symbol="_mt"/>
+        <entry field="true" id="33" symbol="_alert2Until"/>
+        <entry id="29" method="true" symbol="_drawArrow"/>
+        <entry id="135" symbol="item_disconnect"/>
+        <entry field="true" id="93" symbol="_isRound"/>
+        <entry field="true" id="107" symbol="_startTick"/>
+        <entry id="92" method="true" symbol="_drawSpinner"/>
+        <entry id="79" method="true" symbol="teardown"/>
+        <entry id="13" method="true" symbol="_halfSubLabel"/>
+        <entry id="47" method="true" symbol="_nameFromResult"/>
+        <entry id="8388644" module="true" symbol="System"/>
+        <entry id="120" method="true" symbol="setSecondHalf"/>
+        <entry id="75" method="true" symbol="simulateAlert"/>
+        <entry id="8391257" method="true" symbol="onProfileRegister"/>
+        <entry id="7" object="true" symbol="BleManager"/>
+        <entry id="34" method="true" symbol="_autoConnect"/>
+        <entry id="8389619" method="true" symbol="onSelect"/>
+        <entry id="8388769" module="true" object="true" symbol="Rez"/>
+        <entry id="52" method="true" symbol="_registerProfile"/>
+        <entry id="40" method="true" symbol="_clearSession"/>
+        <entry id="8392219" symbol="face"/>
+        <entry id="20" method="true" symbol="_confirm"/>
+        <entry id="95" method="true" symbol="_pickCountdownFont"/>
+        <entry field="true" id="26" symbol="_matchTimer"/>
+        <entry field="true" id="59" symbol="_status"/>
+        <entry id="8388640" module="true" symbol="Lang"/>
+        <entry field="true" id="62" symbol="_svcUuid"/>
+        <entry field="true" id="123" symbol="LauncherIcon"/>
+        <entry id="8388610" symbol="statics"/>
+        <entry id="8389123" method="true" symbol="onShow"/>
+        <entry id="70" method="true" symbol="getRxHex"/>
+        <entry id="10" object="true" symbol="IntervalPickerView"/>
+        <entry id="8391265" method="true" symbol="getRssi"/>
+        <entry id="68" method="true" symbol="getNotifType"/>
+        <entry field="true" id="81" symbol="_animFrame"/>
+        <entry id="8389350" module="true" symbol="globals"/>
+        <entry id="12" object="true" symbol="MatchTimer"/>
+        <entry id="8391334" symbol="uuid"/>
+        <entry id="8388770" module="true" object="true" symbol="Strings"/>
+        <entry id="103" method="true" symbol="_fmt"/>
+        <entry field="true" id="22" symbol="_view"/>
+        <entry id="8391193" module="true" symbol="BluetoothLowEnergy"/>
+        <entry id="8388702" method="true" symbol="initialize"/>
+        <entry field="true" id="96" symbol="_symY"/>
+        <entry id="8391267" method="true" symbol="getDeviceName"/>
+        <entry id="132" symbol="exitApp"/>
+        <entry id="8389279" method="true" symbol="onStart"/>
+        <entry id="89" method="true" symbol="_drawCard"/>
+        <entry id="8389902" method="true" symbol="getState"/>
+        <entry id="64" method="true" symbol="checkScanTimeout"/>
+        <entry id="8388641" module="true" symbol="Math"/>
+        <entry field="true" id="105" symbol="_running"/>
+        <entry field="true" id="44" symbol="_everLive"/>
+        <entry field="true" id="25" symbol="_bleMgr"/>
+        <entry field="true" id="56" symbol="_scanDeadline"/>
+        <entry id="8389280" method="true" symbol="getInitialView"/>
+        <entry id="8389281" method="true" symbol="onStop"/>
+        <entry id="19" method="true" symbol="_bump"/>
+        <entry id="8389109" method="true" symbol="onMenuItem"/>
+        <entry id="8391341" symbol="characteristics"/>
+        <entry id="11" object="true" symbol="MatchMenuDelegate"/>
+        <entry id="8389097" method="true" symbol="onKey"/>
+        <entry field="true" id="50" symbol="_notifType"/>
+        <entry id="36" method="true" symbol="_buzzAlert2"/>
+        <entry id="35" method="true" symbol="_buzzAlert1"/>
+        <entry id="131" symbol="simAlert2"/>
+        <entry id="130" symbol="simAlert1"/>
+        <entry field="true" id="46" symbol="_linked2"/>
+        <entry field="true" id="45" symbol="_linked1"/>
+        <entry id="8388646" module="true" object="true" symbol="Timer"/>
+        <entry id="23" module="true" symbol="Layouts"/>
+        <entry id="128" symbol="half"/>
+        <entry id="8388636" module="true" symbol="Attention"/>
+        <entry id="8388698" method="true" symbol="start"/>
+        <entry field="true" id="8389343" symbol="minutes"/>
+        <entry id="65" method="true" symbol="disconnect"/>
+        <entry id="118" method="true" symbol="pause"/>
+        <entry id="77" method="true" symbol="startScan"/>
+        <entry id="27" method="true" symbol="getBleManager"/>
+        <entry field="true" id="30" symbol="zoneBot"/>
+        <entry id="8389125" method="true" symbol="onHide"/>
+        <entry id="133" symbol="first"/>
+        <entry id="8388635" module="true" symbol="Application"/>
+        <entry field="true" id="8389642" symbol="title"/>
+        <entry id="61" method="true" symbol="_stripPrefix"/>
+        <entry id="8389101" method="true" symbol="onSwipe"/>
+        <entry field="true" id="98" symbol="_tickPeriod"/>
+    </symbolTable>
+    <localVars>
+        <entry arg="true" endPc="268435569" name="mt" stackId="1" startPc="268435528"/>
+        <entry arg="true" endPc="268436086" name="mt" stackId="1" startPc="268435606"/>
+        <entry arg="true" endPc="268436086" name="ble" stackId="2" startPc="268435606"/>
+        <entry endPc="268436085" name="menu" stackId="3" startPc="268435617"/>
+        <entry arg="true" endPc="268436202" name="swipeEvent" stackId="1" startPc="268436199"/>
+        <entry arg="true" endPc="268436235" name="mt" stackId="1" startPc="268436203"/>
+        <entry arg="true" endPc="268436235" name="view" stackId="2" startPc="268436203"/>
+        <entry arg="true" endPc="268436480" name="clickEvent" stackId="1" startPc="268436236"/>
+        <entry endPc="268436480" name="xy" stackId="2" startPc="268436239"/>
+        <entry endPc="268436480" name="ds" stackId="3" startPc="268436239"/>
+        <entry endPc="268436480" name="isMin" stackId="4" startPc="268436239"/>
+        <entry endPc="268436480" name="top" stackId="5" startPc="268436239"/>
+        <entry endPc="268436480" name="bot" stackId="6" startPc="268436239"/>
+        <entry arg="true" endPc="268436664" name="isMinutes" stackId="1" startPc="268436481"/>
+        <entry arg="true" endPc="268436664" name="dir" stackId="2" startPc="268436481"/>
+        <entry endPc="268436544" name="m" stackId="3" startPc="268436489"/>
+        <entry endPc="268436606" name="s" stackId="4" startPc="268436548"/>
+        <entry arg="true" endPc="268436732" name="keyEvent" stackId="1" startPc="268436665"/>
+        <entry endPc="268436732" name="k" stackId="2" startPc="268436668"/>
+        <entry arg="true" endPc="268436892" name="state" stackId="1" startPc="268436878"/>
+        <entry arg="true" endPc="268436961" name="mt" stackId="1" startPc="268436929"/>
+        <entry arg="true" endPc="268436961" name="ble" stackId="2" startPc="268436929"/>
+        <entry arg="true" endPc="268437524" name="item" stackId="1" startPc="268436962"/>
+        <entry endPc="268437523" name="id" stackId="2" startPc="268436965"/>
+        <entry endPc="268437068" name="view" stackId="3" startPc="268436985"/>
+        <entry endPc="268437300" name="menu" stackId="4" startPc="268437083"/>
+        <entry arg="true" endPc="268437557" name="minutes0" stackId="1" startPc="268437525"/>
+        <entry arg="true" endPc="268437557" name="seconds0" stackId="2" startPc="268437525"/>
+        <entry arg="true" endPc="268438066" name="dc" stackId="1" startPc="268437558"/>
+        <entry endPc="268438065" name="w" stackId="2" startPc="268437561"/>
+        <entry endPc="268438065" name="h" stackId="3" startPc="268437561"/>
+        <entry endPc="268438065" name="cx" stackId="4" startPc="268437561"/>
+        <entry endPc="268438065" name="cy" stackId="5" startPc="268437561"/>
+        <entry endPc="268438065" name="font" stackId="6" startPc="268437561"/>
+        <entry endPc="268438065" name="off" stackId="7" startPc="268437561"/>
+        <entry endPc="268438065" name="digitH" stackId="8" startPc="268437561"/>
+        <entry endPc="268438065" name="arrOff" stackId="9" startPc="268437561"/>
+        <entry endPc="268438065" name="arrW" stackId="10" startPc="268437561"/>
+        <entry arg="true" endPc="268438254" name="dc" stackId="1" startPc="268438067"/>
+        <entry arg="true" endPc="268438254" name="x" stackId="2" startPc="268438067"/>
+        <entry arg="true" endPc="268438254" name="y" stackId="3" startPc="268438067"/>
+        <entry arg="true" endPc="268438254" name="halfW" stackId="4" startPc="268438067"/>
+        <entry arg="true" endPc="268438254" name="up" stackId="5" startPc="268438067"/>
+        <entry endPc="268438253" name="hh" stackId="6" startPc="268438070"/>
+        <entry endPc="268438351" name="state" stackId="1" startPc="268438258"/>
+        <entry endPc="268438450" name="state" stackId="1" startPc="268438355"/>
+        <entry arg="true" endPc="268438483" name="ble" stackId="1" startPc="268438451"/>
+        <entry arg="true" endPc="268438483" name="matchTimer" stackId="2" startPc="268438451"/>
+        <entry arg="true" endPc="268438492" name="clickEvent" stackId="1" startPc="268438484"/>
+        <entry endPc="268438582" name="state" stackId="1" startPc="268438496"/>
+        <entry arg="true" endPc="268438974" name="descriptor" stackId="1" startPc="268438812"/>
+        <entry arg="true" endPc="268438974" name="status" stackId="2" startPc="268438812"/>
+        <entry arg="true" endPc="268439007" name="scanState" stackId="1" startPc="268438975"/>
+        <entry arg="true" endPc="268439007" name="status" stackId="2" startPc="268438975"/>
+        <entry arg="true" endPc="268439305" name="device" stackId="1" startPc="268439008"/>
+        <entry arg="true" endPc="268439305" name="state" stackId="2" startPc="268439008"/>
+        <entry endPc="268439124" name="devName" stackId="3" startPc="268439040"/>
+        <entry endPc="268439304" name="wasSub" stackId="4" startPc="268439128"/>
+        <entry endPc="268439597" name="ex" stackId="1" startPc="268439525"/>
+        <entry endPc="268439702" name="ex" stackId="1" startPc="268439677"/>
+        <entry endPc="268439910" name="ex" stackId="1" startPc="268439819"/>
+        <entry arg="true" endPc="268440016" name="uuid" stackId="1" startPc="268439917"/>
+        <entry arg="true" endPc="268440016" name="status" stackId="2" startPc="268439917"/>
+        <entry arg="true" endPc="268440098" name="bytes" stackId="1" startPc="268440017"/>
+        <entry endPc="268440098" name="s" stackId="2" startPc="268440020"/>
+        <entry endPc="268440095" name="i" stackId="3" startPc="268440043"/>
+        <entry endPc="268440085" name="b" stackId="4" startPc="268440043"/>
+        <entry arg="true" endPc="268440166" name="arNum" stackId="1" startPc="268440107"/>
+        <entry endPc="268440165" name="until" stackId="2" startPc="268440110"/>
+        <entry arg="true" endPc="268440431" name="result" stackId="1" startPc="268440167"/>
+        <entry endPc="268440431" name="apiName" stackId="2" startPc="268440170"/>
+        <entry endPc="268440431" name="raw" stackId="3" startPc="268440170"/>
+        <entry endPc="268440426" name="i" stackId="4" startPc="268440227"/>
+        <entry endPc="268440423" name="adLen" stackId="5" startPc="268440244"/>
+        <entry endPc="268440423" name="adType" stackId="6" startPc="268440244"/>
+        <entry endPc="268440410" name="nameBytes" stackId="7" startPc="268440321"/>
+        <entry endPc="268440410" name="parsed" stackId="8" startPc="268440321"/>
+        <entry arg="true" endPc="268440848" name="device" stackId="1" startPc="268440432"/>
+        <entry endPc="268440744" name="svc" stackId="2" startPc="268440458"/>
+        <entry endPc="268440744" name="chr" stackId="3" startPc="268440458"/>
+        <entry endPc="268440744" name="cccd" stackId="4" startPc="268440458"/>
+        <entry endPc="268440831" name="ex" stackId="5" startPc="268440751"/>
+        <entry endPc="268440959" name="ex" stackId="1" startPc="268440908"/>
+        <entry arg="true" endPc="268441208" name="scanResults" stackId="1" startPc="268440984"/>
+        <entry endPc="268441207" name="item" stackId="2" startPc="268440987"/>
+        <entry endPc="268441204" name="result" stackId="3" startPc="268441017"/>
+        <entry endPc="268441204" name="uuidIter" stackId="4" startPc="268441017"/>
+        <entry endPc="268441204" name="uuidObj" stackId="5" startPc="268441017"/>
+        <entry endPc="268441192" name="uuid" stackId="6" startPc="268441045"/>
+        <entry endPc="268441180" name="name" stackId="7" startPc="268441066"/>
+        <entry arg="true" endPc="268441700" name="characteristic" stackId="1" startPc="268441317"/>
+        <entry arg="true" endPc="268441700" name="value" stackId="2" startPc="268441317"/>
+        <entry endPc="268441699" name="b" stackId="3" startPc="268441320"/>
+        <entry endPc="268441904" name="ex" stackId="1" startPc="268441832"/>
+        <entry arg="true" endPc="268442202" name="name" stackId="1" startPc="268442115"/>
+        <entry endPc="268442202" name="prefix" stackId="2" startPc="268442118"/>
+        <entry arg="true" endPc="268442693" name="mt" stackId="1" startPc="268442670"/>
+        <entry arg="true" endPc="268442752" name="item" stackId="1" startPc="268442694"/>
+        <entry arg="true" endPc="268442850" name="state" stackId="1" startPc="268442753"/>
+        <entry arg="true" endPc="268443508" name="dc" stackId="1" startPc="268442851"/>
+        <entry endPc="268443507" name="h" stackId="2" startPc="268442854"/>
+        <entry endPc="268443507" name="c" stackId="3" startPc="268442854"/>
+        <entry endPc="268443507" name="cuVis" stackId="4" startPc="268442854"/>
+        <entry endPc="268443507" name="maxYB" stackId="5" startPc="268442854"/>
+        <entry endPc="268442969" name="cuHalf" stackId="6" startPc="268442903"/>
+        <entry endPc="268443507" name="maxVis" stackId="7" startPc="268442854"/>
+        <entry endPc="268443507" name="bestFont" stackId="8" startPc="268442854"/>
+        <entry endPc="268443507" name="bestVis" stackId="9" startPc="268442854"/>
+        <entry endPc="268443507" name="fonts" stackId="10" startPc="268442854"/>
+        <entry endPc="268443145" name="i" stackId="11" startPc="268443048"/>
+        <entry endPc="268443135" name="vis" stackId="12" startPc="268443048"/>
+        <entry endPc="268443507" name="usedVector" stackId="13" startPc="268442854"/>
+        <entry endPc="268443326" name="lo" stackId="14" startPc="268443164"/>
+        <entry endPc="268443326" name="hi" stackId="15" startPc="268443164"/>
+        <entry endPc="268443326" name="iter" stackId="16" startPc="268443197"/>
+        <entry endPc="268443316" name="vis" stackId="17" startPc="268443197"/>
+        <entry endPc="268443316" name="vf" stackId="18" startPc="268443197"/>
+        <entry endPc="268443507" name="iconHalf" stackId="19" startPc="268442854"/>
+        <entry arg="true" endPc="268443883" name="dc" stackId="1" startPc="268443509"/>
+        <entry arg="true" endPc="268443883" name="w" stackId="2" startPc="268443509"/>
+        <entry arg="true" endPc="268443883" name="cx" stackId="3" startPc="268443509"/>
+        <entry arg="true" endPc="268443883" name="cy" stackId="4" startPc="268443509"/>
+        <entry arg="true" endPc="268443883" name="primary" stackId="5" startPc="268443509"/>
+        <entry arg="true" endPc="268443883" name="secondary" stackId="6" startPc="268443509"/>
+        <entry endPc="268443882" name="fhMed" stackId="7" startPc="268443512"/>
+        <entry endPc="268443882" name="fhTiny" stackId="8" startPc="268443512"/>
+        <entry endPc="268443882" name="hasSec" stackId="9" startPc="268443512"/>
+        <entry endPc="268443882" name="cardW" stackId="10" startPc="268443512"/>
+        <entry endPc="268443882" name="cardH" stackId="11" startPc="268443512"/>
+        <entry endPc="268443882" name="cardX" stackId="12" startPc="268443512"/>
+        <entry endPc="268443882" name="cardY" stackId="13" startPc="268443512"/>
+        <entry endPc="268443842" name="gap" stackId="14" startPc="268443723"/>
+        <entry endPc="268443842" name="blockH" stackId="15" startPc="268443723"/>
+        <entry endPc="268443842" name="priY" stackId="16" startPc="268443723"/>
+        <entry endPc="268443842" name="secY" stackId="17" startPc="268443723"/>
+        <entry arg="true" endPc="268443990" name="dc" stackId="1" startPc="268443884"/>
+        <entry arg="true" endPc="268443990" name="vis" stackId="2" startPc="268443884"/>
+        <entry endPc="268443990" name="w" stackId="3" startPc="268443887"/>
+        <entry endPc="268443990" name="c" stackId="4" startPc="268443887"/>
+        <entry endPc="268443990" name="dy" stackId="5" startPc="268443887"/>
+        <entry endPc="268443990" name="half" stackId="6" startPc="268443887"/>
+        <entry endPc="268444092" name="state" stackId="1" startPc="268444017"/>
+        <entry arg="true" endPc="268444253" name="dc" stackId="1" startPc="268444094"/>
+        <entry arg="true" endPc="268444253" name="w" stackId="2" startPc="268444094"/>
+        <entry arg="true" endPc="268444253" name="cx" stackId="3" startPc="268444094"/>
+        <entry arg="true" endPc="268444253" name="cy" stackId="4" startPc="268444094"/>
+        <entry arg="true" endPc="268444253" name="state" stackId="5" startPc="268444094"/>
+        <entry arg="true" endPc="268444267" name="dc" stackId="1" startPc="268444254"/>
+        <entry arg="true" endPc="268444647" name="dc" stackId="1" startPc="268444268"/>
+        <entry arg="true" endPc="268444647" name="w" stackId="2" startPc="268444268"/>
+        <entry arg="true" endPc="268444647" name="cx" stackId="3" startPc="268444268"/>
+        <entry arg="true" endPc="268444647" name="cy" stackId="4" startPc="268444268"/>
+        <entry endPc="268444646" name="cdColor" stackId="5" startPc="268444271"/>
+        <entry endPc="268444646" name="a1" stackId="6" startPc="268444271"/>
+        <entry endPc="268444646" name="a2" stackId="7" startPc="268444271"/>
+        <entry endPc="268444646" name="num" stackId="8" startPc="268444271"/>
+        <entry endPc="268444646" name="iconW" stackId="9" startPc="268444271"/>
+        <entry endPc="268444646" name="iconH" stackId="10" startPc="268444271"/>
+        <entry endPc="268444646" name="gap" stackId="11" startPc="268444271"/>
+        <entry endPc="268444646" name="numW" stackId="12" startPc="268444271"/>
+        <entry endPc="268444646" name="left" stackId="13" startPc="268444271"/>
+        <entry endPc="268444882" name="state" stackId="1" startPc="268444651"/>
+        <entry endPc="268444882" name="fast" stackId="2" startPc="268444651"/>
+        <entry endPc="268444882" name="slow" stackId="3" startPc="268444651"/>
+        <entry endPc="268444882" name="period" stackId="4" startPc="268444651"/>
+        <entry arg="true" endPc="268445038" name="state" stackId="1" startPc="268444916"/>
+        <entry arg="true" endPc="268445169" name="dc" stackId="1" startPc="268445039"/>
+        <entry arg="true" endPc="268445169" name="cx" stackId="2" startPc="268445039"/>
+        <entry arg="true" endPc="268445169" name="cy" stackId="3" startPc="268445039"/>
+        <entry arg="true" endPc="268445169" name="color" stackId="4" startPc="268445039"/>
+        <entry endPc="268445168" name="r" stackId="5" startPc="268445042"/>
+        <entry endPc="268445168" name="startAngle" stackId="6" startPc="268445042"/>
+        <entry endPc="268445168" name="endAngle" stackId="7" startPc="268445042"/>
+        <entry arg="true" endPc="268445310" name="ble" stackId="1" startPc="268445170"/>
+        <entry arg="true" endPc="268445310" name="matchTimer" stackId="2" startPc="268445170"/>
+        <entry endPc="268445309" name="shape" stackId="3" startPc="268445173"/>
+        <entry arg="true" endPc="268445647" name="dc" stackId="1" startPc="268445311"/>
+        <entry endPc="268445646" name="w" stackId="2" startPc="268445314"/>
+        <entry endPc="268445646" name="h" stackId="3" startPc="268445314"/>
+        <entry endPc="268445646" name="cx" stackId="4" startPc="268445314"/>
+        <entry endPc="268445646" name="state" stackId="5" startPc="268445314"/>
+        <entry endPc="268445646" name="inset" stackId="6" startPc="268445314"/>
+        <entry endPc="268445646" name="safeT" stackId="7" startPc="268445314"/>
+        <entry endPc="268445646" name="safeH" stackId="8" startPc="268445314"/>
+        <entry endPc="268445646" name="dotY" stackId="9" startPc="268445314"/>
+        <entry endPc="268445646" name="mainY" stackId="10" startPc="268445314"/>
+        <entry endPc="268445646" name="txtY" stackId="11" startPc="268445314"/>
+        <entry endPc="268445636" name="hint" stackId="12" startPc="268445574"/>
+        <entry endPc="268445765" name="base" stackId="1" startPc="268445725"/>
+        <entry arg="true" endPc="268445990" name="minutes" stackId="1" startPc="268445962"/>
+        <entry arg="true" endPc="268445990" name="seconds" stackId="2" startPc="268445962"/>
+        <entry arg="true" endPc="268446043" name="totalS" stackId="1" startPc="268445991"/>
+        <entry endPc="268446043" name="m" stackId="2" startPc="268445994"/>
+        <entry endPc="268446043" name="s" stackId="3" startPc="268445994"/>
+        <entry endPc="268446133" name="remaining" stackId="1" startPc="268446056"/>
+        <entry arg="true" endPc="268446177" name="second" stackId="1" startPc="268446166"/>
+        <entry endPc="268446343" name="rem" stackId="1" startPc="268446298"/>
+        <entry arg="true" endPc="268446442" name="dc" stackId="1" startPc="268446430"/>
+    </localVars>
+    <deviceInfo deviceVersion="5c7ae9cf907f88c116a91dc4ffd75be9b5b7d2e9" partNumber="006-B4261-00"/>
+    <annotations>
+        <annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="LauncherIcon"/>
+        <annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="ArIcon"/>
+        <annotationEntry annotation="simTest" class="globals" module="" symbol="SIM_TIMER_TEST"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="AppName"/>
+    </annotations>
+    <dataEntryOffsetMappings>
+        <dataEntry label="globals" offset="67" parentId="" symbolId="globals" type="module"/>
+        <dataEntry label="globals/IntervalPickerDelegate" offset="224" parentId="globals" symbolId="IntervalPickerDelegate" type="class"/>
+        <dataEntry label="globals/Rez" offset="331" parentId="globals" symbolId="Rez" type="module"/>
+        <dataEntry label="globals/myGarminAppApp" offset="393" parentId="globals" symbolId="myGarminAppApp" type="class"/>
+        <dataEntry label="globals/myGarminAppMenuDelegate" offset="491" parentId="globals" symbolId="myGarminAppMenuDelegate" type="class"/>
+        <dataEntry label="globals/MatchMenuDelegate" offset="544" parentId="globals" symbolId="MatchMenuDelegate" type="class"/>
+        <dataEntry label="globals/IntervalPickerView" offset="624" parentId="globals" symbolId="IntervalPickerView" type="class"/>
+        <dataEntry label="globals/myGarminAppDelegate" offset="722" parentId="globals" symbolId="myGarminAppDelegate" type="class"/>
+        <dataEntry label="globals/BleManager" offset="820" parentId="globals" symbolId="BleManager" type="class"/>
+        <dataEntry label="globals/HalfMenuDelegate" offset="1377" parentId="globals" symbolId="HalfMenuDelegate" type="class"/>
+        <dataEntry label="globals/myGarminAppView" offset="1448" parentId="globals" symbolId="myGarminAppView" type="class"/>
+        <dataEntry label="globals/MatchTimer" offset="1726" parentId="globals" symbolId="MatchTimer" type="class"/>
+        <dataEntry label="globals/Rez/Drawables" offset="1986" parentId="Rez" symbolId="Drawables" type="module"/>
+        <dataEntry label="globals/Rez/Layouts" offset="2030" parentId="Rez" symbolId="Layouts" type="module"/>
+        <dataEntry label="globals/Rez/Menus" offset="2065" parentId="Rez" symbolId="Menus" type="module"/>
+        <dataEntry label="globals/Rez/Strings" offset="2100" parentId="Rez" symbolId="Strings" type="module"/>
+        <dataEntry label="globals/Rez/Menus/MainMenu" offset="2135" parentId="Menus" symbolId="MainMenu" type="class"/>
+    </dataEntryOffsetMappings>
+    <functions>
+        <functionEntry accessMode="public" endPc="268435471" name="&lt;init&gt;" parent="IntervalPickerDelegate" startPc="268435460">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435491" name="&lt;init&gt;" parent="Rez" startPc="268435472">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435503" name="&lt;init&gt;" parent="myGarminAppApp" startPc="268435492">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435515" name="&lt;init&gt;" parent="myGarminAppMenuDelegate" startPc="268435504">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435527" name="&lt;init&gt;" parent="MatchMenuDelegate" startPc="268435516">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435569" name="_halfSubLabel" startPc="268435528">
+            <param id="mt"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435581" name="&lt;init&gt;" parent="IntervalPickerView" startPc="268435570">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435593" name="&lt;init&gt;" parent="myGarminAppDelegate" startPc="268435582">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435605" name="&lt;init&gt;" parent="BleManager" startPc="268435594">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436086" name="pushMatchMenu" startPc="268435606">
+            <param id="mt"/>
+            <param id="ble"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436107" name="getApp" startPc="268436087">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436119" name="&lt;init&gt;" parent="HalfMenuDelegate" startPc="268436108">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436131" name="&lt;init&gt;" parent="myGarminAppView" startPc="268436120">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="MatchTimer">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268436198" name="_confirm" parent="IntervalPickerDelegate" startPc="268436132">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436202" name="onSwipe" parent="IntervalPickerDelegate" startPc="268436199">
+            <param id="swipeEvent"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436235" name="initialize" parent="IntervalPickerDelegate" startPc="268436203">
+            <param id="mt"/>
+            <param id="view"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436480" name="onTap" parent="IntervalPickerDelegate" startPc="268436236">
+            <param id="clickEvent"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268436664" name="_bump" parent="IntervalPickerDelegate" startPc="268436481">
+            <param id="isMinutes"/>
+            <param id="dir"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436732" name="onKey" parent="IntervalPickerDelegate" startPc="268436665">
+            <param id="keyEvent"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Drawables">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Layouts">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Menus">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Strings">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436735" name="onStart" parent="myGarminAppApp" startPc="268436733">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436804" name="getInitialView" parent="myGarminAppApp" startPc="268436736">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436869" name="initialize" parent="myGarminAppApp" startPc="268436805">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436877" name="getBleManager" parent="myGarminAppApp" startPc="268436870">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436892" name="onStop" parent="myGarminAppApp" startPc="268436878">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436895" name="onMenuItem" parent="myGarminAppMenuDelegate" startPc="268436893">
+            <param id="item"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436910" name="initialize" parent="myGarminAppMenuDelegate" startPc="268436896">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436928" name="onBack" parent="MatchMenuDelegate" startPc="268436911">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436961" name="initialize" parent="MatchMenuDelegate" startPc="268436929">
+            <param id="mt"/>
+            <param id="ble"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437524" name="onSelect" parent="MatchMenuDelegate" startPc="268436962">
+            <param id="item"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437557" name="initialize" parent="IntervalPickerView" startPc="268437525">
+            <param id="minutes0"/>
+            <param id="seconds0"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438066" name="onUpdate" parent="IntervalPickerView" startPc="268437558">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268438254" name="_drawArrow" parent="IntervalPickerView" startPc="268438067">
+            <param id="dc"/>
+            <param id="x"/>
+            <param id="y"/>
+            <param id="halfW"/>
+            <param id="up"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438351" name="onBack" parent="myGarminAppDelegate" startPc="268438255">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438450" name="onMenu" parent="myGarminAppDelegate" startPc="268438352">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438483" name="initialize" parent="myGarminAppDelegate" startPc="268438451">
+            <param id="ble"/>
+            <param id="matchTimer"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438492" name="onTap" parent="myGarminAppDelegate" startPc="268438484">
+            <param id="clickEvent"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438582" name="onSelect" parent="myGarminAppDelegate" startPc="268438493">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438647" name="disconnect" parent="BleManager" startPc="268438583">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268438773" name="_buzzDoubleTap" parent="BleManager" startPc="268438648">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438781" name="getStatus" parent="BleManager" startPc="268438774">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438803" name="isLive" parent="BleManager" startPc="268438782">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438811" name="getRxHex" parent="BleManager" startPc="268438804">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438974" name="onDescriptorWrite" parent="BleManager" startPc="268438812">
+            <param id="descriptor"/>
+            <param id="status"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439007" name="onScanStateChange" parent="BleManager" startPc="268438975">
+            <param id="scanState"/>
+            <param id="status"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439305" name="onConnectedStateChanged" parent="BleManager" startPc="268439008">
+            <param id="device"/>
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439367" name="stopScan" parent="BleManager" startPc="268439306">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439396" name="_unlockNotif" parent="BleManager" startPc="268439368">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439404" name="getDeviceName" parent="BleManager" startPc="268439397">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268439603" name="_registerProfile" parent="BleManager" startPc="268439405">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439653" name="skipToTimer" parent="BleManager" startPc="268439604">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268439708" name="_stopScanInternal" parent="BleManager" startPc="268439654">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439716" name="getRssi" parent="BleManager" startPc="268439709">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268439916" name="_autoConnect" parent="BleManager" startPc="268439717">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440016" name="onProfileRegister" parent="BleManager" startPc="268439917">
+            <param id="uuid"/>
+            <param id="status"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268440098" name="_bytesToString" parent="BleManager" startPc="268440017">
+            <param id="bytes"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440106" name="getRxCount" parent="BleManager" startPc="268440099">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440166" name="simulateAlert" parent="BleManager" startPc="268440107">
+            <param id="arNum"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268440431" name="_nameFromResult" parent="BleManager" startPc="268440167">
+            <param id="result"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268440848" name="_enableNotifications" parent="BleManager" startPc="268440432">
+            <param id="device"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440856" name="getLinked2" parent="BleManager" startPc="268440849">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440864" name="getLinked1" parent="BleManager" startPc="268440857">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440983" name="teardown" parent="BleManager" startPc="268440865">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268441208" name="onScanResults" parent="BleManager" startPc="268440984">
+            <param id="scanResults"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268441316" name="checkScanTimeout" parent="BleManager" startPc="268441209">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268441700" name="onCharacteristicChanged" parent="BleManager" startPc="268441317">
+            <param id="characteristic"/>
+            <param id="value"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268441708" name="getNotifType" parent="BleManager" startPc="268441701">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268441924" name="startScan" parent="BleManager" startPc="268441709">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268442044" name="_clearSession" parent="BleManager" startPc="268441925">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268442114" name="_buzzAlert1" parent="BleManager" startPc="268442045">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268442202" name="_stripPrefix" parent="BleManager" startPc="268442115">
+            <param id="name"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442210" name="getState" parent="BleManager" startPc="268442203">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442367" name="initialize" parent="BleManager" startPc="268442211">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442386" name="isAlerting1" parent="BleManager" startPc="268442368">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268442633" name="_buzzAlert2" parent="BleManager" startPc="268442387">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442652" name="isAlerting2" parent="BleManager" startPc="268442634">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442669" name="onBack" parent="HalfMenuDelegate" startPc="268442653">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442693" name="initialize" parent="HalfMenuDelegate" startPc="268442670">
+            <param id="mt"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442752" name="onSelect" parent="HalfMenuDelegate" startPc="268442694">
+            <param id="item"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268442850" name="_bottomText" parent="myGarminAppView" startPc="268442753">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268443508" name="_pickCountdownFont" parent="myGarminAppView" startPc="268442851">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268443883" name="_drawCard" parent="myGarminAppView" startPc="268443509">
+            <param id="dc"/>
+            <param id="w"/>
+            <param id="cx"/>
+            <param id="cy"/>
+            <param id="primary"/>
+            <param id="secondary"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268443990" name="_cdMaxWidth" parent="myGarminAppView" startPc="268443884">
+            <param id="dc"/>
+            <param id="vis"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268444013" name="onHide" parent="myGarminAppView" startPc="268443991">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268444093" name="onShow" parent="myGarminAppView" startPc="268444014">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268444253" name="_drawMain" parent="myGarminAppView" startPc="268444094">
+            <param id="dc"/>
+            <param id="w"/>
+            <param id="cx"/>
+            <param id="cy"/>
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268444267" name="onLayout" parent="myGarminAppView" startPc="268444254">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268444647" name="_drawLiveScreen" parent="myGarminAppView" startPc="268444268">
+            <param id="dc"/>
+            <param id="w"/>
+            <param id="cx"/>
+            <param id="cy"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268444883" name="_syncTimer" parent="myGarminAppView" startPc="268444648">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268444915" name="_onTick" parent="myGarminAppView" startPc="268444884">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268445038" name="_accentColor" parent="myGarminAppView" startPc="268444916">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268445169" name="_drawSpinner" parent="myGarminAppView" startPc="268445039">
+            <param id="dc"/>
+            <param id="cx"/>
+            <param id="cy"/>
+            <param id="color"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268445310" name="initialize" parent="myGarminAppView" startPc="268445170">
+            <param id="ble"/>
+            <param id="matchTimer"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268445647" name="onUpdate" parent="myGarminAppView" startPc="268445311">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268445667" name="formatInterval" parent="MatchTimer" startPc="268445648">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268445708" name="getElapsedMs" parent="MatchTimer" startPc="268445668">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268445721" name="getIntervalMinPart" parent="MatchTimer" startPc="268445709">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268445765" name="formatCountUp" parent="MatchTimer" startPc="268445722">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268445953" name="_buzzExpiry" parent="MatchTimer" startPc="268445766">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268445961" name="isRunning" parent="MatchTimer" startPc="268445954">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268445990" name="setInterval" parent="MatchTimer" startPc="268445962">
+            <param id="minutes"/>
+            <param id="seconds"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="protected" endPc="268446043" name="_fmt" parent="MatchTimer" startPc="268445991">
+            <param id="totalS"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268446137" name="start" parent="MatchTimer" startPc="268446044">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268446165" name="toggle" parent="MatchTimer" startPc="268446138">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268446177" name="setSecondHalf" parent="MatchTimer" startPc="268446166">
+            <param id="second"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268446240" name="pause" parent="MatchTimer" startPc="268446178">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268446279" name="onExpiry" parent="MatchTimer" startPc="268446241">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268446294" name="getIntervalSecPart" parent="MatchTimer" startPc="268446280">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268446343" name="formatCountdown" parent="MatchTimer" startPc="268446295">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268446351" name="isSecondHalf" parent="MatchTimer" startPc="268446344">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268446382" name="reset" parent="MatchTimer" startPc="268446352">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268446414" name="initialize" parent="MatchTimer" startPc="268446383">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268446429" name="isExpired" parent="MatchTimer" startPc="268446415">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268446442" name="MainLayout" parent="Layouts" startPc="268446430">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268446454" name="&lt;init&gt;" parent="MainMenu" startPc="268446443">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268446507" name="initialize" parent="MainMenu" startPc="268446455">
+            <documentation/>
+        </functionEntry>
+    </functions>
+</debugInfo>
