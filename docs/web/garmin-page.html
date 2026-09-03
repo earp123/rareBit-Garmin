@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garmin | rareBitOfficial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pitch:#0E1512;
+    --surface:#16201B;
+    --line:#243129;
+    --ink:#F2F5F3;
+    --muted:#93A39B;
+    --flag:#FF8A3D;
+    --flag-dim:#B85F27;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation:none!important;transition:none!important;}
+  }
+  body{
+    background:var(--pitch);
+    color:var(--ink);
+    font-family:'Barlow',system-ui,-apple-system,sans-serif;
+    font-size:17px;
+    line-height:1.55;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- header ---------- */
+  header{
+    border-bottom:1px solid var(--line);
+    padding:18px 0;
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;}
+  header img{height:52px;width:auto;display:block;}
+  header .crumb{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:19px;font-weight:600;letter-spacing:.02em;
+    color:var(--muted);
+  }
+  header .crumb b{color:var(--ink);font-weight:600;}
+
+  /* ---------- hero ---------- */
+  .hero{padding:72px 0 56px;}
+  .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;}
+  h1{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;
+    font-size:clamp(44px,6vw,72px);
+    line-height:1.02;
+    letter-spacing:.005em;
+    text-wrap:balance;
+  }
+  .hero p.lead{
+    margin-top:20px;
+    font-size:19px;
+    color:var(--muted);
+    max-width:46ch;
+  }
+  .cta-row{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:20px;font-weight:600;letter-spacing:.03em;
+    padding:13px 26px;
+    border-radius:6px;
+    text-decoration:none;
+  }
+  .btn-primary{background:var(--flag);color:#181008;}
+  .btn-primary:hover{background:#FF9C58;}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--muted);}
+  .placeholder-tag{
+    display:inline-block;
+    margin-left:8px;
+    font-family:'Barlow',sans-serif;
+    font-size:12px;font-weight:600;
+    color:var(--flag);
+    border:1px dashed var(--flag-dim);
+    border-radius:4px;
+    padding:1px 6px;
+    vertical-align:middle;
+  }
+
+  /* watch illustration */
+  .watch-art{display:flex;justify-content:center;}
+  .watch-art svg{width:100%;max-width:340px;height:auto;}
+  @keyframes pulse{
+    0%{opacity:.9;transform:scale(.55);}
+    100%{opacity:0;transform:scale(1.25);}
+  }
+  .ring{transform-origin:170px 60px;animation:pulse 2.4s ease-out infinite;}
+  .ring2{animation-delay:.8s;}
+  .ring3{animation-delay:1.6s;}
+
+  /* ---------- signal chain ---------- */
+  .chain{padding:56px 0;border-top:1px solid var(--line);}
+  h2{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:600;
+    font-size:34px;
+    letter-spacing:.01em;
+  }
+  .chain .sub{color:var(--muted);margin-top:8px;max-width:60ch;}
+  .chain-diagram{margin-top:36px;}
+  .chain-diagram svg{width:100%;height:auto;display:block;}
+
+  /* ---------- facts ---------- */
+  .facts{padding:56px 0;border-top:1px solid var(--line);}
+  .facts .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+  .fact{padding:0 28px;border-left:1px solid var(--line);}
+  .fact:first-child{border-left:none;padding-left:0;}
+  .fact h3{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:600;font-size:23px;letter-spacing:.01em;
+    color:var(--flag);
+  }
+  .fact p{margin-top:8px;color:var(--muted);font-size:16px;}
+
+  /* ---------- downloads ---------- */
+  .downloads{padding:56px 0 32px;border-top:1px solid var(--line);}
+  .downloads .sub{color:var(--muted);margin-top:8px;max-width:62ch;}
+  .dl-table{margin-top:28px;border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+  .dl-row{
+    display:grid;
+    grid-template-columns:2fr 1.4fr 1fr .9fr;
+    gap:16px;align-items:center;
+    padding:16px 20px;
+    border-top:1px solid var(--line);
+    background:var(--surface);
+  }
+  .dl-row:first-child{border-top:none;}
+  .dl-head{
+    background:transparent;
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:17px;font-weight:600;letter-spacing:.04em;
+    color:var(--muted);
+  }
+  .dl-name{font-weight:600;}
+  .dl-meta{color:var(--muted);font-size:15px;}
+  .dl-soon{
+    justify-self:end;
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:17px;font-weight:600;
+    color:var(--flag);
+  }
+  .sideload-note{
+    margin-top:20px;
+    padding:16px 20px;
+    border-left:3px solid var(--flag);
+    background:var(--surface);
+    border-radius:0 8px 8px 0;
+    color:var(--muted);
+    font-size:15.5px;
+    max-width:70ch;
+  }
+  .sideload-note b{color:var(--ink);}
+
+  /* ---------- requirements ---------- */
+  .reqs{padding:40px 0 72px;}
+  .reqs .box{
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:26px 28px;
+  }
+  .reqs h2{font-size:26px;}
+  .reqs ul{margin-top:14px;list-style:none;}
+  .reqs li{
+    padding:9px 0 9px 26px;
+    position:relative;
+    color:var(--muted);
+    border-top:1px solid var(--line);
+  }
+  .reqs li:first-child{border-top:none;}
+  .reqs li::before{
+    content:"";
+    position:absolute;left:2px;top:17px;
+    width:9px;height:9px;
+    background:var(--flag);
+    border-radius:2px;
+  }
+  .reqs li b{color:var(--ink);font-weight:600;}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:26px 0;
+    color:var(--muted);
+    font-size:14.5px;
+  }
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:860px){
+    .hero .wrap{grid-template-columns:1fr;gap:36px;}
+    .watch-art{order:-1;}
+    .watch-art svg{max-width:240px;}
+    .facts .wrap{grid-template-columns:1fr;gap:28px;}
+    .fact{border-left:none;padding:0;}
+    .dl-row{grid-template-columns:1.6fr 1fr;row-gap:4px;}
+    .dl-row .dl-meta:nth-child(3){display:none;}
+    .dl-head{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <img src="https://static.wixstatic.com/media/870f4b_b311638af3fb46b1987399498b6ea3a2~mv2.png/v1/fill/w_180,h_108,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/White%20on%20Transparent.png" alt="rareBit">
+    <div class="crumb">Smart Watch / <b>Garmin</b></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Match alerts,<br>on your Garmin.</h1>
+      <p class="lead">The rareBit app for Garmin brings PRO Flag signals straight to your wrist. Each flag gets its own vibration pattern, relayed over Bluetooth&nbsp;LE — so you never miss a raise, even at full sprint.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#">Get it on Connect IQ</a>
+        <a class="btn btn-ghost" href="#downloads">Download .prg files</a>
+      </div>
+      <span class="placeholder-tag">STORE LINK PENDING</span>
+    </div>
+    <div class="watch-art">
+      <!-- Garmin-style round watch with BLE pulse -->
+      <svg viewBox="0 0 340 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Round smartwatch receiving a signal">
+        <!-- BLE pulse rings -->
+        <g fill="none" stroke="#FF8A3D" stroke-width="2.5">
+          <circle class="ring"  cx="170" cy="60" r="28"/>
+          <circle class="ring ring2" cx="170" cy="60" r="28"/>
+          <circle class="ring ring3" cx="170" cy="60" r="28"/>
+        </g>
+        <path d="M162 48 l16 24 M178 48 l-16 24 M170 40 v40 l10 -8 M170 80 l-10 -8" stroke="#FF8A3D" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(0,-8) scale(.55) translate(139,42)"/>
+        <!-- strap top -->
+        <rect x="140" y="96" width="60" height="70" rx="10" fill="#16201B" stroke="#243129"/>
+        <line x1="140" y1="118" x2="200" y2="118" stroke="#243129"/>
+        <line x1="140" y1="140" x2="200" y2="140" stroke="#243129"/>
+        <!-- bezel -->
+        <circle cx="170" cy="240" r="92" fill="#101915" stroke="#2E3D33" stroke-width="6"/>
+        <circle cx="170" cy="240" r="80" fill="#0B110E" stroke="#243129" stroke-width="2"/>
+        <!-- side buttons -->
+        <rect x="258" y="216" width="10" height="18" rx="3" fill="#243129"/>
+        <rect x="258" y="248" width="10" height="18" rx="3" fill="#243129"/>
+        <rect x="72" y="232" width="10" height="18" rx="3" fill="#243129"/>
+        <!-- watch face: alert -->
+        <text x="170" y="216" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="17" font-weight="600" fill="#93A39B" letter-spacing="1">rareBit</text>
+        <!-- flag icon on face -->
+        <g transform="translate(150,226)">
+          <line x1="0" y1="0" x2="0" y2="44" stroke="#F2F5F3" stroke-width="4" stroke-linecap="round"/>
+          <path d="M2 2 h34 v24 h-34 z" fill="#FF8A3D"/>
+          <path d="M2 2 h11.3 v12 h-11.3 z M13.3 14 h11.3 v12 h-11.3 z M24.6 2 h11.4 v12 h-11.4 z" fill="#FFD23F"/>
+        </g>
+        <text x="170" y="302" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="21" font-weight="700" fill="#FF8A3D" letter-spacing="1">FLAG 1</text>
+        <!-- strap bottom -->
+        <rect x="140" y="316" width="60" height="80" rx="10" fill="#16201B" stroke="#243129"/>
+        <line x1="140" y1="342" x2="200" y2="342" stroke="#243129"/>
+        <line x1="140" y1="366" x2="200" y2="366" stroke="#243129"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="chain">
+  <div class="wrap">
+    <h2>How the signal reaches your wrist</h2>
+    <p class="sub">Garmin watches can't listen to PRO Flags directly. A rareBit Relay bridges the gap — it hears every linked Flag and forwards each signal to the watch over Bluetooth&nbsp;LE.</p>
+    <div class="chain-diagram">
+      <svg viewBox="0 0 980 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Signal path: PRO Flag to rareBit Relay to Garmin watch">
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M0 0 L10 5 L0 10 z" fill="#FF8A3D"/>
+          </marker>
+        </defs>
+        <!-- Stage 1: PRO Flag -->
+        <g>
+          <rect x="20" y="30" width="260" height="150" rx="10" fill="#16201B" stroke="#243129"/>
+          <g transform="translate(58,62)">
+            <line x1="0" y1="0" x2="0" y2="70" stroke="#F2F5F3" stroke-width="5" stroke-linecap="round"/>
+            <path d="M3 2 h52 v36 h-52 z" fill="#FF8A3D"/>
+            <path d="M3 2 h17.3 v18 h-17.3 z M20.3 20 h17.3 v18 h-17.3 z M37.6 2 h17.4 v18 h-17.4 z" fill="#FFD23F"/>
+          </g>
+          <text x="150" y="92" font-family="Barlow Condensed, sans-serif" font-size="26" font-weight="600" fill="#F2F5F3">PRO Flag</text>
+          <text x="150" y="118" font-family="Barlow, sans-serif" font-size="15" fill="#93A39B">AR presses the</text>
+          <text x="150" y="138" font-family="Barlow, sans-serif" font-size="15" fill="#93A39B">signal button</text>
+        </g>
+        <line x1="290" y1="105" x2="360" y2="105" stroke="#FF8A3D" stroke-width="2.5" marker-end="url(#arr)" stroke-dasharray="7 6"/>
+        <!-- Stage 2: Relay -->
+        <g>
+          <rect x="370" y="30" width="260" height="150" rx="10" fill="#16201B" stroke="#243129"/>
+          <g transform="translate(404,70)">
+            <rect x="0" y="0" width="58" height="58" rx="12" fill="#0B110E" stroke="#2E3D33" stroke-width="3"/>
+            <path d="M29 14 v30 l8 -7 M29 44 l-8 -7 M22 21 l15 15 M37 21 l-15 15" stroke="#FF8A3D" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <text x="486" y="92" font-family="Barlow Condensed, sans-serif" font-size="26" font-weight="600" fill="#F2F5F3">rareBit Relay</text>
+          <text x="486" y="118" font-family="Barlow, sans-serif" font-size="15" fill="#93A39B">or PRO Receiver</text>
+          <text x="486" y="138" font-family="Barlow, sans-serif" font-size="15" fill="#93A39B">running RXRLY</text>
+        </g>
+        <line x1="640" y1="105" x2="710" y2="105" stroke="#FF8A3D" stroke-width="2.5" marker-end="url(#arr)" stroke-dasharray="7 6"/>
+        <!-- Stage 3: Garmin watch -->
+        <g>
+          <rect x="720" y="30" width="240" height="150" rx="10" fill="#16201B" stroke="#243129"/>
+          <circle cx="790" cy="105" r="36" fill="#0B110E" stroke="#2E3D33" stroke-width="4"/>
+          <text x="790" y="100" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="12" font-weight="600" fill="#93A39B">rareBit</text>
+          <text x="790" y="118" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="14" font-weight="700" fill="#FF8A3D">FLAG 1</text>
+          <text x="846" y="98" font-family="Barlow Condensed, sans-serif" font-size="26" font-weight="600" fill="#F2F5F3">Garmin</text>
+          <text x="846" y="124" font-family="Barlow, sans-serif" font-size="15" fill="#93A39B">buzz on the wrist</text>
+        </g>
+        <!-- BLE label -->
+        <text x="325" y="90" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="15" font-weight="600" fill="#93A39B" letter-spacing="1">RF</text>
+        <text x="675" y="90" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="15" font-weight="600" fill="#93A39B" letter-spacing="1">BLE</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="facts">
+  <div class="wrap">
+    <div class="fact">
+      <h3>Every flag, its own buzz</h3>
+      <p>Distinct vibration patterns per Flag mean you know which AR is signaling without looking down.</p>
+    </div>
+    <div class="fact">
+      <h3>Free on Connect IQ</h3>
+      <p>The rareBit app is a free download for supported Garmin devices. No subscription, no account.</p>
+    </div>
+    <div class="fact">
+      <h3>Reuse your Receiver</h3>
+      <p>No dedicated Relay? Load the free RXRLY firmware and your PRO Receiver becomes the relay.</p>
+    </div>
+  </div>
+</section>
+
+<section class="downloads" id="downloads">
+  <div class="wrap">
+    <h2>Direct downloads (.prg)</h2>
+    <p class="sub">Prefer to sideload, or have a device the store doesn't cover? Grab the compiled app below and copy it to your watch's <b>GARMIN/APPS</b> folder over USB.</p>
+    <div class="dl-table">
+      <div class="dl-row dl-head">
+        <span>Package</span><span>Devices</span><span>Version</span><span></span>
+      </div>
+      <div class="dl-row">
+        <span class="dl-name">rareBit for Garmin</span>
+        <span class="dl-meta">Forerunner series</span>
+        <span class="dl-meta">v1.0.0</span>
+        <span class="dl-soon">COMING SOON</span>
+      </div>
+      <div class="dl-row">
+        <span class="dl-name">rareBit for Garmin</span>
+        <span class="dl-meta">Instinct series</span>
+        <span class="dl-meta">v1.0.0</span>
+        <span class="dl-soon">COMING SOON</span>
+      </div>
+      <div class="dl-row">
+        <span class="dl-name">rareBit for Garmin</span>
+        <span class="dl-meta">Venu / vívoactive</span>
+        <span class="dl-meta">v1.0.0</span>
+        <span class="dl-soon">COMING SOON</span>
+      </div>
+    </div>
+    <div class="sideload-note">
+      <b>Placeholder:</b> device groups, versions, and download links will be filled in when the first .prg builds are published. Files may ship individually or as a single .zip.
+    </div>
+  </div>
+</section>
+
+<section class="reqs">
+  <div class="wrap">
+    <div class="box">
+      <h2>What you need</h2>
+      <ul>
+        <li>A <b>rareBit PRO Set</b> — Flags linked and ready to officiate.</li>
+        <li>A <b>rareBit Relay</b>, or a PRO Receiver flashed with the free <b>RXRLY firmware</b>.</li>
+        <li>A <b>supported Garmin watch</b> with Connect IQ. Supported device list coming with the store release.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>rareBitOfficial.com — Smart Referee Paging Devices</span>
+    <span>Questions? reply@rarebit.biz</span>
+  </div>
+</footer>
+
+</body>
+</html>
