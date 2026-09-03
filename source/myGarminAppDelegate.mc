@@ -1,25 +1,34 @@
 // ============================================================
 // myGarminAppDelegate.mc
 //
-// Handles physical button presses and screen taps.
+// Handles physical button presses and screen touches.
 //
 // The app auto-scans and auto-connects on launch; once "live" (timer
 // screen up — subscribed, or BLE given up) inputs drive the timer and
 // BLE events never change the routing.
 //
-// SELECT / TAP —
+// Raw InputDelegate, NOT BehaviorDelegate: a BehaviorDelegate folds a
+// touchscreen tap into the select behavior before onTap can veto it,
+// so a sleeve or raindrop would pause the match.  At this level keys
+// and taps arrive separately, so the live screen is SELECT-button-only.
+//
+// SELECT (button) —
 //   live                  →  start / pause the match timer
 //   IDLE / ERROR          →  start (or retry) a scan
 //   (ignored while scanning / connecting — it's all automatic)
 //
+// TAP —
+//   live                  →  ignored (stray-touch guard)
+//   otherwise             →  same as SELECT
+//
 // BACK —
 //   live                  →  open the settings menu (interval / half /
-//                            reset / disconnect-or-rescan)
+//                            reset / disconnect-or-rescan / exit)
 //   SCANNING / CONNECTING / CONNECTED (pre-live)
 //                         →  skip BLE, go straight to the timer
 //   otherwise             →  exit app (default behavior)
 //
-// MENU —
+// MENU key / touch-and-hold —
 //   live                  →  open the settings menu (same as BACK)
 //   otherwise             →  restart the scan
 // ============================================================
@@ -27,19 +36,37 @@
 import Toybox.Lang;
 import Toybox.WatchUi;
 
-class myGarminAppDelegate extends WatchUi.BehaviorDelegate {
+class myGarminAppDelegate extends WatchUi.InputDelegate {
 
     hidden var _ble        as BleManager;
     hidden var _matchTimer as MatchTimer;
 
     function initialize(ble as BleManager, matchTimer as MatchTimer) {
-        BehaviorDelegate.initialize();
+        InputDelegate.initialize();
         _ble        = ble;
         _matchTimer = matchTimer;
     }
 
-    // SELECT button (or equivalent "confirm" gesture)
-    function onSelect() as Boolean {
+    function onKey(keyEvent as WatchUi.KeyEvent) as Boolean {
+        var k = keyEvent.getKey();
+        if (k == WatchUi.KEY_ENTER || k == WatchUi.KEY_START) { return _select(); }
+        if (k == WatchUi.KEY_ESC)  { return _back(); }
+        if (k == WatchUi.KEY_MENU) { return _menu(); }
+        return false;
+    }
+
+    // Touch-screen tap — never touches the clock on the live screen.
+    function onTap(clickEvent as WatchUi.ClickEvent) as Boolean {
+        if (_ble.isLive()) { return true; }
+        return _select();
+    }
+
+    // Touch-and-hold stands in for the MENU key on touch devices.
+    function onHold(clickEvent as WatchUi.ClickEvent) as Boolean {
+        return _menu();
+    }
+
+    hidden function _select() as Boolean {
         if (_ble.isLive()) {
             // Live screen — SELECT drives the match timer.
             _matchTimer.toggle();
@@ -51,12 +78,11 @@ class myGarminAppDelegate extends WatchUi.BehaviorDelegate {
             // Manual retry from a stopped/errored pre-live state.
             _ble.startScan();
         }
-        // Swallow the event in all cases so the system doesn't also act on it.
+        // Swallow in all cases so the system doesn't also act on it.
         return true;
     }
 
-    // BACK button
-    function onBack() as Boolean {
+    hidden function _back() as Boolean {
         if (_ble.isLive()) {
             // Live screen — BACK opens the settings menu.
             pushMatchMenu(_matchTimer, _ble);
@@ -74,14 +100,7 @@ class myGarminAppDelegate extends WatchUi.BehaviorDelegate {
         return false;
     }
 
-    // Touch-screen tap
-    function onTap(clickEvent as WatchUi.ClickEvent) as Boolean {
-        // Treat a tap anywhere as a SELECT in most states.
-        return onSelect();
-    }
-
-    // Menu button
-    function onMenu() as Boolean {
+    hidden function _menu() as Boolean {
         if (_ble.isLive()) {
             // Live screen — MENU opens the settings menu (same as BACK).
             pushMatchMenu(_matchTimer, _ble);

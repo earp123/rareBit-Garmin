@@ -7,7 +7,11 @@
 //                 the interval (counts up from e.g. 45:00)
 //                 instead of 00:00
 //   Reset Timer
-//   Disconnect  — drops the BLE link, back to the scanner
+//   Disconnect  — (while subscribed) drop the relay link; the timer
+//                 keeps running in timer-only mode
+//   Rescan      — (otherwise) background rescan for the relay
+//   Test Alert 1/2 — sim build only, previews the alert flash
+//   Exit App    — the app's only exit path from the live screen
 //
 // Confirming a picker / submenu selection pops straight back to
 // the live screen.
@@ -120,12 +124,14 @@ class HalfMenuDelegate extends WatchUi.Menu2InputDelegate {
 // ------------------------------------------------------------
 //  Interval picker — MM:SS with up/down arrows per field.
 //
-//  Touch zones (thirds of the screen height):
-//    top third     — increment (left half = minutes, right = seconds)
-//    bottom third  — decrement (same left/right split)
-//    middle third  — confirm and return to the live screen
+//  Touch zones follow the drawn geometry (published by the view
+//  each onUpdate as zoneTop / zoneBot):
+//    above the digit band — increment (left half = minutes,
+//                           right half = seconds, 15 s steps)
+//    below the digit band — decrement (same left/right split)
+//    the digit band       — confirm and return to the live screen
 //  SELECT also confirms; BACK returns to the settings menu.
-//  Swipes (page keys) adjust the minutes.
+//  Swipes are deliberately inert.
 // ------------------------------------------------------------
 
 const IVP_SEC_STEP = 15;   // seconds field step per arrow tap

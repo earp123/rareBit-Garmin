@@ -8,11 +8,14 @@
 // Safe zone: roughly 15% inset from top/bottom on round screens
 //   (= half of (diameter - inscribed-square-side), i.e. D*(1-1/√2)/2)
 //
-// Vertical stack within the safe zone:
+// Vertical stack within the safe zone (pre-live phases):
 //   14%  colored dot   — state indicator only, no text
-//   50%  main area     — card, spinner, or live screen
-//                        (big match-timer digits + AR symbols)
+//   50%  main area     — card or spinner
 //   88%  bottom text   — single short line, very muted
+//
+// The live screen ignores that stack: it is laid out once in
+// onLayout() around the biggest countdown the screen can hold
+// (see _pickCountdownFont).
 // ============================================================
 
 import Toybox.Graphics;
@@ -32,11 +35,11 @@ const C_HINT        = 0x444444;
 
 const C_ACC_IDLE    = 0x555555;
 const C_ACC_ACTIVE  = 0xFFAA00;  // amber — scanning / connecting
-const C_ACC_FOUND   = 0xFFFFFF;  // white — device waiting
 const C_ACC_LIVE    = 0x00CC66;  // green — data flowing
 const C_ACC_ERROR   = 0xCC2200;  // red
 const C_ACC_ALERT   = 0xFFAA00;  // amber — AR alert blink contrast symbol
 const C_COUNTUP     = 0x55AAEE;  // soft blue — secondary count-up digits
+const C_TOD         = 0x66CC88;  // soft green — time-of-day line above the countdown
 
 // ── Geometry ─────────────────────────────────────────────────
 const CARD_PAD    = 14;   // px padding inside card
@@ -74,8 +77,10 @@ class myGarminAppView extends WatchUi.View {
     hidden var _cdFont       as Graphics.FontDefinition = Graphics.FONT_NUMBER_MEDIUM;
     hidden var _cdVisH       as Number  = 0;
     hidden var _cdY          as Number  = 0;   // countdown vertical midpoint
-    hidden var _symY         as Number  = 0;   // AR symbol row midpoint
+    hidden var _symY         as Number  = 0;   // alert-flash row midpoint
     hidden var _cuY          as Number  = 0;   // count-up vertical midpoint
+    hidden var _todY         as Number  = 0;   // time-of-day vertical midpoint
+    hidden var _todSuffix    as Boolean = false; // room for " AM"/" PM" at _todY
 
     function initialize(ble as BleManager, matchTimer as MatchTimer) {
         View.initialize();
@@ -118,8 +123,10 @@ class myGarminAppView extends WatchUi.View {
         dc.setColor(C_BG, C_BG);
         dc.clear();
 
-        // Scan-deadline fallback rides the animation tick.
+        // Scan-deadline fallback and the paused-clock reminder both ride
+        // the view tick instead of owning Timers of their own.
         _ble.checkScanTimeout();
+        _matchTimer.pollPauseReminder();
         var state = _ble.getState();
 
         // ── Safe zone ────────────────────────────────────────
@@ -250,23 +257,23 @@ class myGarminAppView extends WatchUi.View {
     }
 
     // ----------------------------------------------------------
-    //  Live (subscribed) screen — match timers + AR symbols
+    //  Live screen — match timers, time of day, alert flash
     //
     //  Vertical stack, all centered on the column so the layout
     //  stays inside a round screen's usable area:
-    //    AR symbol row (above the digits)
-    //    COUNTDOWN — big numbers, center stage
-    //                (white running, gray paused, amber in
-    //                 stoppage time after expiry)
-    //    COUNT-UP  — secondary: smaller, soft blue, synchronized
+    //    TIME OF DAY — soft green, count-up size, above the digits
+    //    COUNTDOWN   — big numbers, center stage
+    //                  (white running, gray paused, amber in
+    //                   stoppage time after expiry)
+    //    COUNT-UP    — secondary: smaller, soft blue; the running
+    //                  clock — starts with the first SELECT and never
+    //                  pauses, so it visibly keeps moving while the
+    //                  countdown sits gray
     //
-    //  Each linked AR renders as a shape symbol with its number
-    //  inside (placeholder art until custom icons exist):
-    //    AR1 — circle outline
-    //    AR2 — triangle outline
-    //  An unlinked AR draws nothing.  While an AR's alert window
-    //  is open the symbol blinks (~300 ms phases) between its
-    //  default shape and a contrasting filled diamond.
+    //  Link state has no persistent visual.  While an AR's alert
+    //  window is open (ALERT_BLINK_MS) the flag icon flashes in
+    //  300 ms phases above the digits with the AR number beside it,
+    //  taking over the time-of-day line for the duration.
     // ----------------------------------------------------------
     hidden function _drawLiveScreen(
         dc as Graphics.Dc,
@@ -290,13 +297,18 @@ class myGarminAppView extends WatchUi.View {
             _matchTimer.formatCountUp(),
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
-        // ── Paging-alert flash above the digits ──────────────
-        // Idle: nothing — the live screen is just the timers.  During
-        // an AR's alert window the AR icon flashes (300 ms phases)
-        // with the AR number beside it.
+        // ── Time of day, or the alert flash ──────────────
+        // Idle: the wall clock.  During an AR's alert window the flag
+        // icon flashes (300 ms phases) with the AR number beside it, and
+        // the clock line yields to it so the two never overlap.
         var a1 = _ble.isAlerting1();
         var a2 = _ble.isAlerting2();
-        if (!a1 && !a2) { return; }
+        if (!a1 && !a2) {
+            dc.setColor(C_TOD, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(cx, _todY, Graphics.FONT_MEDIUM, _timeOfDay(),
+                Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            return;
+        }
         if ((_animFrame % 4) >= 2) { return; }     // flash off-phase
 
         var num    = a1 ? (a2 ? "1 2" : "1") : "2";
@@ -311,6 +323,20 @@ class myGarminAppView extends WatchUi.View {
             Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
+    // Wall clock: "HH:MM" (24 h) or "h:MM AM" (12 h — suffix only when
+    // onLayout() found room for it on this screen).
+    hidden function _timeOfDay() as String {
+        var t = System.getClockTime();
+        var h = t.hour;
+        if (System.getDeviceSettings().is24Hour) {
+            return h.format("%02d") + ":" + t.min.format("%02d");
+        }
+        var suffix = (h >= 12) ? " PM" : " AM";
+        h = h % 12;
+        if (h == 0) { h = 12; }
+        return h.toString() + ":" + t.min.format("%02d") + (_todSuffix ? suffix : "");
+    }
+
     // ----------------------------------------------------------
     //  Countdown font selection — run once per layout.
     //
@@ -318,9 +344,10 @@ class myGarminAppView extends WatchUi.View {
     //  countdown is dead-centered on the screen and there is no hint
     //  line on the live screen.  The only hard floor is the count-up
     //  fitting between the digits and the bottom of the screen (disc
-    //  chord on round faces).  The AR symbol row is NOT reserved —
-    //  it floats in whatever gap remains above the digits (clamped
-    //  to the screen edge).
+    //  chord on round faces).  Nothing above the digits is reserved:
+    //  the time-of-day line mirrors the count-up's slot (so it fits by
+    //  symmetry whenever the count-up does) and the alert flash floats
+    //  in whatever gap remains (clamped to the screen edge).
     //
     //  Two candidates compete and the taller countdown wins:
     //   1. the largest system number font that fits, and
@@ -404,11 +431,20 @@ class myGarminAppView extends WatchUi.View {
         _cdVisH = bestVis;
         _cdY    = c;
         _cuY    = c + bestVis / 2 + 2 + cuVis / 2;
+        // Time of day mirrors the count-up's slot above the digits.  The
+        // disc is symmetric, so "88:88" fits there whenever the count-up
+        // fits below; only the 12 h " AM"/" PM" suffix needs its own check
+        // against the chord at the line's top edge.
+        _todY = c - bestVis / 2 - 2 - cuVis / 2;
+        var todTopDy = c - (_todY - cuVis / 2);
+        _todSuffix = dc.getTextWidthInPixels("12:88 PM", Graphics.FONT_MEDIUM)
+                     <= _cdMaxWidth(dc, todTopDy * 2);
         // The alert flash floats above the digits; clamp to the screen
         // edge and accept overlap on tight screens — the timer wins.
         _symY = c - bestVis / 2 - 6 - iconHalf;
         if (_symY < iconHalf + 2) { _symY = iconHalf + 2; }
         System.println("View: countdown visH=" + _cdVisH + " cdY=" + _cdY +
+            " todY=" + _todY + " suffix=" + (_todSuffix ? "yes" : "no") +
             " vector=" + (usedVector ? "yes" : "no"));
     }
 
@@ -456,21 +492,24 @@ class myGarminAppView extends WatchUi.View {
     }
 
     // ----------------------------------------------------------
-    //  Tick source — two speeds:
-    //   150 ms  spinner states, or an AR alert blink window open
-    //   500 ms  match timer running (keeps the seconds display fresh)
-    //   stopped otherwise
+    //  Tick source — three speeds:
+    //    150 ms  spinner states, or an AR alert blink window open
+    //    500 ms  either clock running (keeps the seconds display fresh)
+    //   1000 ms  live but idle — keeps the time-of-day line current
+    //            and polls the paused-clock reminder
+    //   stopped  pre-live idle / error
     // ----------------------------------------------------------
     hidden function _syncTimer() as Void {
         var state = _ble.getState();
+        var live  = _ble.isLive();
         var fast  = (state == BLE_SCANNING   ||
                      state == BLE_CONNECTING  ||
                      state == BLE_CONNECTED)  ||
-                    (_ble.isLive() &&
-                     (_ble.isAlerting1() || _ble.isAlerting2()));
-        var slow  = (_ble.isLive() && _matchTimer.isRunning());
+                    (live && (_ble.isAlerting1() || _ble.isAlerting2()));
+        var slow  = (live && (_matchTimer.isRunning() ||
+                              _matchTimer.isCountUpRunning()));
 
-        var period = fast ? 150 : (slow ? 500 : 0);
+        var period = fast ? 150 : (slow ? 500 : (live ? 1000 : 0));
         if (period == _tickPeriod) { return; }
 
         _timer.stop();
@@ -495,7 +534,6 @@ class myGarminAppView extends WatchUi.View {
     hidden function _accentColor(state as Number) as Number {
         if (state == BLE_IDLE)       { return C_ACC_IDLE;   }
         if (state == BLE_SCANNING)   { return C_ACC_ACTIVE; }
-        if (state == BLE_FOUND)      { return C_ACC_FOUND;  }
         if (state == BLE_CONNECTING) { return C_ACC_ACTIVE; }
         if (state == BLE_CONNECTED)  { return C_ACC_ACTIVE; }
         if (state == BLE_SUBSCRIBED) { return C_ACC_LIVE;   }

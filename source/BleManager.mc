@@ -11,7 +11,7 @@
 //
 // PAIRING NOTE: pairDevice() takes the ScanResult object (not a
 // Device).  We save it in _scanResult during onScanResults() and
-// consume it in connectToDevice().
+// consume it immediately in _autoConnect() (zero-touch flow).
 // ============================================================
 
 import Toybox.Attention;
@@ -32,7 +32,7 @@ const TARGET_CHAR_UUID_STR    = "33210002-28d5-4b7b-bad0-7dee1eee1b6d";
 // ============================================================
 const BLE_IDLE        = 0;  // not scanning (pre-scan or after disconnect)
 const BLE_SCANNING    = 1;  // actively scanning; auto-connects on match
-const BLE_FOUND       = 2;  // unused — scan now auto-connects (kept for numbering)
+                            // 2 was BLE_FOUND (retired: the scan auto-connects)
 const BLE_CONNECTING  = 3;  // pairDevice() called, waiting for link
 const BLE_CONNECTED   = 4;  // link up, writing CCCD to enable notify
 const BLE_SUBSCRIBED  = 5;  // notifications flowing
@@ -62,7 +62,7 @@ const ALERT_BLINK_MS = 3000;
 // ============================================================
 class BleManager extends BluetoothLowEnergy.BleDelegate {
 
-    // Scan-phase state (available while BLE_FOUND)
+    // Scan-phase state (set on UUID match, consumed by _autoConnect)
     hidden var _scanResult  as BluetoothLowEnergy.ScanResult or Null = null;
 
     // Connection-phase state (available while connected)
@@ -104,10 +104,11 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         if (SIM_TIMER_TEST) {
             // Simulator UI test — skip the BLE flow and boot straight
             // into the live match-timer screen, both ARs linked.
-            _state   = BLE_SUBSCRIBED;
-            _status  = "SIM TEST MODE";
-            _linked1 = true;
-            _linked2 = true;
+            _state    = BLE_SUBSCRIBED;
+            _status   = "SIM TEST MODE";
+            _everLive = true;   // keep the live latch consistent in the sim
+            _linked1  = true;
+            _linked2  = true;
         }
     }
 
@@ -137,6 +138,15 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         if (_state == BLE_IDLE    ||
             _state == BLE_ERROR   ||
             _state == BLE_OFFLINE) {
+            if (_state == BLE_OFFLINE) {
+                // User-initiated rescan from timer-only mode: the
+                // pairing-failure count from the last attempt is stale.
+                _pairFails = 0;
+            }
+            // An ERROR state (e.g. CCCD write failed) can still hold a
+            // live GATT link.  Release it before scanning — a connected
+            // relay stops advertising, so a rescan would never see it.
+            _unpairIfHeld();
             _clearSession();
             _state        = BLE_SCANNING;
             _status       = "Scanning... (UUID filter active)";
@@ -154,16 +164,6 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         }
     }
 
-    function stopScan() as Void {
-        _stopScanInternal();
-        if (_state == BLE_SCANNING) {
-            _clearSession();
-            _state  = BLE_IDLE;
-            _status = "Scan stopped. Tap SELECT to retry.";
-            WatchUi.requestUpdate();
-        }
-    }
-
     // The app is "live" (showing the match timer) once we've either
     // subscribed or given up on BLE.  Latched — BLE drops and background
     // rescans never pull the UI off the timer screen.
@@ -174,8 +174,9 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
     // Called from the view's tick while scanning: give up and fall back
     // to timer-only mode once the scan deadline passes.
     function checkScanTimeout() as Void {
+        // Delta compare, not "getTimer() > deadline" — see _alertOpen().
         if (_state == BLE_SCANNING &&
-            System.getTimer() > _scanDeadline) {
+            (System.getTimer() - _scanDeadline) > 0) {
             System.println("BLE: scan timeout — timer-only mode");
             _stopScanInternal();
             _clearSession();
@@ -230,13 +231,7 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
     // on app exit so nothing is left running or paired behind us.
     function teardown() as Void {
         _stopScanInternal();
-        if (_device != null) {
-            try {
-                BluetoothLowEnergy.unpairDevice(_device);
-            } catch (ex instanceof Lang.Exception) {
-                System.println("BLE unpairDevice error: " + ex.getErrorMessage());
-            }
-        }
+        _unpairIfHeld();
         _clearSession();
         _state = BLE_IDLE;
     }
@@ -249,6 +244,19 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         try {
             BluetoothLowEnergy.setScanState(BluetoothLowEnergy.SCAN_STATE_OFF);
         } catch (ex instanceof Lang.Exception) { /* ignore */ }
+    }
+
+    // Release the GATT link if we hold one.  The stack then echoes
+    // onConnectedStateChanged(DISCONNECTED), which that handler
+    // recognises as self-initiated and ignores.
+    hidden function _unpairIfHeld() as Void {
+        if (_device != null) {
+            try {
+                BluetoothLowEnergy.unpairDevice(_device);
+            } catch (ex instanceof Lang.Exception) {
+                System.println("BLE unpairDevice error: " + ex.getErrorMessage());
+            }
+        }
     }
 
     hidden function _clearSession() as Void {
@@ -445,7 +453,20 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
             _enableNotifications(device);
         } else {
             var wasSub = (_state == BLE_SUBSCRIBED);
+            // Only CONNECTING / CONNECTED / SUBSCRIBED can lose a link we
+            // still want.  Any other state means this disconnect is the
+            // echo of our own unpairDevice() (menu Disconnect, BACK-to-
+            // skip, pre-scan release) — clear and stay put.  Without this
+            // guard a menu Disconnect counted as a pairing failure and
+            // started an auto-rescan that re-paired seconds later.
+            var ours = !wasSub &&
+                       _state != BLE_CONNECTING &&
+                       _state != BLE_CONNECTED;
             _clearSession();
+            if (ours) {
+                System.println("BLE: disconnect echo in state " + _state + " — ignored");
+                return;
+            }
             if (!wasSub) { _pairFails++; }
             if (!wasSub && _pairFails >= MAX_PAIR_FAILS) {
                 // Relay advertises but won't link — stop burning battery.
@@ -614,6 +635,17 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
     function getNotifType()  as Number  { return _notifType;  }
 
     // True while the AR's alert blink window (ALERT_BLINK_MS) is open.
-    function isAlerting1()   as Boolean { return System.getTimer() < _alert1Until; }
-    function isAlerting2()   as Boolean { return System.getTimer() < _alert2Until; }
+    function isAlerting1()   as Boolean { return _alertOpen(_alert1Until); }
+    function isAlerting2()   as Boolean { return _alertOpen(_alert2Until); }
+
+    // Window test as a DELTA, never "getTimer() < deadline": System.getTimer()
+    // is a signed 32-bit ms counter that rolls negative ~25 days after a
+    // reboot, and with the deadlines initialised to 0 the absolute compare
+    // read as "alerting" for both ARs until their first real page (seen
+    // on-watch 2026-09-02).  Subtraction wraps, so this holds across the
+    // rollover.
+    hidden function _alertOpen(deadline as Number) as Boolean {
+        var remaining = deadline - System.getTimer();
+        return remaining > 0 && remaining <= ALERT_BLINK_MS;
+    }
 }

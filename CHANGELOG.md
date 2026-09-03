@@ -52,6 +52,16 @@ Venu Sq 2 launch crash.
   "RobotoRegular" fallbacks) that fits, and adopts it only when it beats the
   best system font. Venu 3 gains ~10%, CIQ-6 devices (Venu 4 / Venu X1 /
   vivoactive 6) ~50%+ from the Condensed faces.
+- **Time-of-day line** (2026-09-02) — wall clock in soft green above the
+  countdown, count-up sized (`FONT_MEDIUM`), mirroring the count-up's slot so
+  it never costs the countdown a pixel. 24 h or 12 h per the watch setting;
+  the " AM"/" PM" suffix is dropped only if `onLayout()` finds no room for it
+  on the chord. During an AR alert window the flash takes the line over.
+- **Paused-clock reminder** (2026-09-02) — while the countdown sits paused
+  after having been started, a single short tap every 20 s says "your clock
+  is stopped". Polled from the view's new 1 s idle tick, so no extra
+  `Timer.Timer` (see the AR2 crash below for why that matters). Cleared by
+  start or reset; not delivered while the settings menu is open.
 
 ### Changed
 
@@ -93,6 +103,20 @@ Venu Sq 2 launch crash.
 - **AR symbols no longer constrain the timer size** — the state dot is gone
   from the live screen and the AR row floats in the gap above the digits
   (clamped to the screen edge) instead of reserving stack space.
+- **Tap no longer touches the clock** (2026-09-02) — on the live screen only
+  the SELECT button starts/pauses the match; a sleeve or raindrop on the
+  screen is ignored. The main delegate is now a raw `InputDelegate` (like the
+  interval picker) because a `BehaviorDelegate` folds taps into the select
+  behavior before `onTap` can veto them. Keys are mapped explicitly (ENTER/
+  START = select, ESC = back, MENU = menu) and touch-and-hold opens the menu.
+  Pre-live, a tap still starts or retries the scan.
+- **Count-up decoupled from the countdown** (2026-09-02) — the count-up is
+  now the running clock: it starts with the first SELECT and keeps climbing
+  through every pause and past expiry, so blue digits moving while the white
+  ones sit gray is the visual cue that the playing clock is stopped. Only
+  Reset (or an interval change, which resets) stops and zeroes it; Half still
+  only changes its base. Both clocks remain `System.getTimer()` deltas, so
+  nothing new ticks.
 
 ### Fixed
 
@@ -110,6 +134,29 @@ Venu Sq 2 launch crash.
   `Toybox.BluetoothLowEnergy` module (only Venu Sq 2 Music does, per Garmin's
   API docs), so the app crashed at launch ("Symbol Not Found" instantiating
   `BleManager`). Pre-existing on main; venusq2m remains supported and runs.
+- **Flag icon and "1 2" flashing from the moment the live screen appeared**
+  (2026-09-02) — the alert-window test was `System.getTimer() < _alertUntil`
+  with the deadlines initialised to 0. `getTimer()` is a signed 32-bit ms
+  counter that rolls negative ~25 days after a reboot, so on a long-uptime
+  watch both ARs read as "alerting" until their first real page — and the
+  150 ms alert tick ran continuously meanwhile. Now compares a delta
+  (`deadline - getTimer()` within `ALERT_BLINK_MS`), which holds across the
+  rollover; the 15 s scan-deadline check got the same treatment.
+- **Menu Disconnect re-paired within seconds** (2026-09-02) — `unpairDevice()`
+  echoes back through `onConnectedStateChanged`, and that handler treated
+  every disconnect as a link loss: it counted a pairing failure and started
+  an auto-rescan. A disconnect arriving in any state other than CONNECTING /
+  CONNECTED / SUBSCRIBED is now recognised as our own and ignored. The same
+  root cause made BACK-to-skip rescan in the background.
+- **One-shot Rescan after three pairing failures** — the failure counter only
+  reset on a successful subscribe, so a manual Rescan from timer-only mode got
+  a single attempt before tripping the limit again. Reset when a scan starts
+  from `BLE_OFFLINE`.
+- **Error states leaked the GATT link** — a CCCD / service-lookup failure set
+  `BLE_ERROR` with the relay still connected, and a later scan dropped the
+  reference without unpairing. A connected relay stops advertising, so the
+  rescan could never find it until app restart. `startScan()` now releases
+  any held link first (`_unpairIfHeld`, shared with `teardown()`).
 
 ### TODO
 
@@ -121,6 +168,10 @@ Venu Sq 2 launch crash.
 - [ ] On-device check of the 0.55 visual-height scalar and 0.70 vector
       cap-height estimate on venu2plus and a venu3-gen watch, plus the
       alert-flash icon size (48×56 — regenerable from the master at any size).
+- [ ] On-watch (2026-09-02): confirm the MENU key and touch-and-hold still
+      open the settings menu with the raw `InputDelegate` (BACK does
+      regardless), the time-of-day line clears the bezel on venu2plus /
+      venu3, and the 20 s pause reminder is felt but not mistaken for a page.
 
 ## 2026-08-14
 

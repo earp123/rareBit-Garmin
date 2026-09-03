@@ -4,14 +4,17 @@
 // Match / interval timer for sports officials.
 //
 // Primary display is a COUNTDOWN from the selected interval
-// (default 45 min).  A synchronized COUNT-UP runs off the same
-// elapsed clock, based at 00:00 (1st half) or at the interval
-// (2nd half — e.g. counts up from 45:00 with 45-min intervals).
+// (default 45 min) — the playing clock: SELECT starts and pauses
+// it.  The COUNT-UP is the running clock: it starts with the
+// first SELECT and never pauses, based at 00:00 (1st half) or at
+// the interval (2nd half — e.g. counts up from 45:00 with 45-min
+// intervals).  Only reset() (or an interval change, which resets)
+// stops and zeroes it.
 //
-// start/pause preserves elapsed time; reset() returns to the
-// full interval, paused.  Elapsed time is derived from
-// System.getTimer() deltas, so no periodic callback is needed
-// to keep time — the view only ticks to refresh the display.
+// start/pause preserves the countdown's elapsed time; reset()
+// returns to the full interval, paused, count-up stopped.  Both
+// clocks are System.getTimer() deltas, so no periodic callback is
+// needed to keep time — the view only ticks to refresh the display.
 //
 // When the countdown reaches zero a one-shot Timer fires a
 // distinct haptic alert; the countdown then holds at 00:00
@@ -29,14 +32,22 @@ import Toybox.WatchUi;
 
 const DEFAULT_INTERVAL_MIN = 45;
 
+// While the countdown sits paused after having been started, buzz a
+// gentle reminder this often (polled from the view's idle tick).
+const PAUSE_REMIND_MS = 20000;
+
 class MatchTimer {
 
-    hidden var _running     as Boolean = false;
-    hidden var _elapsedMs   as Number  = 0;   // accumulated up to last pause
-    hidden var _startTick   as Number  = 0;   // System.getTimer() at last start
+    hidden var _running     as Boolean = false;  // countdown (playing clock) running
+    hidden var _elapsedMs   as Number  = 0;      // countdown ms accumulated to last pause
+    hidden var _startTick   as Number  = 0;      // System.getTimer() at last countdown start
+    hidden var _cuRunning   as Boolean = false;  // count-up (running clock) started
+    hidden var _cuStartTick as Number  = 0;      // System.getTimer() at the first start
     hidden var _intervalMs  as Number  = DEFAULT_INTERVAL_MIN * 60 * 1000;
     hidden var _secondHalf  as Boolean = false;  // count-up base = interval when true
     hidden var _expiryTimer as Timer.Timer;      // one-shot → haptic at 00:00
+    hidden var _remindArmed as Boolean = false;  // paused after a start — nag
+    hidden var _remindTick  as Number  = 0;      // getTimer() base for the nag
 
     function initialize() {
         _expiryTimer = new Timer.Timer();
@@ -54,8 +65,15 @@ class MatchTimer {
 
     function start() as Void {
         if (!_running) {
-            _startTick = System.getTimer();
-            _running   = true;
+            _startTick   = System.getTimer();
+            _running     = true;
+            _remindArmed = false;
+            // The first start also sets the running clock going; later
+            // starts (after a pause) leave it alone — it never stopped.
+            if (!_cuRunning) {
+                _cuRunning   = true;
+                _cuStartTick = _startTick;
+            }
             // Schedule the expiry haptic for the moment we hit 00:00.
             // Already expired (stoppage time) — nothing to schedule.
             var remaining = _intervalMs - _elapsedMs;
@@ -67,16 +85,32 @@ class MatchTimer {
 
     function pause() as Void {
         if (_running) {
-            _elapsedMs += System.getTimer() - _startTick;
-            _running    = false;
+            _elapsedMs  += System.getTimer() - _startTick;
+            _running     = false;
             _expiryTimer.stop();
+            // Paused mid-match: start the reminder cadence from now.
+            _remindArmed = true;
+            _remindTick  = System.getTimer();
         }
     }
 
     function reset() as Void {
-        _running   = false;
-        _elapsedMs = 0;
+        _running     = false;
+        _elapsedMs   = 0;
+        _cuRunning   = false;   // the running clock stops and zeroes too
+        _remindArmed = false;   // a reset timer hasn't started — no nagging
         _expiryTimer.stop();
+    }
+
+    // Pause reminder — polled from the view's tick rather than run off
+    // a Timer of its own, keeping the app's timer count down.  Delta
+    // compare: System.getTimer() rolls negative ~25 days after boot.
+    function pollPauseReminder() as Void {
+        if (!_remindArmed) { return; }
+        if (System.getTimer() - _remindTick >= PAUSE_REMIND_MS) {
+            _remindTick = System.getTimer();
+            _buzzPauseReminder();
+        }
     }
 
     // ----------------------------------------------------------
@@ -109,6 +143,12 @@ class MatchTimer {
             : _elapsedMs;
     }
 
+    // Running clock — ms since the first start; 0 until then / after reset.
+    function getCountUpMs() as Number {
+        return _cuRunning ? (System.getTimer() - _cuStartTick) : 0;
+    }
+    function isCountUpRunning() as Boolean { return _cuRunning; }
+
     function isExpired() as Boolean {
         return getElapsedMs() >= _intervalMs;
     }
@@ -121,11 +161,12 @@ class MatchTimer {
         return _fmt((rem + 999) / 1000);
     }
 
-    // Synchronized count-up "MM:SS" from 00:00 (1st) or the
-    // interval (2nd).  Minutes are uncapped: "93:40" in stoppage.
+    // Running-clock count-up "MM:SS" from 00:00 (1st) or the
+    // interval (2nd).  Keeps climbing through pauses and past
+    // expiry; minutes are uncapped: "93:40" in stoppage.
     function formatCountUp() as String {
         var base = _secondHalf ? _intervalMs : 0;
-        return _fmt((base + getElapsedMs()) / 1000);
+        return _fmt((base + getCountUpMs()) / 1000);
     }
 
     hidden function _fmt(totalS as Number) as String {
@@ -142,6 +183,15 @@ class MatchTimer {
         System.println("MatchTimer: interval expired");
         _buzzExpiry();
         WatchUi.requestUpdate();
+    }
+
+    // Paused-clock nudge: a single short tap — unmistakably not an
+    // alert, just "your clock is stopped".
+    hidden function _buzzPauseReminder() as Void {
+        if (!(Attention has :vibrate)) { return; }
+        Attention.vibrate([
+            new Attention.VibeProfile(100, 80)
+        ]);
     }
 
     // Distinct from the BLE patterns (double-tap, single long,

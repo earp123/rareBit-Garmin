@@ -1,0 +1,7 @@
+[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\SimMode.mc"; @line = 17; @position = 19; noSimTest = true; @symbol_constdef = [SIM_TIMER_TEST,17,19,33]; ]
+const SIM_TIMER_TEST = false;
+[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\SimMode.mc"; @line = 18; @position = 19; simTest = true; @symbol_constdef = [SIM_TIMER_TEST,18,19,33]; ]
+const SIM_TIMER_TEST = true;
+[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\SimMode.mc"; @line = 17; ]
+<init> {
+}
