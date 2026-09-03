@@ -80,7 +80,6 @@ class myGarminAppView extends WatchUi.View {
     hidden var _symY         as Number  = 0;   // alert-flash row midpoint
     hidden var _cuY          as Number  = 0;   // count-up vertical midpoint
     hidden var _todY         as Number  = 0;   // time-of-day vertical midpoint
-    hidden var _todSuffix    as Boolean = false; // room for " AM"/" PM" at _todY
 
     function initialize(ble as BleManager, matchTimer as MatchTimer) {
         View.initialize();
@@ -323,18 +322,18 @@ class myGarminAppView extends WatchUi.View {
             Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
-    // Wall clock: "HH:MM" (24 h) or "h:MM AM" (12 h — suffix only when
-    // onLayout() found room for it on this screen).
+    // Wall clock, digits only: "HH:MM" (24 h) or "h:MM" (12 h, no AM/PM
+    // — the official knows which it is, and the line stays one clean
+    // centered block).
     hidden function _timeOfDay() as String {
         var t = System.getClockTime();
         var h = t.hour;
         if (System.getDeviceSettings().is24Hour) {
             return h.format("%02d") + ":" + t.min.format("%02d");
         }
-        var suffix = (h >= 12) ? " PM" : " AM";
         h = h % 12;
         if (h == 0) { h = 12; }
-        return h.toString() + ":" + t.min.format("%02d") + (_todSuffix ? suffix : "");
+        return h.toString() + ":" + t.min.format("%02d");
     }
 
     // ----------------------------------------------------------
@@ -433,18 +432,14 @@ class myGarminAppView extends WatchUi.View {
         _cuY    = c + bestVis / 2 + 2 + cuVis / 2;
         // Time of day mirrors the count-up's slot above the digits.  The
         // disc is symmetric, so "88:88" fits there whenever the count-up
-        // fits below; only the 12 h " AM"/" PM" suffix needs its own check
-        // against the chord at the line's top edge.
+        // fits below (the line is digits only — no AM/PM suffix).
         _todY = c - bestVis / 2 - 2 - cuVis / 2;
-        var todTopDy = c - (_todY - cuVis / 2);
-        _todSuffix = dc.getTextWidthInPixels("12:88 PM", Graphics.FONT_MEDIUM)
-                     <= _cdMaxWidth(dc, todTopDy * 2);
         // The alert flash floats above the digits; clamp to the screen
         // edge and accept overlap on tight screens — the timer wins.
         _symY = c - bestVis / 2 - 6 - iconHalf;
         if (_symY < iconHalf + 2) { _symY = iconHalf + 2; }
         System.println("View: countdown visH=" + _cdVisH + " cdY=" + _cdY +
-            " todY=" + _todY + " suffix=" + (_todSuffix ? "yes" : "no") +
+            " todY=" + _todY +
             " vector=" + (usedVector ? "yes" : "no"));
     }
 

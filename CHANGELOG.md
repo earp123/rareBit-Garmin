@@ -54,11 +54,11 @@ Venu Sq 2 launch crash.
   vivoactive 6) ~50%+ from the Condensed faces.
 - **Time-of-day line** (2026-09-02) — wall clock in soft green above the
   countdown, count-up sized (`FONT_MEDIUM`), mirroring the count-up's slot so
-  it never costs the countdown a pixel. 24 h or 12 h per the watch setting;
-  the " AM"/" PM" suffix is dropped only if `onLayout()` finds no room for it
-  on the chord. During an AR alert window the flash takes the line over.
+  it never costs the countdown a pixel. Digits only — 24 h or 12 h per the
+  watch setting, no AM/PM — so the line stays one clean centered block.
+  During an AR alert window the flash takes the line over.
 - **Paused-clock reminder** (2026-09-02) — while the countdown sits paused
-  after having been started, a single short tap every 20 s says "your clock
+  after having been started, three short taps every 20 s say "your clock
   is stopped". Polled from the view's new 1 s idle tick, so no extra
   `Timer.Timer` (see the AR2 crash below for why that matters). Cleared by
   start or reset; not delivered while the settings menu is open.

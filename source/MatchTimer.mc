@@ -185,11 +185,15 @@ class MatchTimer {
         WatchUi.requestUpdate();
     }
 
-    // Paused-clock nudge: a single short tap — unmistakably not an
-    // alert, just "your clock is stopped".
+    // Paused-clock nudge: three short taps in ONE vibrate call (no
+    // timers) — unmistakably not an alert, just "your clock is stopped".
     hidden function _buzzPauseReminder() as Void {
         if (!(Attention has :vibrate)) { return; }
         Attention.vibrate([
+            new Attention.VibeProfile(100, 80),
+            new Attention.VibeProfile(  0, 80),
+            new Attention.VibeProfile(100, 80),
+            new Attention.VibeProfile(  0, 80),
             new Attention.VibeProfile(100, 80)
         ]);
     }
