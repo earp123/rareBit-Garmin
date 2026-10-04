@@ -123,6 +123,7 @@ class MatchTimer {
         reset();
     }
 
+    function getIntervalMs() as Number { return _intervalMs; }
     function getIntervalMinPart() as Number { return _intervalMs / 60000; }
     function getIntervalSecPart() as Number { return (_intervalMs / 1000) % 60; }
 

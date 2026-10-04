@@ -8,14 +8,15 @@
 // Safe zone: roughly 15% inset from top/bottom on round screens
 //   (= half of (diameter - inscribed-square-side), i.e. D*(1-1/√2)/2)
 //
-// Vertical stack within the safe zone (pre-live phases):
-//   14%  colored dot   — state indicator only, no text
-//   50%  main area     — card or spinner
-//   88%  bottom text   — single short line, very muted
+// Connect screen (pre-live phases), stacked within the safe zone:
+//   42%  app icon, wrapped in the state ring (spinner while
+//        scanning / connecting, track only idle, red on error)
+//        "rareBit", then a status line and a muted hint line
 //
-// The live screen ignores that stack: it is laid out once in
+// The live screen ignores the safe zone: it is laid out once in
 // onLayout() around the biggest countdown the screen can hold
-// (see _pickCountdownFont).
+// (see _pickCountdownFont), with the progress ring and link dot
+// out in the bezel margin.
 // ============================================================
 
 import Toybox.Graphics;
@@ -26,27 +27,29 @@ import Toybox.Timer;
 import Toybox.WatchUi;
 
 // ── Colors ───────────────────────────────────────────────────
+// Accents match the rareBit iOS / Android apps.  AMOLED: the neon
+// green is for thin strokes and small marks only, never big fills.
 const C_BG          = Graphics.COLOR_BLACK;
-const C_CARD_FILL   = 0x111111;
-const C_CARD_BORDER = Graphics.COLOR_WHITE;
 const C_TEXT_PRI    = Graphics.COLOR_WHITE;
 const C_TEXT_SEC    = 0x888888;
 const C_HINT        = 0x444444;
 
 const C_ACC_IDLE    = 0x555555;
-const C_ACC_ACTIVE  = 0xFFAA00;  // amber — scanning / connecting
-const C_ACC_LIVE    = 0x00CC66;  // green — data flowing
-const C_ACC_ERROR   = 0xCC2200;  // red
-const C_ACC_ALERT   = 0xFFAA00;  // amber — AR alert blink contrast symbol
-const C_COUNTUP     = 0x55AAEE;  // soft blue — secondary count-up digits
+const C_ACC_ACTIVE  = 0xFFC300;  // amber — scanning, connecting, expiry
+const C_ACC_LIVE    = 0x39FF14;  // neon green — relay linked / live
+const C_ACC_ERROR   = 0xFF3B30;  // red
+const C_ACC_ALERT   = 0xFFC300;  // amber — AR alert flash label
+const C_COUNTUP     = 0x00CFFF;  // cyan — secondary count-up digits
 const C_TOD         = 0x66CC88;  // soft green — time-of-day line above the countdown
+const C_STOPPAGE    = 0xFF9500;  // orange — stoppage line, in the time-of-day slot
+const C_RING_TRACK  = 0x1C1C1C;  // unfilled part of the progress / state rings
 
 // ── Geometry ─────────────────────────────────────────────────
-const CARD_PAD    = 14;   // px padding inside card
-const CARD_RADIUS = 10;   // corner radius px
-const CARD_W_PCT  = 0.72; // card width as fraction of screen width
-const DOT_R       = 5;    // state dot radius px
-const SPINNER_PW  = 4;    // spinner arc pen width px
+const SPINNER_PW  = 4;    // connect-screen state ring pen width px
+const SPINNER_GAP = 12;   // state ring radius beyond the icon's half-size
+const RING_INSET  = 4;    // progress ring radius = h/2 - RING_INSET
+const RING_PW     = 3;    // progress ring (or rect top bar) pen width px
+const LINK_DOT_R  = 3;    // link dot radius px
 
 // Garmin number fonts report ~40-50% more height than the visual
 // glyphs (metric padding).  Scale down for stacking math so the
@@ -67,6 +70,7 @@ class myGarminAppView extends WatchUi.View {
     hidden var _animFrame    as Number  = 0;   // 0-11 (spinner uses %6, blink uses %4)
     hidden var _isRound      as Boolean = false;
     hidden var _arIcon       as Graphics.BitmapType;   // paging-alert icon
+    hidden var _logo         as Graphics.BitmapType;   // app icon, connect screen
 
     // Live-screen layout — computed once in onLayout().  _cdFont is
     // the largest number font that fits this screen; _cdVisH its
@@ -80,6 +84,7 @@ class myGarminAppView extends WatchUi.View {
     hidden var _symY         as Number  = 0;   // alert-flash row midpoint
     hidden var _cuY          as Number  = 0;   // count-up vertical midpoint
     hidden var _todY         as Number  = 0;   // time-of-day vertical midpoint
+    hidden var _tagY         as Number  = 0;   // half-tag midpoint, 0 = doesn't fit
 
     function initialize(ble as BleManager, matchTimer as MatchTimer) {
         View.initialize();
@@ -87,6 +92,7 @@ class myGarminAppView extends WatchUi.View {
         _matchTimer = matchTimer;
         _timer      = new Timer.Timer();
         _arIcon     = WatchUi.loadResource(Rez.Drawables.ArIcon) as Graphics.BitmapType;
+        _logo       = WatchUi.loadResource(Rez.Drawables.LauncherIcon) as Graphics.BitmapType;
         // Detect screen shape once — doesn't change at runtime
         var shape = System.getDeviceSettings().screenShape;
         _isRound = (shape == System.SCREEN_SHAPE_ROUND ||
@@ -126,133 +132,93 @@ class myGarminAppView extends WatchUi.View {
         // the view tick instead of owning Timers of their own.
         _ble.checkScanTimeout();
         _matchTimer.pollPauseReminder();
-        var state = _ble.getState();
 
-        // ── Safe zone ────────────────────────────────────────
-        // Round: inscribed-square inset ≈ h * 0.15
-        // Rect : small fixed margin
-        var inset  = _isRound ? (h * 0.15).toNumber() : 8;
-        var safeT  = inset;
-        var safeH  = h - inset * 2;
-
-        // Anchor Y positions (all are vertical midpoints for drawText)
-        var dotY  = safeT + (safeH * 0.14).toNumber();
-        var mainY = safeT + (safeH * 0.50).toNumber();
-        var txtY  = safeT + (safeH * 0.88).toNumber();
-
-        // ── State dot ────────────────────────────────────────
-        // Skipped on the live screen — every pixel goes to the timer,
-        // even while a background rescan is running.
-        if (!_ble.isLive()) {
-            dc.setColor(_accentColor(state), Graphics.COLOR_TRANSPARENT);
-            dc.fillCircle(cx, dotY, DOT_R);
-        }
-
-        // ── Main area ────────────────────────────────────────
-        _drawMain(dc, w, cx, mainY, state);
-
-        // ── Bottom text (pre-live phases only) ───────────────
-        if (!_ble.isLive()) {
-            var hint = _bottomText(state);
-            if (hint.length() > 0) {
-                dc.setColor(C_HINT, Graphics.COLOR_TRANSPARENT);
-                dc.drawText(cx, txtY, Graphics.FONT_TINY, hint,
-                    Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-            }
+        // Live is latched — once the timer screen is up it stays up,
+        // regardless of what BLE is doing in the background.
+        if (_ble.isLive()) {
+            _drawLiveScreen(dc, w, h, cx);
+        } else {
+            _drawConnectScreen(dc, h, cx, _ble.getState());
         }
 
         _syncTimer();
     }
 
     // ----------------------------------------------------------
-    //  Main area dispatcher
+    //  Connect screen — every pre-live state shares one layout:
+    //
+    //    app icon       — centered at 42% of the safe zone, wrapped
+    //                     in the state ring (the ring carries state:
+    //                     spinner while scanning / connecting, bare
+    //                     track when idle, solid red on error)
+    //    "rareBit"      — FONT_SMALL, directly under the ring
+    //    status line    — FONT_XTINY, what BLE is doing
+    //    hint line      — FONT_XTINY, muted: the one useful input
     // ----------------------------------------------------------
-    hidden function _drawMain(
+    hidden function _drawConnectScreen(
         dc    as Graphics.Dc,
-        w     as Number,
+        h     as Number,
         cx    as Number,
-        cy    as Number,
         state as Number) as Void
     {
-        // Live is latched — once the timer screen is up it stays up,
-        // regardless of what BLE is doing in the background.
-        if (_ble.isLive()) {
-            _drawLiveScreen(dc, w, cx, cy);
-            return;
-        }
+        // Round: inscribed-square inset ≈ h * 0.15.  Rect: small margin.
+        var inset = _isRound ? (h * 0.15).toNumber() : 8;
+        var safeH = h - inset * 2;
+        var iconY = inset + (safeH * 0.42).toNumber();
 
-        if (state == BLE_SCANNING ||
-            state == BLE_CONNECTING ||
-            state == BLE_CONNECTED) {
-            // Animated spinner — no card
-            _drawSpinner(dc, cx, cy, _accentColor(state));
-            return;
-        }
+        var iconW = _logo.getWidth();
+        var iconH = _logo.getHeight();
+        dc.drawBitmap(cx - iconW / 2, iconY - iconH / 2, _logo);
 
-        if (state == BLE_IDLE) {
-            _drawCard(dc, w, cx, cy, "SCAN", null);
-            return;
-        }
+        var r = (iconW > iconH ? iconW : iconH) / 2 + SPINNER_GAP;
+        _drawStateRing(dc, cx, iconY, r, state);
 
-        if (state == BLE_ERROR) {
-            _drawCard(dc, w, cx, cy, "ERR", null);
-            return;
+        // Text stack — each line sits on its font's full height, which
+        // already carries the leading between lines.
+        var fhS = dc.getFontHeight(Graphics.FONT_SMALL);
+        var fhX = dc.getFontHeight(Graphics.FONT_XTINY);
+        var y   = iconY + r + SPINNER_PW / 2 + 4;
+
+        dc.setColor(C_TEXT_PRI, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx, y + fhS / 2, Graphics.FONT_SMALL, "rareBit",
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        y += fhS;
+
+        dc.setColor(C_TEXT_SEC, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx, y + fhX / 2, Graphics.FONT_XTINY, _statusText(state),
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        y += fhX;
+
+        var hint = _hintText(state);
+        if (hint.length() > 0) {
+            dc.setColor(C_HINT, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(cx, y + fhX / 2, Graphics.FONT_XTINY, hint,
+                Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         }
     }
 
-    // ----------------------------------------------------------
-    //  Rounded-rectangle card
-    //  primary  — FONT_MEDIUM, white
-    //  secondary — FONT_TINY, gray (pass null to omit)
-    // ----------------------------------------------------------
-    hidden function _drawCard(
-        dc        as Graphics.Dc,
-        w         as Number,
-        cx        as Number,
-        cy        as Number,
-        primary   as String,
-        secondary as String or Null) as Void
+    // State ring around the connect-screen icon.
+    hidden function _drawStateRing(
+        dc    as Graphics.Dc,
+        cx    as Number,
+        cy    as Number,
+        r     as Number,
+        state as Number) as Void
     {
-        var fhMed  = dc.getFontHeight(Graphics.FONT_MEDIUM);
-        var fhTiny = dc.getFontHeight(Graphics.FONT_TINY);
-        var hasSec = (secondary != null && secondary.length() > 0);
-
-        var cardW = (w * CARD_W_PCT).toNumber();
-        var cardH = hasSec
-            ? fhMed + fhTiny + CARD_PAD * 2 + 8
-            : fhMed + CARD_PAD * 2;
-        var cardX = cx - cardW / 2;
-        var cardY = cy - cardH / 2;
-
-        // Fill
-        dc.setColor(C_CARD_FILL, Graphics.COLOR_TRANSPARENT);
-        dc.fillRoundedRectangle(cardX, cardY, cardW, cardH, CARD_RADIUS);
-        // Border
-        dc.setPenWidth(2);
-        dc.setColor(C_CARD_BORDER, Graphics.COLOR_TRANSPARENT);
-        dc.drawRoundedRectangle(cardX, cardY, cardW, cardH, CARD_RADIUS);
-        dc.setPenWidth(1);
-
-        if (hasSec) {
-            // Two-line layout: treat primary+gap+secondary as a block,
-            // center the block vertically within the card.
-            var gap      = 8;
-            var blockH   = fhMed + gap + fhTiny;
-            var priY     = cy - blockH / 2 + fhMed / 2;
-            var secY     = cy + blockH / 2 - fhTiny / 2;
-
-            dc.setColor(C_TEXT_PRI, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(cx, priY, Graphics.FONT_MEDIUM, primary,
-                Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-
-            dc.setColor(C_TEXT_SEC, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(cx, secY, Graphics.FONT_TINY, secondary,
-                Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-        } else {
-            dc.setColor(C_TEXT_PRI, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(cx, cy, Graphics.FONT_MEDIUM, primary,
-                Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        if (state == BLE_SCANNING   ||
+            state == BLE_CONNECTING ||
+            state == BLE_CONNECTED) {
+            _drawSpinner(dc, cx, cy, r, _accentColor(state));
+            return;
         }
+        _setAntiAlias(dc, true);
+        dc.setPenWidth(SPINNER_PW);
+        // Error: a full red ring.  Idle (or anything else): track only.
+        dc.setColor(state == BLE_ERROR ? C_ACC_ERROR : C_RING_TRACK,
+            Graphics.COLOR_TRANSPARENT);
+        dc.drawCircle(cx, cy, r);
+        dc.setPenWidth(1);
+        _setAntiAlias(dc, false);
     }
 
     // ----------------------------------------------------------
@@ -264,26 +230,40 @@ class myGarminAppView extends WatchUi.View {
     //    COUNTDOWN   — big numbers, center stage
     //                  (white running, gray paused, amber in
     //                   stoppage time after expiry)
-    //    COUNT-UP    — secondary: smaller, soft blue; the running
-    //                  clock — starts with the first SELECT and never
-    //                  pauses, so it visibly keeps moving while the
-    //                  countdown sits gray
+    //    COUNT-UP    — secondary: smaller, cyan; the running clock —
+    //                  starts with the first SELECT and never pauses,
+    //                  so it visibly keeps moving while the countdown
+    //                  sits gray
+    //    HALF TAG    — "1st" / "2nd", tiny and muted, below the
+    //                  count-up — only on screens with room to spare
     //
-    //  Link state has no persistent visual.  While an AR's alert
-    //  window is open (ALERT_BLINK_MS) the flag icon flashes in
-    //  300 ms phases above the digits with the AR number beside it,
-    //  taking over the time-of-day line for the duration.
+    //  Out in the bezel margin, clear of the stack:
+    //    PROGRESS RING — countdown progress, clockwise from 12
+    //                  o'clock (a top-edge bar on rectangles)
+    //    LINK DOT    — 12 o'clock, green while the relay is
+    //                  subscribed, gray in timer-only / dropped
+    //
+    //  While an AR's alert window is open (ALERT_BLINK_MS) the flag
+    //  icon flashes in 300 ms phases above the digits with the AR
+    //  number beside it, taking over the time-of-day line for the
+    //  duration.
     // ----------------------------------------------------------
     hidden function _drawLiveScreen(
         dc as Graphics.Dc,
         w  as Number,
-        cx as Number,
-        cy as Number) as Void
+        h  as Number,
+        cx as Number) as Void
     {
+        // ── Bezel margin: progress ring, link dot ────────────
+        _drawProgressRing(dc, w, h, cx);
+        dc.setColor(_ble.getState() == BLE_SUBSCRIBED ? C_ACC_LIVE : C_ACC_IDLE,
+            Graphics.COLOR_TRANSPARENT);
+        dc.fillCircle(cx, _isRound ? 10 : 8, LINK_DOT_R);
+
         // ── Countdown — biggest font this screen can hold ────
         // All vertical anchors were precomputed in onLayout().
         var cdColor = _matchTimer.isRunning()
-            ? (_matchTimer.isExpired() ? C_ACC_ALERT : C_TEXT_PRI)
+            ? (_matchTimer.isExpired() ? C_ACC_ACTIVE : C_TEXT_PRI)
             : C_TEXT_SEC;
         dc.setColor(cdColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(cx, _cdY, _cdFont,
@@ -295,6 +275,14 @@ class myGarminAppView extends WatchUi.View {
         dc.drawText(cx, _cuY, Graphics.FONT_MEDIUM,
             _matchTimer.formatCountUp(),
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+
+        // ── Half tag — only where onLayout found room ────────
+        if (_tagY > 0) {
+            dc.setColor(C_HINT, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(cx, _tagY, Graphics.FONT_XTINY,
+                _matchTimer.isSecondHalf() ? "2nd" : "1st",
+                Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        }
 
         // ── Time of day, or the alert flash ──────────────
         // Idle: the wall clock.  During an AR's alert window the flag
@@ -322,6 +310,64 @@ class myGarminAppView extends WatchUi.View {
             Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
+    // Countdown progress in the bezel margin.  Round: a thin ring at
+    // h/2 - RING_INSET, filled clockwise from 12 o'clock as the interval
+    // elapses.  Rectangle: the same rule as a bar along the top edge.
+    // Green running, gray paused, solid amber once expired; before the
+    // first start only the track shows.  Redrawn on the view's existing
+    // tick — no timer of its own.
+    hidden function _drawProgressRing(
+        dc as Graphics.Dc,
+        w  as Number,
+        h  as Number,
+        cx as Number) as Void
+    {
+        var interval = _matchTimer.getIntervalMs();
+        var expired  = _matchTimer.isExpired();
+        // Float: elapsed × 360 overflows a 32-bit Number on long intervals.
+        var frac = expired ? 1.0
+            : _matchTimer.getElapsedMs().toFloat() / interval.toFloat();
+        var fill = expired ? C_ACC_ACTIVE
+            : (_matchTimer.isRunning() ? C_ACC_LIVE : C_TEXT_SEC);
+
+        if (!_isRound) {
+            dc.setColor(C_RING_TRACK, Graphics.COLOR_TRANSPARENT);
+            dc.fillRectangle(0, 0, w, RING_PW);
+            var barW = (w * frac).toNumber();
+            if (barW > 0) {
+                dc.setColor(fill, Graphics.COLOR_TRANSPARENT);
+                dc.fillRectangle(0, 0, barW, RING_PW);
+            }
+            return;
+        }
+
+        var cy = h / 2;
+        var r  = cy - RING_INSET;
+        _setAntiAlias(dc, true);
+        dc.setPenWidth(RING_PW);
+        dc.setColor(C_RING_TRACK, Graphics.COLOR_TRANSPARENT);
+        dc.drawCircle(cx, cy, r);
+        dc.setColor(fill, Graphics.COLOR_TRANSPARENT);
+        if (expired) {
+            dc.drawCircle(cx, cy, r);
+        } else {
+            // drawArc: 0° = 3 o'clock, 90° = 12 o'clock, clockwise
+            // decreases the angle.  Under a degree there's nothing to see.
+            var deg = (360.0 * frac).toNumber();
+            if (deg >= 1) {
+                dc.drawArc(cx, cy, r, Graphics.ARC_CLOCKWISE, 90, 90 - deg);
+            }
+        }
+        dc.setPenWidth(1);
+        _setAntiAlias(dc, false);
+    }
+
+    // Anti-aliased strokes where the device supports them (CIQ 3.2+);
+    // thin rings look ragged on the high-density AMOLEDs without it.
+    hidden function _setAntiAlias(dc as Graphics.Dc, on as Boolean) as Void {
+        if (dc has :setAntiAlias) { dc.setAntiAlias(on); }
+    }
+
     // Wall clock, digits only: "HH:MM" (24 h) or "h:MM" (12 h, no AM/PM
     // — the official knows which it is, and the line stays one clean
     // centered block).
@@ -346,7 +392,10 @@ class myGarminAppView extends WatchUi.View {
     //  chord on round faces).  Nothing above the digits is reserved:
     //  the time-of-day line mirrors the count-up's slot (so it fits by
     //  symmetry whenever the count-up does) and the alert flash floats
-    //  in whatever gap remains (clamped to the screen edge).
+    //  in whatever gap remains (clamped to the screen edge).  The
+    //  progress ring and link dot live in the bezel margin outside all
+    //  of this, and the half tag only appears if room is left over —
+    //  none of them can cost the countdown a pixel.
     //
     //  Two candidates compete and the taller countdown wins:
     //   1. the largest system number font that fits, and
@@ -438,9 +487,38 @@ class myGarminAppView extends WatchUi.View {
         // edge and accept overlap on tight screens — the timer wins.
         _symY = c - bestVis / 2 - 6 - iconHalf;
         if (_symY < iconHalf + 2) { _symY = iconHalf + 2; }
+
+        // Half tag below the count-up, only if it still clears the
+        // bottom: the chord inside the progress ring's stroke on round
+        // faces (same test as the count-up's), the screen edge on
+        // rectangles.  No room, no tag — it never shrinks the countdown.
+        var fhX    = dc.getFontHeight(Graphics.FONT_XTINY);
+        var tagBot = _cuY + cuVis / 2 + 4 + fhX;
+        var tagMax = h - 4;
+        var ringIn = c - RING_INSET - RING_PW;   // just inside the stroke
+        if (_isRound) {
+            var tagHalf = dc.getTextWidthInPixels("2nd", Graphics.FONT_XTINY) / 2 + 6;
+            tagMax = c + Math.sqrt((ringIn * ringIn - tagHalf * tagHalf).toFloat()).toNumber() - 2;
+        }
+        _tagY = (tagBot <= tagMax) ? tagBot - fhX / 2 : 0;
+
+        // Ring clearance (round): how far the countdown's and count-up's
+        // text-box corners sit inside the ring stroke.  Negative = the
+        // ring crosses that box corner — check the digits in the sim.
+        var ringMsg = "";
+        if (_isRound) {
+            var cdHalfW = dc.getTextWidthInPixels("88:88", bestFont) / 2;
+            var cuHalfW = dc.getTextWidthInPixels("88:88", Graphics.FONT_MEDIUM) / 2;
+            var cdDy    = bestVis / 2;
+            var cuDy    = _cuY + cuVis / 2 - c;
+            var cdR = Math.sqrt((cdHalfW * cdHalfW + cdDy * cdDy).toFloat()).toNumber();
+            var cuR = Math.sqrt((cuHalfW * cuHalfW + cuDy * cuDy).toFloat()).toNumber();
+            ringMsg = " ringClr cd=" + (ringIn - cdR) + " cu=" + (ringIn - cuR);
+        }
         System.println("View: countdown visH=" + _cdVisH + " cdY=" + _cdY +
             " todY=" + _todY +
-            " vector=" + (usedVector ? "yes" : "no"));
+            " vector=" + (usedVector ? "yes" : "no") + ringMsg +
+            " halfTag=" + (_tagY > 0 ? "yes" : "no"));
     }
 
     // Max countdown text width with the digits centered on the screen:
@@ -457,7 +535,7 @@ class myGarminAppView extends WatchUi.View {
     }
 
     // ----------------------------------------------------------
-    //  Spinning arc
+    //  Spinning arc, radius r around (cx, cy)
     //  A 120° colored arc rotates 60° per tick over 6 frames.
     //  A faint full circle sits behind it as a track.
     //  In CIQ drawArc: 0°=3 o'clock, 90°=12 o'clock, angles
@@ -467,15 +545,16 @@ class myGarminAppView extends WatchUi.View {
         dc     as Graphics.Dc,
         cx     as Number,
         cy     as Number,
+        r      as Number,
         color  as Number) as Void
     {
-        var r          = dc.getWidth() / 4;
         var startAngle = 90 - (_animFrame % 6) * 60;
         var endAngle   = startAngle - 120;
 
+        _setAntiAlias(dc, true);
         // Track
         dc.setPenWidth(SPINNER_PW);
-        dc.setColor(0x222222, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(C_RING_TRACK, Graphics.COLOR_TRANSPARENT);
         dc.drawCircle(cx, cy, r);
 
         // Arc
@@ -484,6 +563,7 @@ class myGarminAppView extends WatchUi.View {
             Graphics.ARC_CLOCKWISE, startAngle, endAngle);
 
         dc.setPenWidth(1);
+        _setAntiAlias(dc, false);
     }
 
     // ----------------------------------------------------------
@@ -537,16 +617,24 @@ class myGarminAppView extends WatchUi.View {
     }
 
     // ----------------------------------------------------------
-    //  State → single bottom line  (muted, lowercase)
+    //  Connect-screen text (lowercase).  The live screen has none —
+    //  every pixel goes to the timer (BACK opens the settings menu).
     // ----------------------------------------------------------
-    hidden function _bottomText(state as Number) as String {
-        if (state == BLE_IDLE)       { return "tap to scan";       }
-        if (state == BLE_SCANNING)   { return "finding relay...  back=skip"; }
-        if (state == BLE_CONNECTING) { return "connecting...  back=skip"; }
+    hidden function _statusText(state as Number) as String {
+        if (state == BLE_IDLE)       { return "tap to scan";        }
+        if (state == BLE_SCANNING)   { return "finding relay...";   }
+        if (state == BLE_CONNECTING) { return "connecting...";      }
         if (state == BLE_CONNECTED)  { return "enabling notify..."; }
-        // Live screen: no hint — every pixel goes to the timer
-        // (BACK opens the settings menu).
-        if (state == BLE_ERROR)      { return _ble.getStatus();    }
+        if (state == BLE_ERROR)      { return _ble.getStatus();     }
+        return "";
+    }
+
+    // The one input worth knowing about in each state.
+    hidden function _hintText(state as Number) as String {
+        if (state == BLE_SCANNING   ||
+            state == BLE_CONNECTING ||
+            state == BLE_CONNECTED)  { return "back = timer only"; }
+        if (state == BLE_ERROR)      { return "tap = retry";       }
         return "";
     }
 
