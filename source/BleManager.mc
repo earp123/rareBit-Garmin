@@ -54,7 +54,10 @@ const MAX_PAIR_FAILS  = 3;
 const NOTIFY_LINKED  = 0;   // 0b00 — an AR device linked/unlinked
 const NOTIFY_ALERT_1 = 1;   // 0b01 — AR1 alert
 const NOTIFY_ALERT_2 = 2;   // 0b10 — AR2 alert
-const NOTIFY_UNUSED  = 3;   // 0b11 — reserved
+const NOTIFY_ALERT_3 = 3;   // 0b11 — Alert 3: a short press from either AR
+                            //        (sent only when the relay's own
+                            //        short-press setting is on; doesn't
+                            //        say which flag pressed)
 
 // How long an alert stays visually active (symbol blink) in ms.
 const ALERT_BLINK_MS = 3000;
@@ -79,6 +82,7 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
     hidden var _notifType    as Number       = -1;     // last NOTIFY_* value, -1 = none yet
     hidden var _alert1Until  as Number       = 0;      // System.getTimer() deadline for AR1 blink
     hidden var _alert2Until  as Number       = 0;      // System.getTimer() deadline for AR2 blink
+    hidden var _alert3Until  as Number       = 0;      // System.getTimer() deadline for Alert 3 blink
     hidden var _notifLocked  as Boolean      = false;  // true during 3 s post-connect gate
     hidden var _notifTimer   as Timer.Timer;           // one-shot to clear the lock
     hidden var _everLive     as Boolean      = false;  // latched on first subscribe/give-up
@@ -271,6 +275,7 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         _notifType    = -1;
         _alert1Until  = 0;
         _alert2Until  = 0;
+        _alert3Until  = 0;
         _notifLocked  = false;
         _notifTimer.stop();
     }
@@ -559,6 +564,10 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
             _alert2Until = System.getTimer() + ALERT_BLINK_MS;
             _buzzAlert2();
         }
+        if (_notifType == NOTIFY_ALERT_3) {
+            _alert3Until = System.getTimer() + ALERT_BLINK_MS;
+            _buzzAlert3();
+        }
 
         WatchUi.requestUpdate();
     }
@@ -610,14 +619,32 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         ]);
     }
 
+    // Alert 3 (short press, either AR) — three quick taps (~0.56 s) with
+    // the linked double-tap's timing, one vibrate call, zero timers (same
+    // reason as _buzzAlert2).  Distinct from AR1's single 2 s buzz, AR2's
+    // four long ones, and by count from the double-tap shared by link
+    // events and MatchTimer's pause reminder.
+    hidden function _buzzAlert3() as Void {
+        if (!(Attention has :vibrate)) { return; }
+        Attention.vibrate([
+            new Attention.VibeProfile(100, 120),
+            new Attention.VibeProfile(  0, 100),
+            new Attention.VibeProfile(100, 120),
+            new Attention.VibeProfile(  0, 100),
+            new Attention.VibeProfile(100, 120)
+        ]);
+    }
+
     // ----------------------------------------------------------
-    //  Sim-test hook — open an AR's alert-flash window without BLE
-    //  traffic (wired to menu items only in the SIM_TIMER_TEST build).
+    //  Sim-test hook — open an alert-flash window without BLE traffic
+    //  (wired to menu items only in the SIM_TIMER_TEST build).
+    //  1 / 2 = slot alerts (long press), 3 = Alert 3 (short press).
     // ----------------------------------------------------------
-    function simulateAlert(arNum as Number) as Void {
+    function simulateAlert(alertNum as Number) as Void {
         var until = System.getTimer() + ALERT_BLINK_MS;
-        if (arNum == 1) { _alert1Until = until; }
-        else            { _alert2Until = until; }
+        if      (alertNum == 1) { _alert1Until = until; }
+        else if (alertNum == 2) { _alert2Until = until; }
+        else                    { _alert3Until = until; }
         WatchUi.requestUpdate();
     }
 
@@ -634,9 +661,10 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
     function getLinked2()    as Boolean { return _linked2;    }
     function getNotifType()  as Number  { return _notifType;  }
 
-    // True while the AR's alert blink window (ALERT_BLINK_MS) is open.
+    // True while that alert's blink window (ALERT_BLINK_MS) is open.
     function isAlerting1()   as Boolean { return _alertOpen(_alert1Until); }
     function isAlerting2()   as Boolean { return _alertOpen(_alert2Until); }
+    function isAlerting3()   as Boolean { return _alertOpen(_alert3Until); }
 
     // Window test as a DELTA, never "getTimer() < deadline": System.getTimer()
     // is a signed 32-bit ms counter that rolls negative ~25 days after a

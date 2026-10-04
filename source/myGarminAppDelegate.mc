@@ -18,7 +18,9 @@
 //   (ignored while scanning / connecting — it's all automatic)
 //
 // TAP —
-//   live                  →  ignored (stray-touch guard)
+//   live, Stoppage on     →  open / close a stoppage segment
+//                            (never moves the countdown or the count-up)
+//   live, Stoppage off    →  ignored (stray-touch guard)
 //   otherwise             →  same as SELECT
 //
 // BACK —
@@ -55,9 +57,17 @@ class myGarminAppDelegate extends WatchUi.InputDelegate {
         return false;
     }
 
-    // Touch-screen tap — never touches the clock on the live screen.
+    // Touch-screen tap — never touches the match clocks.  On the live
+    // screen it drives the Stoppage Timer when that setting is on, and is
+    // swallowed silently when it isn't (the stray-touch guard).
     function onTap(clickEvent as WatchUi.ClickEvent) as Boolean {
-        if (_ble.isLive()) { return true; }
+        if (_ble.isLive()) {
+            if (_matchTimer.isStoppageEnabled()) {
+                _matchTimer.toggleStoppage();
+                WatchUi.requestUpdate();
+            }
+            return true;
+        }
         return _select();
     }
 

@@ -4,6 +4,91 @@ All notable changes to rareBit Official are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## Tester build — 2026-10-03
+
+Branch `feature/tester-build` (docs: `docs/tester-build.md`). Three features
+for the first tester round: the Stoppage Timer, Alert 3 (short press), and a
+UI refresh aligned with the iOS / Android apps. No new `Timer.Timer` anywhere,
+countdown size unchanged on every target, `manifest.xml` untouched.
+
+### Added
+
+- **Stoppage Timer** — optional (default off, session-only) tap-to-time
+  stopwatch for interruptions: injury, VAR, substitution. With the setting on,
+  a tap on the live screen opens a stoppage, a second tap closes it into the
+  half's total. The total — banked plus any open stoppage — shows as an orange
+  `+MM:SS` in the time-of-day slot, with a dot while one is open; the match
+  clocks never move on a tap. Expiry closes an open stoppage into the total.
+  Menu sublabel: `Off`, `On — 00:00`, or `On — 03:40 total (3)`. Reset Timer
+  or an interval change clears the total; the setting survives. With the
+  setting off a tap stays inert (stray-touch guard unchanged). No haptics.
+  Named Stoppage, not Delay — not to be confused with "stoppage time", the
+  countdown holding at 00:00 past the interval.
+- **Alert 3 (short press)** — relay notify type 3, previously reserved and
+  silently ignored, is now a short press from either flag (sent only when the
+  relay's short-press setting is on; it doesn't say which flag). Three quick
+  taps with the linked double-tap's timing (~0.56 s, one vibrate call) and
+  the alert icon flashing `S`;
+  overlapping windows list every alert open — `1 S`, `2 S`, `1 2 S`. Slot
+  alerts 1 / 2 (long press) are unchanged. Sim builds gain Test Alert 3.
+- **Progress ring** — countdown progress on a thin ring hugging the bezel,
+  clockwise from 12 o'clock: green running, gray paused, full amber once
+  expired. Rectangular screens (Venu Sq 2, Venu X1) get a top-edge bar. On
+  screen it clears the countdown digits by ~7 px on the tightest target
+  (Venu 4 41 mm); the per-device margin is in the `View:` layout println.
+- **Link dot** — small dot at 12 o'clock: green while the relay is subscribed,
+  gray in timer-only or after a drop. A persistent link visual at a size that
+  can't be mistaken for a page.
+- **Half tag** — `1st` / `2nd` in tiny muted type under the count-up, only
+  where it clears the bezel. It fits on all 11 targets.
+
+### Changed
+
+- **Palette** — accents now match the phone apps: neon-green link
+  (`0x39FF14`), amber scanning / expiry / alert (`0xFFC300`), red
+  (`0xFF3B30`), cyan count-up (`0x00CFFF`), orange stoppage (`0xFF9500`).
+- **Connect screen** — every pre-live state shares one branded layout: the
+  app icon wrapped in the state ring (spinner scanning / connecting, bare
+  track idle, red on error), "rareBit", a status line and a hint line
+  (`back = timer only`, `tap = retry`). Replaces the SCAN / ERR cards and the
+  state dot.
+- **Pause reminder pattern** — two quick taps (120 ms on / 100 ms off), the
+  same as the linked double-tap, instead of three 80 ms taps. Neither is a
+  page, and a double can't be mistaken for Alert 3's triple tap.
+- **Notify byte** — type bits `0b11` are now Alert 3 (were reserved). Bits 7 /
+  6 are still the AR1 / AR2 link bits and arrive with every notify; the 3 s
+  post-subscribe gate drops a stacked type 3 like any other alert.
+
+### Fixed
+
+- **Paused-clock reminder silent with the display off** — the 20 s reminder
+  was polled from the view's `onUpdate()`, which the watch doesn't call while
+  the screen is dark (or while the settings menu covers the live view), so it
+  only buzzed once the display woke. It now runs off `MatchTimer`'s haptic
+  Timer: the countdown's expiry one-shot while running, a repeating 20 s
+  reminder while paused — never both at once, so still no extra `Timer.Timer`.
+  The reminder now also fires with the settings menu open.
+
+### TODO
+
+- [ ] On-watch: the pause reminder buzzes every 20 s with the wrist down /
+      display off, and the expiry buzz is unchanged.
+- [ ] On-watch: the haptic set reads clearly — double tap (linked, pause
+      reminder), triple tap (Alert 3), one 2 s buzz (AR1), four long (AR2),
+      expiry's long-long-longer.
+- [ ] On-watch, per `docs/ui-refresh.md`, `docs/stoppage-timer.md` and
+      `docs/short-press-alert.md` (all sim-checked 2026-10-03): ring colours
+      through a 1:00 interval; dot green → gray on Disconnect and back on
+      Rescan; the stoppage script on a 2:00 interval; sleeve / raindrop with
+      the setting on; Alert 3 needs a relay running `feature/short-press-alert`
+      with its short-press bit on.
+- [ ] Launcher icon on 454 px screens (Venu 3 / Venu 4 45 mm): crisp, since
+      it's drawn 1:1, but small beside those screens' larger fonts. Generate a
+      96 px copy from `assets/launcher_icon_master.png` if it looks wrong on
+      the wrist.
+- [ ] Venu X1's rounded corners hide the first and last few percent of the
+      top-edge progress bar. Cosmetic — revisit if it reads wrong.
+
 ## [Unreleased] — 2026-08-25
 
 Field-test-ready overhaul: zero-touch connect flow with a timer-only

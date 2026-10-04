@@ -18,7 +18,27 @@
 //
 // When the countdown reaches zero a one-shot Timer fires a
 // distinct haptic alert; the countdown then holds at 00:00
-// while the count-up keeps going (stoppage time).
+// while the count-up keeps going (stoppage time).  While the
+// countdown sits paused after a start, the same Timer repeats a
+// gentle "clock stopped" reminder instead — the two jobs never
+// overlap, so the app's Timer count doesn't grow.  A real Timer
+// matters here: it fires with the display off, where the view's
+// onUpdate (which used to poll the reminder) never runs.
+//
+// The STOPPAGE TIMER is a third, independent clock: an optional
+// (default off) ad-hoc stopwatch for interruptions — injury, VAR,
+// substitution.  A screen tap opens a stoppage segment, a second
+// tap closes it and banks its elapsed into the half's stoppage
+// total — the time the official adds on.  The readout is always
+// that running total (banked + open segment).  It shares no state
+// with the countdown or the count-up and never moves either of
+// them; expiry closes an open segment, and only reset() (or an
+// interval change) clears the total and the count.
+//
+// Two senses of "stoppage" meet in this file.  "Stoppage time"
+// above is the countdown holding at 00:00 past the interval — an
+// automatic consequence of expiry.  The Stoppage Timer is the
+// hand-timed stopwatch below: separate state, separate code.
 //
 // Owned by the App (like BleManager) so match time survives
 // BLE drops and reconnects.
@@ -33,24 +53,28 @@ import Toybox.WatchUi;
 const DEFAULT_INTERVAL_MIN = 45;
 
 // While the countdown sits paused after having been started, buzz a
-// gentle reminder this often (polled from the view's idle tick).
+// gentle reminder this often.
 const PAUSE_REMIND_MS = 20000;
 
 class MatchTimer {
 
-    hidden var _running     as Boolean = false;  // countdown (playing clock) running
-    hidden var _elapsedMs   as Number  = 0;      // countdown ms accumulated to last pause
-    hidden var _startTick   as Number  = 0;      // System.getTimer() at last countdown start
-    hidden var _cuRunning   as Boolean = false;  // count-up (running clock) started
-    hidden var _cuStartTick as Number  = 0;      // System.getTimer() at the first start
-    hidden var _intervalMs  as Number  = DEFAULT_INTERVAL_MIN * 60 * 1000;
-    hidden var _secondHalf  as Boolean = false;  // count-up base = interval when true
-    hidden var _expiryTimer as Timer.Timer;      // one-shot → haptic at 00:00
-    hidden var _remindArmed as Boolean = false;  // paused after a start — nag
-    hidden var _remindTick  as Number  = 0;      // getTimer() base for the nag
+    hidden var _running          as Boolean = false;  // countdown (playing clock) running
+    hidden var _elapsedMs        as Number  = 0;      // countdown ms accumulated to last pause
+    hidden var _startTick        as Number  = 0;      // System.getTimer() at last countdown start
+    hidden var _cuRunning        as Boolean = false;  // count-up (running clock) started
+    hidden var _cuStartTick      as Number  = 0;      // System.getTimer() at the first start
+    hidden var _intervalMs       as Number  = DEFAULT_INTERVAL_MIN * 60 * 1000;
+    hidden var _secondHalf       as Boolean = false;  // count-up base = interval when true
+    hidden var _hapticTimer      as Timer.Timer;      // running: one-shot expiry buzz
+                                                      // paused:  repeating reminder
+    hidden var _stoppageEnabled  as Boolean = false;  // tap-to-time-a-stoppage setting
+    hidden var _stoppageOpen     as Boolean = false;  // a segment is being timed now
+    hidden var _stoppageTick     as Number  = 0;      // getTimer() at the segment start
+    hidden var _stoppageTotalMs  as Number  = 0;      // banked (closed) segments this half
+    hidden var _stoppageCount    as Number  = 0;      // closed segments this half
 
     function initialize() {
-        _expiryTimer = new Timer.Timer();
+        _hapticTimer = new Timer.Timer();
     }
 
     // ----------------------------------------------------------
@@ -67,7 +91,7 @@ class MatchTimer {
         if (!_running) {
             _startTick   = System.getTimer();
             _running     = true;
-            _remindArmed = false;
+            _hapticTimer.stop();    // the pause reminder, if it was going
             // The first start also sets the running clock going; later
             // starts (after a pause) leave it alone — it never stopped.
             if (!_cuRunning) {
@@ -78,7 +102,7 @@ class MatchTimer {
             // Already expired (stoppage time) — nothing to schedule.
             var remaining = _intervalMs - _elapsedMs;
             if (remaining > 0) {
-                _expiryTimer.start(method(:onExpiry), remaining, false);
+                _hapticTimer.start(method(:onExpiry), remaining, false);
             }
         }
     }
@@ -87,10 +111,10 @@ class MatchTimer {
         if (_running) {
             _elapsedMs  += System.getTimer() - _startTick;
             _running     = false;
-            _expiryTimer.stop();
-            // Paused mid-match: start the reminder cadence from now.
-            _remindArmed = true;
-            _remindTick  = System.getTimer();
+            // Paused mid-match: drop the expiry one-shot and start the
+            // reminder cadence from now on the same Timer.
+            _hapticTimer.stop();
+            _hapticTimer.start(method(:onPauseReminder), PAUSE_REMIND_MS, true);
         }
     }
 
@@ -98,19 +122,13 @@ class MatchTimer {
         _running     = false;
         _elapsedMs   = 0;
         _cuRunning   = false;   // the running clock stops and zeroes too
-        _remindArmed = false;   // a reset timer hasn't started — no nagging
-        _expiryTimer.stop();
-    }
-
-    // Pause reminder — polled from the view's tick rather than run off
-    // a Timer of its own, keeping the app's timer count down.  Delta
-    // compare: System.getTimer() rolls negative ~25 days after boot.
-    function pollPauseReminder() as Void {
-        if (!_remindArmed) { return; }
-        if (System.getTimer() - _remindTick >= PAUSE_REMIND_MS) {
-            _remindTick = System.getTimer();
-            _buzzPauseReminder();
-        }
+        _hapticTimer.stop();    // no expiry pending, and a reset clock
+                                // hasn't started — no nagging either
+        // Stoppages belong to the half being reset — drop the open
+        // segment, the total and the count.  The Off/On setting survives.
+        _stoppageOpen    = false;
+        _stoppageTotalMs = 0;
+        _stoppageCount   = 0;
     }
 
     // ----------------------------------------------------------
@@ -123,6 +141,7 @@ class MatchTimer {
         reset();
     }
 
+    function getIntervalMs() as Number { return _intervalMs; }
     function getIntervalMinPart() as Number { return _intervalMs / 60000; }
     function getIntervalSecPart() as Number { return (_intervalMs / 1000) % 60; }
 
@@ -176,25 +195,95 @@ class MatchTimer {
     }
 
     // ----------------------------------------------------------
-    //  Expiry — public so method(:onExpiry) can reference it
+    //  Stoppage timer — the tap-to-start stopwatch
+    //
+    //  Wholly separate from the countdown and the count-up: nothing
+    //  here reads or writes their state, and toggleStoppage() is the
+    //  only thing a screen tap ever reaches.  Like the other two it
+    //  is a System.getTimer() delta, so it costs no Timer.Timer (the
+    //  CIQ timer cap is what crashed the AR2 alert — see CHANGELOG).
+    // ----------------------------------------------------------
+
+    function isStoppageEnabled() as Boolean { return _stoppageEnabled; }
+
+    function setStoppageEnabled(enabled as Boolean) as Void {
+        // Switching the setting off with a segment open: bank it like a
+        // second tap would, otherwise it would keep counting with taps
+        // now inert and no way to close it.
+        if (!enabled && _stoppageOpen) { _bankStoppage(); }
+        _stoppageEnabled = enabled;
+    }
+
+    function isStoppageOpen() as Boolean { return _stoppageOpen; }
+
+    // A tap: open a fresh segment, or close the open one and bank it.
+    function toggleStoppage() as Void {
+        if (_stoppageOpen) {
+            _bankStoppage();
+        } else {
+            _stoppageTick = System.getTimer();
+            _stoppageOpen = true;
+        }
+    }
+
+    // Stoppage so far this half — banked total plus the open segment.
+    function getStoppageMs() as Number {
+        return _stoppageOpen
+            ? _stoppageTotalMs + (System.getTimer() - _stoppageTick)
+            : _stoppageTotalMs;
+    }
+
+    // Segments so far this half, the open one included — pairs with
+    // getStoppageMs() so the menu's "total (n)" agrees with the line.
+    function getStoppageCount() as Number {
+        return _stoppageOpen ? _stoppageCount + 1 : _stoppageCount;
+    }
+
+    // Anything timed this half (an open segment counts from its first
+    // instant, so the line appears as "+00:00" on the opening tap).
+    function hasStoppage() as Boolean {
+        return _stoppageOpen || _stoppageCount > 0;
+    }
+
+    // "MM:SS", floor seconds.  The live line prefixes "+".
+    function formatStoppage() as String { return _fmt(getStoppageMs() / 1000); }
+
+    hidden function _bankStoppage() as Void {
+        _stoppageTotalMs += System.getTimer() - _stoppageTick;
+        _stoppageCount   += 1;
+        _stoppageOpen     = false;
+    }
+
+    // ----------------------------------------------------------
+    //  Haptic Timer callbacks — public so method() can reference them
     // ----------------------------------------------------------
 
     function onExpiry() as Void {
         System.println("MatchTimer: interval expired");
+        // The half's regulation time is up: an open stoppage segment
+        // closes into the total, so the added-time figure stops here.
+        if (_stoppageOpen) { _bankStoppage(); }
         _buzzExpiry();
         WatchUi.requestUpdate();
     }
 
-    // Paused-clock nudge: three short taps in ONE vibrate call (no
-    // timers) — unmistakably not an alert, just "your clock is stopped".
+    // Every PAUSE_REMIND_MS while paused after a start — including with
+    // the display off or the settings menu up.
+    function onPauseReminder() as Void {
+        System.println("MatchTimer: pause reminder");
+        _buzzPauseReminder();
+    }
+
+    // Paused-clock nudge: two quick taps in ONE vibrate call (no
+    // timers) — deliberately the same pattern as BleManager's linked
+    // double-tap.  Neither is a page, and a double can't be confused
+    // with the triple-tap short press (Alert 3) or the long-press alerts.
     hidden function _buzzPauseReminder() as Void {
         if (!(Attention has :vibrate)) { return; }
         Attention.vibrate([
-            new Attention.VibeProfile(100, 80),
-            new Attention.VibeProfile(  0, 80),
-            new Attention.VibeProfile(100, 80),
-            new Attention.VibeProfile(  0, 80),
-            new Attention.VibeProfile(100, 80)
+            new Attention.VibeProfile(100, 120),
+            new Attention.VibeProfile(  0, 100),
+            new Attention.VibeProfile(100, 120)
         ]);
     }
 

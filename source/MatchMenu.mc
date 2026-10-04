@@ -6,11 +6,17 @@
 //   Half        — 1st / 2nd submenu; 2nd bases the count-up at
 //                 the interval (counts up from e.g. 45:00)
 //                 instead of 00:00
+//   Stoppage Timer — Off / On submenu; On turns a tap on the live
+//                 screen into a stopwatch for interruptions, totalled
+//                 per half as an orange "+MM:SS" in the time-of-day
+//                 slot.  The sublabel repeats the total with the
+//                 number of stoppages.
 //   Reset Timer
 //   Disconnect  — (while subscribed) drop the relay link; the timer
 //                 keeps running in timer-only mode
 //   Rescan      — (otherwise) background rescan for the relay
-//   Test Alert 1/2 — sim build only, previews the alert flash
+//   Test Alert 1/2/3 — sim build only, previews the alert flash
+//                 (3 = short press, flashes "S")
 //   Exit App    — the app's only exit path from the live screen
 //
 // Confirming a picker / submenu selection pops straight back to
@@ -26,6 +32,7 @@ function pushMatchMenu(mt as MatchTimer, ble as BleManager) as Void {
     var menu = new WatchUi.Menu2({:title => "Settings"});
     menu.addItem(new WatchUi.MenuItem("Interval", mt.formatInterval(), :interval, null));
     menu.addItem(new WatchUi.MenuItem("Half", _halfSubLabel(mt), :half, null));
+    menu.addItem(new WatchUi.MenuItem("Stoppage Timer", _stoppageSubLabel(mt), :stoppage, null));
     menu.addItem(new WatchUi.MenuItem("Reset Timer", null, :reset, null));
     if (ble.getState() == BLE_SUBSCRIBED) {
         menu.addItem(new WatchUi.MenuItem("Disconnect", null, :disconnect, null));
@@ -37,6 +44,7 @@ function pushMatchMenu(mt as MatchTimer, ble as BleManager) as Void {
         // Sim build only — preview the paging-alert flash.
         menu.addItem(new WatchUi.MenuItem("Test Alert 1", null, :simAlert1, null));
         menu.addItem(new WatchUi.MenuItem("Test Alert 2", null, :simAlert2, null));
+        menu.addItem(new WatchUi.MenuItem("Test Alert 3", null, :simAlert3, null));
     }
     // Deliberate exit — BACK on the live screen only ever opens this
     // menu, so this is the app's exit path (no accidental mid-match
@@ -49,6 +57,16 @@ function _halfSubLabel(mt as MatchTimer) as String {
     return mt.isSecondHalf()
         ? "2nd — up from " + mt.formatInterval()
         : "1st — up from 00:00";
+}
+
+// "Off", or "On" with the half's stoppage so far: "On — 00:00" before
+// the first tap, "On — 03:40 total (3)" after — the same figure as the
+// live line, open segment included.
+function _stoppageSubLabel(mt as MatchTimer) as String {
+    if (!mt.isStoppageEnabled()) { return "Off"; }
+    if (!mt.hasStoppage()) { return "On — 00:00"; }
+    return "On — " + mt.formatStoppage() + " total (" +
+        mt.getStoppageCount().toString() + ")";
 }
 
 class MatchMenuDelegate extends WatchUi.Menu2InputDelegate {
@@ -77,6 +95,14 @@ class MatchMenuDelegate extends WatchUi.Menu2InputDelegate {
                 "count up from " + _mt.formatInterval(), :second, null));
             menu.setFocus(_mt.isSecondHalf() ? 1 : 0);
             WatchUi.pushView(menu, new HalfMenuDelegate(_mt), WatchUi.SLIDE_LEFT);
+        } else if (id == :stoppage) {
+            var smenu = new WatchUi.Menu2({:title => "Stoppage Timer"});
+            smenu.addItem(new WatchUi.MenuItem("Off",
+                "tap does nothing", :stoppageOff, null));
+            smenu.addItem(new WatchUi.MenuItem("On",
+                "tap times a stoppage", :stoppageOn, null));
+            smenu.setFocus(_mt.isStoppageEnabled() ? 1 : 0);
+            WatchUi.pushView(smenu, new StoppageMenuDelegate(_mt), WatchUi.SLIDE_LEFT);
         } else if (id == :reset) {
             _mt.reset();
             WatchUi.popView(WatchUi.SLIDE_DOWN);
@@ -89,9 +115,9 @@ class MatchMenuDelegate extends WatchUi.Menu2InputDelegate {
         } else if (id == :exitApp) {
             // AppBase.onStop runs BleManager.teardown() on the way out.
             System.exit();
-        } else if (id == :simAlert1 || id == :simAlert2) {
+        } else if (id == :simAlert1 || id == :simAlert2 || id == :simAlert3) {
             WatchUi.popView(WatchUi.SLIDE_DOWN);
-            _ble.simulateAlert(id == :simAlert1 ? 1 : 2);
+            _ble.simulateAlert(id == :simAlert1 ? 1 : (id == :simAlert2 ? 2 : 3));
         }
     }
 
@@ -112,6 +138,27 @@ class HalfMenuDelegate extends WatchUi.Menu2InputDelegate {
     function onSelect(item as WatchUi.MenuItem) as Void {
         _mt.setSecondHalf(item.getId() == :second);
         // Pop the half submenu and the settings menu — back to live.
+        WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+        WatchUi.popView(WatchUi.SLIDE_DOWN);
+    }
+
+    function onBack() as Void {
+        WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+    }
+}
+
+class StoppageMenuDelegate extends WatchUi.Menu2InputDelegate {
+
+    hidden var _mt as MatchTimer;
+
+    function initialize(mt as MatchTimer) {
+        Menu2InputDelegate.initialize();
+        _mt = mt;
+    }
+
+    function onSelect(item as WatchUi.MenuItem) as Void {
+        _mt.setStoppageEnabled(item.getId() == :stoppageOn);
+        // Pop the stoppage submenu and the settings menu — back to live.
         WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
         WatchUi.popView(WatchUi.SLIDE_DOWN);
     }
