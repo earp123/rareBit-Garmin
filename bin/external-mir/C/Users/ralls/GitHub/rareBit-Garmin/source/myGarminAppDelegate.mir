@@ -1,425 +1,450 @@
-[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 36; @symbol_importdef<0> = [Toybox,36,7,13]; @symbol_importdef<1> = [Lang,36,14,18]; ]
+[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 38; @symbol_importdef<0> = [Toybox,38,7,13]; @symbol_importdef<1> = [Lang,38,14,18]; ]
 import Toybox.Lang;
-[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 37; @symbol_importdef<0> = [Toybox,37,7,13]; @symbol_importdef<1> = [WatchUi,37,14,21]; ]
+[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 39; @symbol_importdef<0> = [Toybox,39,7,13]; @symbol_importdef<1> = [WatchUi,39,14,21]; ]
 import Toybox.WatchUi;
-[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 39; @symbol_classdef = [myGarminAppDelegate,39,6,25]; @symbol_extends<0> = [WatchUi,39,34,41]; @symbol_extends<1> = [InputDelegate,39,42,55]; ]
+[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 41; @symbol_classdef = [myGarminAppDelegate,41,6,25]; @symbol_extends<0> = [WatchUi,41,34,41]; @symbol_extends<1> = [InputDelegate,41,42,55]; ]
 class myGarminAppDelegate extends WatchUi.InputDelegate {
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 39; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 41; ]
     <init> {
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 39; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 41; ]
     static
     <init> {
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 41; @position = 15; @symbol_vardef = [_ble,41,15,19]; @symbol_type<0> = [BleManager,41,30,40]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 43; @position = 15; @symbol_vardef = [_ble,43,15,19]; @symbol_type<0> = [BleManager,43,30,40]; ]
     protected
     var _ble as BleManager;
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 42; @position = 15; @symbol_vardef = [_matchTimer,42,15,26]; @symbol_type<0> = [MatchTimer,42,30,40]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 44; @position = 15; @symbol_vardef = [_matchTimer,44,15,26]; @symbol_type<0> = [MatchTimer,44,30,40]; ]
     protected
     var _matchTimer as MatchTimer;
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 44; @symbol_functiondef = [initialize,44,13,23]; @symbol_param<0> = [ble,44,24,27]; @symbol_param<0>_type<0> = [BleManager,44,31,41]; @symbol_param<1> = [matchTimer,44,43,53]; @symbol_param<1>_type<0> = [MatchTimer,44,57,67]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 46; @symbol_functiondef = [initialize,46,13,23]; @symbol_param<0> = [ble,46,24,27]; @symbol_param<0>_type<0> = [BleManager,46,31,41]; @symbol_param<1> = [matchTimer,46,43,53]; @symbol_param<1>_type<0> = [MatchTimer,46,57,67]; ]
     function initialize(ble as BleManager, matchTimer as MatchTimer) as Void {
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_44_69_48_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 45 8 ]
-        symbol [ InputDelegate %tmp.2 45 8 21 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_46_69_50_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 47 8 ]
+        symbol [ InputDelegate %tmp.2 47 8 21 ];
         %tmp.2 = getv ? :InputDelegate;
-        symbol [ initialize %tmp.3 45 22 32 ];
+        symbol [ initialize %tmp.3 47 22 32 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 46 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 48 8 ]
         %tmp.4 = lgetv %ble;
-        symbol [ ble %tmp.4 46 22 25 ];
-        symbol [ _ble ? 46 8 12 ];
+        symbol [ ble %tmp.4 48 22 25 ];
+        symbol [ _ble ? 48 8 12 ];
         putv self :_ble %tmp.4;
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 47 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 49 8 ]
         %tmp.5 = lgetv %matchTimer;
-        symbol [ matchTimer %tmp.5 47 22 32 ];
-        symbol [ _matchTimer ? 47 8 19 ];
+        symbol [ matchTimer %tmp.5 49 22 32 ];
+        symbol [ _matchTimer ? 49 8 19 ];
         putv self :_matchTimer %tmp.5;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_44_69_48_4_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_46_69_50_4_stop:
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 50; @symbol_functiondef = [onKey,50,13,18]; @symbol_param<0> = [keyEvent,50,19,27]; @symbol_param<0>_type<0> = [WatchUi,50,31,38]; @symbol_param<0>_type<1> = [KeyEvent,50,39,47]; @symbol_return<0> = [Boolean,50,52,59]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 52; @symbol_functiondef = [onKey,52,13,18]; @symbol_param<0> = [keyEvent,52,19,27]; @symbol_param<0>_type<0> = [WatchUi,52,31,38]; @symbol_param<0>_type<1> = [KeyEvent,52,39,47]; @symbol_return<0> = [Boolean,52,52,59]; ]
     function onKey(keyEvent as WatchUi.KeyEvent) as Boolean {
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_50_60_56_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 51 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_50_60_56_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_50_60_56_4_stop" ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_52_60_58_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 53 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_52_60_58_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_52_60_58_4_stop" ]
         %k.1 = local;
-        symbol [ k %k.1 51 12 13 ];
+        symbol [ k %k.1 53 12 13 ];
         %tmp.1 = lgetv %keyEvent;
-        symbol [ keyEvent %tmp.1 51 16 24 ];
-        symbol [ getKey %tmp.2 51 25 31 ];
+        symbol [ keyEvent %tmp.1 53 16 24 ];
+        symbol [ getKey %tmp.2 53 25 31 ];
         %tmp.2 = getv function %tmp.1 :getKey;
         %tmp.3 = invoke %tmp.1 %tmp.2();
         lputv %k.1 %tmp.3;
-        symbol [ k %k.1 51 12 13 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 52 8 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_52_8_52_82_if_stmt:
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_52_12_52_51_begin:
+        symbol [ k %k.1 53 12 13 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 54 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_8_54_82_if_stmt:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_12_54_51_begin:
         %tmp.4 = lgetv %k.1;
-        symbol [ k %tmp.4 52 12 13 ];
-        symbol [ WatchUi %tmp.5 52 17 24 ];
+        symbol [ k %tmp.4 54 12 13 ];
+        symbol [ WatchUi %tmp.5 54 17 24 ];
         %tmp.5 = getm $.Toybox.WatchUi;
-        symbol [ KEY_ENTER %tmp.6 52 25 34 ];
+        symbol [ KEY_ENTER %tmp.6 54 25 34 ];
         %tmp.6 = getv %tmp.5 :KEY_ENTER;
         %tmp.7 = eq %tmp.4 %tmp.6;
-        bt %tmp.7 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_52_8_52_82_if_true;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_52_38_52_51_false:
+        bt %tmp.7 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_8_54_82_if_true;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_38_54_51_false:
         %tmp.8 = lgetv %k.1;
-        symbol [ k %tmp.8 52 38 39 ];
-        symbol [ WatchUi %tmp.9 52 43 50 ];
+        symbol [ k %tmp.8 54 38 39 ];
+        symbol [ WatchUi %tmp.9 54 43 50 ];
         %tmp.9 = getm $.Toybox.WatchUi;
-        symbol [ KEY_START %tmp.10 52 51 60 ];
+        symbol [ KEY_START %tmp.10 54 51 60 ];
         %tmp.10 = getv %tmp.9 :KEY_START;
         %tmp.11 = eq %tmp.8 %tmp.10;
         push %tmp.11;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_52_38_52_51_end:
-        %tmp.12 = phi [%tmp.7 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_52_12_52_51_begin] [%tmp.11 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_52_38_52_51_false] [%tmp.12 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_52_38_52_51_end];
-        bf %tmp.12 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_52_8_52_82_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_52_8_52_82_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_52_62_52_82_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 52 64 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_38_54_51_end:
+        %tmp.12 = phi [%tmp.7 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_12_54_51_begin] [%tmp.11 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_38_54_51_false] [%tmp.12 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_38_54_51_end];
+        bf %tmp.12 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_8_54_82_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_8_54_82_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_62_54_82_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 54 64 ]
         %tmp.13 = self;
-        symbol [ _select %tmp.14 52 71 78 ];
+        symbol [ _select %tmp.14 54 71 78 ];
         %tmp.14 = getv function %tmp.13 :_select;
         %tmp.15 = invoke %tmp.13 %tmp.14();
         ret %tmp.15;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_52_62_52_82_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_52_8_52_82_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_52_8_52_82_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 53 8 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_53_8_53_53_if_stmt:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_62_54_82_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_8_54_82_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_8_54_82_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 55 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_55_8_55_53_if_stmt:
         %tmp.16 = lgetv %k.1;
-        symbol [ k %tmp.16 53 12 13 ];
-        symbol [ WatchUi %tmp.17 53 17 24 ];
+        symbol [ k %tmp.16 55 12 13 ];
+        symbol [ WatchUi %tmp.17 55 17 24 ];
         %tmp.17 = getm $.Toybox.WatchUi;
-        symbol [ KEY_ESC %tmp.18 53 25 32 ];
+        symbol [ KEY_ESC %tmp.18 55 25 32 ];
         %tmp.18 = getv %tmp.17 :KEY_ESC;
         %tmp.19 = eq %tmp.16 %tmp.18;
-        bf %tmp.19 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_53_8_53_53_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_53_8_53_53_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_53_35_53_53_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 53 37 ]
+        bf %tmp.19 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_55_8_55_53_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_55_8_55_53_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_55_35_55_53_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 55 37 ]
         %tmp.20 = self;
-        symbol [ _back %tmp.21 53 44 49 ];
+        symbol [ _back %tmp.21 55 44 49 ];
         %tmp.21 = getv function %tmp.20 :_back;
         %tmp.22 = invoke %tmp.20 %tmp.21();
         ret %tmp.22;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_53_35_53_53_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_53_8_53_53_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_53_8_53_53_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 54 8 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_8_54_53_if_stmt:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_55_35_55_53_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_55_8_55_53_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_55_8_55_53_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 56 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_56_8_56_53_if_stmt:
         %tmp.23 = lgetv %k.1;
-        symbol [ k %tmp.23 54 12 13 ];
-        symbol [ WatchUi %tmp.24 54 17 24 ];
+        symbol [ k %tmp.23 56 12 13 ];
+        symbol [ WatchUi %tmp.24 56 17 24 ];
         %tmp.24 = getm $.Toybox.WatchUi;
-        symbol [ KEY_MENU %tmp.25 54 25 33 ];
+        symbol [ KEY_MENU %tmp.25 56 25 33 ];
         %tmp.25 = getv %tmp.24 :KEY_MENU;
         %tmp.26 = eq %tmp.23 %tmp.25;
-        bf %tmp.26 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_8_54_53_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_8_54_53_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_35_54_53_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 54 37 ]
+        bf %tmp.26 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_56_8_56_53_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_56_8_56_53_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_56_35_56_53_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 56 37 ]
         %tmp.27 = self;
-        symbol [ _menu %tmp.28 54 44 49 ];
+        symbol [ _menu %tmp.28 56 44 49 ];
         %tmp.28 = getv function %tmp.27 :_menu;
         %tmp.29 = invoke %tmp.27 %tmp.28();
         ret %tmp.29;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_35_54_53_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_8_54_53_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_54_8_54_53_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 55 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_56_35_56_53_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_56_8_56_53_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_56_8_56_53_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 57 8 ]
         %tmp.30 = false;
         ret %tmp.30;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_50_60_56_4_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_52_60_58_4_stop:
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 59; @symbol_functiondef = [onTap,59,13,18]; @symbol_param<0> = [clickEvent,59,19,29]; @symbol_param<0>_type<0> = [WatchUi,59,33,40]; @symbol_param<0>_type<1> = [ClickEvent,59,41,51]; @symbol_return<0> = [Boolean,59,56,63]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 63; @symbol_functiondef = [onTap,63,13,18]; @symbol_param<0> = [clickEvent,63,19,29]; @symbol_param<0>_type<0> = [WatchUi,63,33,40]; @symbol_param<0>_type<1> = [ClickEvent,63,41,51]; @symbol_return<0> = [Boolean,63,56,63]; ]
     function onTap(clickEvent as WatchUi.ClickEvent) as Boolean {
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_59_64_62_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 60 8 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_60_8_60_42_if_stmt:
-        symbol [ _ble %tmp.2 60 12 16 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_63_64_72_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 64 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_64_8_70_8_if_stmt:
+        symbol [ _ble %tmp.2 64 12 16 ];
         %tmp.2 = getv ? :_ble;
-        symbol [ isLive %tmp.3 60 17 23 ];
+        symbol [ isLive %tmp.3 64 17 23 ];
         %tmp.3 = getv function %tmp.2 :isLive;
         %tmp.4 = invoke %tmp.2 %tmp.3();
-        bf %tmp.4 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_60_8_60_42_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_60_8_60_42_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_60_27_60_42_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 60 29 ]
-        %tmp.5 = true;
-        ret %tmp.5;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_60_27_60_42_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_60_8_60_42_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_60_8_60_42_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 61 8 ]
-        %tmp.6 = self;
-        symbol [ _select %tmp.7 61 15 22 ];
-        %tmp.7 = getv function %tmp.6 :_select;
+        bf %tmp.4 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_64_8_70_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_64_8_70_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_64_27_70_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 65 12 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_65_12_68_12_if_stmt:
+        symbol [ _matchTimer %tmp.6 65 16 27 ];
+        %tmp.6 = getv ? :_matchTimer;
+        symbol [ isStoppageEnabled %tmp.7 65 28 45 ];
+        %tmp.7 = getv function %tmp.6 :isStoppageEnabled;
         %tmp.8 = invoke %tmp.6 %tmp.7();
-        ret %tmp.8;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_59_64_62_4_stop:
+        bf %tmp.8 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_65_12_68_12_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_65_12_68_12_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_65_49_68_12_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 66 16 ]
+        symbol [ _matchTimer %tmp.10 66 16 27 ];
+        %tmp.10 = getv ? :_matchTimer;
+        symbol [ toggleStoppage %tmp.11 66 28 42 ];
+        %tmp.11 = getv function %tmp.10 :toggleStoppage;
+        invoke %tmp.10 %tmp.11();
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 67 16 ]
+        symbol [ WatchUi %tmp.12 67 16 23 ];
+        %tmp.12 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.13 67 24 37 ];
+        %tmp.13 = getv function %tmp.12 :requestUpdate;
+        invoke %tmp.12 %tmp.13();
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_65_49_68_12_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_65_12_68_12_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_65_12_68_12_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 69 12 ]
+        %tmp.14 = true;
+        ret %tmp.14;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_64_27_70_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_64_8_70_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_64_8_70_8_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 71 8 ]
+        %tmp.15 = self;
+        symbol [ _select %tmp.16 71 15 22 ];
+        %tmp.16 = getv function %tmp.15 :_select;
+        %tmp.17 = invoke %tmp.15 %tmp.16();
+        ret %tmp.17;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_63_64_72_4_stop:
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 65; @symbol_functiondef = [onHold,65,13,19]; @symbol_param<0> = [clickEvent,65,20,30]; @symbol_param<0>_type<0> = [WatchUi,65,34,41]; @symbol_param<0>_type<1> = [ClickEvent,65,42,52]; @symbol_return<0> = [Boolean,65,57,64]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 75; @symbol_functiondef = [onHold,75,13,19]; @symbol_param<0> = [clickEvent,75,20,30]; @symbol_param<0>_type<0> = [WatchUi,75,34,41]; @symbol_param<0>_type<1> = [ClickEvent,75,42,52]; @symbol_return<0> = [Boolean,75,57,64]; ]
     function onHold(clickEvent as WatchUi.ClickEvent) as Boolean {
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_65_65_67_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 66 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_75_65_77_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 76 8 ]
         %tmp.1 = self;
-        symbol [ _menu %tmp.2 66 15 20 ];
+        symbol [ _menu %tmp.2 76 15 20 ];
         %tmp.2 = getv function %tmp.1 :_menu;
         %tmp.3 = invoke %tmp.1 %tmp.2();
         ret %tmp.3;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_65_65_67_4_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_75_65_77_4_stop:
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 69; @symbol_functiondef = [_select,69,20,27]; @symbol_return<0> = [Boolean,69,33,40]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 79; @symbol_functiondef = [_select,79,20,27]; @symbol_return<0> = [Boolean,79,33,40]; ]
     protected
     function _select() as Boolean {
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_69_41_83_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 70 8 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_70_8_75_8_if_stmt:
-        symbol [ _ble %tmp.2 70 12 16 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_79_41_93_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 80 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_80_8_85_8_if_stmt:
+        symbol [ _ble %tmp.2 80 12 16 ];
         %tmp.2 = getv ? :_ble;
-        symbol [ isLive %tmp.3 70 17 23 ];
+        symbol [ isLive %tmp.3 80 17 23 ];
         %tmp.3 = getv function %tmp.2 :isLive;
         %tmp.4 = invoke %tmp.2 %tmp.3();
-        bf %tmp.4 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_70_8_75_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_70_8_75_8_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_70_27_75_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 72 12 ]
-        symbol [ _matchTimer %tmp.6 72 12 23 ];
+        bf %tmp.4 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_80_8_85_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_80_8_85_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_80_27_85_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 82 12 ]
+        symbol [ _matchTimer %tmp.6 82 12 23 ];
         %tmp.6 = getv ? :_matchTimer;
-        symbol [ toggle %tmp.7 72 24 30 ];
+        symbol [ toggle %tmp.7 82 24 30 ];
         %tmp.7 = getv function %tmp.6 :toggle;
         invoke %tmp.6 %tmp.7();
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 73 12 ]
-        symbol [ WatchUi %tmp.8 73 12 19 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 83 12 ]
+        symbol [ WatchUi %tmp.8 83 12 19 ];
         %tmp.8 = getm $.Toybox.WatchUi;
-        symbol [ requestUpdate %tmp.9 73 20 33 ];
+        symbol [ requestUpdate %tmp.9 83 20 33 ];
         %tmp.9 = getv function %tmp.8 :requestUpdate;
         invoke %tmp.8 %tmp.9();
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 74 12 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 84 12 ]
         %tmp.10 = true;
         ret %tmp.10;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_70_27_75_8_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_70_8_75_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_70_8_75_8_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 76 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_69_41_83_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_69_41_83_4_stop" ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_80_27_85_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_80_8_85_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_80_8_85_8_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 86 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_79_41_93_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_79_41_93_4_stop" ]
         %state.1 = local;
-        symbol [ state %state.1 76 12 17 ];
-        symbol [ _ble %tmp.12 76 20 24 ];
+        symbol [ state %state.1 86 12 17 ];
+        symbol [ _ble %tmp.12 86 20 24 ];
         %tmp.12 = getv ? :_ble;
-        symbol [ getState %tmp.13 76 25 33 ];
+        symbol [ getState %tmp.13 86 25 33 ];
         %tmp.13 = getv function %tmp.12 :getState;
         %tmp.14 = invoke %tmp.12 %tmp.13();
         lputv %state.1 %tmp.14;
-        symbol [ state %state.1 76 12 17 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 77 8 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_77_8_80_8_if_stmt:
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_77_12_77_42_begin:
+        symbol [ state %state.1 86 12 17 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 87 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_87_8_90_8_if_stmt:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_87_12_87_42_begin:
         %tmp.15 = lgetv %state.1;
-        symbol [ state %tmp.15 77 12 17 ];
-        symbol [ BLE_IDLE %tmp.17 77 21 29 ];
+        symbol [ state %tmp.15 87 12 17 ];
+        symbol [ BLE_IDLE %tmp.17 87 21 29 ];
         %tmp.17 = getv ? :BLE_IDLE;
         %tmp.18 = eq %tmp.15 %tmp.17;
-        bt %tmp.18 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_77_8_80_8_if_true;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_77_33_77_42_false:
+        bt %tmp.18 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_87_8_90_8_if_true;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_87_33_87_42_false:
         %tmp.19 = lgetv %state.1;
-        symbol [ state %tmp.19 77 33 38 ];
-        symbol [ BLE_ERROR %tmp.21 77 42 51 ];
+        symbol [ state %tmp.19 87 33 38 ];
+        symbol [ BLE_ERROR %tmp.21 87 42 51 ];
         %tmp.21 = getv ? :BLE_ERROR;
         %tmp.22 = eq %tmp.19 %tmp.21;
         push %tmp.22;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_77_33_77_42_end:
-        %tmp.23 = phi [%tmp.18 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_77_12_77_42_begin] [%tmp.22 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_77_33_77_42_false] [%tmp.23 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_77_33_77_42_end];
-        bf %tmp.23 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_77_8_80_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_77_8_80_8_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_77_53_80_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 79 12 ]
-        symbol [ _ble %tmp.25 79 12 16 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_87_33_87_42_end:
+        %tmp.23 = phi [%tmp.18 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_87_12_87_42_begin] [%tmp.22 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_87_33_87_42_false] [%tmp.23 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_87_33_87_42_end];
+        bf %tmp.23 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_87_8_90_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_87_8_90_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_87_53_90_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 89 12 ]
+        symbol [ _ble %tmp.25 89 12 16 ];
         %tmp.25 = getv ? :_ble;
-        symbol [ startScan %tmp.26 79 17 26 ];
+        symbol [ startScan %tmp.26 89 17 26 ];
         %tmp.26 = getv function %tmp.25 :startScan;
         invoke %tmp.25 %tmp.26();
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_77_53_80_8_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_77_8_80_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_77_8_80_8_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 82 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_87_53_90_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_87_8_90_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_87_8_90_8_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 92 8 ]
         %tmp.27 = true;
         ret %tmp.27;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_69_41_83_4_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_79_41_93_4_stop:
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 85; @symbol_functiondef = [_back,85,20,25]; @symbol_return<0> = [Boolean,85,31,38]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 95; @symbol_functiondef = [_back,95,20,25]; @symbol_return<0> = [Boolean,95,31,38]; ]
     protected
     function _back() as Boolean {
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_85_39_101_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 86 8 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_86_8_90_8_if_stmt:
-        symbol [ _ble %tmp.2 86 12 16 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_95_39_111_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 96 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_96_8_100_8_if_stmt:
+        symbol [ _ble %tmp.2 96 12 16 ];
         %tmp.2 = getv ? :_ble;
-        symbol [ isLive %tmp.3 86 17 23 ];
+        symbol [ isLive %tmp.3 96 17 23 ];
         %tmp.3 = getv function %tmp.2 :isLive;
         %tmp.4 = invoke %tmp.2 %tmp.3();
-        bf %tmp.4 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_86_8_90_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_86_8_90_8_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_86_27_90_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 88 12 ]
+        bf %tmp.4 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_96_8_100_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_96_8_100_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_96_27_100_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 98 12 ]
         %tmp.5 = self;
-        symbol [ pushMatchMenu %tmp.6 88 12 25 ];
+        symbol [ pushMatchMenu %tmp.6 98 12 25 ];
         %tmp.6 = getv function %tmp.5 :pushMatchMenu;
-        symbol [ _matchTimer %tmp.8 88 26 37 ];
+        symbol [ _matchTimer %tmp.8 98 26 37 ];
         %tmp.8 = getv ? :_matchTimer;
-        symbol [ _ble %tmp.10 88 39 43 ];
+        symbol [ _ble %tmp.10 98 39 43 ];
         %tmp.10 = getv ? :_ble;
         invoke %tmp.5 %tmp.6(%tmp.8, %tmp.10);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 89 12 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 99 12 ]
         %tmp.11 = true;
         ret %tmp.11;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_86_27_90_8_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_86_8_90_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_86_8_90_8_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 91 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_85_39_101_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_85_39_101_4_stop" ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_96_27_100_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_96_8_100_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_96_8_100_8_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 101 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_95_39_111_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_95_39_111_4_stop" ]
         %state.1 = local;
-        symbol [ state %state.1 91 12 17 ];
-        symbol [ _ble %tmp.13 91 20 24 ];
+        symbol [ state %state.1 101 12 17 ];
+        symbol [ _ble %tmp.13 101 20 24 ];
         %tmp.13 = getv ? :_ble;
-        symbol [ getState %tmp.14 91 25 33 ];
+        symbol [ getState %tmp.14 101 25 33 ];
         %tmp.14 = getv function %tmp.13 :getState;
         %tmp.15 = invoke %tmp.13 %tmp.14();
         lputv %state.1 %tmp.15;
-        symbol [ state %state.1 91 12 17 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 92 8 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_92_8_98_8_if_stmt:
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_92_12_94_21_begin:
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_92_12_93_21_begin:
+        symbol [ state %state.1 101 12 17 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 102 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_102_8_108_8_if_stmt:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_102_12_104_21_begin:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_102_12_103_21_begin:
         %tmp.16 = lgetv %state.1;
-        symbol [ state %tmp.16 92 12 17 ];
-        symbol [ BLE_SCANNING %tmp.18 92 21 33 ];
+        symbol [ state %tmp.16 102 12 17 ];
+        symbol [ BLE_SCANNING %tmp.18 102 21 33 ];
         %tmp.18 = getv ? :BLE_SCANNING;
         %tmp.19 = eq %tmp.16 %tmp.18;
-        bt %tmp.19 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_92_8_98_8_if_true;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_93_12_93_21_false:
+        bt %tmp.19 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_102_8_108_8_if_true;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_103_12_103_21_false:
         %tmp.20 = lgetv %state.1;
-        symbol [ state %tmp.20 93 12 17 ];
-        symbol [ BLE_CONNECTING %tmp.22 93 21 35 ];
+        symbol [ state %tmp.20 103 12 17 ];
+        symbol [ BLE_CONNECTING %tmp.22 103 21 35 ];
         %tmp.22 = getv ? :BLE_CONNECTING;
         %tmp.23 = eq %tmp.20 %tmp.22;
         push %tmp.23;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_93_12_93_21_end:
-        %tmp.24 = phi [%tmp.19 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_92_12_93_21_begin] [%tmp.23 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_93_12_93_21_false] [%tmp.24 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_93_12_93_21_end];
-        bt %tmp.24 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_92_8_98_8_if_true;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_94_12_94_21_false:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_103_12_103_21_end:
+        %tmp.24 = phi [%tmp.19 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_102_12_103_21_begin] [%tmp.23 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_103_12_103_21_false] [%tmp.24 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_103_12_103_21_end];
+        bt %tmp.24 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_102_8_108_8_if_true;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_104_12_104_21_false:
         %tmp.25 = lgetv %state.1;
-        symbol [ state %tmp.25 94 12 17 ];
-        symbol [ BLE_CONNECTED %tmp.27 94 21 34 ];
+        symbol [ state %tmp.25 104 12 17 ];
+        symbol [ BLE_CONNECTED %tmp.27 104 21 34 ];
         %tmp.27 = getv ? :BLE_CONNECTED;
         %tmp.28 = eq %tmp.25 %tmp.27;
         push %tmp.28;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_94_12_94_21_end:
-        %tmp.29 = phi [%tmp.24 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_92_12_94_21_begin] [%tmp.28 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_94_12_94_21_false] [%tmp.29 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_94_12_94_21_end];
-        bf %tmp.29 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_92_8_98_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_92_8_98_8_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_94_36_98_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 96 12 ]
-        symbol [ _ble %tmp.31 96 12 16 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_104_12_104_21_end:
+        %tmp.29 = phi [%tmp.24 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_102_12_104_21_begin] [%tmp.28 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_104_12_104_21_false] [%tmp.29 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_104_12_104_21_end];
+        bf %tmp.29 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_102_8_108_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_102_8_108_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_104_36_108_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 106 12 ]
+        symbol [ _ble %tmp.31 106 12 16 ];
         %tmp.31 = getv ? :_ble;
-        symbol [ skipToTimer %tmp.32 96 17 28 ];
+        symbol [ skipToTimer %tmp.32 106 17 28 ];
         %tmp.32 = getv function %tmp.31 :skipToTimer;
         invoke %tmp.31 %tmp.32();
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 97 12 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 107 12 ]
         %tmp.33 = true;
         ret %tmp.33;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_94_36_98_8_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_92_8_98_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_92_8_98_8_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 100 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_104_36_108_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_102_8_108_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_102_8_108_8_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 110 8 ]
         %tmp.34 = false;
         ret %tmp.34;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_85_39_101_4_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_95_39_111_4_stop:
     }
-    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 103; @symbol_functiondef = [_menu,103,20,25]; @symbol_return<0> = [Boolean,103,31,38]; ]
+    [ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 113; @symbol_functiondef = [_menu,113,20,25]; @symbol_return<0> = [Boolean,113,31,38]; ]
     protected
     function _menu() as Boolean {
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_103_39_117_4_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 104 8 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_104_8_108_8_if_stmt:
-        symbol [ _ble %tmp.2 104 12 16 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_113_39_127_4_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 114 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_114_8_118_8_if_stmt:
+        symbol [ _ble %tmp.2 114 12 16 ];
         %tmp.2 = getv ? :_ble;
-        symbol [ isLive %tmp.3 104 17 23 ];
+        symbol [ isLive %tmp.3 114 17 23 ];
         %tmp.3 = getv function %tmp.2 :isLive;
         %tmp.4 = invoke %tmp.2 %tmp.3();
-        bf %tmp.4 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_104_8_108_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_104_8_108_8_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_104_27_108_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 106 12 ]
+        bf %tmp.4 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_114_8_118_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_114_8_118_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_114_27_118_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 116 12 ]
         %tmp.5 = self;
-        symbol [ pushMatchMenu %tmp.6 106 12 25 ];
+        symbol [ pushMatchMenu %tmp.6 116 12 25 ];
         %tmp.6 = getv function %tmp.5 :pushMatchMenu;
-        symbol [ _matchTimer %tmp.8 106 26 37 ];
+        symbol [ _matchTimer %tmp.8 116 26 37 ];
         %tmp.8 = getv ? :_matchTimer;
-        symbol [ _ble %tmp.10 106 39 43 ];
+        symbol [ _ble %tmp.10 116 39 43 ];
         %tmp.10 = getv ? :_ble;
         invoke %tmp.5 %tmp.6(%tmp.8, %tmp.10);
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 107 12 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 117 12 ]
         %tmp.11 = true;
         ret %tmp.11;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_104_27_108_8_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_104_8_108_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_104_8_108_8_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 110 8 ]
-        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_103_39_117_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_103_39_117_4_stop" ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_114_27_118_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_114_8_118_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_114_8_118_8_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 120 8 ]
+        [ "C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_113_39_127_4_start" "C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_113_39_127_4_stop" ]
         %state.1 = local;
-        symbol [ state %state.1 110 12 17 ];
-        symbol [ _ble %tmp.13 110 20 24 ];
+        symbol [ state %state.1 120 12 17 ];
+        symbol [ _ble %tmp.13 120 20 24 ];
         %tmp.13 = getv ? :_ble;
-        symbol [ getState %tmp.14 110 25 33 ];
+        symbol [ getState %tmp.14 120 25 33 ];
         %tmp.14 = getv function %tmp.13 :getState;
         %tmp.15 = invoke %tmp.13 %tmp.14();
         lputv %state.1 %tmp.15;
-        symbol [ state %state.1 110 12 17 ];
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 111 8 ]
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_111_8_114_8_if_stmt:
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_111_12_112_21_begin:
+        symbol [ state %state.1 120 12 17 ];
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 121 8 ]
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_121_8_124_8_if_stmt:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_121_12_122_21_begin:
         %tmp.16 = lgetv %state.1;
-        symbol [ state %tmp.16 111 12 17 ];
-        symbol [ BLE_CONNECTED %tmp.18 111 21 34 ];
+        symbol [ state %tmp.16 121 12 17 ];
+        symbol [ BLE_CONNECTED %tmp.18 121 21 34 ];
         %tmp.18 = getv ? :BLE_CONNECTED;
         %tmp.19 = eq %tmp.16 %tmp.18;
-        bt %tmp.19 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_111_8_114_8_if_true;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_112_12_112_21_false:
+        bt %tmp.19 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_121_8_124_8_if_true;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_122_12_122_21_false:
         %tmp.20 = lgetv %state.1;
-        symbol [ state %tmp.20 112 12 17 ];
-        symbol [ BLE_CONNECTING %tmp.22 112 21 35 ];
+        symbol [ state %tmp.20 122 12 17 ];
+        symbol [ BLE_CONNECTING %tmp.22 122 21 35 ];
         %tmp.22 = getv ? :BLE_CONNECTING;
         %tmp.23 = eq %tmp.20 %tmp.22;
         push %tmp.23;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_112_12_112_21_end:
-        %tmp.24 = phi [%tmp.19 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_111_12_112_21_begin] [%tmp.23 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_112_12_112_21_false] [%tmp.24 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_112_12_112_21_end];
-        bf %tmp.24 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_111_8_114_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_111_8_114_8_if_true:
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_112_37_114_8_start:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 113 12 ]
-        symbol [ _ble %tmp.26 113 12 16 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_122_12_122_21_end:
+        %tmp.24 = phi [%tmp.19 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_121_12_122_21_begin] [%tmp.23 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_122_12_122_21_false] [%tmp.24 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_122_12_122_21_end];
+        bf %tmp.24 @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_121_8_124_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_121_8_124_8_if_true:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_122_37_124_8_start:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 123 12 ]
+        symbol [ _ble %tmp.26 123 12 16 ];
         %tmp.26 = getv ? :_ble;
-        symbol [ disconnect %tmp.27 113 17 27 ];
+        symbol [ disconnect %tmp.27 123 17 27 ];
         %tmp.27 = getv function %tmp.26 :disconnect;
         invoke %tmp.26 %tmp.27();
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_112_37_114_8_stop:
-        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_111_8_114_8_if_end;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_111_8_114_8_if_end:
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 115 8 ]
-        symbol [ _ble %tmp.29 115 8 12 ];
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_122_37_124_8_stop:
+        goto @C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_121_8_124_8_if_end;
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_121_8_124_8_if_end:
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 125 8 ]
+        symbol [ _ble %tmp.29 125 8 12 ];
         %tmp.29 = getv ? :_ble;
-        symbol [ startScan %tmp.30 115 13 22 ];
+        symbol [ startScan %tmp.30 125 13 22 ];
         %tmp.30 = getv function %tmp.29 :startScan;
         invoke %tmp.29 %tmp.30();
-[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 116 8 ]
+[ "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc" 126 8 ]
         %tmp.31 = true;
         ret %tmp.31;
-C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_103_39_117_4_stop:
+C__Users_ralls_GitHub_rareBit_Garmin_source_myGarminAppDelegate_mc_113_39_127_4_stop:
     }
 }
-[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 36; ]
+[ @file = "C:\Users\ralls\GitHub\rareBit-Garmin\source\myGarminAppDelegate.mc"; @line = 38; ]
 <init> {
 }

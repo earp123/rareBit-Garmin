@@ -2,6 +2,8 @@
 
 Branch: `feature/tester-build` (from `main`)
 Owner: coding agent; Sam runs on-watch testing and ships to testers.
+Status: implemented and sim-checked 2026-10-03 — awaiting on-watch test
+(see the CHANGELOG's Tester build TODOs).
 Supersedes `feature/delay-timer` and `feature/short-press-alert` — both
 docs live here now, revised. `feature/delay-timer` is not doc-only: it
 carries the first Stoppage Timer implementation (`d550d45`), which step 2
