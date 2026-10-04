@@ -129,10 +129,11 @@ class myGarminAppView extends WatchUi.View {
         dc.setColor(C_BG, C_BG);
         dc.clear();
 
-        // Scan-deadline fallback and the paused-clock reminder both ride
-        // the view tick instead of owning Timers of their own.
+        // Scan-deadline fallback rides the view tick instead of owning a
+        // Timer of its own.  (The paused-clock reminder used to as well;
+        // it now runs off MatchTimer's Timer so it fires with the
+        // display off.)
         _ble.checkScanTimeout();
-        _matchTimer.pollPauseReminder();
 
         // Live is latched — once the timer screen is up it stays up,
         // regardless of what BLE is doing in the background.
@@ -615,7 +616,6 @@ class myGarminAppView extends WatchUi.View {
     //            stoppage segment
     //            (keeps the seconds display fresh)
     //   1000 ms  live but idle — keeps the time-of-day line current
-    //            and polls the paused-clock reminder
     //   stopped  pre-live idle / error
     // ----------------------------------------------------------
     hidden function _syncTimer() as Void {

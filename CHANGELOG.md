@@ -26,8 +26,9 @@ countdown size unchanged on every target, `manifest.xml` untouched.
   countdown holding at 00:00 past the interval.
 - **Alert 3 (short press)** — relay notify type 3, previously reserved and
   silently ignored, is now a short press from either flag (sent only when the
-  relay's short-press setting is on; it doesn't say which flag). Three short
-  pulses (~1.15 s, one vibrate call) and the alert icon flashing `S`;
+  relay's short-press setting is on; it doesn't say which flag). Three quick
+  taps with the linked double-tap's timing (~0.56 s, one vibrate call) and
+  the alert icon flashing `S`;
   overlapping windows list every alert open — `1 S`, `2 S`, `1 2 S`. Slot
   alerts 1 / 2 (long press) are unchanged. Sim builds gain Test Alert 3.
 - **Progress ring** — countdown progress on a thin ring hugging the bezel,
@@ -55,8 +56,22 @@ countdown size unchanged on every target, `manifest.xml` untouched.
   6 are still the AR1 / AR2 link bits and arrive with every notify; the 3 s
   post-subscribe gate drops a stacked type 3 like any other alert.
 
+### Fixed
+
+- **Paused-clock reminder silent with the display off** — the 20 s reminder
+  was polled from the view's `onUpdate()`, which the watch doesn't call while
+  the screen is dark (or while the settings menu covers the live view), so it
+  only buzzed once the display woke. It now runs off `MatchTimer`'s haptic
+  Timer: the countdown's expiry one-shot while running, a repeating 20 s
+  reminder while paused — never both at once, so still no extra `Timer.Timer`.
+  The reminder now also fires with the settings menu open.
+
 ### TODO
 
+- [ ] On-watch: the pause reminder buzzes every 20 s with the wrist down /
+      display off, and the expiry buzz is unchanged.
+- [ ] Alert 3's three quick taps vs the pause reminder's three 80 ms taps —
+      both are now triple short taps; confirm they're told apart on the wrist.
 - [ ] On-watch, per `docs/ui-refresh.md`, `docs/stoppage-timer.md` and
       `docs/short-press-alert.md` (all sim-checked 2026-10-03): ring colours
       through a 1:00 interval; dot green → gray on Disconnect and back on

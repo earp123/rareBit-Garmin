@@ -619,17 +619,18 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
         ]);
     }
 
-    // Alert 3 (short press, either AR) — three short pulses (~1.15 s),
-    // one vibrate call, zero timers (same reason as _buzzAlert2).
-    // Distinct from AR1's single 2 s buzz and AR2's four long ones.
+    // Alert 3 (short press, either AR) — three quick taps (~0.56 s) with
+    // the linked double-tap's timing, one vibrate call, zero timers (same
+    // reason as _buzzAlert2).  Distinct from AR1's single 2 s buzz, AR2's
+    // four long ones and the linked double-tap (by count).
     hidden function _buzzAlert3() as Void {
         if (!(Attention has :vibrate)) { return; }
         Attention.vibrate([
-            new Attention.VibeProfile(100, 250),
-            new Attention.VibeProfile(  0, 150),
-            new Attention.VibeProfile(100, 250),
-            new Attention.VibeProfile(  0, 150),
-            new Attention.VibeProfile(100, 250)
+            new Attention.VibeProfile(100, 120),
+            new Attention.VibeProfile(  0, 100),
+            new Attention.VibeProfile(100, 120),
+            new Attention.VibeProfile(  0, 100),
+            new Attention.VibeProfile(100, 120)
         ]);
     }
 

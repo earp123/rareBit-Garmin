@@ -27,10 +27,12 @@ every notify as before.
 2. `onCharacteristicChanged()`: `if (_notifType == NOTIFY_ALERT_3) { _alert3Until =
    System.getTimer() + ALERT_BLINK_MS; _buzzAlert3(); }`. Log line unchanged
    (already prints `type=`).
-3. `_buzzAlert3()`: one `Attention.vibrate` call, three short pulses — `(100, 250)`,
-   `(0, 150)`, `(100, 250)`, `(0, 150)`, `(100, 250)` (~1.15 s). Distinct from AR1's
-   single 2 s buzz and AR2's four 500 ms buzzes; zero timers, same reason as
-   `_buzzAlert2`.
+3. `_buzzAlert3()`: one `Attention.vibrate` call, three quick taps with the linked
+   double-tap's timing — `(100, 120)`, `(0, 100)`, `(100, 120)`, `(0, 100)`,
+   `(100, 120)` (~0.56 s; shortened from 250 ms pulses at Sam's request, 3 Oct).
+   Distinct from AR1's single 2 s buzz, AR2's four 500 ms buzzes and the linked
+   double-tap (by count); zero timers, same reason as `_buzzAlert2`. Close to the
+   pause reminder's three 80 ms taps — check on the wrist.
 4. `myGarminAppView.mc`, `_drawLiveScreen()`: include `a3 = _ble.isAlerting3()` in
    the flash gate. Label string becomes `"S"` when only a3 is open; when a slot
    alert overlaps, append it — `"1 S"`, `"2 S"`, `"1 2 S"`. Same icon, same amber,
