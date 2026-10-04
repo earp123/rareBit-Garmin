@@ -245,10 +245,12 @@ class myGarminAppView extends WatchUi.View {
     //    LINK DOT    — 12 o'clock, green while the relay is
     //                  subscribed, gray in timer-only / dropped
     //
-    //  While an AR's alert window is open (ALERT_BLINK_MS) the flag
-    //  icon flashes in 300 ms phases above the digits with the AR
-    //  number beside it, taking over the time-of-day line for the
-    //  duration.
+    //  While an alert window is open (ALERT_BLINK_MS) the flag icon
+    //  flashes in 300 ms phases above the digits, labelled with what
+    //  paged: the AR number for a long press ("1", "2"), "S" for a
+    //  short press (Alert 3 — the relay doesn't say which flag), or
+    //  all of them while windows overlap ("1 S", "1 2 S").  It takes
+    //  over the time-of-day line for the duration.
     //
     //  That top slot has three tenants, in priority order: the alert
     //  flash, then the Stoppage Timer's orange "+MM:SS" (shown once the
@@ -300,7 +302,8 @@ class myGarminAppView extends WatchUi.View {
         // the clock line yields to it so the two never overlap.
         var a1 = _ble.isAlerting1();
         var a2 = _ble.isAlerting2();
-        if (!a1 && !a2) {
+        var a3 = _ble.isAlerting3();
+        if (!a1 && !a2 && !a3) {
             if (_matchTimer.isStoppageEnabled() && _matchTimer.hasStoppage()) {
                 _drawStoppageLine(dc, cx);
             } else {
@@ -312,7 +315,7 @@ class myGarminAppView extends WatchUi.View {
         }
         if ((_animFrame % 4) >= 2) { return; }     // flash off-phase
 
-        var num    = a1 ? (a2 ? "1 2" : "1") : "2";
+        var num    = _alertLabel(a1, a2, a3);
         var iconW  = _arIcon.getWidth();
         var iconH  = _arIcon.getHeight();
         var gap    = 8;
@@ -322,6 +325,15 @@ class myGarminAppView extends WatchUi.View {
         dc.setColor(C_ACC_ALERT, Graphics.COLOR_TRANSPARENT);
         dc.drawText(left + iconW + gap, _symY, Graphics.FONT_LARGE, num,
             Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
+    }
+
+    // Flash label: open windows in order, space-separated — "1", "2",
+    // "S", "1 2", "1 S", "2 S", "1 2 S".
+    hidden function _alertLabel(a1 as Boolean, a2 as Boolean, a3 as Boolean) as String {
+        var s = a1 ? "1" : "";
+        if (a2) { s = (s.length() > 0) ? s + " 2" : "2"; }
+        if (a3) { s = (s.length() > 0) ? s + " S" : "S"; }
+        return s;
     }
 
     // Stoppage line, in the time-of-day slot: orange "+MM:SS" of the
@@ -598,7 +610,7 @@ class myGarminAppView extends WatchUi.View {
 
     // ----------------------------------------------------------
     //  Tick source — three speeds:
-    //    150 ms  spinner states, or an AR alert blink window open
+    //    150 ms  spinner states, or any alert blink window open
     //    500 ms  any clock running — countdown, count-up or an open
     //            stoppage segment
     //            (keeps the seconds display fresh)
@@ -612,7 +624,8 @@ class myGarminAppView extends WatchUi.View {
         var fast  = (state == BLE_SCANNING   ||
                      state == BLE_CONNECTING  ||
                      state == BLE_CONNECTED)  ||
-                    (live && (_ble.isAlerting1() || _ble.isAlerting2()));
+                    (live && (_ble.isAlerting1() || _ble.isAlerting2() ||
+                              _ble.isAlerting3()));
         var slow  = (live && (_matchTimer.isRunning()       ||
                               _matchTimer.isCountUpRunning() ||
                               _matchTimer.isStoppageOpen()));

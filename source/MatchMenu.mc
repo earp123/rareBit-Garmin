@@ -15,7 +15,8 @@
 //   Disconnect  — (while subscribed) drop the relay link; the timer
 //                 keeps running in timer-only mode
 //   Rescan      — (otherwise) background rescan for the relay
-//   Test Alert 1/2 — sim build only, previews the alert flash
+//   Test Alert 1/2/3 — sim build only, previews the alert flash
+//                 (3 = short press, flashes "S")
 //   Exit App    — the app's only exit path from the live screen
 //
 // Confirming a picker / submenu selection pops straight back to
@@ -43,6 +44,7 @@ function pushMatchMenu(mt as MatchTimer, ble as BleManager) as Void {
         // Sim build only — preview the paging-alert flash.
         menu.addItem(new WatchUi.MenuItem("Test Alert 1", null, :simAlert1, null));
         menu.addItem(new WatchUi.MenuItem("Test Alert 2", null, :simAlert2, null));
+        menu.addItem(new WatchUi.MenuItem("Test Alert 3", null, :simAlert3, null));
     }
     // Deliberate exit — BACK on the live screen only ever opens this
     // menu, so this is the app's exit path (no accidental mid-match
@@ -113,9 +115,9 @@ class MatchMenuDelegate extends WatchUi.Menu2InputDelegate {
         } else if (id == :exitApp) {
             // AppBase.onStop runs BleManager.teardown() on the way out.
             System.exit();
-        } else if (id == :simAlert1 || id == :simAlert2) {
+        } else if (id == :simAlert1 || id == :simAlert2 || id == :simAlert3) {
             WatchUi.popView(WatchUi.SLIDE_DOWN);
-            _ble.simulateAlert(id == :simAlert1 ? 1 : 2);
+            _ble.simulateAlert(id == :simAlert1 ? 1 : (id == :simAlert2 ? 2 : 3));
         }
     }
 
