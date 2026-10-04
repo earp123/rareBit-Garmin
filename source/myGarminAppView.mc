@@ -50,6 +50,7 @@ const SPINNER_GAP = 12;   // state ring radius beyond the icon's half-size
 const RING_INSET  = 4;    // progress ring radius = h/2 - RING_INSET
 const RING_PW     = 3;    // progress ring (or rect top bar) pen width px
 const LINK_DOT_R  = 3;    // link dot radius px
+const STOP_DOT_R  = 4;    // "segment open" dot left of the stoppage line
 
 // Garmin number fonts report ~40-50% more height than the visual
 // glyphs (metric padding).  Scale down for stacking math so the
@@ -227,6 +228,7 @@ class myGarminAppView extends WatchUi.View {
     //  Vertical stack, all centered on the column so the layout
     //  stays inside a round screen's usable area:
     //    TIME OF DAY — soft green, count-up size, above the digits
+    //                  (yields to the orange stoppage line — see below)
     //    COUNTDOWN   — big numbers, center stage
     //                  (white running, gray paused, amber in
     //                   stoppage time after expiry)
@@ -247,6 +249,14 @@ class myGarminAppView extends WatchUi.View {
     //  icon flashes in 300 ms phases above the digits with the AR
     //  number beside it, taking over the time-of-day line for the
     //  duration.
+    //
+    //  That top slot has three tenants, in priority order: the alert
+    //  flash, then the Stoppage Timer's orange "+MM:SS" (shown once the
+    //  setting is on and anything has been timed this half, with a dot
+    //  while a stoppage is open), then the wall clock.  The stoppage
+    //  keeps counting under an alert and reappears when the flash
+    //  window closes; the countdown never gives up a pixel to any of
+    //  them.
     // ----------------------------------------------------------
     hidden function _drawLiveScreen(
         dc as Graphics.Dc,
@@ -291,9 +301,13 @@ class myGarminAppView extends WatchUi.View {
         var a1 = _ble.isAlerting1();
         var a2 = _ble.isAlerting2();
         if (!a1 && !a2) {
-            dc.setColor(C_TOD, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(cx, _todY, Graphics.FONT_MEDIUM, _timeOfDay(),
-                Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            if (_matchTimer.isStoppageEnabled() && _matchTimer.hasStoppage()) {
+                _drawStoppageLine(dc, cx);
+            } else {
+                dc.setColor(C_TOD, Graphics.COLOR_TRANSPARENT);
+                dc.drawText(cx, _todY, Graphics.FONT_MEDIUM, _timeOfDay(),
+                    Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+            }
             return;
         }
         if ((_animFrame % 4) >= 2) { return; }     // flash off-phase
@@ -308,6 +322,22 @@ class myGarminAppView extends WatchUi.View {
         dc.setColor(C_ACC_ALERT, Graphics.COLOR_TRANSPARENT);
         dc.drawText(left + iconW + gap, _symY, Graphics.FONT_LARGE, num,
             Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
+    }
+
+    // Stoppage line, in the time-of-day slot: orange "+MM:SS" of the
+    // half's stoppage so far.  The text stays centered whether or not a
+    // segment is open — the open-segment dot hangs off its left edge
+    // rather than shifting it.  (A drawn dot, not a "●" glyph: not every
+    // device font carries one.)
+    hidden function _drawStoppageLine(dc as Graphics.Dc, cx as Number) as Void {
+        var txt = "+" + _matchTimer.formatStoppage();
+        dc.setColor(C_STOPPAGE, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx, _todY, Graphics.FONT_MEDIUM, txt,
+            Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        if (_matchTimer.isStoppageOpen()) {
+            var half = dc.getTextWidthInPixels(txt, Graphics.FONT_MEDIUM) / 2;
+            dc.fillCircle(cx - half - 6 - STOP_DOT_R, _todY, STOP_DOT_R);
+        }
     }
 
     // Countdown progress in the bezel margin.  Round: a thin ring at
@@ -569,7 +599,9 @@ class myGarminAppView extends WatchUi.View {
     // ----------------------------------------------------------
     //  Tick source — three speeds:
     //    150 ms  spinner states, or an AR alert blink window open
-    //    500 ms  either clock running (keeps the seconds display fresh)
+    //    500 ms  any clock running — countdown, count-up or an open
+    //            stoppage segment
+    //            (keeps the seconds display fresh)
     //   1000 ms  live but idle — keeps the time-of-day line current
     //            and polls the paused-clock reminder
     //   stopped  pre-live idle / error
@@ -581,8 +613,9 @@ class myGarminAppView extends WatchUi.View {
                      state == BLE_CONNECTING  ||
                      state == BLE_CONNECTED)  ||
                     (live && (_ble.isAlerting1() || _ble.isAlerting2()));
-        var slow  = (live && (_matchTimer.isRunning() ||
-                              _matchTimer.isCountUpRunning()));
+        var slow  = (live && (_matchTimer.isRunning()       ||
+                              _matchTimer.isCountUpRunning() ||
+                              _matchTimer.isStoppageOpen()));
 
         var period = fast ? 150 : (slow ? 500 : (live ? 1000 : 0));
         if (period == _tickPeriod) { return; }

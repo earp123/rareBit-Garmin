@@ -20,6 +20,21 @@
 // distinct haptic alert; the countdown then holds at 00:00
 // while the count-up keeps going (stoppage time).
 //
+// The STOPPAGE TIMER is a third, independent clock: an optional
+// (default off) ad-hoc stopwatch for interruptions — injury, VAR,
+// substitution.  A screen tap opens a stoppage segment, a second
+// tap closes it and banks its elapsed into the half's stoppage
+// total — the time the official adds on.  The readout is always
+// that running total (banked + open segment).  It shares no state
+// with the countdown or the count-up and never moves either of
+// them; expiry closes an open segment, and only reset() (or an
+// interval change) clears the total and the count.
+//
+// Two senses of "stoppage" meet in this file.  "Stoppage time"
+// above is the countdown holding at 00:00 past the interval — an
+// automatic consequence of expiry.  The Stoppage Timer is the
+// hand-timed stopwatch below: separate state, separate code.
+//
 // Owned by the App (like BleManager) so match time survives
 // BLE drops and reconnects.
 // ============================================================
@@ -38,16 +53,21 @@ const PAUSE_REMIND_MS = 20000;
 
 class MatchTimer {
 
-    hidden var _running     as Boolean = false;  // countdown (playing clock) running
-    hidden var _elapsedMs   as Number  = 0;      // countdown ms accumulated to last pause
-    hidden var _startTick   as Number  = 0;      // System.getTimer() at last countdown start
-    hidden var _cuRunning   as Boolean = false;  // count-up (running clock) started
-    hidden var _cuStartTick as Number  = 0;      // System.getTimer() at the first start
-    hidden var _intervalMs  as Number  = DEFAULT_INTERVAL_MIN * 60 * 1000;
-    hidden var _secondHalf  as Boolean = false;  // count-up base = interval when true
-    hidden var _expiryTimer as Timer.Timer;      // one-shot → haptic at 00:00
-    hidden var _remindArmed as Boolean = false;  // paused after a start — nag
-    hidden var _remindTick  as Number  = 0;      // getTimer() base for the nag
+    hidden var _running          as Boolean = false;  // countdown (playing clock) running
+    hidden var _elapsedMs        as Number  = 0;      // countdown ms accumulated to last pause
+    hidden var _startTick        as Number  = 0;      // System.getTimer() at last countdown start
+    hidden var _cuRunning        as Boolean = false;  // count-up (running clock) started
+    hidden var _cuStartTick      as Number  = 0;      // System.getTimer() at the first start
+    hidden var _intervalMs       as Number  = DEFAULT_INTERVAL_MIN * 60 * 1000;
+    hidden var _secondHalf       as Boolean = false;  // count-up base = interval when true
+    hidden var _expiryTimer      as Timer.Timer;      // one-shot → haptic at 00:00
+    hidden var _remindArmed      as Boolean = false;  // paused after a start — nag
+    hidden var _remindTick       as Number  = 0;      // getTimer() base for the nag
+    hidden var _stoppageEnabled  as Boolean = false;  // tap-to-time-a-stoppage setting
+    hidden var _stoppageOpen     as Boolean = false;  // a segment is being timed now
+    hidden var _stoppageTick     as Number  = 0;      // getTimer() at the segment start
+    hidden var _stoppageTotalMs  as Number  = 0;      // banked (closed) segments this half
+    hidden var _stoppageCount    as Number  = 0;      // closed segments this half
 
     function initialize() {
         _expiryTimer = new Timer.Timer();
@@ -100,6 +120,11 @@ class MatchTimer {
         _cuRunning   = false;   // the running clock stops and zeroes too
         _remindArmed = false;   // a reset timer hasn't started — no nagging
         _expiryTimer.stop();
+        // Stoppages belong to the half being reset — drop the open
+        // segment, the total and the count.  The Off/On setting survives.
+        _stoppageOpen    = false;
+        _stoppageTotalMs = 0;
+        _stoppageCount   = 0;
     }
 
     // Pause reminder — polled from the view's tick rather than run off
@@ -177,11 +202,74 @@ class MatchTimer {
     }
 
     // ----------------------------------------------------------
+    //  Stoppage timer — the tap-to-start stopwatch
+    //
+    //  Wholly separate from the countdown and the count-up: nothing
+    //  here reads or writes their state, and toggleStoppage() is the
+    //  only thing a screen tap ever reaches.  Like the other two it
+    //  is a System.getTimer() delta, so it costs no Timer.Timer (the
+    //  CIQ timer cap is what crashed the AR2 alert — see CHANGELOG).
+    // ----------------------------------------------------------
+
+    function isStoppageEnabled() as Boolean { return _stoppageEnabled; }
+
+    function setStoppageEnabled(enabled as Boolean) as Void {
+        // Switching the setting off with a segment open: bank it like a
+        // second tap would, otherwise it would keep counting with taps
+        // now inert and no way to close it.
+        if (!enabled && _stoppageOpen) { _bankStoppage(); }
+        _stoppageEnabled = enabled;
+    }
+
+    function isStoppageOpen() as Boolean { return _stoppageOpen; }
+
+    // A tap: open a fresh segment, or close the open one and bank it.
+    function toggleStoppage() as Void {
+        if (_stoppageOpen) {
+            _bankStoppage();
+        } else {
+            _stoppageTick = System.getTimer();
+            _stoppageOpen = true;
+        }
+    }
+
+    // Stoppage so far this half — banked total plus the open segment.
+    function getStoppageMs() as Number {
+        return _stoppageOpen
+            ? _stoppageTotalMs + (System.getTimer() - _stoppageTick)
+            : _stoppageTotalMs;
+    }
+
+    // Segments so far this half, the open one included — pairs with
+    // getStoppageMs() so the menu's "total (n)" agrees with the line.
+    function getStoppageCount() as Number {
+        return _stoppageOpen ? _stoppageCount + 1 : _stoppageCount;
+    }
+
+    // Anything timed this half (an open segment counts from its first
+    // instant, so the line appears as "+00:00" on the opening tap).
+    function hasStoppage() as Boolean {
+        return _stoppageOpen || _stoppageCount > 0;
+    }
+
+    // "MM:SS", floor seconds.  The live line prefixes "+".
+    function formatStoppage() as String { return _fmt(getStoppageMs() / 1000); }
+
+    hidden function _bankStoppage() as Void {
+        _stoppageTotalMs += System.getTimer() - _stoppageTick;
+        _stoppageCount   += 1;
+        _stoppageOpen     = false;
+    }
+
+    // ----------------------------------------------------------
     //  Expiry — public so method(:onExpiry) can reference it
     // ----------------------------------------------------------
 
     function onExpiry() as Void {
         System.println("MatchTimer: interval expired");
+        // The half's regulation time is up: an open stoppage segment
+        // closes into the total, so the added-time figure stops here.
+        if (_stoppageOpen) { _bankStoppage(); }
         _buzzExpiry();
         WatchUi.requestUpdate();
     }

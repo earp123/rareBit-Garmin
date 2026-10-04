@@ -6,6 +6,11 @@
 //   Half        — 1st / 2nd submenu; 2nd bases the count-up at
 //                 the interval (counts up from e.g. 45:00)
 //                 instead of 00:00
+//   Stoppage Timer — Off / On submenu; On turns a tap on the live
+//                 screen into a stopwatch for interruptions, totalled
+//                 per half as an orange "+MM:SS" in the time-of-day
+//                 slot.  The sublabel repeats the total with the
+//                 number of stoppages.
 //   Reset Timer
 //   Disconnect  — (while subscribed) drop the relay link; the timer
 //                 keeps running in timer-only mode
@@ -26,6 +31,7 @@ function pushMatchMenu(mt as MatchTimer, ble as BleManager) as Void {
     var menu = new WatchUi.Menu2({:title => "Settings"});
     menu.addItem(new WatchUi.MenuItem("Interval", mt.formatInterval(), :interval, null));
     menu.addItem(new WatchUi.MenuItem("Half", _halfSubLabel(mt), :half, null));
+    menu.addItem(new WatchUi.MenuItem("Stoppage Timer", _stoppageSubLabel(mt), :stoppage, null));
     menu.addItem(new WatchUi.MenuItem("Reset Timer", null, :reset, null));
     if (ble.getState() == BLE_SUBSCRIBED) {
         menu.addItem(new WatchUi.MenuItem("Disconnect", null, :disconnect, null));
@@ -49,6 +55,16 @@ function _halfSubLabel(mt as MatchTimer) as String {
     return mt.isSecondHalf()
         ? "2nd — up from " + mt.formatInterval()
         : "1st — up from 00:00";
+}
+
+// "Off", or "On" with the half's stoppage so far: "On — 00:00" before
+// the first tap, "On — 03:40 total (3)" after — the same figure as the
+// live line, open segment included.
+function _stoppageSubLabel(mt as MatchTimer) as String {
+    if (!mt.isStoppageEnabled()) { return "Off"; }
+    if (!mt.hasStoppage()) { return "On — 00:00"; }
+    return "On — " + mt.formatStoppage() + " total (" +
+        mt.getStoppageCount().toString() + ")";
 }
 
 class MatchMenuDelegate extends WatchUi.Menu2InputDelegate {
@@ -77,6 +93,14 @@ class MatchMenuDelegate extends WatchUi.Menu2InputDelegate {
                 "count up from " + _mt.formatInterval(), :second, null));
             menu.setFocus(_mt.isSecondHalf() ? 1 : 0);
             WatchUi.pushView(menu, new HalfMenuDelegate(_mt), WatchUi.SLIDE_LEFT);
+        } else if (id == :stoppage) {
+            var smenu = new WatchUi.Menu2({:title => "Stoppage Timer"});
+            smenu.addItem(new WatchUi.MenuItem("Off",
+                "tap does nothing", :stoppageOff, null));
+            smenu.addItem(new WatchUi.MenuItem("On",
+                "tap times a stoppage", :stoppageOn, null));
+            smenu.setFocus(_mt.isStoppageEnabled() ? 1 : 0);
+            WatchUi.pushView(smenu, new StoppageMenuDelegate(_mt), WatchUi.SLIDE_LEFT);
         } else if (id == :reset) {
             _mt.reset();
             WatchUi.popView(WatchUi.SLIDE_DOWN);
@@ -112,6 +136,27 @@ class HalfMenuDelegate extends WatchUi.Menu2InputDelegate {
     function onSelect(item as WatchUi.MenuItem) as Void {
         _mt.setSecondHalf(item.getId() == :second);
         // Pop the half submenu and the settings menu — back to live.
+        WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+        WatchUi.popView(WatchUi.SLIDE_DOWN);
+    }
+
+    function onBack() as Void {
+        WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+    }
+}
+
+class StoppageMenuDelegate extends WatchUi.Menu2InputDelegate {
+
+    hidden var _mt as MatchTimer;
+
+    function initialize(mt as MatchTimer) {
+        Menu2InputDelegate.initialize();
+        _mt = mt;
+    }
+
+    function onSelect(item as WatchUi.MenuItem) as Void {
+        _mt.setStoppageEnabled(item.getId() == :stoppageOn);
+        // Pop the stoppage submenu and the settings menu — back to live.
         WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
         WatchUi.popView(WatchUi.SLIDE_DOWN);
     }
