@@ -622,7 +622,8 @@ class BleManager extends BluetoothLowEnergy.BleDelegate {
     // Alert 3 (short press, either AR) — three quick taps (~0.56 s) with
     // the linked double-tap's timing, one vibrate call, zero timers (same
     // reason as _buzzAlert2).  Distinct from AR1's single 2 s buzz, AR2's
-    // four long ones and the linked double-tap (by count).
+    // four long ones, and by count from the double-tap shared by link
+    // events and MatchTimer's pause reminder.
     hidden function _buzzAlert3() as Void {
         if (!(Attention has :vibrate)) { return; }
         Attention.vibrate([

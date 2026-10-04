@@ -274,16 +274,16 @@ class MatchTimer {
         _buzzPauseReminder();
     }
 
-    // Paused-clock nudge: three short taps in ONE vibrate call (no
-    // timers) — unmistakably not an alert, just "your clock is stopped".
+    // Paused-clock nudge: two quick taps in ONE vibrate call (no
+    // timers) — deliberately the same pattern as BleManager's linked
+    // double-tap.  Neither is a page, and a double can't be confused
+    // with the triple-tap short press (Alert 3) or the long-press alerts.
     hidden function _buzzPauseReminder() as Void {
         if (!(Attention has :vibrate)) { return; }
         Attention.vibrate([
-            new Attention.VibeProfile(100, 80),
-            new Attention.VibeProfile(  0, 80),
-            new Attention.VibeProfile(100, 80),
-            new Attention.VibeProfile(  0, 80),
-            new Attention.VibeProfile(100, 80)
+            new Attention.VibeProfile(100, 120),
+            new Attention.VibeProfile(  0, 100),
+            new Attention.VibeProfile(100, 120)
         ]);
     }
 

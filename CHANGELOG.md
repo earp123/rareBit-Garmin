@@ -52,6 +52,9 @@ countdown size unchanged on every target, `manifest.xml` untouched.
   track idle, red on error), "rareBit", a status line and a hint line
   (`back = timer only`, `tap = retry`). Replaces the SCAN / ERR cards and the
   state dot.
+- **Pause reminder pattern** — two quick taps (120 ms on / 100 ms off), the
+  same as the linked double-tap, instead of three 80 ms taps. Neither is a
+  page, and a double can't be mistaken for Alert 3's triple tap.
 - **Notify byte** — type bits `0b11` are now Alert 3 (were reserved). Bits 7 /
   6 are still the AR1 / AR2 link bits and arrive with every notify; the 3 s
   post-subscribe gate drops a stacked type 3 like any other alert.
@@ -70,8 +73,9 @@ countdown size unchanged on every target, `manifest.xml` untouched.
 
 - [ ] On-watch: the pause reminder buzzes every 20 s with the wrist down /
       display off, and the expiry buzz is unchanged.
-- [ ] Alert 3's three quick taps vs the pause reminder's three 80 ms taps —
-      both are now triple short taps; confirm they're told apart on the wrist.
+- [ ] On-watch: the haptic set reads clearly — double tap (linked, pause
+      reminder), triple tap (Alert 3), one 2 s buzz (AR1), four long (AR2),
+      expiry's long-long-longer.
 - [ ] On-watch, per `docs/ui-refresh.md`, `docs/stoppage-timer.md` and
       `docs/short-press-alert.md` (all sim-checked 2026-10-03): ring colours
       through a 1:00 interval; dot green → gray on Disconnect and back on
