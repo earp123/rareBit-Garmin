@@ -15,7 +15,7 @@ Replace the colour block at the top of `myGarminAppView.mc`:
 | `C_ACC_ERROR` | `0xCC2200` | `0xFF3B30` | red |
 | `C_COUNTUP` | `0x55AAEE` | `0x00CFFF` | cyan — count-up |
 | `C_TOD` | `0x66CC88` | `0x66CC88` | unchanged — time of day |
-| `C_DELAY` | — | `0xFF9500` | **new** orange — delay line (iOS parity) |
+| `C_STOPPAGE` | — | `0xFF9500` | **new** orange — stoppage line (iOS parity) |
 | `C_RING_TRACK` | — | `0x1C1C1C` | **new** — ring background |
 
 Keep `C_BG`, `C_TEXT_PRI/SEC`, `C_HINT`, `C_CARD_*`. AMOLED note: pure
@@ -84,6 +84,6 @@ from `assets/launcher_icon_master.png` and pick by `dc.getWidth() > 400`.
 ## CHANGELOG note
 
 **UI refresh** — palette aligned with the iOS/Android apps (neon green
-link, cyan count-up, amber expiry, orange delay); countdown progress ring
+link, cyan count-up, amber expiry, orange stoppage); countdown progress ring
 on the bezel; persistent link dot; half tag; branded connect screen with
 the app icon replacing the SCAN/ERR cards.
