@@ -69,6 +69,17 @@ countdown size unchanged on every target, `manifest.xml` untouched.
   reminder while paused — never both at once, so still no extra `Timer.Timer`.
   The reminder now also fires with the settings menu open.
 
+### Published — tester build 1
+
+- `scripts/build-devices.sh` — one signed release device build per product in
+  `manifest.xml`, each zipped on its own as `dist/rareBitGarmin-<id>-tester.1.zip`
+  (`dist/` is gitignored; the release is the artifact store). All 11 build.
+- Release `GARMIN_v1.0-tester.1` (pre-release) on this repo carries the 11
+  zips; notes in `docs/releases/GARMIN_v1.0-tester.1.md`.
+- Page: `https://earp123.github.io/rareBit-Garmin/web/garmin-page.html`
+  (GitHub Pages from `main` `/docs`), with six Venu 3 simulator screenshots in
+  `docs/web/screenshots/`.
+
 ### TODO
 
 - [ ] On-watch: the pause reminder buzzes every 20 s with the wrist down /
