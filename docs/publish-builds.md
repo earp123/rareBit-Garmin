@@ -4,6 +4,9 @@ Branch: `feature/publish-builds` (from `main`)
 Owner: coding agent on Sam's PC for steps 1–3; Claude (project console) for
 steps 4–5; Sam tests on-watch.
 Trello: Garmin card "Publish builds to website".
+Status (13 Oct): steps 1–2 done on this branch (script, 11 zips, six
+screenshots, release notes in `docs/releases/`). Step 3 needs a signed-in
+GitHub account — Pages and the release can't be created without `gh` / auth.
 
 Goal: a Garmin page on rarebitofficial.com (Smart Watch menu, beside Apple
 Watch and Bangle.js 2) with one sideloadable `.zip` per supported device and
