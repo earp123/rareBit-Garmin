@@ -4,9 +4,13 @@ Branch: `feature/publish-builds` (from `main`)
 Owner: coding agent on Sam's PC for steps 1–3; Claude (project console) for
 steps 4–5; Sam tests on-watch.
 Trello: Garmin card "Publish builds to website".
-Status (13 Oct): steps 1–2 done on this branch (script, 11 zips, six
-screenshots, release notes in `docs/releases/`). Step 3 needs a signed-in
-GitHub account — Pages and the release can't be created without `gh` / auth.
+Status (13 Oct): steps 1–3 done. Merged as PR #4 (`6c1e692`). Pre-release
+[`GARMIN_v1.0-tester.1`](https://github.com/earp123/rareBit-Garmin/releases/tag/GARMIN_v1.0-tester.1)
+carries the 11 zips (built from `6c1e692`); asset URLs follow
+`https://github.com/earp123/rareBit-Garmin/releases/download/GARMIN_v1.0-tester.1/rareBitGarmin-<id>-tester.1.zip`.
+Pages serves `https://earp123.github.io/rareBit-Garmin/web/garmin-page.html`
+and `.../web/screenshots/<view>-venu3.png`. Next: step 4 (Claude, project
+console).
 
 Goal: a Garmin page on rarebitofficial.com (Smart Watch menu, beside Apple
 Watch and Bangle.js 2) with one sideloadable `.zip` per supported device and
