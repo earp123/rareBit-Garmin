@@ -7,242 +7,258 @@
 <script>if(new URLSearchParams(location.search).has('embed')){document.documentElement.classList.add('embed');}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<!--
+  rareBit page template — strict black / white, CMY accents only as a whisper.
+  Icon sprite below composes every set from the slide deck:
+    Flags + Receiver (vibration alerts) : i-flag ×2, waves right of flag 2, i-receiver with 2 short waves each side
+    Flags + Relay    (smartwatch alerts) : i-flag ×2, waves, i-relay (waves above), i-watch
+    Flags + RXRLY    (smartwatch alerts) : i-flag ×2, waves, i-receiver (waves above, i-arrow below), i-watch
+    Flags + Bangle.js 2                  : i-flag ×2, waves, waves pointing at i-watch
+  Accent use: cyan = signal pulse, magenta = the watch buzz, yellow = download hover. Nothing else.
+-->
 <style>
   :root{
-    --pitch:#0E1512;
-    --surface:#16201B;
-    --line:#243129;
-    --ink:#F2F5F3;
-    --muted:#93A39B;
-    --flag:#FF8A3D;
-    --flag-dim:#B85F27;
+    --bg:#000;
+    --fg:#FFF;
+    --mute:#9A9A9A;
+    --line:rgba(255,255,255,.22);
+    --cyan:#00FFFF;
+    --magenta:#FF00FF;
+    --yellow:#FFFF00;
+    --sans:'Space Grotesk',system-ui,-apple-system,sans-serif;
+    --mono:'Courier Prime',ui-monospace,Menlo,Consolas,monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *,*::before,*::after{animation:none!important;transition:none!important;}
-  }
+  html{scroll-behavior:smooth;background:var(--bg);}
   body{
-    background:var(--pitch);
-    color:var(--ink);
-    font-family:'Barlow',system-ui,-apple-system,sans-serif;
+    background:var(--bg);
+    color:var(--fg);
+    font-family:var(--sans);
     font-size:17px;
     line-height:1.55;
+    -webkit-font-smoothing:antialiased;
   }
   a{color:inherit;}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+  .mono{font-family:var(--mono);}
   .embed header,.embed footer{display:none;}
 
   /* ---------- header ---------- */
-  header{
-    border-bottom:1px solid var(--line);
-    padding:18px 0;
-  }
+  header{border-bottom:1px solid var(--fg);padding:18px 0;}
   header .wrap{display:flex;align-items:center;justify-content:space-between;}
-  header img{height:52px;width:auto;display:block;}
-  header .crumb{
-    font-family:'Barlow Condensed',sans-serif;
-    font-size:19px;font-weight:600;letter-spacing:.02em;
-    color:var(--muted);
-  }
-  header .crumb b{color:var(--ink);font-weight:600;}
+  header img{height:46px;width:auto;display:block;}
+  header .crumb{font-family:var(--mono);font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);}
+  header .crumb b{color:var(--fg);font-weight:400;}
 
   /* ---------- hero ---------- */
-  .hero{padding:72px 0 56px;}
-  .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;}
+  .hero{padding:88px 0 40px;}
   h1{
-    font-family:'Barlow Condensed',sans-serif;
     font-weight:700;
-    font-size:clamp(44px,6vw,72px);
-    line-height:1.02;
-    letter-spacing:.005em;
+    font-size:clamp(46px,7.2vw,96px);
+    line-height:.98;
+    letter-spacing:-.025em;
     text-wrap:balance;
+    max-width:12ch;
   }
-  .hero p.lead{
-    margin-top:20px;
-    font-size:19px;
-    color:var(--muted);
-    max-width:46ch;
-  }
-  .cta-row{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+  .hero .lead{margin-top:26px;font-size:20px;color:var(--mute);max-width:48ch;}
+  .hero .lead b{color:var(--fg);font-weight:500;}
+  .cta-row{margin-top:36px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
   .btn{
     display:inline-block;
-    font-family:'Barlow Condensed',sans-serif;
-    font-size:20px;font-weight:600;letter-spacing:.03em;
-    padding:13px 26px;
-    border-radius:6px;
+    font-family:var(--mono);
+    font-size:15px;letter-spacing:.12em;text-transform:uppercase;
+    padding:15px 26px;
     text-decoration:none;
+    border:1px solid var(--fg);
+    line-height:1;
   }
-  .btn-primary{background:var(--flag);color:#181008;}
-  .btn-primary:hover{background:#FF9C58;}
-  .btn-ghost{border:1px solid var(--line);color:var(--ink);}
-  a.btn-ghost:hover{border-color:var(--muted);}
-  .btn-ghost[aria-disabled="true"]{color:var(--muted);cursor:default;}
-  .placeholder-tag{
-    display:inline-block;
-    font-family:'Barlow',sans-serif;
-    font-size:12px;font-weight:600;
-    color:var(--flag);
-    border:1px dashed var(--flag-dim);
-    border-radius:4px;
-    padding:1px 6px;
-    vertical-align:middle;
+  .btn-primary{background:var(--fg);color:var(--bg);}
+  .btn-primary:hover{background:var(--yellow);border-color:var(--yellow);}
+  .btn-ghost{color:var(--mute);border-color:var(--line);}
+  .tag{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);}
+
+  /* ---------- scene (icon composition) ---------- */
+  .scene{padding:24px 0 72px;}
+  .scene svg{width:100%;height:auto;display:block;color:var(--fg);}
+  .scene .cap{
+    margin-top:22px;
+    font-family:var(--mono);font-size:17px;letter-spacing:.04em;
+    color:var(--fg);text-align:center;
+  }
+  .scene .cap span{color:var(--mute);}
+  .w1,.w2,.w3{opacity:.35;stroke:currentColor;}
+  .face{color:var(--fg);}
+
+  @media (prefers-reduced-motion:no-preference){
+    .sig .w1{animation:wave 5s linear infinite;}
+    .sig .w2{animation:wave 5s linear infinite .16s;}
+    .sig .w3{animation:wave 5s linear infinite .32s;}
+    .sig-2 .w1{animation-delay:1.3s;}
+    .sig-2 .w2{animation-delay:1.46s;}
+    .sig-2 .w3{animation-delay:1.62s;}
+    .nudge{animation:nudge 5s linear infinite;}
+    .buzz{animation:buzz 5s linear infinite;}
+    .face{animation:face 5s linear infinite;}
+    .idle .w1{animation:wave 4s linear infinite;}
+    .idle .w2{animation:wave 4s linear infinite .16s;}
+    .idle .w3{animation:wave 4s linear infinite .32s;}
+  }
+  @keyframes wave{
+    0%,1%{opacity:.35;color:#FFF;}
+    5%{opacity:1;color:var(--cyan);}
+    18%{opacity:1;color:var(--cyan);}
+    26%,100%{opacity:.35;color:#FFF;}
+  }
+  @keyframes nudge{
+    0%,44%{transform:translateX(0);}
+    48%{transform:translateX(10px);}
+    53%,100%{transform:translateX(0);}
+  }
+  @keyframes buzz{
+    0%,55%{transform:translateX(0);}
+    56.5%{transform:translateX(-5px);}
+    58%{transform:translateX(5px);}
+    59.5%{transform:translateX(-5px);}
+    61%{transform:translateX(4px);}
+    62.5%{transform:translateX(-3px);}
+    64%{transform:translateX(2px);}
+    65.5%,100%{transform:translateX(0);}
+  }
+  @keyframes face{
+    0%,55%{color:#FFF;}
+    56%,66%{color:var(--magenta);}
+    72%,100%{color:#FFF;}
   }
 
-  /* watch illustration */
-  .watch-art{display:flex;justify-content:center;}
-  .watch-art svg{width:100%;max-width:340px;height:auto;}
-  @keyframes pulse{
-    0%{opacity:.9;transform:scale(.55);}
-    100%{opacity:0;transform:scale(1.25);}
-  }
-  .ring{transform-origin:170px 60px;animation:pulse 2.4s ease-out infinite;}
-  .ring2{animation-delay:.8s;}
-  .ring3{animation-delay:1.6s;}
+  /* ---------- section chrome ---------- */
+  section.rule{border-top:1px solid var(--fg);padding:64px 0;}
+  h2{font-weight:700;font-size:clamp(30px,3.6vw,44px);letter-spacing:-.02em;line-height:1.05;}
+  .sub{margin-top:12px;color:var(--mute);max-width:60ch;font-size:17px;}
+  .sub b{color:var(--fg);font-weight:500;}
+  .eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:14px;}
+
+  /* ---------- setups ---------- */
+  .setups{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  .setup{border:1px solid var(--fg);padding:28px 28px 26px;}
+  .setup svg{width:100%;height:auto;display:block;color:var(--fg);}
+  .setup .cap{margin-top:18px;font-family:var(--mono);font-size:14px;letter-spacing:.02em;text-align:center;}
+  .setup .cap span{color:var(--mute);}
+  .setup .desc{margin-top:16px;color:var(--mute);font-size:16px;border-top:1px solid var(--line);padding-top:16px;}
+  .setup .desc b{color:var(--fg);font-weight:500;}
+  .setup .desc a{color:var(--fg);}
 
   /* ---------- screenshots ---------- */
-  .shots{padding:56px 0;border-top:1px solid var(--line);}
-  .shots .sub{color:var(--muted);margin-top:8px;max-width:62ch;}
-  .shot-grid{margin-top:36px;display:grid;grid-template-columns:repeat(6,1fr);gap:22px;}
+  .shot-grid{margin-top:40px;display:grid;grid-template-columns:repeat(6,1fr);gap:26px;}
   .shot{margin:0;}
   .shot img{
     width:100%;aspect-ratio:1;display:block;
     border-radius:50%;
     background:#000;
-    box-shadow:0 0 0 4px #101915,0 0 0 7px #2E3D33;
+    box-shadow:0 0 0 2px var(--fg);
   }
   .shot figcaption{
     margin-top:16px;text-align:center;
-    font-family:'Barlow Condensed',sans-serif;
-    font-size:17px;font-weight:600;letter-spacing:.02em;
-    color:var(--muted);
+    font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--mute);
   }
-
-  /* ---------- signal chain ---------- */
-  .chain{padding:56px 0;border-top:1px solid var(--line);}
-  h2{
-    font-family:'Barlow Condensed',sans-serif;
-    font-weight:600;
-    font-size:34px;
-    letter-spacing:.01em;
-  }
-  .chain .sub{color:var(--muted);margin-top:8px;max-width:60ch;}
-  .chain-diagram{margin-top:36px;}
-  .chain-diagram svg{width:100%;height:auto;display:block;}
-
-  /* ---------- facts ---------- */
-  .facts{padding:56px 0;border-top:1px solid var(--line);}
-  .facts .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
-  .fact{padding:0 28px;border-left:1px solid var(--line);}
-  .fact:first-child{border-left:none;padding-left:0;}
-  .fact h3{
-    font-family:'Barlow Condensed',sans-serif;
-    font-weight:600;font-size:23px;letter-spacing:.01em;
-    color:var(--flag);
-  }
-  .fact p{margin-top:8px;color:var(--muted);font-size:16px;}
 
   /* ---------- downloads ---------- */
-  .downloads{padding:56px 0 32px;border-top:1px solid var(--line);}
-  .downloads .sub{color:var(--muted);margin-top:8px;max-width:62ch;}
-  .downloads .sub b{color:var(--ink);}
-  .dl-table{margin-top:28px;border:1px solid var(--line);border-radius:8px;overflow:hidden;}
-  .dl-row{
+  .dl{margin-top:36px;border-top:1px solid var(--fg);}
+  .row{
     display:grid;
-    grid-template-columns:2fr 1.6fr 1fr .9fr;
-    gap:16px;align-items:center;
-    padding:14px 20px;
-    border-top:1px solid var(--line);
-    background:var(--surface);
+    grid-template-columns:1.7fr 1.1fr .7fr auto;
+    gap:20px;align-items:center;
+    padding:15px 0;
+    border-bottom:1px solid var(--line);
   }
-  .dl-row:first-child{border-top:none;}
-  .dl-head{
-    background:transparent;
-    font-family:'Barlow Condensed',sans-serif;
-    font-size:17px;font-weight:600;letter-spacing:.04em;
-    color:var(--muted);
-  }
-  .dl-name{font-weight:600;}
-  .dl-meta{color:var(--muted);font-size:15px;}
-  .dl-meta code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;}
-  .dl-link{
-    justify-self:end;
-    font-family:'Barlow Condensed',sans-serif;
-    font-size:17px;font-weight:600;letter-spacing:.03em;
-    color:var(--flag);
-    text-decoration:none;
-    border:1px solid var(--flag-dim);
-    border-radius:5px;
-    padding:5px 12px;
+  .row.head{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);padding:12px 0;}
+  .row .name{font-weight:500;font-size:18px;}
+  .row .meta{font-family:var(--mono);font-size:15px;color:var(--mute);}
+  .row a{
+    font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--fg);text-decoration:none;
+    border:1px solid var(--fg);padding:9px 16px;line-height:1;
     white-space:nowrap;
   }
-  .dl-link:hover{background:var(--flag);color:#181008;border-color:var(--flag);}
-  .dl-foot{margin-top:14px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;color:var(--muted);font-size:15px;}
-  .dl-foot a{color:var(--ink);}
-  .sideload-note{
-    margin-top:20px;
-    padding:16px 20px;
-    border-left:3px solid var(--flag);
-    background:var(--surface);
-    border-radius:0 8px 8px 0;
-    color:var(--muted);
-    font-size:15.5px;
-    max-width:70ch;
-  }
-  .sideload-note b{color:var(--ink);}
-  .sideload-note ol{margin:8px 0 0 20px;}
-  .sideload-note li{margin-top:4px;}
+  .row a:hover{background:var(--yellow);border-color:var(--yellow);color:var(--bg);}
+  .install{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  .install .box{border-left:1px solid var(--fg);padding:4px 0 4px 24px;}
+  .install h3{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:400;}
+  .install ol{margin:14px 0 0 18px;color:var(--mute);font-size:16px;}
+  .install li{margin-top:8px;}
+  .install li b,.install p b{color:var(--fg);font-weight:500;}
+  .install p{margin-top:14px;color:var(--mute);font-size:16px;}
+  .install p a{color:var(--fg);}
 
   /* ---------- requirements ---------- */
-  .reqs{padding:40px 0 72px;}
-  .reqs .box{
-    border:1px solid var(--line);
-    border-radius:8px;
-    padding:26px 28px;
-  }
-  .reqs h2{font-size:26px;}
-  .reqs ul{margin-top:14px;list-style:none;}
-  .reqs li{
-    padding:9px 0 9px 26px;
-    position:relative;
-    color:var(--muted);
-    border-top:1px solid var(--line);
-  }
-  .reqs li:first-child{border-top:none;}
-  .reqs li::before{
-    content:"";
-    position:absolute;left:2px;top:17px;
-    width:9px;height:9px;
-    background:var(--flag);
-    border-radius:2px;
-  }
-  .reqs li b{color:var(--ink);font-weight:600;}
+  .needs{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .need{border-top:1px solid var(--fg);padding-top:22px;}
+  .need svg{height:64px;width:auto;display:block;color:var(--fg);}
+  .need h3{margin-top:18px;font-weight:500;font-size:19px;}
+  .need p{margin-top:6px;color:var(--mute);font-size:15.5px;}
+  .need p a{color:var(--fg);}
 
   footer{
-    border-top:1px solid var(--line);
+    border-top:1px solid var(--fg);
     padding:26px 0;
-    color:var(--muted);
-    font-size:14.5px;
+    color:var(--mute);
+    font-family:var(--mono);font-size:13px;letter-spacing:.06em;
   }
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
 
   /* ---------- responsive ---------- */
-  @media (max-width:860px){
-    .hero .wrap{grid-template-columns:1fr;gap:36px;}
-    .watch-art{order:-1;}
-    .watch-art svg{max-width:240px;}
-    .shot-grid{grid-template-columns:repeat(3,1fr);gap:16px;}
-    .facts .wrap{grid-template-columns:1fr;gap:28px;}
-    .fact{border-left:none;padding:0;}
-    .dl-row{grid-template-columns:1fr auto;}
-    .dl-row .dl-meta{display:none;}
-    .dl-head{display:none;}
+  @media (max-width:900px){
+    .setups{grid-template-columns:1fr;}
+    .shot-grid{grid-template-columns:repeat(3,1fr);gap:18px;}
+    .needs{grid-template-columns:1fr;gap:22px;}
+    .install{grid-template-columns:1fr;}
+    .row{grid-template-columns:1fr auto;}
+    .row .meta{display:none;}
+    .row.head{display:none;}
+    .hero{padding-top:64px;}
+    header img{height:38px;}
+    header .crumb{font-size:12px;letter-spacing:.08em;}
   }
 </style>
 </head>
 <body>
+
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-flag" viewBox="0 0 200 250">
+      <path d="M24 8H176Q192 8 192 24V104L136 160H24Q8 160 8 144V24Q8 8 24 8Z" fill="none" stroke="currentColor" stroke-width="14" stroke-linejoin="round"/>
+      <path d="M136 160V118Q136 104 150 104H192" fill="none" stroke="currentColor" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M152 120L180 113L156 148Z" fill="currentColor"/>
+      <rect x="8" y="178" width="38" height="64" rx="11" fill="none" stroke="currentColor" stroke-width="14"/>
+    </symbol>
+    <symbol id="i-relay" viewBox="0 0 70 150">
+      <rect x="5" y="5" width="60" height="104" rx="12" fill="none" stroke="currentColor" stroke-width="9"/>
+      <circle cx="26" cy="28" r="5.5" fill="currentColor"/>
+      <path d="M7 132H44" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+      <path d="M42 120L67 132L42 144Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-receiver" viewBox="0 0 112 106">
+      <rect x="5" y="5" width="102" height="96" rx="22" fill="none" stroke="currentColor" stroke-width="10"/>
+      <circle cx="56" cy="64" r="14" fill="none" stroke="currentColor" stroke-width="9"/>
+      <circle cx="56" cy="38" r="4" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 70 24">
+      <path d="M2 12H44" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+      <path d="M42 0L68 12L42 24Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-strap" viewBox="0 0 100 260">
+      <rect x="18" y="5" width="64" height="250" rx="9" fill="none" stroke="currentColor" stroke-width="8"/>
+    </symbol>
+    <symbol id="i-face" viewBox="0 0 100 260">
+      <rect x="8" y="88" width="84" height="84" rx="16" fill="#000" stroke="currentColor" stroke-width="9"/>
+    </symbol>
+    <symbol id="i-watch" viewBox="0 0 100 260">
+      <use href="#i-strap"/><use href="#i-face"/>
+    </symbol>
+  </defs>
+</svg>
 
 <header>
   <div class="wrap">
@@ -253,58 +269,101 @@
 
 <section class="hero">
   <div class="wrap">
-    <div>
-      <h1>Match alerts,<br>on your Garmin.</h1>
-      <p class="lead">The rareBit app for Garmin brings PRO Flag signals straight to your wrist. Each flag gets its own vibration pattern, relayed over Bluetooth&nbsp;LE — so you never miss a raise, even at full sprint.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#downloads">Download for your watch</a>
-        <span class="btn btn-ghost" aria-disabled="true">Connect IQ Store</span>
-        <span class="placeholder-tag">STORE LISTING COMING</span>
-      </div>
-    </div>
-    <div class="watch-art">
-      <!-- Garmin-style round watch with BLE pulse -->
-      <svg viewBox="0 0 340 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Round smartwatch receiving a signal">
-        <!-- BLE pulse rings -->
-        <g fill="none" stroke="#FF8A3D" stroke-width="2.5">
-          <circle class="ring"  cx="170" cy="60" r="28"/>
-          <circle class="ring ring2" cx="170" cy="60" r="28"/>
-          <circle class="ring ring3" cx="170" cy="60" r="28"/>
-        </g>
-        <path d="M162 48 l16 24 M178 48 l-16 24 M170 40 v40 l10 -8 M170 80 l-10 -8" stroke="#FF8A3D" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(0,-8) scale(.55) translate(139,42)"/>
-        <!-- strap top -->
-        <rect x="140" y="96" width="60" height="70" rx="10" fill="#16201B" stroke="#243129"/>
-        <line x1="140" y1="118" x2="200" y2="118" stroke="#243129"/>
-        <line x1="140" y1="140" x2="200" y2="140" stroke="#243129"/>
-        <!-- bezel -->
-        <circle cx="170" cy="240" r="92" fill="#101915" stroke="#2E3D33" stroke-width="6"/>
-        <circle cx="170" cy="240" r="80" fill="#0B110E" stroke="#243129" stroke-width="2"/>
-        <!-- side buttons -->
-        <rect x="258" y="216" width="10" height="18" rx="3" fill="#243129"/>
-        <rect x="258" y="248" width="10" height="18" rx="3" fill="#243129"/>
-        <rect x="72" y="232" width="10" height="18" rx="3" fill="#243129"/>
-        <!-- watch face: alert -->
-        <text x="170" y="216" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="17" font-weight="600" fill="#93A39B" letter-spacing="1">rareBit</text>
-        <!-- flag icon on face -->
-        <g transform="translate(150,226)">
-          <line x1="0" y1="0" x2="0" y2="44" stroke="#F2F5F3" stroke-width="4" stroke-linecap="round"/>
-          <path d="M2 2 h34 v24 h-34 z" fill="#FF8A3D"/>
-          <path d="M2 2 h11.3 v12 h-11.3 z M13.3 14 h11.3 v12 h-11.3 z M24.6 2 h11.4 v12 h-11.4 z" fill="#FFD23F"/>
-        </g>
-        <text x="170" y="302" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="21" font-weight="700" fill="#FF8A3D" letter-spacing="1">FLAG 1</text>
-        <!-- strap bottom -->
-        <rect x="140" y="316" width="60" height="80" rx="10" fill="#16201B" stroke="#243129"/>
-        <line x1="140" y1="342" x2="200" y2="342" stroke="#243129"/>
-        <line x1="140" y1="366" x2="200" y2="366" stroke="#243129"/>
-      </svg>
+    <h1>rareBit on Garmin.</h1>
+    <p class="lead">Every PRO Flag press, <b>on your wrist</b>. A match timer built for officials — countdown, count-up, stoppage — with flag alerts relayed in over Bluetooth&nbsp;LE.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#downloads">Download the app</a>
+      <span class="btn btn-ghost">Connect IQ Store</span>
+      <span class="tag">Store listing coming</span>
     </div>
   </div>
 </section>
 
-<section class="shots">
+<section class="scene">
   <div class="wrap">
-    <h2>On the wrist</h2>
-    <p class="sub">Captured on a Venu 3. Countdown front and centre, count-up below, progress ring round the bezel. A flag press flashes the flag and its number.</p>
+    <svg viewBox="0 0 1000 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two rareBit Flags signal a rareBit Relay, which forwards the alert to a Garmin watch">
+      <use href="#i-flag" x="30" y="46" width="160" height="200"/>
+      <use href="#i-flag" x="222" y="46" width="160" height="200"/>
+      <g class="sig" transform="translate(394 160)" fill="none" stroke-width="9" stroke-linecap="round">
+        <path class="w1" d="M9.9 -9.9A14 14 0 0 1 9.9 9.9"/>
+        <path class="w2" d="M19.8 -19.8A28 28 0 0 1 19.8 19.8"/>
+        <path class="w3" d="M29.7 -29.7A42 42 0 0 1 29.7 29.7"/>
+      </g>
+      <g class="sig sig-2" transform="translate(613 90) rotate(-90)" fill="none" stroke-width="9" stroke-linecap="round">
+        <path class="w1" d="M9.9 -9.9A14 14 0 0 1 9.9 9.9"/>
+        <path class="w2" d="M19.8 -19.8A28 28 0 0 1 19.8 19.8"/>
+        <path class="w3" d="M29.7 -29.7A42 42 0 0 1 29.7 29.7"/>
+      </g>
+      <g class="nudge">
+        <use href="#i-relay" x="578" y="100" width="70" height="150"/>
+      </g>
+      <g class="buzz">
+        <use href="#i-strap" x="780" y="24" width="100" height="260"/>
+        <use class="face" href="#i-face" x="780" y="24" width="100" height="260"/>
+      </g>
+    </svg>
+    <p class="cap">rareBit Flags + rareBit Relay <span>(Smartwatch Alerts)</span></p>
+  </div>
+</section>
+
+<section class="rule" id="setups">
+  <div class="wrap">
+    <div class="eyebrow">Two ways to set up</div>
+    <h2>The watch needs a relay. You've got two.</h2>
+    <p class="sub">Garmin watches can't hear PRO Flags directly. Something in your pocket has to listen for the Flags and hand each press to the watch over Bluetooth&nbsp;LE.</p>
+
+    <div class="setups">
+      <div class="setup">
+        <svg viewBox="0 0 1000 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="rareBit Flags plus rareBit Relay">
+          <use href="#i-flag" x="40" y="56" width="160" height="200"/>
+          <use href="#i-flag" x="232" y="56" width="160" height="200"/>
+          <g class="idle" transform="translate(404 170)" fill="none" stroke-width="9" stroke-linecap="round">
+            <path class="w1" d="M9.9 -9.9A14 14 0 0 1 9.9 9.9"/>
+            <path class="w2" d="M19.8 -19.8A28 28 0 0 1 19.8 19.8"/>
+            <path class="w3" d="M29.7 -29.7A42 42 0 0 1 29.7 29.7"/>
+          </g>
+          <g class="idle" transform="translate(641 100) rotate(-90)" fill="none" stroke-width="9" stroke-linecap="round">
+            <path class="w1" d="M9.9 -9.9A14 14 0 0 1 9.9 9.9"/>
+            <path class="w2" d="M19.8 -19.8A28 28 0 0 1 19.8 19.8"/>
+            <path class="w3" d="M29.7 -29.7A42 42 0 0 1 29.7 29.7"/>
+          </g>
+          <use href="#i-relay" x="606" y="110" width="70" height="150"/>
+          <use href="#i-watch" x="790" y="30" width="100" height="260"/>
+        </svg>
+        <p class="cap">rareBit Flags + rareBit Relay <span>(Smartwatch Alerts)</span></p>
+        <p class="desc"><b>The dedicated relay.</b> Small, pocketable, charges over USB-C. Hears every linked Flag and forwards each press to the watch. <a href="https://www.rarebitofficial.com/shop">Shop</a></p>
+      </div>
+
+      <div class="setup">
+        <svg viewBox="0 0 1000 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="rareBit Flags plus a PRO Receiver running RXRLY">
+          <use href="#i-flag" x="40" y="56" width="160" height="200"/>
+          <use href="#i-flag" x="232" y="56" width="160" height="200"/>
+          <g class="idle" transform="translate(404 170)" fill="none" stroke-width="9" stroke-linecap="round">
+            <path class="w1" d="M9.9 -9.9A14 14 0 0 1 9.9 9.9"/>
+            <path class="w2" d="M19.8 -19.8A28 28 0 0 1 19.8 19.8"/>
+            <path class="w3" d="M29.7 -29.7A42 42 0 0 1 29.7 29.7"/>
+          </g>
+          <g class="idle" transform="translate(644 112) rotate(-90)" fill="none" stroke-width="9" stroke-linecap="round">
+            <path class="w1" d="M9.9 -9.9A14 14 0 0 1 9.9 9.9"/>
+            <path class="w2" d="M19.8 -19.8A28 28 0 0 1 19.8 19.8"/>
+            <path class="w3" d="M29.7 -29.7A42 42 0 0 1 29.7 29.7"/>
+          </g>
+          <use href="#i-receiver" x="588" y="124" width="112" height="106"/>
+          <use href="#i-arrow" x="596" y="246" width="70" height="24"/>
+          <use href="#i-watch" x="790" y="30" width="100" height="260"/>
+        </svg>
+        <p class="cap">rareBit Flags + RXRLY <span>(Smartwatch Alerts)</span></p>
+        <p class="desc"><b>Reuse your PRO Receiver.</b> Flash the free RXRLY firmware and the Receiver you already own becomes the relay. <a href="https://www.rarebitofficial.com/services-4">RXRLY firmware</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rule">
+  <div class="wrap">
+    <div class="eyebrow">On the wrist</div>
+    <h2>Big digits. Small ring. One buzz per flag.</h2>
+    <p class="sub">Countdown front and centre, count-up below, progress ring round the bezel. A flag press flashes the flag and its number. Captured on a Venu&nbsp;3.</p>
     <div class="shot-grid">
       <figure class="shot">
         <img src="https://static.wixstatic.com/media/870f4b_459035d5003840ef872aa525f817be93~mv2.png" alt="Connect screen: rareBit, finding relay" loading="lazy">
@@ -320,7 +379,7 @@
       </figure>
       <figure class="shot">
         <img src="https://static.wixstatic.com/media/870f4b_793a8997124b40d7801bd745c28e427c~mv2.png" alt="Live screen paused, orange +00:22 stoppage total above the countdown" loading="lazy">
-        <figcaption>Stoppage timer</figcaption>
+        <figcaption>Stoppage</figcaption>
       </figure>
       <figure class="shot">
         <img src="https://static.wixstatic.com/media/870f4b_b51e8b9356fa42719e9639c915835821~mv2.png" alt="Settings menu: Interval, Half, Stoppage Timer" loading="lazy">
@@ -328,182 +387,73 @@
       </figure>
       <figure class="shot">
         <img src="https://static.wixstatic.com/media/870f4b_88a8344168934c3fbc5f7ab2aa23c4ca~mv2.png" alt="Interval picker showing 45:00" loading="lazy">
-        <figcaption>Interval picker</figcaption>
+        <figcaption>Interval</figcaption>
       </figure>
     </div>
   </div>
 </section>
 
-<section class="chain">
+<section class="rule" id="downloads">
   <div class="wrap">
-    <h2>How the signal reaches your wrist</h2>
-    <p class="sub">Garmin watches can't listen to PRO Flags directly. A rareBit Relay bridges the gap — it hears every linked Flag and forwards each signal to the watch over Bluetooth&nbsp;LE.</p>
-    <div class="chain-diagram">
-      <svg viewBox="0 0 980 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Signal path: PRO Flag to rareBit Relay to Garmin watch">
-        <defs>
-          <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-            <path d="M0 0 L10 5 L0 10 z" fill="#FF8A3D"/>
-          </marker>
-        </defs>
-        <!-- Stage 1: PRO Flag -->
-        <g>
-          <rect x="20" y="30" width="260" height="150" rx="10" fill="#16201B" stroke="#243129"/>
-          <g transform="translate(58,62)">
-            <line x1="0" y1="0" x2="0" y2="70" stroke="#F2F5F3" stroke-width="5" stroke-linecap="round"/>
-            <path d="M3 2 h52 v36 h-52 z" fill="#FF8A3D"/>
-            <path d="M3 2 h17.3 v18 h-17.3 z M20.3 20 h17.3 v18 h-17.3 z M37.6 2 h17.4 v18 h-17.4 z" fill="#FFD23F"/>
-          </g>
-          <text x="150" y="92" font-family="Barlow Condensed, sans-serif" font-size="26" font-weight="600" fill="#F2F5F3">PRO Flag</text>
-          <text x="150" y="118" font-family="Barlow, sans-serif" font-size="15" fill="#93A39B">AR presses the</text>
-          <text x="150" y="138" font-family="Barlow, sans-serif" font-size="15" fill="#93A39B">signal button</text>
-        </g>
-        <line x1="290" y1="105" x2="360" y2="105" stroke="#FF8A3D" stroke-width="2.5" marker-end="url(#arr)" stroke-dasharray="7 6"/>
-        <!-- Stage 2: Relay -->
-        <g>
-          <rect x="370" y="30" width="260" height="150" rx="10" fill="#16201B" stroke="#243129"/>
-          <g transform="translate(404,70)">
-            <rect x="0" y="0" width="58" height="58" rx="12" fill="#0B110E" stroke="#2E3D33" stroke-width="3"/>
-            <path d="M29 14 v30 l8 -7 M29 44 l-8 -7 M22 21 l15 15 M37 21 l-15 15" stroke="#FF8A3D" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          </g>
-          <text x="486" y="92" font-family="Barlow Condensed, sans-serif" font-size="26" font-weight="600" fill="#F2F5F3">rareBit Relay</text>
-          <text x="486" y="118" font-family="Barlow, sans-serif" font-size="15" fill="#93A39B">or PRO Receiver</text>
-          <text x="486" y="138" font-family="Barlow, sans-serif" font-size="15" fill="#93A39B">running RXRLY</text>
-        </g>
-        <line x1="640" y1="105" x2="710" y2="105" stroke="#FF8A3D" stroke-width="2.5" marker-end="url(#arr)" stroke-dasharray="7 6"/>
-        <!-- Stage 3: Garmin watch -->
-        <g>
-          <rect x="720" y="30" width="240" height="150" rx="10" fill="#16201B" stroke="#243129"/>
-          <circle cx="790" cy="105" r="36" fill="#0B110E" stroke="#2E3D33" stroke-width="4"/>
-          <text x="790" y="100" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="12" font-weight="600" fill="#93A39B">rareBit</text>
-          <text x="790" y="118" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="14" font-weight="700" fill="#FF8A3D">FLAG 1</text>
-          <text x="846" y="98" font-family="Barlow Condensed, sans-serif" font-size="26" font-weight="600" fill="#F2F5F3">Garmin</text>
-          <text x="846" y="124" font-family="Barlow, sans-serif" font-size="15" fill="#93A39B">buzz on the wrist</text>
-        </g>
-        <!-- BLE label -->
-        <text x="325" y="90" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="15" font-weight="600" fill="#93A39B" letter-spacing="1">RF</text>
-        <text x="675" y="90" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="15" font-weight="600" fill="#93A39B" letter-spacing="1">BLE</text>
-      </svg>
+    <div class="eyebrow">Download</div>
+    <h2>Pick your watch.</h2>
+    <p class="sub">Each zip holds one <b>.prg</b> built for that model only. Unzip, copy it into the watch's <b>GARMIN/APPS</b> folder over USB, done.</p>
+    <div class="dl">
+      <div class="row head"><span>Watch</span><span>Build</span><span>Version</span><span></span></div>
+      <div class="row"><span class="name">Venu 2</span><span class="meta">venu2</span><span class="meta">1.0</span><a href="https://www.rarebitofficial.com/_files/archives/870f4b_794d1f2986bf4b58821e9e5c887dd25b.zip?dn=rareBitGarmin-venu2-1.0.zip">Download</a></div>
+      <div class="row"><span class="name">Venu 2 Plus</span><span class="meta">venu2plus</span><span class="meta">1.0</span><a href="https://www.rarebitofficial.com/_files/archives/870f4b_9633a149e7d740b69e0625cf2772066b.zip?dn=rareBitGarmin-venu2plus-1.0.zip">Download</a></div>
+      <div class="row"><span class="name">Venu 2S</span><span class="meta">venu2s</span><span class="meta">1.0</span><a href="https://www.rarebitofficial.com/_files/archives/870f4b_55d0d7156518436ea383a7dcde408c03.zip?dn=rareBitGarmin-venu2s-1.0.zip">Download</a></div>
+      <div class="row"><span class="name">Venu 3</span><span class="meta">venu3</span><span class="meta">1.0</span><a href="https://www.rarebitofficial.com/_files/archives/870f4b_d9e65519cb3643a4b48fd85aabc43088.zip?dn=rareBitGarmin-venu3-1.0.zip">Download</a></div>
+      <div class="row"><span class="name">Venu 3S</span><span class="meta">venu3s</span><span class="meta">1.0</span><a href="https://www.rarebitofficial.com/_files/archives/870f4b_73fff64381174018b149e4a7eb2253a0.zip?dn=rareBitGarmin-venu3s-1.0.zip">Download</a></div>
+      <div class="row"><span class="name">Venu 4 41mm</span><span class="meta">venu441mm</span><span class="meta">1.0</span><a href="https://www.rarebitofficial.com/_files/archives/870f4b_1df4c12aea1c4195bfecf5bf636733bd.zip?dn=rareBitGarmin-venu441mm-1.0.zip">Download</a></div>
+      <div class="row"><span class="name">Venu 4 45mm / D2 Air X15</span><span class="meta">venu445mm</span><span class="meta">1.0</span><a href="https://www.rarebitofficial.com/_files/archives/870f4b_2cbe6fce765e48748e314993977e1a27.zip?dn=rareBitGarmin-venu445mm-1.0.zip">Download</a></div>
+      <div class="row"><span class="name">Venu Sq 2 Music</span><span class="meta">venusq2m</span><span class="meta">1.0</span><a href="https://www.rarebitofficial.com/_files/archives/870f4b_e53d5a0da8ca4018b8b9e254baab4a4c.zip?dn=rareBitGarmin-venusq2m-1.0.zip">Download</a></div>
+      <div class="row"><span class="name">Venu X1</span><span class="meta">venux1</span><span class="meta">1.0</span><a href="https://www.rarebitofficial.com/_files/archives/870f4b_41223add91634ac28f0018a937dcc8e0.zip?dn=rareBitGarmin-venux1-1.0.zip">Download</a></div>
+      <div class="row"><span class="name">vívoactive 5</span><span class="meta">vivoactive5</span><span class="meta">1.0</span><a href="https://www.rarebitofficial.com/_files/archives/870f4b_3c4cd025b18e4f3ca712d12d5221ab40.zip?dn=rareBitGarmin-vivoactive5-1.0.zip">Download</a></div>
+      <div class="row"><span class="name">vívoactive 6</span><span class="meta">vivoactive6</span><span class="meta">1.0</span><a href="https://www.rarebitofficial.com/_files/archives/870f4b_e4ef03121f28452fa8fa1e78f56fee3a.zip?dn=rareBitGarmin-vivoactive6-1.0.zip">Download</a></div>
+    </div>
+
+    <div class="install">
+      <div class="box">
+        <h3>Installing</h3>
+        <ol>
+          <li>Unzip the download — inside is a single <b>rareBitGarmin-&lt;model&gt;.prg</b>.</li>
+          <li>Plug the watch into a computer over USB and copy the .prg into <b>GARMIN/APPS</b>. On a Mac, if the watch doesn't show up as a drive, use an MTP app such as OpenMTP.</li>
+          <li>Unplug. rareBit appears in the watch's app list.</li>
+        </ol>
+      </div>
+      <div class="box">
+        <h3>Using it</h3>
+        <ol>
+          <li>Open rareBit on the watch. It finds your Relay on its own — no pairing screen.</li>
+          <li><b>SELECT</b> starts and pauses the match. <b>BACK</b> opens settings: interval, half, stoppage timer.</li>
+          <li>No Relay in range? After 15 s it runs as a plain match timer.</li>
+        </ol>
+        <p>Watch not listed, or something odd? <a href="mailto:reply@rarebit.biz">reply@rarebit.biz</a> — include your watch model.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="facts">
+<section class="rule">
   <div class="wrap">
-    <div class="fact">
-      <h3>Every flag, its own buzz</h3>
-      <p>Distinct vibration patterns per Flag mean you know which AR is signaling without looking down.</p>
-    </div>
-    <div class="fact">
-      <h3>Free to use</h3>
-      <p>Tester builds are free downloads below; the Connect IQ Store listing is on its way. No subscription, no account.</p>
-    </div>
-    <div class="fact">
-      <h3>Reuse your Receiver</h3>
-      <p>No dedicated Relay? Load the free RXRLY firmware and your PRO Receiver becomes the relay.</p>
-    </div>
-  </div>
-</section>
-
-<section class="downloads" id="downloads">
-  <div class="wrap">
-    <h2>Download — tester build 1</h2>
-    <p class="sub">Pick your watch model. Each zip holds one <b>.prg</b> built for that model only — unzip it, then copy the .prg into the watch's <b>GARMIN/APPS</b> folder over USB.</p>
-    <div class="dl-table">
-      <div class="dl-row dl-head">
-        <span>Watch</span><span>Build</span><span>Version</span><span></span>
+    <div class="eyebrow">What you need</div>
+    <div class="needs">
+      <div class="need">
+        <svg viewBox="0 0 200 250" aria-hidden="true"><use href="#i-flag"/></svg>
+        <h3>A rareBit PRO Set</h3>
+        <p>Two Flags, linked and ready to officiate. <a href="https://www.rarebitofficial.com/shop">Shop</a></p>
       </div>
-      <div class="dl-row">
-        <span class="dl-name">Venu 2</span>
-        <span class="dl-meta"><code>venu2</code></span>
-        <span class="dl-meta">tester.1</span>
-        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_794d1f2986bf4b58821e9e5c887dd25b.zip?dn=rareBitGarmin-venu2-tester.1.zip">Download</a>
+      <div class="need">
+        <svg viewBox="0 0 70 150" aria-hidden="true"><use href="#i-relay"/></svg>
+        <h3>A rareBit Relay</h3>
+        <p>Or a PRO Receiver flashed with the free <a href="https://www.rarebitofficial.com/services-4">RXRLY firmware</a>.</p>
       </div>
-      <div class="dl-row">
-        <span class="dl-name">Venu 2 Plus</span>
-        <span class="dl-meta"><code>venu2plus</code></span>
-        <span class="dl-meta">tester.1</span>
-        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_9633a149e7d740b69e0625cf2772066b.zip?dn=rareBitGarmin-venu2plus-tester.1.zip">Download</a>
+      <div class="need">
+        <svg viewBox="0 0 100 260" aria-hidden="true"><use href="#i-watch"/></svg>
+        <h3>A supported Garmin</h3>
+        <p>Venu 2 / 2S / 2 Plus, Venu 3 / 3S, Venu 4 (41 &amp; 45 mm), Venu Sq 2 Music, Venu X1, vívoactive 5 / 6.</p>
       </div>
-      <div class="dl-row">
-        <span class="dl-name">Venu 2S</span>
-        <span class="dl-meta"><code>venu2s</code></span>
-        <span class="dl-meta">tester.1</span>
-        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_55d0d7156518436ea383a7dcde408c03.zip?dn=rareBitGarmin-venu2s-tester.1.zip">Download</a>
-      </div>
-      <div class="dl-row">
-        <span class="dl-name">Venu 3</span>
-        <span class="dl-meta"><code>venu3</code></span>
-        <span class="dl-meta">tester.1</span>
-        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_d9e65519cb3643a4b48fd85aabc43088.zip?dn=rareBitGarmin-venu3-tester.1.zip">Download</a>
-      </div>
-      <div class="dl-row">
-        <span class="dl-name">Venu 3S</span>
-        <span class="dl-meta"><code>venu3s</code></span>
-        <span class="dl-meta">tester.1</span>
-        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_73fff64381174018b149e4a7eb2253a0.zip?dn=rareBitGarmin-venu3s-tester.1.zip">Download</a>
-      </div>
-      <div class="dl-row">
-        <span class="dl-name">Venu 4 41mm</span>
-        <span class="dl-meta"><code>venu441mm</code></span>
-        <span class="dl-meta">tester.1</span>
-        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_1df4c12aea1c4195bfecf5bf636733bd.zip?dn=rareBitGarmin-venu441mm-tester.1.zip">Download</a>
-      </div>
-      <div class="dl-row">
-        <span class="dl-name">Venu 4 45mm / D2 Air X15</span>
-        <span class="dl-meta"><code>venu445mm</code></span>
-        <span class="dl-meta">tester.1</span>
-        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_2cbe6fce765e48748e314993977e1a27.zip?dn=rareBitGarmin-venu445mm-tester.1.zip">Download</a>
-      </div>
-      <div class="dl-row">
-        <span class="dl-name">Venu Sq 2 Music</span>
-        <span class="dl-meta"><code>venusq2m</code></span>
-        <span class="dl-meta">tester.1</span>
-        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_e53d5a0da8ca4018b8b9e254baab4a4c.zip?dn=rareBitGarmin-venusq2m-tester.1.zip">Download</a>
-      </div>
-      <div class="dl-row">
-        <span class="dl-name">Venu X1</span>
-        <span class="dl-meta"><code>venux1</code></span>
-        <span class="dl-meta">tester.1</span>
-        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_41223add91634ac28f0018a937dcc8e0.zip?dn=rareBitGarmin-venux1-tester.1.zip">Download</a>
-      </div>
-      <div class="dl-row">
-        <span class="dl-name">vívoactive 5</span>
-        <span class="dl-meta"><code>vivoactive5</code></span>
-        <span class="dl-meta">tester.1</span>
-        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_3c4cd025b18e4f3ca712d12d5221ab40.zip?dn=rareBitGarmin-vivoactive5-tester.1.zip">Download</a>
-      </div>
-      <div class="dl-row">
-        <span class="dl-name">vívoactive 6</span>
-        <span class="dl-meta"><code>vivoactive6</code></span>
-        <span class="dl-meta">tester.1</span>
-        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_e4ef03121f28452fa8fa1e78f56fee3a.zip?dn=rareBitGarmin-vivoactive6-tester.1.zip">Download</a>
-      </div>
-    </div>
-    <div class="dl-foot">
-      <span>Don't see your watch? It isn't supported yet.</span>
-      <a href="https://github.com/earp123/rareBit-Garmin/releases/tag/GARMIN_v1.0-tester.1" target="_blank" rel="noopener">Release notes ↗</a>
-    </div>
-    <div class="sideload-note">
-      <b>Installing the .prg</b>
-      <ol>
-        <li>Unzip the download — inside is a single <b>rareBitGarmin-&lt;model&gt;.prg</b>.</li>
-        <li>Plug the watch into a computer over USB and copy the .prg into the watch's <b>GARMIN/APPS</b> folder. On a Mac, if the watch doesn't show up as a drive, use an MTP app such as OpenMTP.</li>
-        <li>Unplug. rareBit appears in the watch's app list.</li>
-      </ol>
-      <p style="margin-top:10px"><b>Found a bug?</b> Email <a href="mailto:reply@rarebit.biz">reply@rarebit.biz</a> with your watch model and what happened.</p>
-    </div>
-  </div>
-</section>
-
-<section class="reqs">
-  <div class="wrap">
-    <div class="box">
-      <h2>What you need</h2>
-      <ul>
-        <li>A <b>rareBit PRO Set</b> — Flags linked and ready to officiate.</li>
-        <li>A <b>rareBit Relay</b>, or a PRO Receiver flashed with the free <b>RXRLY firmware</b>.</li>
-        <li>A <b>supported Garmin watch</b>: Venu 2 / 2S / 2 Plus, Venu 3 / 3S, Venu 4 (41 &amp; 45 mm), Venu Sq 2 Music, Venu X1, vívoactive 5 / 6.</li>
-      </ul>
     </div>
   </div>
 </section>
@@ -511,7 +461,7 @@
 <footer>
   <div class="wrap">
     <span>rareBitOfficial.com — Smart Referee Paging Devices</span>
-    <span>Questions? reply@rarebit.biz</span>
+    <span>reply@rarebit.biz</span>
   </div>
 </footer>
 
