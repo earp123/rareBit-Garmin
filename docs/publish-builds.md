@@ -9,8 +9,15 @@ Status (13 Oct): steps 1–3 done. Merged as PR #4 (`6c1e692`). Pre-release
 carries the 11 zips (built from `6c1e692`); asset URLs follow
 `https://github.com/earp123/rareBit-Garmin/releases/download/GARMIN_v1.0-tester.1/rareBitGarmin-<id>-tester.1.zip`.
 Pages serves `https://earp123.github.io/rareBit-Garmin/web/garmin-page.html`
-and `.../web/screenshots/<view>-venu3.png`. Next: step 4 (Claude, project
-console).
+and `.../web/screenshots/<view>-venu3.png`.
+Step 4 (13 Oct, Claude): all 11 zips + 6 PNGs imported to Media Manager folder
+`Garmin Builds` (id `2df0f4eef3f6414b9bd78886036fff48`); zips serve from
+`https://www.rarebitofficial.com/_files/archives/<id>.zip?dn=<name>` (same
+pattern as the Downloads page). Page filled: 11-row table, screenshot strip,
+sideload steps; `?embed=1` hides header/footer for iframe use. The Wix
+"design importer" only accepts Claude Design bundles and creates a separate
+site, so it is not a route onto the Editor site — Sam places the page in the
+Editor (iframe of the Pages URL, or native layout from the staged assets).
 
 Goal: a Garmin page on rarebitofficial.com (Smart Watch menu, beside Apple
 Watch and Bangle.js 2) with one sideloadable `.zip` per supported device and

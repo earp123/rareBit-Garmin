@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Garmin | rareBitOfficial</title>
+<script>if(new URLSearchParams(location.search).has('embed')){document.documentElement.classList.add('embed');}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
@@ -32,6 +33,7 @@
   }
   a{color:inherit;}
   .wrap{max-width:1040px;margin:0 auto;padding:0 24px;}
+  .embed header,.embed footer{display:none;}
 
   /* ---------- header ---------- */
   header{
@@ -64,7 +66,7 @@
     color:var(--muted);
     max-width:46ch;
   }
-  .cta-row{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;}
+  .cta-row{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
   .btn{
     display:inline-block;
     font-family:'Barlow Condensed',sans-serif;
@@ -76,10 +78,10 @@
   .btn-primary{background:var(--flag);color:#181008;}
   .btn-primary:hover{background:#FF9C58;}
   .btn-ghost{border:1px solid var(--line);color:var(--ink);}
-  .btn-ghost:hover{border-color:var(--muted);}
+  a.btn-ghost:hover{border-color:var(--muted);}
+  .btn-ghost[aria-disabled="true"]{color:var(--muted);cursor:default;}
   .placeholder-tag{
     display:inline-block;
-    margin-left:8px;
     font-family:'Barlow',sans-serif;
     font-size:12px;font-weight:600;
     color:var(--flag);
@@ -99,6 +101,24 @@
   .ring{transform-origin:170px 60px;animation:pulse 2.4s ease-out infinite;}
   .ring2{animation-delay:.8s;}
   .ring3{animation-delay:1.6s;}
+
+  /* ---------- screenshots ---------- */
+  .shots{padding:56px 0;border-top:1px solid var(--line);}
+  .shots .sub{color:var(--muted);margin-top:8px;max-width:62ch;}
+  .shot-grid{margin-top:36px;display:grid;grid-template-columns:repeat(6,1fr);gap:22px;}
+  .shot{margin:0;}
+  .shot img{
+    width:100%;aspect-ratio:1;display:block;
+    border-radius:50%;
+    background:#000;
+    box-shadow:0 0 0 4px #101915,0 0 0 7px #2E3D33;
+  }
+  .shot figcaption{
+    margin-top:16px;text-align:center;
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:17px;font-weight:600;letter-spacing:.02em;
+    color:var(--muted);
+  }
 
   /* ---------- signal chain ---------- */
   .chain{padding:56px 0;border-top:1px solid var(--line);}
@@ -127,12 +147,13 @@
   /* ---------- downloads ---------- */
   .downloads{padding:56px 0 32px;border-top:1px solid var(--line);}
   .downloads .sub{color:var(--muted);margin-top:8px;max-width:62ch;}
+  .downloads .sub b{color:var(--ink);}
   .dl-table{margin-top:28px;border:1px solid var(--line);border-radius:8px;overflow:hidden;}
   .dl-row{
     display:grid;
-    grid-template-columns:2fr 1.4fr 1fr .9fr;
+    grid-template-columns:2fr 1.6fr 1fr .9fr;
     gap:16px;align-items:center;
-    padding:16px 20px;
+    padding:14px 20px;
     border-top:1px solid var(--line);
     background:var(--surface);
   }
@@ -145,12 +166,21 @@
   }
   .dl-name{font-weight:600;}
   .dl-meta{color:var(--muted);font-size:15px;}
-  .dl-soon{
+  .dl-meta code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;}
+  .dl-link{
     justify-self:end;
     font-family:'Barlow Condensed',sans-serif;
-    font-size:17px;font-weight:600;
+    font-size:17px;font-weight:600;letter-spacing:.03em;
     color:var(--flag);
+    text-decoration:none;
+    border:1px solid var(--flag-dim);
+    border-radius:5px;
+    padding:5px 12px;
+    white-space:nowrap;
   }
+  .dl-link:hover{background:var(--flag);color:#181008;border-color:var(--flag);}
+  .dl-foot{margin-top:14px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;color:var(--muted);font-size:15px;}
+  .dl-foot a{color:var(--ink);}
   .sideload-note{
     margin-top:20px;
     padding:16px 20px;
@@ -162,6 +192,8 @@
     max-width:70ch;
   }
   .sideload-note b{color:var(--ink);}
+  .sideload-note ol{margin:8px 0 0 20px;}
+  .sideload-note li{margin-top:4px;}
 
   /* ---------- requirements ---------- */
   .reqs{padding:40px 0 72px;}
@@ -201,10 +233,11 @@
     .hero .wrap{grid-template-columns:1fr;gap:36px;}
     .watch-art{order:-1;}
     .watch-art svg{max-width:240px;}
+    .shot-grid{grid-template-columns:repeat(3,1fr);gap:16px;}
     .facts .wrap{grid-template-columns:1fr;gap:28px;}
     .fact{border-left:none;padding:0;}
-    .dl-row{grid-template-columns:1.6fr 1fr;row-gap:4px;}
-    .dl-row .dl-meta:nth-child(3){display:none;}
+    .dl-row{grid-template-columns:1fr auto;}
+    .dl-row .dl-meta{display:none;}
     .dl-head{display:none;}
   }
 </style>
@@ -224,10 +257,10 @@
       <h1>Match alerts,<br>on your Garmin.</h1>
       <p class="lead">The rareBit app for Garmin brings PRO Flag signals straight to your wrist. Each flag gets its own vibration pattern, relayed over Bluetooth&nbsp;LE — so you never miss a raise, even at full sprint.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="#">Get it on Connect IQ</a>
-        <a class="btn btn-ghost" href="#downloads">Download .prg files</a>
+        <a class="btn btn-primary" href="#downloads">Download for your watch</a>
+        <span class="btn btn-ghost" aria-disabled="true">Connect IQ Store</span>
+        <span class="placeholder-tag">STORE LISTING COMING</span>
       </div>
-      <span class="placeholder-tag">STORE LINK PENDING</span>
     </div>
     <div class="watch-art">
       <!-- Garmin-style round watch with BLE pulse -->
@@ -264,6 +297,39 @@
         <line x1="140" y1="342" x2="200" y2="342" stroke="#243129"/>
         <line x1="140" y1="366" x2="200" y2="366" stroke="#243129"/>
       </svg>
+    </div>
+  </div>
+</section>
+
+<section class="shots">
+  <div class="wrap">
+    <h2>On the wrist</h2>
+    <p class="sub">Captured on a Venu 3. Countdown front and centre, count-up below, progress ring round the bezel. A flag press flashes the flag and its number.</p>
+    <div class="shot-grid">
+      <figure class="shot">
+        <img src="https://static.wixstatic.com/media/870f4b_459035d5003840ef872aa525f817be93~mv2.png" alt="Connect screen: rareBit, finding relay" loading="lazy">
+        <figcaption>Finding relay</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="https://static.wixstatic.com/media/870f4b_2154eb48984e419a838f18e39d6c0c44~mv2.png" alt="Live screen: 40:00 countdown running, 05:00 count-up, 1st half" loading="lazy">
+        <figcaption>Match running</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="https://static.wixstatic.com/media/870f4b_cd02302b9c3141029f86b328683d423e~mv2.png" alt="Live screen with flag icon and number 1 flashing above the countdown" loading="lazy">
+        <figcaption>Flag 1 alert</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="https://static.wixstatic.com/media/870f4b_793a8997124b40d7801bd745c28e427c~mv2.png" alt="Live screen paused, orange +00:22 stoppage total above the countdown" loading="lazy">
+        <figcaption>Stoppage timer</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="https://static.wixstatic.com/media/870f4b_b51e8b9356fa42719e9639c915835821~mv2.png" alt="Settings menu: Interval, Half, Stoppage Timer" loading="lazy">
+        <figcaption>Settings</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="https://static.wixstatic.com/media/870f4b_88a8344168934c3fbc5f7ab2aa23c4ca~mv2.png" alt="Interval picker showing 45:00" loading="lazy">
+        <figcaption>Interval picker</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -328,8 +394,8 @@
       <p>Distinct vibration patterns per Flag mean you know which AR is signaling without looking down.</p>
     </div>
     <div class="fact">
-      <h3>Free on Connect IQ</h3>
-      <p>The rareBit app is a free download for supported Garmin devices. No subscription, no account.</p>
+      <h3>Free to use</h3>
+      <p>Tester builds are free downloads below; the Connect IQ Store listing is on its way. No subscription, no account.</p>
     </div>
     <div class="fact">
       <h3>Reuse your Receiver</h3>
@@ -340,33 +406,91 @@
 
 <section class="downloads" id="downloads">
   <div class="wrap">
-    <h2>Direct downloads (.prg)</h2>
-    <p class="sub">Prefer to sideload, or have a device the store doesn't cover? Grab the compiled app below and copy it to your watch's <b>GARMIN/APPS</b> folder over USB.</p>
+    <h2>Download — tester build 1</h2>
+    <p class="sub">Pick your watch model. Each zip holds one <b>.prg</b> built for that model only — unzip it, then copy the .prg into the watch's <b>GARMIN/APPS</b> folder over USB.</p>
     <div class="dl-table">
       <div class="dl-row dl-head">
-        <span>Package</span><span>Devices</span><span>Version</span><span></span>
+        <span>Watch</span><span>Build</span><span>Version</span><span></span>
       </div>
       <div class="dl-row">
-        <span class="dl-name">rareBit for Garmin</span>
-        <span class="dl-meta">Forerunner series</span>
-        <span class="dl-meta">v1.0.0</span>
-        <span class="dl-soon">COMING SOON</span>
+        <span class="dl-name">Venu 2</span>
+        <span class="dl-meta"><code>venu2</code></span>
+        <span class="dl-meta">tester.1</span>
+        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_794d1f2986bf4b58821e9e5c887dd25b.zip?dn=rareBitGarmin-venu2-tester.1.zip">Download</a>
       </div>
       <div class="dl-row">
-        <span class="dl-name">rareBit for Garmin</span>
-        <span class="dl-meta">Instinct series</span>
-        <span class="dl-meta">v1.0.0</span>
-        <span class="dl-soon">COMING SOON</span>
+        <span class="dl-name">Venu 2 Plus</span>
+        <span class="dl-meta"><code>venu2plus</code></span>
+        <span class="dl-meta">tester.1</span>
+        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_9633a149e7d740b69e0625cf2772066b.zip?dn=rareBitGarmin-venu2plus-tester.1.zip">Download</a>
       </div>
       <div class="dl-row">
-        <span class="dl-name">rareBit for Garmin</span>
-        <span class="dl-meta">Venu / vívoactive</span>
-        <span class="dl-meta">v1.0.0</span>
-        <span class="dl-soon">COMING SOON</span>
+        <span class="dl-name">Venu 2S</span>
+        <span class="dl-meta"><code>venu2s</code></span>
+        <span class="dl-meta">tester.1</span>
+        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_55d0d7156518436ea383a7dcde408c03.zip?dn=rareBitGarmin-venu2s-tester.1.zip">Download</a>
+      </div>
+      <div class="dl-row">
+        <span class="dl-name">Venu 3</span>
+        <span class="dl-meta"><code>venu3</code></span>
+        <span class="dl-meta">tester.1</span>
+        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_d9e65519cb3643a4b48fd85aabc43088.zip?dn=rareBitGarmin-venu3-tester.1.zip">Download</a>
+      </div>
+      <div class="dl-row">
+        <span class="dl-name">Venu 3S</span>
+        <span class="dl-meta"><code>venu3s</code></span>
+        <span class="dl-meta">tester.1</span>
+        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_73fff64381174018b149e4a7eb2253a0.zip?dn=rareBitGarmin-venu3s-tester.1.zip">Download</a>
+      </div>
+      <div class="dl-row">
+        <span class="dl-name">Venu 4 41mm</span>
+        <span class="dl-meta"><code>venu441mm</code></span>
+        <span class="dl-meta">tester.1</span>
+        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_1df4c12aea1c4195bfecf5bf636733bd.zip?dn=rareBitGarmin-venu441mm-tester.1.zip">Download</a>
+      </div>
+      <div class="dl-row">
+        <span class="dl-name">Venu 4 45mm / D2 Air X15</span>
+        <span class="dl-meta"><code>venu445mm</code></span>
+        <span class="dl-meta">tester.1</span>
+        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_2cbe6fce765e48748e314993977e1a27.zip?dn=rareBitGarmin-venu445mm-tester.1.zip">Download</a>
+      </div>
+      <div class="dl-row">
+        <span class="dl-name">Venu Sq 2 Music</span>
+        <span class="dl-meta"><code>venusq2m</code></span>
+        <span class="dl-meta">tester.1</span>
+        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_e53d5a0da8ca4018b8b9e254baab4a4c.zip?dn=rareBitGarmin-venusq2m-tester.1.zip">Download</a>
+      </div>
+      <div class="dl-row">
+        <span class="dl-name">Venu X1</span>
+        <span class="dl-meta"><code>venux1</code></span>
+        <span class="dl-meta">tester.1</span>
+        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_41223add91634ac28f0018a937dcc8e0.zip?dn=rareBitGarmin-venux1-tester.1.zip">Download</a>
+      </div>
+      <div class="dl-row">
+        <span class="dl-name">vívoactive 5</span>
+        <span class="dl-meta"><code>vivoactive5</code></span>
+        <span class="dl-meta">tester.1</span>
+        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_3c4cd025b18e4f3ca712d12d5221ab40.zip?dn=rareBitGarmin-vivoactive5-tester.1.zip">Download</a>
+      </div>
+      <div class="dl-row">
+        <span class="dl-name">vívoactive 6</span>
+        <span class="dl-meta"><code>vivoactive6</code></span>
+        <span class="dl-meta">tester.1</span>
+        <a class="dl-link" href="https://www.rarebitofficial.com/_files/archives/870f4b_e4ef03121f28452fa8fa1e78f56fee3a.zip?dn=rareBitGarmin-vivoactive6-tester.1.zip">Download</a>
       </div>
     </div>
+    <div class="dl-foot">
+      <span>Don't see your watch? It isn't supported yet.</span>
+      <a href="https://github.com/earp123/rareBit-Garmin/releases/tag/GARMIN_v1.0-tester.1" target="_blank" rel="noopener">Release notes ↗</a>
+    </div>
     <div class="sideload-note">
-      <b>Placeholder:</b> device groups, versions, and download links will be filled in when the first .prg builds are published. Files may ship individually or as a single .zip.
+      <b>Installing the .prg</b>
+      <ol>
+        <li>Unzip the download — inside is a single <b>rareBitGarmin-&lt;model&gt;.prg</b>.</li>
+        <li>Plug the watch into a computer over USB and copy the .prg into the watch's <b>GARMIN/APPS</b> folder. On a Mac, if the watch doesn't show up as a drive, use an MTP app such as OpenMTP.</li>
+        <li>Unplug. rareBit appears in the watch's app list.</li>
+      </ol>
+      <p style="margin-top:10px"><b>Found a bug?</b> Email <a href="mailto:reply@rarebit.biz">reply@rarebit.biz</a> with your watch model and what happened.</p>
     </div>
   </div>
 </section>
@@ -378,7 +502,7 @@
       <ul>
         <li>A <b>rareBit PRO Set</b> — Flags linked and ready to officiate.</li>
         <li>A <b>rareBit Relay</b>, or a PRO Receiver flashed with the free <b>RXRLY firmware</b>.</li>
-        <li>A <b>supported Garmin watch</b> with Connect IQ. Supported device list coming with the store release.</li>
+        <li>A <b>supported Garmin watch</b>: Venu 2 / 2S / 2 Plus, Venu 3 / 3S, Venu 4 (41 &amp; 45 mm), Venu Sq 2 Music, Venu X1, vívoactive 5 / 6.</li>
       </ul>
     </div>
   </div>
